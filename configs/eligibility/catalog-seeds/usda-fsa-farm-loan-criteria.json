@@ -1,0 +1,491 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "usda.fsa.beginning-farmers",
+    "reviewed_at": "2026-10-28T17:38:02Z",
+    "publisher_version": "Current official FSA pages reviewed 2026-10-28; publisher revision dates not stated on the reviewed pages.",
+    "raw_source_documents_committed": false,
+    "access_method": "Official FSA pages reviewed through web retrieval; raw page bodies were not retained.",
+    "pages": [
+      {
+        "url": "https://www.fsa.usda.gov/resources/beginning-farmers-and-ranchers-loans",
+        "title": "Beginning Farmers and Ranchers Loans | Farm Service Agency",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.fsa.usda.gov/resources/loans/farm-ownership-loans",
+        "title": "Farm Ownership Loans | Farm Service Agency",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.fsa.usda.gov/about-fsa/structure-organization/farm-loan-programs",
+        "title": "Farm Loan Programs | Farm Service Agency",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.fsa.usda.gov/resources/loans/guaranteed-farm-loans",
+        "title": "Guaranteed Farm Loans | Farm Service Agency",
+        "source_content_sha256": null
+      }
+    ]
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "usda.fsa.beginning-farmers",
+      "source_name": "USDA FSA Beginning Farmers and Ranchers Loans",
+      "source_url": "https://www.fsa.usda.gov/resources/beginning-farmers-and-ranchers-loans",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "federal",
+          "owner_name": "USDA Farm Service Agency",
+          "verification_status": "verified",
+          "evidence_url": "https://www.fsa.usda.gov/resources/beginning-farmers-and-ranchers-loans"
+        },
+        "content_type": "public_program_guidance",
+        "retrieval_mode": "operator_triggered",
+        "scheduled_refresh": false
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "usda-fsa-farm-loan-published-criteria",
+        "source_dataset_id": "FSA beginning farmer, Farm Ownership, Farm Loan Programs, and Guaranteed Farm Loan pages",
+        "title": "USDA FSA partial farm-loan published criteria references",
+        "landing_page": "https://www.fsa.usda.gov/resources/beginning-farmers-and-ranchers-loans",
+        "schema_version": "eligibility-program-v3",
+        "namespace_ids": [
+          "core",
+          "eligibility"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "partial",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "eligibility": "eligibility-program-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "eligibility": "eligibility-program-v3"
+          },
+          "content_type": "published_partial_non_executable_farm_loan_requirements",
+          "published_criteria_available": true,
+          "criteria_mapping_status": "partial",
+          "refresh_mode": "operator_triggered",
+          "maximum_records_total": 10
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "usda-fsa-farm-loan-published-criteria",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "Current official FSA beginning-farmer, ownership, loan-program, and guaranteed-loan pages reviewed 2026-10-28; publisher revision dates not stated.",
+        "retrieved_at": "2026-10-28T17:38:02Z",
+        "transform_version": "fsa-farm-loan-criteria-review-v3",
+        "validation_outcome": "valid",
+        "detail": "The operating-years clause has an explicit canonical mapping as a review candidate; remaining statements stay unmapped or context-only. No rule is approved, published, or activated, and no loan eligibility outcome is asserted.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "fsa-beginning-farmer-classification-criteria",
+            "record_type": "federal-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "fsa-beginning-farmer-classification",
+              "eligibility.program.catalog_version": "retrieved-2026-10-28",
+              "eligibility.program.navigator": "farm_business",
+              "eligibility.program.data_origin": "USDA FSA Beginning Farmers and Ranchers Loans page",
+              "eligibility.program.title": "FSA Beginning Farmer classification requirements",
+              "eligibility.program.description": "FSA describes beginning-farmer classification as a targeted funding source, with the Direct Farm Ownership Down Payment Loan as the exception where it is a loan-program requirement. Acreage calculations and loan-specific requirements need additional profile and source data.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "farm-operation-years",
+                  "statement": "A beginning farmer has not operated a farm or ranch for more than 10 years.",
+                  "mapping_status": "mapped",
+                  "requirement_type": "eligibility",
+                  "concept_id": "eligibility.fsa.beginning_farmer.years_operated",
+                  "attribute": "core.farm_business.years_farming",
+                  "operator": "lte",
+                  "value": 10,
+                  "unit": "years",
+                  "source_id": "usda.fsa.beginning-farmers"
+                },
+                {
+                  "requirement_id": "county-farm-ownership-limit",
+                  "statement": "A beginning farmer does not own a farm or ranch greater than 30 percent of the average size farm in the county, using the most current Census of Agriculture when the loan application is submitted.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.beginning-farmers"
+                },
+                {
+                  "requirement_id": "substantial-participation",
+                  "statement": "A beginning farmer substantially participates in the operation.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.beginning-farmers"
+                },
+                {
+                  "requirement_id": "loan-specific-requirements",
+                  "statement": "A beginning farmer must also meet the eligibility requirements of the specific Farm Operating Loan, Farm Ownership Loan, or Microloan being requested.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.beginning-farmers"
+                },
+                {
+                  "requirement_id": "county-selection-rule",
+                  "statement": "When a farm crosses county lines, FSA uses the applicant's residence county; if the residence is not on the farm, it uses the county containing the largest portion of the farm.",
+                  "mapping_status": "context_only",
+                  "source_id": "usda.fsa.beginning-farmers"
+                },
+                {
+                  "requirement_id": "acreage-exception",
+                  "statement": "FSA says the farm-acreage limitation does not apply to a member of a historically underserved group or a woman farmer.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.beginning-farmers"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              },
+              "assistance_listing_ids": [
+                "10.407"
+              ],
+              "assistance_listing_crosswalk": {
+                "basis": "curated_source_crosswalk",
+                "reviewed_at": "2026-10-29",
+                "evidence_urls": [
+                  "https://www.fsa.usda.gov/resources/beginning-farmers-and-ranchers-loans",
+                  "https://sam.gov/fal/114c57552fdc4821a849fcf0003fe089/view"
+                ]
+              },
+              "criteria_source_links": [
+                {
+                  "source": {
+                    "contract_version": "source-reference-v1",
+                    "source_id": "public-domain.gov",
+                    "source_type": "public_source",
+                    "approval_status": "unverified",
+                    "agency": "USDA Farm Production and Conservation, Farmers.gov",
+                    "title": "Ask the Expert: A Q&A on USDA Beginning Farmers with Sarah Campbell",
+                    "url": "https://www.farmers.gov/blog/ask-expert-qa-on-usda-beginning-farmers-with-sarah-campbell",
+                    "jurisdiction": {
+                      "level": "federal",
+                      "country_code": "US",
+                      "state_code": null,
+                      "county_name": null
+                    },
+                    "retrieved_at": "2026-11-10T06:02:56.496041Z",
+                    "effective_date": null,
+                    "publisher_version": "sha256:6d50b3ade11fc5ea615eb2f074caa8850229934f4a0ad8fb32252b606d6c6344"
+                  },
+                  "basis": "curated_source_crosswalk",
+                  "reviewed_at": "2026-11-10T06:02:56.496041Z",
+                  "evidence_urls": [
+                    "https://www.farmers.gov/blog/ask-expert-qa-on-usda-beginning-farmers-with-sarah-campbell"
+                  ]
+                }
+              ]
+            },
+            "source_metadata": {
+              "source_id": "usda.fsa.beginning-farmers",
+              "source_version": "Current official FSA beginning-farmer, ownership, loan-program, and guaranteed-loan pages reviewed 2026-10-28; publisher revision dates not stated.",
+              "retrieved_at": "2026-10-28T17:38:02Z",
+              "effective_at": null,
+              "transform_version": "fsa-farm-loan-criteria-review-v3",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://www.fsa.usda.gov/resources/beginning-farmers-and-ranchers-loans",
+                  "observed_at": "2026-10-28T17:38:02Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://www.fsa.usda.gov/resources/beginning-farmers-and-ranchers-loans",
+                  "observed_at": "2026-10-28T17:38:02Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.navigator": {
+                  "source_url": "https://www.fsa.usda.gov/resources/beginning-farmers-and-ranchers-loans",
+                  "observed_at": "2026-10-28T17:38:02Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://www.fsa.usda.gov/resources/beginning-farmers-and-ranchers-loans",
+                  "observed_at": "2026-10-28T17:38:02Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://www.fsa.usda.gov/resources/beginning-farmers-and-ranchers-loans",
+                  "observed_at": "2026-10-28T17:38:02Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://www.fsa.usda.gov/resources/beginning-farmers-and-ranchers-loans",
+                  "observed_at": "2026-10-28T17:38:02Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://www.fsa.usda.gov/resources/beginning-farmers-and-ranchers-loans",
+                  "observed_at": "2026-10-28T17:38:02Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.fsa.usda.gov/resources/beginning-farmers-and-ranchers-loans",
+            "schema_version": "eligibility-program-v3",
+            "observed_at": "2026-10-28T17:38:02Z",
+            "content_hash": "4bc4229e08e0c0393e332201c6a409ab05a965857f9ab2cd647db2928a0b8f18"
+          },
+          {
+            "source_record_id": "fsa-direct-farm-loan-criteria",
+            "record_type": "federal-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "usda-fsa-direct-farm-loans",
+              "eligibility.program.catalog_version": "retrieved-2026-10-28",
+              "eligibility.program.navigator": "farm_business",
+              "eligibility.program.data_origin": "USDA FSA Farm Loan Programs page",
+              "eligibility.program.title": "FSA Direct Farm Loan published requirements",
+              "eligibility.program.description": "FSA describes broad farm-loan access conditions and additional direct-loan repayment and collateral requirements. The source does not provide an applicant-specific determination.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "family-size-farm",
+                  "statement": "FSA's direct and guaranteed farm ownership and operating loans serve family-size farmers and ranchers.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.beginning-farmers"
+                },
+                {
+                  "requirement_id": "commercial-credit-unavailable",
+                  "statement": "The Farm Loan Programs page describes these loans for family-size farmers and ranchers who cannot obtain commercial credit from a bank, Farm Credit System institution, or other lender.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.beginning-farmers"
+                },
+                {
+                  "requirement_id": "direct-repayment-ability",
+                  "statement": "A direct-loan applicant must show sufficient repayment ability.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.beginning-farmers"
+                },
+                {
+                  "requirement_id": "direct-collateral",
+                  "statement": "A direct-loan applicant must pledge enough collateral to fully secure the loan.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.beginning-farmers"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              },
+              "assistance_listing_ids": [
+                "10.406",
+                "10.407"
+              ],
+              "assistance_listing_crosswalk": {
+                "basis": "curated_source_crosswalk",
+                "reviewed_at": "2026-10-29",
+                "evidence_urls": [
+                  "https://www.fsa.usda.gov/about-fsa/structure-organization/farm-loan-programs",
+                  "https://sam.gov/fal/a1dc2ed6a9d94121b59a155149bc8d28/view",
+                  "https://sam.gov/fal/114c57552fdc4821a849fcf0003fe089/view"
+                ]
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.fsa.beginning-farmers",
+              "source_version": "Current official FSA beginning-farmer, ownership, loan-program, and guaranteed-loan pages reviewed 2026-10-28; publisher revision dates not stated.",
+              "retrieved_at": "2026-10-28T17:38:02Z",
+              "effective_at": null,
+              "transform_version": "fsa-farm-loan-criteria-review-v3",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://www.fsa.usda.gov/about-fsa/structure-organization/farm-loan-programs",
+                  "observed_at": "2026-10-28T17:38:02Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://www.fsa.usda.gov/about-fsa/structure-organization/farm-loan-programs",
+                  "observed_at": "2026-10-28T17:38:02Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.navigator": {
+                  "source_url": "https://www.fsa.usda.gov/about-fsa/structure-organization/farm-loan-programs",
+                  "observed_at": "2026-10-28T17:38:02Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://www.fsa.usda.gov/about-fsa/structure-organization/farm-loan-programs",
+                  "observed_at": "2026-10-28T17:38:02Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://www.fsa.usda.gov/about-fsa/structure-organization/farm-loan-programs",
+                  "observed_at": "2026-10-28T17:38:02Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://www.fsa.usda.gov/about-fsa/structure-organization/farm-loan-programs",
+                  "observed_at": "2026-10-28T17:38:02Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://www.fsa.usda.gov/about-fsa/structure-organization/farm-loan-programs",
+                  "observed_at": "2026-10-28T17:38:02Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.fsa.usda.gov/about-fsa/structure-organization/farm-loan-programs",
+            "schema_version": "eligibility-program-v3",
+            "observed_at": "2026-10-28T17:38:02Z",
+            "content_hash": "f9159e84870a2a131c1481ab000f61145aff16190495ebfc08bd64239da0372e"
+          },
+          {
+            "source_record_id": "fsa-guaranteed-farm-loan-criteria",
+            "record_type": "federal-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "usda-fsa-guaranteed-farm-loan",
+              "eligibility.program.catalog_version": "retrieved-2026-10-28",
+              "eligibility.program.navigator": "farm_business",
+              "eligibility.program.data_origin": "USDA FSA Guaranteed Farm Loans page",
+              "eligibility.program.title": "FSA Guaranteed Farm Loan published requirements",
+              "eligibility.program.description": "Partial source-backed statements for the FSA guarantee pathway. The guarantee is arranged through a commercial lender; program exceptions and additional facts remain unresolved.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "citizenship-or-residency",
+                  "statement": "The applicant must be a United States citizen or legal resident alien.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.beginning-farmers"
+                },
+                {
+                  "requirement_id": "acceptable-credit-history",
+                  "statement": "The applicant must have an acceptable credit history as determined by the lender.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.beginning-farmers"
+                },
+                {
+                  "requirement_id": "legal-capacity",
+                  "statement": "The applicant must have legal capacity to incur responsibility for the loan obligation.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.beginning-farmers"
+                },
+                {
+                  "requirement_id": "guarantee-needed-for-credit",
+                  "statement": "The applicant must be unable to obtain a loan without an FSA guarantee, except that the page states Conservation Loan applicants do not have to meet this condition.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.beginning-farmers"
+                },
+                {
+                  "requirement_id": "federal-debt-status",
+                  "statement": "The applicant must not be delinquent on any Federal debt.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.beginning-farmers"
+                },
+                {
+                  "requirement_id": "farm-operator-role",
+                  "statement": "After loan closing, the applicant must be the owner-operator or tenant-operator of a family farm; for Farm Ownership loans the producer also needs to own the farm.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.beginning-farmers"
+                },
+                {
+                  "requirement_id": "application-through-lender",
+                  "statement": "A farmer interested in a guaranteed loan applies to a conventional lender, which arranges the FSA guarantee.",
+                  "mapping_status": "context_only",
+                  "source_id": "usda.fsa.beginning-farmers"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              },
+              "assistance_listing_ids": [
+                "10.406",
+                "10.407"
+              ],
+              "assistance_listing_crosswalk": {
+                "basis": "curated_source_crosswalk",
+                "reviewed_at": "2026-10-29",
+                "evidence_urls": [
+                  "https://www.fsa.usda.gov/about-fsa/structure-organization/farm-loan-programs",
+                  "https://www.fsa.usda.gov/resources/loans/guaranteed-farm-loans",
+                  "https://sam.gov/fal/a1dc2ed6a9d94121b59a155149bc8d28/view",
+                  "https://sam.gov/fal/114c57552fdc4821a849fcf0003fe089/view"
+                ]
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.fsa.beginning-farmers",
+              "source_version": "Current official FSA beginning-farmer, ownership, loan-program, and guaranteed-loan pages reviewed 2026-10-28; publisher revision dates not stated.",
+              "retrieved_at": "2026-10-28T17:38:02Z",
+              "effective_at": null,
+              "transform_version": "fsa-farm-loan-criteria-review-v3",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://www.fsa.usda.gov/resources/loans/guaranteed-farm-loans",
+                  "observed_at": "2026-10-28T17:38:02Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://www.fsa.usda.gov/resources/loans/guaranteed-farm-loans",
+                  "observed_at": "2026-10-28T17:38:02Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.navigator": {
+                  "source_url": "https://www.fsa.usda.gov/resources/loans/guaranteed-farm-loans",
+                  "observed_at": "2026-10-28T17:38:02Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://www.fsa.usda.gov/resources/loans/guaranteed-farm-loans",
+                  "observed_at": "2026-10-28T17:38:02Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://www.fsa.usda.gov/resources/loans/guaranteed-farm-loans",
+                  "observed_at": "2026-10-28T17:38:02Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://www.fsa.usda.gov/resources/loans/guaranteed-farm-loans",
+                  "observed_at": "2026-10-28T17:38:02Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://www.fsa.usda.gov/resources/loans/guaranteed-farm-loans",
+                  "observed_at": "2026-10-28T17:38:02Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.fsa.usda.gov/resources/loans/guaranteed-farm-loans",
+            "schema_version": "eligibility-program-v3",
+            "observed_at": "2026-10-28T17:38:02Z",
+            "content_hash": "b63eb0b8830808558348a1402f4c40dfb755e61651d62158236201a24eb60363"
+          }
+        ]
+      }
+    }
+  ]
+}

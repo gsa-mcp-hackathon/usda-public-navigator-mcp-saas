@@ -1,0 +1,637 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "new-mexico.hca.snap",
+    "program_page": "https://www.hca.nm.gov/lookingforassistance/supplemental_nutrition_assistance_program__snap/",
+    "criteria_document": "https://www.hca.nm.gov/wp-content/uploads/ISD-017-FPG-Form-FY-2027-10.01.26-to-09.30.2027-SNAP-and-Cash.pdf",
+    "criteria_document_sha256": "4f570d6c9c0ba821665c4cb0ed73410f1970b88c333a6d2b2d8fa3e1f407c84a",
+    "retrieved_at": "2026-10-27T01:55:59Z",
+    "criteria_revision": "ISD 017 revision 2026-09-15",
+    "criteria_effective_period": "2026-10-01 through 2027-09-30",
+    "raw_source_documents_committed": false
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "new-mexico.hca.snap",
+      "source_name": "New Mexico Health Care Authority SNAP",
+      "source_url": "https://www.hca.nm.gov/lookingforassistance/supplemental_nutrition_assistance_program__snap/",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "state",
+          "owner_name": "New Mexico Health Care Authority",
+          "verification_status": "verified",
+          "evidence_url": "https://www.hca.nm.gov/lookingforassistance/supplemental_nutrition_assistance_program__snap/"
+        },
+        "approved_scope": "public SNAP program listing, application referral, and published partial income criteria",
+        "refresh_mode": "operator_triggered"
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "new-mexico-hca-snap-listings",
+        "source_dataset_id": "HCA SNAP public page",
+        "title": "New Mexico SNAP program and application guidance",
+        "landing_page": "https://www.hca.nm.gov/lookingforassistance/supplemental_nutrition_assistance_program__snap/",
+        "schema_version": "public-listing-v1",
+        "namespace_ids": [
+          "core",
+          "listing"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "partial",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "listing": "eligibility-public-listing-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "listing": "public-listing-v1"
+          },
+          "content_type": "public_program_listing_and_referral",
+          "refresh_mode": "operator_triggered",
+          "maximum_records_total": 20
+        }
+      },
+      {
+        "dataset_id": "new-mexico-hca-snap-criteria",
+        "source_dataset_id": "HCA ISD 017 FY2027 SNAP income guidelines",
+        "title": "New Mexico SNAP FY2027 published income and deduction guidelines",
+        "landing_page": "https://www.hca.nm.gov/wp-content/uploads/ISD-017-FPG-Form-FY-2027-10.01.26-to-09.30.2027-SNAP-and-Cash.pdf",
+        "schema_version": "eligibility-program-v1",
+        "namespace_ids": [
+          "core",
+          "eligibility"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "partial",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "eligibility": "eligibility-program-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "eligibility": "eligibility-program-v1"
+          },
+          "content_type": "published_partial_criteria_reference",
+          "published_criteria_available": true,
+          "criteria_mapping_status": "partial",
+          "source_snapshot_sha256": "4f570d6c9c0ba821665c4cb0ed73410f1970b88c333a6d2b2d8fa3e1f407c84a",
+          "effective_period": "2026-10-01 through 2027-09-30",
+          "refresh_mode": "operator_triggered",
+          "maximum_records_total": 10
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "new-mexico-hca-snap-listings",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "HCA SNAP program page observed 2026-10-27",
+        "retrieved_at": "2026-10-27T01:55:59Z",
+        "transform_version": "hca-snap-page-review-1",
+        "validation_outcome": "valid",
+        "detail": "HCA SNAP listing and application referral normalized from official page.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "hca-snap-program",
+            "record_type": "nm-snap-program-listing",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "state",
+              "core.geography.country_code": "US",
+              "core.geography.state_code": "NM",
+              "listing.title": "Supplemental Nutrition Assistance Program (SNAP)",
+              "listing.summary": "New Mexico HCA describes SNAP as monthly food-purchasing assistance for eligible New Mexicans. Its public page lists factors and documents for application and links to the YesNM application. This listing is not a complete criteria rule set or eligibility determination.",
+              "listing.agency": "New Mexico Health Care Authority",
+              "listing.opportunity_url": "https://www.hca.nm.gov/lookingforassistance/supplemental_nutrition_assistance_program__snap/"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "state",
+                "country_code": "US",
+                "state_code": "NM"
+              }
+            },
+            "source_metadata": {
+              "source_id": "new-mexico.hca.snap",
+              "source_version": "HCA SNAP program page observed 2026-10-27",
+              "retrieved_at": "2026-10-27T01:55:59Z",
+              "effective_at": null,
+              "transform_version": "hca-snap-page-review-1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.hca.nm.gov/lookingforassistance/supplemental_nutrition_assistance_program__snap/",
+                  "observed_at": "2026-10-27T01:55:59Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.hca.nm.gov/lookingforassistance/supplemental_nutrition_assistance_program__snap/",
+                  "observed_at": "2026-10-27T01:55:59Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.state_code": {
+                  "source_url": "https://www.hca.nm.gov/lookingforassistance/supplemental_nutrition_assistance_program__snap/",
+                  "observed_at": "2026-10-27T01:55:59Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.hca.nm.gov/lookingforassistance/supplemental_nutrition_assistance_program__snap/",
+                  "observed_at": "2026-10-27T01:55:59Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.hca.nm.gov/lookingforassistance/supplemental_nutrition_assistance_program__snap/",
+                  "observed_at": "2026-10-27T01:55:59Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.hca.nm.gov/lookingforassistance/supplemental_nutrition_assistance_program__snap/",
+                  "observed_at": "2026-10-27T01:55:59Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.hca.nm.gov/lookingforassistance/supplemental_nutrition_assistance_program__snap/",
+                  "observed_at": "2026-10-27T01:55:59Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.hca.nm.gov/lookingforassistance/supplemental_nutrition_assistance_program__snap/",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T01:55:59Z",
+            "content_hash": "bc39e0c13e8c2f368040ed7ddd0fc989861cde28fbe7eec04781900dbf5bc2cc"
+          },
+          {
+            "source_record_id": "hca-snap-application",
+            "record_type": "nm-snap-application-referral",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "state",
+              "core.geography.country_code": "US",
+              "core.geography.state_code": "NM",
+              "listing.title": "Apply for New Mexico SNAP through YesNM",
+              "listing.summary": "The New Mexico HCA SNAP page directs applicants to the YesNM application portal; HCA describes an application/interview process and agency determination.",
+              "listing.agency": "New Mexico Health Care Authority",
+              "listing.opportunity_url": "https://yes.nm.gov/nmhr/s/"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "state",
+                "country_code": "US",
+                "state_code": "NM"
+              }
+            },
+            "source_metadata": {
+              "source_id": "new-mexico.hca.snap",
+              "source_version": "HCA SNAP program page observed 2026-10-27",
+              "retrieved_at": "2026-10-27T01:55:59Z",
+              "effective_at": null,
+              "transform_version": "hca-snap-page-review-1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.hca.nm.gov/lookingforassistance/supplemental_nutrition_assistance_program__snap/",
+                  "observed_at": "2026-10-27T01:55:59Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.hca.nm.gov/lookingforassistance/supplemental_nutrition_assistance_program__snap/",
+                  "observed_at": "2026-10-27T01:55:59Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.state_code": {
+                  "source_url": "https://www.hca.nm.gov/lookingforassistance/supplemental_nutrition_assistance_program__snap/",
+                  "observed_at": "2026-10-27T01:55:59Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.hca.nm.gov/lookingforassistance/supplemental_nutrition_assistance_program__snap/",
+                  "observed_at": "2026-10-27T01:55:59Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.hca.nm.gov/lookingforassistance/supplemental_nutrition_assistance_program__snap/",
+                  "observed_at": "2026-10-27T01:55:59Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.hca.nm.gov/lookingforassistance/supplemental_nutrition_assistance_program__snap/",
+                  "observed_at": "2026-10-27T01:55:59Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.hca.nm.gov/lookingforassistance/supplemental_nutrition_assistance_program__snap/",
+                  "observed_at": "2026-10-27T01:55:59Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.hca.nm.gov/lookingforassistance/supplemental_nutrition_assistance_program__snap/",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T01:55:59Z",
+            "content_hash": "7b7a7feff7230f25b177425a2a70a5b3a026848ab36ce2e3f3c556c981c28b8c"
+          }
+        ]
+      }
+    },
+    {
+      "dataset_id": "new-mexico-hca-snap-criteria",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "ISD 017 revision 2026-09-15; effective 2026-10-01 through 2027-09-30; sha256:4f570d6c9c0ba821665c4cb0ed73410f1970b88c333a6d2b2d8fa3e1f407c84a",
+        "retrieved_at": "2026-10-27T01:55:59Z",
+        "transform_version": "hca-snap-fpg-table-extract-1",
+        "validation_outcome": "valid",
+        "detail": "Partial published SNAP income and deduction table; no eligibility evaluation.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "hca-snap-fy2027-income-guidelines",
+            "record_type": "nm-snap-income-guidelines",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "state",
+              "core.geography.country_code": "US",
+              "core.geography.state_code": "NM",
+              "eligibility.program.program_id": "nm-snap",
+              "eligibility.program.catalog_version": "FY2027",
+              "eligibility.program.navigator": "household_food_assistance",
+              "eligibility.program.data_origin": "New Mexico HCA ISD 017",
+              "eligibility.program.title": "New Mexico SNAP FY2027 income and deduction guidelines",
+              "eligibility.program.description": "Partial published thresholds from ISD 017, revision date 2026-09-15, effective 2026-10-01 through 2027-09-30. These values do not constitute the complete SNAP eligibility rules or an eligibility determination.",
+              "eligibility.program.criteria": [
+                {
+                  "kind": "monthly_income_standard",
+                  "household_size": 1,
+                  "basis": "100_percent_fpg_net",
+                  "monthly_usd": 1330
+                },
+                {
+                  "kind": "monthly_income_standard",
+                  "household_size": 1,
+                  "basis": "130_percent_fpg_gross",
+                  "monthly_usd": 1729
+                },
+                {
+                  "kind": "monthly_income_standard",
+                  "household_size": 1,
+                  "basis": "200_percent_fpg_gross_categorical_eligibility",
+                  "monthly_usd": 2660
+                },
+                {
+                  "kind": "maximum_monthly_allotment",
+                  "household_size": 1,
+                  "monthly_usd": 306
+                },
+                {
+                  "kind": "monthly_income_standard",
+                  "household_size": 2,
+                  "basis": "100_percent_fpg_net",
+                  "monthly_usd": 1804
+                },
+                {
+                  "kind": "monthly_income_standard",
+                  "household_size": 2,
+                  "basis": "130_percent_fpg_gross",
+                  "monthly_usd": 2345
+                },
+                {
+                  "kind": "monthly_income_standard",
+                  "household_size": 2,
+                  "basis": "200_percent_fpg_gross_categorical_eligibility",
+                  "monthly_usd": 3608
+                },
+                {
+                  "kind": "maximum_monthly_allotment",
+                  "household_size": 2,
+                  "monthly_usd": 562
+                },
+                {
+                  "kind": "monthly_income_standard",
+                  "household_size": 3,
+                  "basis": "100_percent_fpg_net",
+                  "monthly_usd": 2277
+                },
+                {
+                  "kind": "monthly_income_standard",
+                  "household_size": 3,
+                  "basis": "130_percent_fpg_gross",
+                  "monthly_usd": 2960
+                },
+                {
+                  "kind": "monthly_income_standard",
+                  "household_size": 3,
+                  "basis": "200_percent_fpg_gross_categorical_eligibility",
+                  "monthly_usd": 4554
+                },
+                {
+                  "kind": "maximum_monthly_allotment",
+                  "household_size": 3,
+                  "monthly_usd": 808
+                },
+                {
+                  "kind": "monthly_income_standard",
+                  "household_size": 4,
+                  "basis": "100_percent_fpg_net",
+                  "monthly_usd": 2750
+                },
+                {
+                  "kind": "monthly_income_standard",
+                  "household_size": 4,
+                  "basis": "130_percent_fpg_gross",
+                  "monthly_usd": 3575
+                },
+                {
+                  "kind": "monthly_income_standard",
+                  "household_size": 4,
+                  "basis": "200_percent_fpg_gross_categorical_eligibility",
+                  "monthly_usd": 5500
+                },
+                {
+                  "kind": "maximum_monthly_allotment",
+                  "household_size": 4,
+                  "monthly_usd": 1023
+                },
+                {
+                  "kind": "monthly_income_standard",
+                  "household_size": 5,
+                  "basis": "100_percent_fpg_net",
+                  "monthly_usd": 3224
+                },
+                {
+                  "kind": "monthly_income_standard",
+                  "household_size": 5,
+                  "basis": "130_percent_fpg_gross",
+                  "monthly_usd": 4191
+                },
+                {
+                  "kind": "monthly_income_standard",
+                  "household_size": 5,
+                  "basis": "200_percent_fpg_gross_categorical_eligibility",
+                  "monthly_usd": 6448
+                },
+                {
+                  "kind": "maximum_monthly_allotment",
+                  "household_size": 5,
+                  "monthly_usd": 1217
+                },
+                {
+                  "kind": "monthly_income_standard",
+                  "household_size": 6,
+                  "basis": "100_percent_fpg_net",
+                  "monthly_usd": 3697
+                },
+                {
+                  "kind": "monthly_income_standard",
+                  "household_size": 6,
+                  "basis": "130_percent_fpg_gross",
+                  "monthly_usd": 4806
+                },
+                {
+                  "kind": "monthly_income_standard",
+                  "household_size": 6,
+                  "basis": "200_percent_fpg_gross_categorical_eligibility",
+                  "monthly_usd": 7394
+                },
+                {
+                  "kind": "maximum_monthly_allotment",
+                  "household_size": 6,
+                  "monthly_usd": 1463
+                },
+                {
+                  "kind": "monthly_income_standard",
+                  "household_size": 7,
+                  "basis": "100_percent_fpg_net",
+                  "monthly_usd": 4170
+                },
+                {
+                  "kind": "monthly_income_standard",
+                  "household_size": 7,
+                  "basis": "130_percent_fpg_gross",
+                  "monthly_usd": 5421
+                },
+                {
+                  "kind": "monthly_income_standard",
+                  "household_size": 7,
+                  "basis": "200_percent_fpg_gross_categorical_eligibility",
+                  "monthly_usd": 8340
+                },
+                {
+                  "kind": "maximum_monthly_allotment",
+                  "household_size": 7,
+                  "monthly_usd": 1616
+                },
+                {
+                  "kind": "monthly_income_standard",
+                  "household_size": 8,
+                  "basis": "100_percent_fpg_net",
+                  "monthly_usd": 4644
+                },
+                {
+                  "kind": "monthly_income_standard",
+                  "household_size": 8,
+                  "basis": "130_percent_fpg_gross",
+                  "monthly_usd": 6037
+                },
+                {
+                  "kind": "monthly_income_standard",
+                  "household_size": 8,
+                  "basis": "200_percent_fpg_gross_categorical_eligibility",
+                  "monthly_usd": 9288
+                },
+                {
+                  "kind": "maximum_monthly_allotment",
+                  "household_size": 8,
+                  "monthly_usd": 1841
+                },
+                {
+                  "kind": "additional_person_increment",
+                  "basis": "100_percent_fpg_net",
+                  "monthly_usd": 474
+                },
+                {
+                  "kind": "additional_person_increment",
+                  "basis": "130_percent_fpg_gross",
+                  "monthly_usd": 616
+                },
+                {
+                  "kind": "additional_person_increment",
+                  "basis": "200_percent_fpg_gross_categorical_eligibility",
+                  "monthly_usd": 948
+                },
+                {
+                  "kind": "maximum_monthly_allotment_additional_person",
+                  "monthly_usd": 225
+                },
+                {
+                  "kind": "minimum_monthly_allotment",
+                  "monthly_usd": 25
+                },
+                {
+                  "kind": "asset_limit",
+                  "household_condition": "at least one member age 60 or older or disabled",
+                  "amount_usd": 4750
+                },
+                {
+                  "kind": "asset_limit",
+                  "household_condition": "all other households",
+                  "amount_usd": 3000
+                },
+                {
+                  "kind": "standard_deduction",
+                  "household_size": "1-3",
+                  "amount_usd": 217
+                },
+                {
+                  "kind": "standard_deduction",
+                  "household_size": 4,
+                  "amount_usd": 229
+                },
+                {
+                  "kind": "standard_deduction",
+                  "household_size": 5,
+                  "amount_usd": 268
+                },
+                {
+                  "kind": "standard_deduction",
+                  "household_size": "6+",
+                  "amount_usd": 308
+                },
+                {
+                  "kind": "excess_shelter_deduction_limit",
+                  "amount_usd": 769
+                },
+                {
+                  "kind": "heating_cooling_standard_utility_allowance",
+                  "amount_usd": 434
+                },
+                {
+                  "kind": "limited_utility_allowance",
+                  "amount_usd": 299
+                },
+                {
+                  "kind": "telephone_standard",
+                  "amount_usd": 53
+                },
+                {
+                  "kind": "dependent_care_deduction",
+                  "amount": "actual amount; no limit"
+                },
+                {
+                  "kind": "earned_income_deduction",
+                  "rate_percent": 20
+                },
+                {
+                  "kind": "homeless_shelter_standard",
+                  "amount_usd": 205.66
+                },
+                {
+                  "kind": "liheap_energy_standard_allowance",
+                  "amount_usd": 298
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "state",
+                "country_code": "US",
+                "state_code": "NM"
+              }
+            },
+            "source_metadata": {
+              "source_id": "new-mexico.hca.snap",
+              "source_version": "ISD 017 revision 2026-09-15; effective 2026-10-01 through 2027-09-30; sha256:4f570d6c9c0ba821665c4cb0ed73410f1970b88c333a6d2b2d8fa3e1f407c84a",
+              "retrieved_at": "2026-10-27T01:55:59Z",
+              "effective_at": "2026-10-01T00:00:00Z",
+              "transform_version": "hca-snap-fpg-table-extract-1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.hca.nm.gov/wp-content/uploads/ISD-017-FPG-Form-FY-2027-10.01.26-to-09.30.2027-SNAP-and-Cash.pdf",
+                  "observed_at": "2026-10-27T01:55:59Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.hca.nm.gov/wp-content/uploads/ISD-017-FPG-Form-FY-2027-10.01.26-to-09.30.2027-SNAP-and-Cash.pdf",
+                  "observed_at": "2026-10-27T01:55:59Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.state_code": {
+                  "source_url": "https://www.hca.nm.gov/wp-content/uploads/ISD-017-FPG-Form-FY-2027-10.01.26-to-09.30.2027-SNAP-and-Cash.pdf",
+                  "observed_at": "2026-10-27T01:55:59Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.program_id": {
+                  "source_url": "https://www.hca.nm.gov/wp-content/uploads/ISD-017-FPG-Form-FY-2027-10.01.26-to-09.30.2027-SNAP-and-Cash.pdf",
+                  "observed_at": "2026-10-27T01:55:59Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://www.hca.nm.gov/wp-content/uploads/ISD-017-FPG-Form-FY-2027-10.01.26-to-09.30.2027-SNAP-and-Cash.pdf",
+                  "observed_at": "2026-10-27T01:55:59Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.navigator": {
+                  "source_url": "https://www.hca.nm.gov/wp-content/uploads/ISD-017-FPG-Form-FY-2027-10.01.26-to-09.30.2027-SNAP-and-Cash.pdf",
+                  "observed_at": "2026-10-27T01:55:59Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://www.hca.nm.gov/wp-content/uploads/ISD-017-FPG-Form-FY-2027-10.01.26-to-09.30.2027-SNAP-and-Cash.pdf",
+                  "observed_at": "2026-10-27T01:55:59Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://www.hca.nm.gov/wp-content/uploads/ISD-017-FPG-Form-FY-2027-10.01.26-to-09.30.2027-SNAP-and-Cash.pdf",
+                  "observed_at": "2026-10-27T01:55:59Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://www.hca.nm.gov/wp-content/uploads/ISD-017-FPG-Form-FY-2027-10.01.26-to-09.30.2027-SNAP-and-Cash.pdf",
+                  "observed_at": "2026-10-27T01:55:59Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.criteria": {
+                  "source_url": "https://www.hca.nm.gov/wp-content/uploads/ISD-017-FPG-Form-FY-2027-10.01.26-to-09.30.2027-SNAP-and-Cash.pdf",
+                  "observed_at": "2026-10-27T01:55:59Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.hca.nm.gov/wp-content/uploads/ISD-017-FPG-Form-FY-2027-10.01.26-to-09.30.2027-SNAP-and-Cash.pdf",
+            "schema_version": "eligibility-program-v1",
+            "observed_at": "2026-10-27T01:55:59Z",
+            "content_hash": "ae07cd3d32901c28171436b870b2e7cab7a5fab8d6f626289e16ecc98b6a7fc0"
+          }
+        ]
+      }
+    }
+  ],
+  "important_limits": [
+    "Catalog coverage is partial; this is not a complete SNAP rule model.",
+    "No tenant binding, criteria mapping, profile data, or eligibility decision is included.",
+    "Exact replay is idempotent using stable source record IDs and content hashes."
+  ]
+}

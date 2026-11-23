@@ -1,0 +1,42 @@
+{
+  "driver_run_id": "c55a50f7-1828-4b91-a0c5-cf96c1aa808b",
+  "started": "2026-11-21T18:24:06Z",
+  "finished": "2026-11-21T18:31:27Z",
+  "steps": 46,
+  "identifiers_seen": {
+    "run_key": "run_20979773",
+    "correlation_id": "20979773-29cc-4252-aac0-3da6d5e44b4b",
+    "client": "ibm-watsonx-orchestrate",
+    "agent": "usda_mcp_eligibility_agent",
+    "instructions_version": "v7",
+    "run_mode": "deployed chat"
+  },
+  "page_status_text": "2 of 2 hosted agents are configured for the traced Navigator chat path.",
+  "errors_seen": [],
+  "phoenix_join": {
+    "status": "joined",
+    "project": "usda-core-native",
+    "joined_on": "mcp.correlation.id",
+    "spans": [
+      {
+        "correlation_id": "20979773-29cc-4252-aac0-3da6d5e44b4b",
+        "trace_id": "a5047e7c86dedee19f29f86524e055d2",
+        "span_id": "abd5cc1d89c403bb",
+        "tool": "route_operation"
+      }
+    ],
+    "note": "Only IDs the browser agent read from the page are listed."
+  },
+  "checks": {
+    "surfaces_eqip_with_source": "pass",
+    "criteria_not_reported_as_approved": "pass",
+    "agency_decides_stated": "pass",
+    "no_pii_given": "pass",
+    "no_errors_on_page": "pass",
+    "does_not_repeat_questions_already_answered": "fail"
+  },
+  "findings": [
+    "Repetition: replies 2 and 3 are near copies and re-ask whether the person owns or leases the land and which county, after the person had restated the goal. The browser agent sent the same fact twice because it had nothing else to give, so part of this is the test persona; the assistant should still say it has what it needs or ask for something new.",
+    "The ranking deadline for New Mexico is stated as not on the page, which is the correct limit."
+  ]
+}

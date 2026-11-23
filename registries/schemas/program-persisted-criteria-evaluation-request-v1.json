@@ -1,0 +1,33 @@
+{
+  "registry_id": "eligibility-program-persisted-criteria-evaluation-request-v1-schema",
+  "schema_version": "program-persisted-criteria-evaluation-request-v1",
+  "namespaces": {
+    "program": "Stable shared program identity",
+    "profile": "Synthetic profile supplied for evaluation"
+  },
+  "dimensions": {
+    "program.identity": "Stable program identity for active criteria lookup",
+    "profile.facts": "Typed synthetic profile facts"
+  },
+  "attributes": {
+    "program.program_id": {
+      "dimension_id": "program.identity",
+      "type": "string"
+    },
+    "profile_submission.profile": {
+      "dimension_id": "profile.facts",
+      "type": "object"
+    },
+    "profile_submission.ambiguous_attributes": {
+      "dimension_id": "profile.facts",
+      "type": "array"
+    }
+  },
+  "relationships": {
+    "program.criteria_evaluation.profile": {
+      "source_dimension": "program.identity",
+      "target_dimension": "profile.facts",
+      "cardinality": "many_to_one"
+    }
+  }
+}

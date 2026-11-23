@@ -1,0 +1,71 @@
+{
+  "version": "demo-set-v1",
+  "purpose": "The small product-demo test set: a positive, a negative and an edge case per scenario where the dataset has one. Run it live with the commands in tests/README.md.",
+  "personas": [
+    {
+      "scenario": "UC1-S1",
+      "case_type": "positive",
+      "profile_id": "synthetic-farmer-mo-beginning"
+    },
+    {
+      "scenario": "UC1-S1",
+      "case_type": "negative",
+      "profile_id": "synthetic-farmer-mo-established"
+    },
+    {
+      "scenario": "UC1-S1",
+      "case_type": "edge",
+      "profile_id": "synthetic-farmer-mo-unknown-years"
+    },
+    {
+      "scenario": "UC1-S2",
+      "case_type": "edge",
+      "profile_id": "synthetic-farmer-ks-drought"
+    },
+    {
+      "scenario": "UC1-S3",
+      "case_type": "edge",
+      "profile_id": "synthetic-farmer-nm-conservation"
+    },
+    {
+      "scenario": "UC2-S1",
+      "case_type": "edge",
+      "profile_id": "synthetic-senior-md-rural"
+    },
+    {
+      "scenario": "UC2-S2",
+      "case_type": "edge",
+      "profile_id": "synthetic-senior-mo-veteran"
+    },
+    {
+      "scenario": "UC2-S3",
+      "case_type": "edge",
+      "profile_id": "synthetic-caregiver-ks-father"
+    },
+    {
+      "scenario": "UC3-S1",
+      "case_type": "positive",
+      "profile_id": "synthetic-household-mo-kc-family"
+    },
+    {
+      "scenario": "UC3-S1",
+      "case_type": "negative",
+      "profile_id": "synthetic-household-ks-kc-family"
+    },
+    {
+      "scenario": "UC3-S1",
+      "case_type": "edge",
+      "profile_id": "synthetic-household-mo-over-income"
+    },
+    {
+      "scenario": "UC3-S2",
+      "case_type": "edge",
+      "profile_id": "synthetic-household-mo-working-renter"
+    },
+    {
+      "scenario": "UC3-S3",
+      "case_type": "edge",
+      "profile_id": "synthetic-household-mo-single-parent"
+    }
+  ]
+}

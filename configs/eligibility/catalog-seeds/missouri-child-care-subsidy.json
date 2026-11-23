@@ -1,0 +1,234 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "missouri.dese.child-care-subsidy",
+    "retrieved_at": "2026-11-09T23:52:51.676854+00:00",
+    "publisher_version": "sha256:0335bd78c8c5842a3ccaa68f61d684d9cc3a3527dfc476f186fdb3f5d7939933",
+    "raw_source_documents_committed": false,
+    "source_observations": [
+      "Missouri DESE says the Child Care Subsidy Program helps eligible families with child-care costs to increase access to early learning.",
+      "The page describes qualifying activities, child age and exception conditions, and an income condition; this discovery listing does not assess criteria."
+    ],
+    "source_content_sha256": "0335bd78c8c5842a3ccaa68f61d684d9cc3a3527dfc476f186fdb3f5d7939933",
+    "source_record_id": "source-page-37a0c7616c5aaddbbe10",
+    "source_visible_text_sha256": "2c2d61a566cff87d8af847a7bdcd646ec2725fecf64ed2d074d2ae90306978e6",
+    "source_policy_reference": {
+      "policy_id": "eligibility-public-search-domains",
+      "policy_version": "1.2.4",
+      "content_sha256": "a78aff8eff8fd47d04481602684cdcdc6e55bd80e16458e32c270adbb6e22e24"
+    }
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "missouri.dese.child-care-subsidy",
+      "source_name": "Missouri DESE Child Care Subsidy",
+      "source_url": "https://dese.mo.gov/childhood/child-care-subsidy/families",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "state",
+          "owner_name": "Missouri Department of Elementary and Secondary Education",
+          "verification_status": "verified",
+          "evidence_url": "https://dese.mo.gov/childhood/child-care-subsidy/families"
+        },
+        "approved_scope": "Official Missouri Child Care Subsidy program listing and source reference only; criteria remain review-only until approved mappings are published.",
+        "refresh_mode": "operator_triggered"
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "missouri-dese-child-care-subsidy-listings",
+        "source_dataset_id": "Missouri DESE Child Care Subsidy Information for Families",
+        "title": "Missouri Child Care Subsidy program listing",
+        "landing_page": "https://dese.mo.gov/childhood/child-care-subsidy/families",
+        "schema_version": "public-listing-v3",
+        "namespace_ids": [
+          "core",
+          "listing"
+        ],
+        "metadata": {
+          "content_type": "state_public_program_listing",
+          "refresh_mode": "operator_triggered",
+          "schema_versions": {
+            "core": "core-v1",
+            "listing": "public-listing-v3"
+          },
+          "visibility_scope": "cluster_public",
+          "catalog_namespace": "programs",
+          "criteria_coverage": "not_assessed",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "listing": "eligibility-public-listing-schema"
+          },
+          "record_contract_version": "normalized-public-record-v1"
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "missouri-dese-child-care-subsidy-listings",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "sha256:0335bd78c8c5842a3ccaa68f61d684d9cc3a3527dfc476f186fdb3f5d7939933",
+        "retrieved_at": "2026-11-09T23:52:51.676854+00:00",
+        "transform_version": "uc3s3-source-review-v2",
+        "validation_outcome": "valid",
+        "detail": "One source-backed Missouri Child Care Subsidy discovery listing refreshed from a verified source read; criteria remain not_assessed in this listing.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "missouri-child-care-subsidy",
+            "record_type": "public_listing",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "state",
+              "core.geography.country_code": "US",
+              "core.geography.state_code": "MO",
+              "listing.record_kind": "assistance_program",
+              "listing.title": "Missouri Child Care Subsidy",
+              "listing.summary": "Missouri DESE child care subsidy helps eligible families pay for care to support early learning. The official page describes qualifying activities, child age and exception conditions, and an income limit; this listing does not assess eligibility.",
+              "listing.agency": "Missouri Department of Elementary and Secondary Education",
+              "listing.applicant_types": [
+                "parent",
+                "guardian",
+                "family with children"
+              ],
+              "listing.assistance_type": "child care subsidy for working, job-seeking, training, or student families",
+              "listing.applicant_description": "Missouri families seeking child care assistance for work, job search, job training, or school; consult the official source for current program details.",
+              "listing.beneficiary_description": "Missouri families seeking child care assistance to support access to early learning.",
+              "listing.program_url": "https://dese.mo.gov/childhood/child-care-subsidy/families"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "listing_kind": "assistance_program",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "state",
+                "country_code": "US",
+                "state_code": "MO"
+              },
+              "need_topics": [
+                "child_care_assistance",
+                "work_support",
+                "job_training",
+                "education"
+              ],
+              "beneficiary_classes": [
+                "Missouri families with children"
+              ],
+              "criteria_program_ids": [
+                "missouri-child-care-subsidy"
+              ],
+              "criteria_link_evidence": {
+                "policy_version": "scenario-mapped-criteria-links-v1",
+                "reviewed_at": "2026-11-05T12:42:00Z",
+                "links": [
+                  {
+                    "program_id": "missouri-child-care-subsidy",
+                    "criteria_record_id": "missouri-dese-child-care-subsidy-mapped-criteria",
+                    "relationship": "Missouri Child Care Subsidy listing is linked to its separate mapped-criteria record for the same state program.",
+                    "source_urls": [
+                      "https://dese.mo.gov/childhood/child-care-subsidy/families"
+                    ]
+                  }
+                ]
+              }
+            },
+            "source_metadata": {
+              "source_id": "missouri.dese.child-care-subsidy",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "source_title": "Child Care Subsidy Information for Families | Missouri Department of Elementary and Secondary Education",
+              "publisher": "Missouri Department of Elementary and Secondary Education",
+              "source_version": "sha256:0335bd78c8c5842a3ccaa68f61d684d9cc3a3527dfc476f186fdb3f5d7939933",
+              "criteria_status": "not_assessed",
+              "retrieved_at": "2026-11-09T23:52:51.676854+00:00",
+              "effective_at": null,
+              "transform_version": "uc3s3-source-review-v2",
+              "raw_payload_stored": false,
+              "source_notice": "Published program statements are review evidence only. This listing is not a complete screening rule or an official eligibility decision.",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://dese.mo.gov/childhood/child-care-subsidy/families",
+                  "observed_at": "2026-11-09T23:52:51.676854+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://dese.mo.gov/childhood/child-care-subsidy/families",
+                  "observed_at": "2026-11-09T23:52:51.676854+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.state_code": {
+                  "source_url": "https://dese.mo.gov/childhood/child-care-subsidy/families",
+                  "observed_at": "2026-11-09T23:52:51.676854+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://dese.mo.gov/childhood/child-care-subsidy/families",
+                  "observed_at": "2026-11-09T23:52:51.676854+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://dese.mo.gov/childhood/child-care-subsidy/families",
+                  "observed_at": "2026-11-09T23:52:51.676854+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://dese.mo.gov/childhood/child-care-subsidy/families",
+                  "observed_at": "2026-11-09T23:52:51.676854+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "listing.program_url": {
+                  "source_url": "https://dese.mo.gov/childhood/child-care-subsidy/families",
+                  "observed_at": "2026-11-09T23:52:51.676854+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_description": {
+                  "source_url": "https://dese.mo.gov/childhood/child-care-subsidy/families",
+                  "observed_at": "2026-11-09T23:52:51.676854+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://dese.mo.gov/childhood/child-care-subsidy/families",
+                  "observed_at": "2026-11-09T23:52:51.676854+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "listing.assistance_type": {
+                  "source_url": "https://dese.mo.gov/childhood/child-care-subsidy/families",
+                  "observed_at": "2026-11-09T23:52:51.676854+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "listing.beneficiary_description": {
+                  "source_url": "https://dese.mo.gov/childhood/child-care-subsidy/families",
+                  "observed_at": "2026-11-09T23:52:51.676854+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "listing.record_kind": {
+                  "source_url": "https://dese.mo.gov/childhood/child-care-subsidy/families",
+                  "observed_at": "2026-11-09T23:52:51.676854+00:00",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "source_content_sha256": "0335bd78c8c5842a3ccaa68f61d684d9cc3a3527dfc476f186fdb3f5d7939933",
+              "source_visible_text_sha256": "2c2d61a566cff87d8af847a7bdcd646ec2725fecf64ed2d074d2ae90306978e6",
+              "source_record_id": "source-page-37a0c7616c5aaddbbe10",
+              "source_policy_reference": {
+                "policy_id": "eligibility-public-search-domains",
+                "policy_version": "1.2.4",
+                "content_sha256": "a78aff8eff8fd47d04481602684cdcdc6e55bd80e16458e32c270adbb6e22e24"
+              }
+            },
+            "source_url": "https://dese.mo.gov/childhood/child-care-subsidy/families",
+            "schema_version": "public-listing-v3",
+            "observed_at": "2026-11-09T23:52:51.676854+00:00",
+            "content_hash": "82a74ee9c51bda9b0625c9f61974b42146ea78471ee30876164959b1840ab3b2"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "registry_id": "eligibility-requirements-package-read-v1-schema",
+  "schema_version": "eligibility-requirements-package-read-v1",
+  "namespaces": {
+    "requirements": "Saved requirements-package report"
+  },
+  "dimensions": {
+    "requirements.package": "Saved structured package",
+    "requirements.document": "Client-downloadable report"
+  },
+  "attributes": {
+    "requirements.package_id": {
+      "dimension_id": "requirements.package",
+      "type": "string",
+      "format": "uuid"
+    },
+    "requirements.program_id": {
+      "dimension_id": "requirements.package",
+      "type": "string"
+    },
+    "requirements.program_title": {
+      "dimension_id": "requirements.package",
+      "type": "string"
+    },
+    "requirements.created_at": {
+      "dimension_id": "requirements.package",
+      "type": "string"
+    },
+    "requirements.package_json": {
+      "dimension_id": "requirements.package",
+      "type": "object"
+    },
+    "requirements.report_markdown": {
+      "dimension_id": "requirements.document",
+      "type": "string"
+    },
+    "requirements.document_filename": {
+      "dimension_id": "requirements.document",
+      "type": "string"
+    },
+    "requirements.document_content_type": {
+      "dimension_id": "requirements.document",
+      "type": "string"
+    }
+  },
+  "description": "Readback returns the exact saved JSON package and rendered Markdown report."
+}

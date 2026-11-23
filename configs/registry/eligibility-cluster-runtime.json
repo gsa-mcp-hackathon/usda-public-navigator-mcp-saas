@@ -1,0 +1,20 @@
+{
+  "cluster_id": "eligibility",
+  "operation_ids": [
+    "program.inventory.search",
+    "program.discovery.external.search",
+    "program.candidate.normalize",
+    "program.inventory.list",
+    "program.inventory.read",
+    "program.criteria.source.read",
+    "program.criteria.extract",
+    "program.criteria.extract.normalized",
+    "program.criteria.prepare",
+    "program.candidate.evaluate",
+    "program.candidate.requirements.preview",
+    "program.criteria.persist",
+    "program.criteria.evaluate.persisted",
+    "program.criteria.map",
+    "program.candidate.map-score"
+  ]
+}

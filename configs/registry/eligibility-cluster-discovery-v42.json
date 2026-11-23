@@ -1,0 +1,462 @@
+{
+  "manifest_id": "mcp-saas-eligibility-cluster-discovery-v42",
+  "manifest_version": "42.0.0",
+  "schemas": [
+    {
+      "registry_id": "core-schema-registry",
+      "schema_version": "core-v1",
+      "path": "registries/schemas/core-v1.json"
+    },
+    {
+      "registry_id": "core-schema-registry",
+      "schema_version": "core-v2",
+      "path": "registries/schemas/core-v2.json"
+    },
+    {
+      "registry_id": "eligibility-program-candidate-evaluation-request-v1-schema",
+      "schema_version": "program-candidate-evaluation-request-v1",
+      "path": "registries/schemas/program-candidate-evaluation-request-v1.json"
+    },
+    {
+      "registry_id": "eligibility-program-candidate-evaluation-v1-schema",
+      "schema_version": "program-candidate-evaluation-v1",
+      "path": "registries/schemas/program-candidate-evaluation-v1.json"
+    },
+    {
+      "registry_id": "eligibility-program-candidate-requirements-preview-request-v1-schema",
+      "schema_version": "program-candidate-requirements-preview-request-v1",
+      "path": "registries/schemas/program-candidate-requirements-preview-request-v1.json"
+    },
+    {
+      "registry_id": "eligibility-program-candidate-requirements-preview-v1-schema",
+      "schema_version": "program-candidate-requirements-preview-v1",
+      "path": "registries/schemas/program-candidate-requirements-preview-v1.json"
+    },
+    {
+      "registry_id": "eligibility-program-candidate-schema",
+      "schema_version": "program-candidate-v2",
+      "path": "registries/schemas/program-candidate-v2.json"
+    },
+    {
+      "registry_id": "eligibility-program-criteria-package-request-schema",
+      "schema_version": "program-criteria-package-request-v1",
+      "path": "registries/schemas/program-criteria-package-request-v1.json"
+    },
+    {
+      "registry_id": "eligibility-program-criteria-package-schema",
+      "schema_version": "program-criteria-package-preview-v1",
+      "path": "registries/schemas/program-criteria-package-preview-v1.json"
+    },
+    {
+      "registry_id": "eligibility-program-criteria-ruleset-persistence-v1-schema",
+      "schema_version": "program-criteria-ruleset-persistence-v1",
+      "path": "registries/schemas/program-criteria-ruleset-persistence-v1.json"
+    },
+    {
+      "registry_id": "eligibility-program-normalized-criteria-extraction-request-schema",
+      "schema_version": "program-criteria-normalized-extraction-v1",
+      "path": "registries/schemas/program-criteria-normalized-extraction-v1.json"
+    },
+    {
+      "registry_id": "eligibility-program-normalized-criteria-extraction-request-schema",
+      "schema_version": "program-criteria-normalized-extraction-v3",
+      "path": "registries/schemas/program-criteria-normalized-extraction-v3.json"
+    },
+    {
+      "registry_id": "eligibility-program-persisted-criteria-evaluation-request-v1-schema",
+      "schema_version": "program-persisted-criteria-evaluation-request-v1",
+      "path": "registries/schemas/program-persisted-criteria-evaluation-request-v1.json"
+    },
+    {
+      "registry_id": "eligibility-program-requirements-schema",
+      "schema_version": "program-requirements-extraction-v2",
+      "path": "registries/schemas/program-requirements-extraction-v2.json"
+    },
+    {
+      "registry_id": "eligibility-program-schema",
+      "schema_version": "eligibility-program-v1",
+      "path": "registries/schemas/eligibility-program-v1.json"
+    },
+    {
+      "registry_id": "eligibility-public-listing-schema",
+      "schema_version": "public-listing-v1",
+      "path": "registries/schemas/public-listing-v1.json"
+    },
+    {
+      "registry_id": "eligibility-public-listing-schema",
+      "schema_version": "public-listing-v2",
+      "path": "registries/schemas/public-listing-v2.json"
+    },
+    {
+      "registry_id": "eligibility-public-listing-schema",
+      "schema_version": "public-listing-v3",
+      "path": "registries/schemas/public-listing-v3.json"
+    },
+    {
+      "registry_id": "eligibility-public-listing-schema",
+      "schema_version": "public-listing-v4",
+      "path": "registries/schemas/public-listing-v4.json"
+    },
+    {
+      "registry_id": "eligibility-public-search-lead-schema",
+      "schema_version": "public-search-lead-v1",
+      "path": "registries/schemas/public-search-lead-v1.json"
+    },
+    {
+      "registry_id": "eligibility-public-source-page-read-result-schema",
+      "schema_version": "public-source-page-read-result-v2",
+      "path": "registries/schemas/public-source-page-read-result-v2.json"
+    },
+    {
+      "registry_id": "public-data-schema-registry",
+      "schema_version": "public-data-v1",
+      "path": "registries/schemas/public-data-v1.json"
+    },
+    {
+      "registry_id": "eligibility-program-candidate-schema",
+      "schema_version": "program-candidate-v3",
+      "path": "registries/schemas/program-candidate-v3.json"
+    },
+    {
+      "registry_id": "core-schema-registry",
+      "schema_version": "core-v7",
+      "path": "registries/schemas/core-v7.json"
+    },
+    {
+      "registry_id": "eligibility-program-criteria-package-request-v2-schema",
+      "schema_version": "program-criteria-package-request-v2",
+      "path": "registries/schemas/program-criteria-package-request-v2.json"
+    },
+    {
+      "registry_id": "eligibility-program-candidate-evaluation-request-v2-schema",
+      "schema_version": "program-candidate-evaluation-request-v2",
+      "path": "registries/schemas/program-candidate-evaluation-request-v2.json"
+    },
+    {
+      "registry_id": "eligibility-program-candidate-requirements-preview-request-v2-schema",
+      "schema_version": "program-candidate-requirements-preview-request-v2",
+      "path": "registries/schemas/program-candidate-requirements-preview-request-v2.json"
+    },
+    {
+      "registry_id": "eligibility-program-candidate-map-score-request-v1-schema",
+      "schema_version": "program-candidate-map-score-request-v1",
+      "path": "registries/schemas/program-candidate-map-score-request-v1.json"
+    },
+    {
+      "registry_id": "eligibility-requirements-package-list-request-v2-schema",
+      "schema_version": "eligibility-requirements-package-list-request-v2",
+      "path": "registries/schemas/eligibility-requirements-package-list-request-v2.json"
+    },
+    {
+      "registry_id": "eligibility-requirements-package-list-v1-schema",
+      "schema_version": "eligibility-requirements-package-list-v1",
+      "path": "registries/schemas/eligibility-requirements-package-list-v1.json"
+    },
+    {
+      "registry_id": "eligibility-requirements-package-read-request-v2-schema",
+      "schema_version": "eligibility-requirements-package-read-request-v2",
+      "path": "registries/schemas/eligibility-requirements-package-read-request-v2.json"
+    },
+    {
+      "registry_id": "eligibility-requirements-package-read-v1-schema",
+      "schema_version": "eligibility-requirements-package-read-v1",
+      "path": "registries/schemas/eligibility-requirements-package-read-v1.json"
+    },
+    {
+      "registry_id": "eligibility-program-inventory-search-v7-schema",
+      "schema_version": "program-inventory-search-v7",
+      "path": "registries/schemas/program-inventory-search-v7.json"
+    },
+    {
+      "registry_id": "eligibility-program-candidate-evaluation-v2-schema",
+      "schema_version": "program-candidate-evaluation-v2",
+      "path": "registries/schemas/program-candidate-evaluation-v2.json"
+    }
+  ],
+  "patterns": [
+    {
+      "pattern_id": "eligibility",
+      "pattern_version": "0.1.48",
+      "lifecycle_state": "active",
+      "title": "Eligibility cluster public program inventory discovery",
+      "catalog_names": [
+        "programs"
+      ],
+      "capabilities": [
+        "program.discover",
+        "program.evaluate",
+        "program.results",
+        "program.inventory.search",
+        "program.discovery.external.search",
+        "program.candidate.normalize",
+        "program.inventory.list",
+        "program.inventory.read",
+        "program.criteria.extract",
+        "program.criteria.prepare",
+        "program.criteria.extract.normalized",
+        "program.criteria.source.read",
+        "program.candidate.evaluate",
+        "program.candidate.requirements.preview",
+        "program.criteria.persist",
+        "program.criteria.evaluate.persisted",
+        "program.criteria.map",
+        "program.candidate.map-score"
+      ],
+      "operations": [
+        {
+          "operation_id": "program.discover",
+          "mcp_tool_name": "discover_program_candidates",
+          "request_schema_id": "eligibility-profile-submission-v1",
+          "response_schema_id": "eligibility-discovery-v3",
+          "access_mode": "read_only"
+        },
+        {
+          "operation_id": "program.evaluate",
+          "mcp_tool_name": "evaluate_program_criteria",
+          "request_schema_id": "eligibility-program-evaluation-request-v1",
+          "response_schema_id": "eligibility-evaluation-v2",
+          "access_mode": "read_only"
+        },
+        {
+          "operation_id": "program.results",
+          "mcp_tool_name": "get_program_results",
+          "request_schema_id": "eligibility-profile-submission-v1",
+          "response_schema_id": "eligibility-program-results-v2",
+          "access_mode": "read_only"
+        },
+        {
+          "operation_id": "program.inventory.search",
+          "mcp_tool_name": "search_program_inventory",
+          "request_schema_id": "eligibility-program-inventory-search-v3",
+          "response_schema_id": "program-inventory-search-v7",
+          "access_mode": "read_only"
+        },
+        {
+          "operation_id": "program.discovery.external.search",
+          "mcp_tool_name": "search_external_program_leads",
+          "request_schema_id": "eligibility-public-program-search-v1",
+          "response_schema_id": "public-program-search-v1",
+          "access_mode": "read_only"
+        },
+        {
+          "operation_id": "program.candidate.normalize",
+          "mcp_tool_name": "normalize_program_candidate",
+          "request_schema_id": "program-candidate-request-v3",
+          "response_schema_id": "program-candidate-v3",
+          "access_mode": "read_only"
+        },
+        {
+          "operation_id": "program.inventory.list",
+          "mcp_tool_name": "list_public_catalog_inventory",
+          "request_schema_id": "public-catalog-inventory-page-v1",
+          "response_schema_id": "public-catalog-inventory-v1",
+          "access_mode": "read_only"
+        },
+        {
+          "operation_id": "program.inventory.read",
+          "mcp_tool_name": "read_public_catalog_dataset",
+          "request_schema_id": "public-catalog-record-page-v1",
+          "response_schema_id": "public-catalog-record-page-v1",
+          "access_mode": "read_only"
+        },
+        {
+          "operation_id": "program.criteria.source.read",
+          "mcp_tool_name": "read_public_program_source",
+          "request_schema_id": "program-source-page-read-v1",
+          "response_schema_id": "public-source-page-read-result-v2",
+          "access_mode": "read_only"
+        },
+        {
+          "operation_id": "program.criteria.extract",
+          "mcp_tool_name": "extract_program_requirements",
+          "request_schema_id": "program-requirements-extraction-v2",
+          "response_schema_id": "program-requirements-extraction-v2",
+          "access_mode": "read_only"
+        },
+        {
+          "operation_id": "program.criteria.extract.normalized",
+          "mcp_tool_name": "extract_normalized_program_criteria",
+          "request_schema_id": "program-criteria-normalized-extraction-v3",
+          "response_schema_id": "program-requirements-extraction-v2",
+          "access_mode": "read_only"
+        },
+        {
+          "operation_id": "program.criteria.prepare",
+          "mcp_tool_name": "prepare_program_criteria_package",
+          "request_schema_id": "program-criteria-package-request-v2",
+          "response_schema_id": "program-criteria-package-preview-v1",
+          "access_mode": "read_only"
+        },
+        {
+          "operation_id": "program.candidate.evaluate",
+          "mcp_tool_name": "evaluate_program_candidate",
+          "request_schema_id": "program-candidate-evaluation-request-v2",
+          "response_schema_id": "program-candidate-evaluation-v2",
+          "access_mode": "read_only"
+        },
+        {
+          "operation_id": "program.candidate.requirements.preview",
+          "mcp_tool_name": "preview_program_candidate_requirements",
+          "request_schema_id": "program-candidate-requirements-preview-request-v2",
+          "response_schema_id": "program-candidate-requirements-preview-v1",
+          "access_mode": "read_only"
+        },
+        {
+          "operation_id": "program.criteria.persist",
+          "mcp_tool_name": "persist_program_criteria_package",
+          "request_schema_id": "program-criteria-package-request-v2",
+          "response_schema_id": "program-criteria-ruleset-persistence-v1",
+          "access_mode": "idempotent_write",
+          "route_scope": "cluster"
+        },
+        {
+          "operation_id": "program.criteria.evaluate.persisted",
+          "mcp_tool_name": "evaluate_persisted_program_criteria",
+          "request_schema_id": "program-persisted-criteria-evaluation-request-v1",
+          "response_schema_id": "program-candidate-evaluation-v2",
+          "access_mode": "read_only",
+          "route_scope": "cluster"
+        },
+        {
+          "operation_id": "program.criteria.map",
+          "mcp_tool_name": "map_and_save_program_criteria",
+          "request_schema_id": "program-criteria-package-request-v2",
+          "response_schema_id": "program-criteria-ruleset-persistence-v1",
+          "access_mode": "idempotent_write",
+          "route_scope": "cluster"
+        },
+        {
+          "operation_id": "program.candidate.map-score",
+          "mcp_tool_name": "map_save_and_score_program_candidate",
+          "request_schema_id": "program-candidate-map-score-request-v1",
+          "response_schema_id": "program-candidate-evaluation-v2",
+          "access_mode": "idempotent_write",
+          "route_scope": "cluster"
+        }
+      ],
+      "result_contract_refs": [
+        "program-candidate-v3"
+      ]
+    }
+  ],
+  "use_cases": [
+    {
+      "use_case_id": "program.inventory.search",
+      "use_case_version": "1.0.0",
+      "pattern_id": "eligibility",
+      "pattern_version": "0.1.48",
+      "operation_id": "program.inventory.search",
+      "lifecycle_state": "active",
+      "tenant_ids": []
+    },
+    {
+      "use_case_id": "program.discovery.external.search",
+      "use_case_version": "1.0.0",
+      "pattern_id": "eligibility",
+      "pattern_version": "0.1.48",
+      "operation_id": "program.discovery.external.search",
+      "lifecycle_state": "inactive",
+      "tenant_ids": []
+    },
+    {
+      "use_case_id": "program.candidate.normalize",
+      "use_case_version": "1.0.0",
+      "pattern_id": "eligibility",
+      "pattern_version": "0.1.48",
+      "operation_id": "program.candidate.normalize",
+      "lifecycle_state": "active",
+      "tenant_ids": []
+    },
+    {
+      "use_case_id": "program.inventory.list",
+      "use_case_version": "1.0.0",
+      "pattern_id": "eligibility",
+      "pattern_version": "0.1.48",
+      "operation_id": "program.inventory.list",
+      "lifecycle_state": "active",
+      "tenant_ids": []
+    },
+    {
+      "use_case_id": "program.inventory.read",
+      "use_case_version": "1.0.0",
+      "pattern_id": "eligibility",
+      "pattern_version": "0.1.48",
+      "operation_id": "program.inventory.read",
+      "lifecycle_state": "active",
+      "tenant_ids": []
+    },
+    {
+      "use_case_id": "program.criteria.extract",
+      "use_case_version": "1.0.0",
+      "pattern_id": "eligibility",
+      "pattern_version": "0.1.48",
+      "operation_id": "program.criteria.extract",
+      "lifecycle_state": "active",
+      "tenant_ids": []
+    },
+    {
+      "use_case_id": "program.criteria.prepare",
+      "use_case_version": "1.0.0",
+      "pattern_id": "eligibility",
+      "pattern_version": "0.1.48",
+      "operation_id": "program.criteria.prepare",
+      "lifecycle_state": "active",
+      "tenant_ids": []
+    },
+    {
+      "use_case_id": "program.candidate.evaluate",
+      "use_case_version": "1.0.0",
+      "pattern_id": "eligibility",
+      "pattern_version": "0.1.48",
+      "operation_id": "program.candidate.evaluate",
+      "lifecycle_state": "active",
+      "tenant_ids": []
+    },
+    {
+      "use_case_id": "program.candidate.requirements.preview",
+      "use_case_version": "1.0.0",
+      "pattern_id": "eligibility",
+      "pattern_version": "0.1.48",
+      "operation_id": "program.candidate.requirements.preview",
+      "lifecycle_state": "active",
+      "tenant_ids": []
+    },
+    {
+      "use_case_id": "program.criteria.persist",
+      "use_case_version": "1.0.0",
+      "pattern_id": "eligibility",
+      "pattern_version": "0.1.48",
+      "operation_id": "program.criteria.persist",
+      "lifecycle_state": "active",
+      "tenant_ids": []
+    },
+    {
+      "use_case_id": "program.criteria.evaluate.persisted",
+      "use_case_version": "1.0.0",
+      "pattern_id": "eligibility",
+      "pattern_version": "0.1.48",
+      "operation_id": "program.criteria.evaluate.persisted",
+      "lifecycle_state": "active",
+      "tenant_ids": []
+    },
+    {
+      "use_case_id": "program.criteria.map",
+      "use_case_version": "1.0.0",
+      "pattern_id": "eligibility",
+      "pattern_version": "0.1.48",
+      "operation_id": "program.criteria.map",
+      "lifecycle_state": "active",
+      "tenant_ids": []
+    },
+    {
+      "use_case_id": "program.candidate.map-score",
+      "use_case_version": "1.0.0",
+      "pattern_id": "eligibility",
+      "pattern_version": "0.1.48",
+      "operation_id": "program.candidate.map-score",
+      "lifecycle_state": "active",
+      "tenant_ids": []
+    }
+  ],
+  "schema_refs": []
+}

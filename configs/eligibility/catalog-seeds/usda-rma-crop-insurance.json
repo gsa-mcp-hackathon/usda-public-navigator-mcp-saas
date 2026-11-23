@@ -1,0 +1,676 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "usda.rma.crop-insurance",
+    "reviewed_at": "2026-10-27T03:27:00Z",
+    "publisher_version": "BFR/VFR FAQ dated November 2025; other reviewed pages do not state a revision date",
+    "raw_source_documents_committed": false,
+    "access_method": "Official USDA RMA pages reviewed through current web retrieval; page bodies, response headers, and raw files were not retained.",
+    "pages": [
+      {
+        "url": "https://www.rma.usda.gov/about-crop-insurance/basics-beginners/benefits-beginning-farmers-veterans",
+        "title": "Benefits for Beginning Farmers and Veterans | Risk Management Agency",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.rma.usda.gov/about-crop-insurance/frequently-asked-questions/beginning-farmer-rancher-bfr-veteran-farmer-rancher",
+        "title": "Beginning Farmer and Rancher (BFR) and Veteran Farmer and Rancher (VFR) | Risk Management Agency; November 2025",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://public-rma.fpac.usda.gov/apps/MapViewer/index.html",
+        "title": "RMA Map Viewer",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.rma.usda.gov/tools-reports/agent-locator",
+        "title": "Agent Locator | Risk Management Agency",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://ewebapp.rma.usda.gov/apps/costestimator/",
+        "title": "Cost Estimator - Home",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.rma.usda.gov/tools-reports/price-discovery-reporting",
+        "title": "Price Discovery Reporting | Risk Management Agency",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.rma.usda.gov/tools-reports/summary-of-business",
+        "title": "Summary of Business | Risk Management Agency",
+        "source_content_sha256": null
+      }
+    ]
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "usda.rma.crop-insurance",
+      "source_name": "USDA Risk Management Agency crop insurance resources",
+      "source_url": "https://www.rma.usda.gov/tools-reports",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "federal",
+          "owner_name": "United States Department of Agriculture Risk Management Agency",
+          "verification_status": "verified",
+          "evidence_url": "https://www.rma.usda.gov/tools-reports"
+        },
+        "approved_scope": "Shared discovery/referral/context/history records for official federal crop-insurance tools and a partial non-executable BFR/VFR criteria reference. No premium quote, policy coverage, individual insurance eligibility, or agency determination.",
+        "refresh_mode": "operator_triggered"
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "usda-rma-crop-insurance-resources",
+        "source_dataset_id": "RMA Tools & Reports and linked official crop-insurance resources",
+        "title": "USDA RMA crop-insurance discovery, referral, and context resources",
+        "landing_page": "https://www.rma.usda.gov/tools-reports",
+        "schema_version": "public-listing-v1",
+        "namespace_ids": [
+          "core",
+          "listing"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "not_assessed",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "refresh_mode": "operator_triggered",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "listing": "eligibility-public-listing-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "listing": "public-listing-v1"
+          },
+          "content_type": "federal_crop_insurance_discovery_referral_context_and_history",
+          "maximum_records_total": 10
+        }
+      },
+      {
+        "dataset_id": "usda-rma-bfr-vfr-published-criteria",
+        "source_dataset_id": "RMA BFR/VFR Frequently Asked Questions, November 2025 including 2026 crop-year changes",
+        "title": "USDA RMA BFR/VFR partial published criteria reference",
+        "landing_page": "https://www.rma.usda.gov/about-crop-insurance/frequently-asked-questions/beginning-farmer-rancher-bfr-veteran-farmer-rancher",
+        "schema_version": "eligibility-program-v1",
+        "namespace_ids": [
+          "core",
+          "eligibility"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "partial",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "refresh_mode": "operator_triggered",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "eligibility": "eligibility-program-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "eligibility": "eligibility-program-v1"
+          },
+          "content_type": "published_partial_non_executable_eligibility_reference",
+          "published_criteria_available": true,
+          "criteria_mapping_status": "not_mapped",
+          "maximum_records_total": 5
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "usda-rma-crop-insurance-resources",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "RMA Tools & Reports, Map Viewer, Agent Locator, Cost Estimator, Price Discovery, Summary of Business, and BFR/VFR benefits pages reviewed 2026-10-27; dates vary by page.",
+        "retrieved_at": "2026-10-27T03:27:00Z",
+        "transform_version": "rma-crop-insurance-source-review-v1",
+        "validation_outcome": "valid",
+        "detail": "Six bounded source-backed public resource records; roles distinguish program listing, referral, current context, and aggregate history. No raw page payload retained.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "rma-bfr-vfr-crop-insurance-benefits",
+            "record_type": "federal-crop-insurance-beginning-farmer-benefits",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "RMA Beginning Farmer and Veteran Crop Insurance Benefits",
+              "listing.summary": "RMA describes federal crop-insurance benefits intended to make insurance more affordable and accessible for beginning farmers and veterans. It directs applicants to an insurance agent for eligibility review and links to its benefit FAQ and fact sheets. This is a program listing, not an individual determination.",
+              "listing.agency": "USDA Risk Management Agency",
+              "listing.opportunity_url": "https://www.rma.usda.gov/about-crop-insurance/basics-beginners/benefits-beginning-farmers-veterans"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.rma.crop-insurance",
+              "source_version": "RMA Tools & Reports, Map Viewer, Agent Locator, Cost Estimator, Price Discovery, Summary of Business, and BFR/VFR benefits pages reviewed 2026-10-27; dates vary by page.",
+              "retrieved_at": "2026-10-27T03:27:00Z",
+              "effective_at": null,
+              "transform_version": "rma-crop-insurance-source-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.rma.usda.gov/about-crop-insurance/basics-beginners/benefits-beginning-farmers-veterans",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.rma.usda.gov/about-crop-insurance/basics-beginners/benefits-beginning-farmers-veterans",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.rma.usda.gov/about-crop-insurance/basics-beginners/benefits-beginning-farmers-veterans",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.rma.usda.gov/about-crop-insurance/basics-beginners/benefits-beginning-farmers-veterans",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.rma.usda.gov/about-crop-insurance/basics-beginners/benefits-beginning-farmers-veterans",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.rma.usda.gov/about-crop-insurance/basics-beginners/benefits-beginning-farmers-veterans",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false,
+              "publisher_page_version": "RMA Benefits for Beginning Farmers and Veterans page reviewed 2026-10-27; page revision date not stated"
+            },
+            "source_url": "https://www.rma.usda.gov/about-crop-insurance/basics-beginners/benefits-beginning-farmers-veterans",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T03:27:00Z",
+            "content_hash": "027d37e876ca1ddb5c094f8d30d8b49f9491db50072f55d5acc284b58e3ce0ea"
+          },
+          {
+            "source_record_id": "rma-county-crop-programs-map-viewer",
+            "record_type": "federal-crop-insurance-availability-referral",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "RMA Map Viewer: County Crop Programs and availability tools",
+              "listing.summary": "The RMA Map Viewer links to commodity program availability by selected crop, year, and county; livestock program availability by program and year; insurance dates; and county-level endorsement availability. These are product/geography discovery tools and do not establish an individual applicant’s eligibility or coverage.",
+              "listing.agency": "USDA Risk Management Agency",
+              "listing.opportunity_url": "https://public-rma.fpac.usda.gov/apps/MapViewer/index.html"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.rma.crop-insurance",
+              "source_version": "RMA Tools & Reports, Map Viewer, Agent Locator, Cost Estimator, Price Discovery, Summary of Business, and BFR/VFR benefits pages reviewed 2026-10-27; dates vary by page.",
+              "retrieved_at": "2026-10-27T03:27:00Z",
+              "effective_at": null,
+              "transform_version": "rma-crop-insurance-source-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://public-rma.fpac.usda.gov/apps/MapViewer/index.html",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://public-rma.fpac.usda.gov/apps/MapViewer/index.html",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://public-rma.fpac.usda.gov/apps/MapViewer/index.html",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://public-rma.fpac.usda.gov/apps/MapViewer/index.html",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://public-rma.fpac.usda.gov/apps/MapViewer/index.html",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://public-rma.fpac.usda.gov/apps/MapViewer/index.html",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false,
+              "publisher_page_version": "RMA Map Viewer reviewed 2026-10-27; publisher revision not stated"
+            },
+            "source_url": "https://public-rma.fpac.usda.gov/apps/MapViewer/index.html",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T03:27:00Z",
+            "content_hash": "30f1c1bdbe6b00169923d8a97a26b7704b36458ed71b69f2bf4bdfc97fffa652"
+          },
+          {
+            "source_record_id": "rma-agent-locator-and-providers",
+            "record_type": "federal-crop-insurance-agent-referral",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "RMA Agent Locator and Approved Insurance Provider directory",
+              "listing.summary": "RMA provides agent and approved provider information for all 50 states. Agent records are maintained by approved insurance providers; RMA says accepted updates generally appear by the following Sunday. Service area and policy type should be confirmed with the agent/provider.",
+              "listing.agency": "USDA Risk Management Agency",
+              "listing.opportunity_url": "https://www.rma.usda.gov/tools-reports/agent-locator"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.rma.crop-insurance",
+              "source_version": "RMA Tools & Reports, Map Viewer, Agent Locator, Cost Estimator, Price Discovery, Summary of Business, and BFR/VFR benefits pages reviewed 2026-10-27; dates vary by page.",
+              "retrieved_at": "2026-10-27T03:27:00Z",
+              "effective_at": null,
+              "transform_version": "rma-crop-insurance-source-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.rma.usda.gov/tools-reports/agent-locator",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.rma.usda.gov/tools-reports/agent-locator",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.rma.usda.gov/tools-reports/agent-locator",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.rma.usda.gov/tools-reports/agent-locator",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.rma.usda.gov/tools-reports/agent-locator",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.rma.usda.gov/tools-reports/agent-locator",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false,
+              "publisher_page_version": "RMA Agent Locator page reviewed 2026-10-27; publisher revision not stated"
+            },
+            "source_url": "https://www.rma.usda.gov/tools-reports/agent-locator",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T03:27:00Z",
+            "content_hash": "833f70c9704cd4dc07771010b0a41d810af75c376d118bd80d539ba19f0e6865"
+          },
+          {
+            "source_record_id": "rma-crop-insurance-cost-estimator",
+            "record_type": "federal-crop-insurance-estimator-referral",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "RMA Federal Crop Insurance Cost Estimator",
+              "listing.summary": "The RMA tool estimates federal crop-insurance premium costs. RMA directs users to a crop-insurance agent for an actual quote and to obtain coverage; the estimate is not an offer, quote, coverage confirmation, or eligibility decision.",
+              "listing.agency": "USDA Risk Management Agency",
+              "listing.opportunity_url": "https://ewebapp.rma.usda.gov/apps/costestimator/"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.rma.crop-insurance",
+              "source_version": "RMA Tools & Reports, Map Viewer, Agent Locator, Cost Estimator, Price Discovery, Summary of Business, and BFR/VFR benefits pages reviewed 2026-10-27; dates vary by page.",
+              "retrieved_at": "2026-10-27T03:27:00Z",
+              "effective_at": null,
+              "transform_version": "rma-crop-insurance-source-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://ewebapp.rma.usda.gov/apps/costestimator/",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://ewebapp.rma.usda.gov/apps/costestimator/",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://ewebapp.rma.usda.gov/apps/costestimator/",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://ewebapp.rma.usda.gov/apps/costestimator/",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://ewebapp.rma.usda.gov/apps/costestimator/",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://ewebapp.rma.usda.gov/apps/costestimator/",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false,
+              "publisher_page_version": "RMA Cost Estimator page reviewed 2026-10-27; publisher revision not stated"
+            },
+            "source_url": "https://ewebapp.rma.usda.gov/apps/costestimator/",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T03:27:00Z",
+            "content_hash": "11cfb5248dddb74f7d6452b739255aa1cb3d9400757f8835fc666f1f02caa281"
+          },
+          {
+            "source_record_id": "rma-price-discovery-tool",
+            "record_type": "federal-crop-insurance-price-context",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "RMA Price Discovery reporting and application",
+              "listing.summary": "RMA describes current and historical projected prices, volatility factors, and harvest prices for most crops with revenue coverage; the page says values are updated daily using the prior day’s market prices. Privately maintained products linked from the page are not included in this federal record.",
+              "listing.agency": "USDA Risk Management Agency",
+              "listing.opportunity_url": "https://www.rma.usda.gov/tools-reports/price-discovery-reporting"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "context",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.rma.crop-insurance",
+              "source_version": "RMA Tools & Reports, Map Viewer, Agent Locator, Cost Estimator, Price Discovery, Summary of Business, and BFR/VFR benefits pages reviewed 2026-10-27; dates vary by page.",
+              "retrieved_at": "2026-10-27T03:27:00Z",
+              "effective_at": null,
+              "transform_version": "rma-crop-insurance-source-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.rma.usda.gov/tools-reports/price-discovery-reporting",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.rma.usda.gov/tools-reports/price-discovery-reporting",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.rma.usda.gov/tools-reports/price-discovery-reporting",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.rma.usda.gov/tools-reports/price-discovery-reporting",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.rma.usda.gov/tools-reports/price-discovery-reporting",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.rma.usda.gov/tools-reports/price-discovery-reporting",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false,
+              "publisher_page_version": "RMA Price Discovery Reporting page reviewed 2026-10-27; daily update statement on publisher page"
+            },
+            "source_url": "https://www.rma.usda.gov/tools-reports/price-discovery-reporting",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T03:27:00Z",
+            "content_hash": "acb6b872066a6d197a60390029866fe66bfa9f3563434bc969c7a8e46d8441b3"
+          },
+          {
+            "source_record_id": "rma-summary-of-business-reports",
+            "record_type": "federal-crop-insurance-history-context",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "RMA Summary of Business historical reports",
+              "listing.summary": "RMA offers interactive and downloadable aggregate summary reports from 1989 to present, including state/county/crop, national, Puerto Rico, livestock and dairy, and cause-of-loss views. These are historical and aggregate context, not individual applicant records or eligibility evidence.",
+              "listing.agency": "USDA Risk Management Agency",
+              "listing.opportunity_url": "https://www.rma.usda.gov/tools-reports/summary-of-business"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "history",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.rma.crop-insurance",
+              "source_version": "RMA Tools & Reports, Map Viewer, Agent Locator, Cost Estimator, Price Discovery, Summary of Business, and BFR/VFR benefits pages reviewed 2026-10-27; dates vary by page.",
+              "retrieved_at": "2026-10-27T03:27:00Z",
+              "effective_at": null,
+              "transform_version": "rma-crop-insurance-source-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.rma.usda.gov/tools-reports/summary-of-business",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.rma.usda.gov/tools-reports/summary-of-business",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.rma.usda.gov/tools-reports/summary-of-business",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.rma.usda.gov/tools-reports/summary-of-business",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.rma.usda.gov/tools-reports/summary-of-business",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.rma.usda.gov/tools-reports/summary-of-business",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false,
+              "publisher_page_version": "RMA Summary of Business page reviewed 2026-10-27; report archive begins in 1989"
+            },
+            "source_url": "https://www.rma.usda.gov/tools-reports/summary-of-business",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T03:27:00Z",
+            "content_hash": "5b5d90686732876d1ec5c6af58736b6bc09803c2bf19993256aaaefdc66ef405"
+          }
+        ]
+      }
+    },
+    {
+      "dataset_id": "usda-rma-bfr-vfr-published-criteria",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "RMA BFR/VFR FAQ dated November 2025, including 2026 crop-year changes; reviewed 2026-10-27.",
+        "retrieved_at": "2026-10-27T03:27:00Z",
+        "transform_version": "rma-crop-insurance-source-review-v1",
+        "validation_outcome": "valid",
+        "detail": "One partial, non-executable transcription of published BFR/VFR statements. No profile mapping, official determination, or raw page payload.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "rma-bfr-vfr-published-criteria-reference",
+            "record_type": "federal-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "usda-rma-bfr-crop-insurance",
+              "eligibility.program.catalog_version": "rma-bfr-vfr-faq-2025-11-reviewed-2026-10-27",
+              "eligibility.program.navigator": "farmer_producer",
+              "eligibility.program.data_origin": "USDA Risk Management Agency BFR/VFR Frequently Asked Questions",
+              "eligibility.program.title": "RMA Beginning Farmer/Rancher and Veteran Farmer/Rancher published criteria reference",
+              "eligibility.program.description": "Partial structured transcription of the RMA BFR/VFR FAQ, dated November 2025 and including 2026 crop-year change information. Statements are not mapped to profile fields and are not executable. Crop/product coverage, exact sales-closing-date deadlines, policy terms, applicant records, and agent/RMA review remain necessary; this record is not an eligibility, insurance, or coverage determination.",
+              "eligibility.program.criteria": [
+                {
+                  "kind": "published_bfr_definition",
+                  "statement": "For the 2026 crop-year changes described in the FAQ, a beginning farmer/rancher is an individual who has not actively operated and managed a farm or ranch with an insurable interest in a crop or livestock for more than 10 crop years. The FAQ identifies qualifying exclusions for crop years under age 18, during post-secondary study (up to 10 crop years), and during active U.S. military duty.",
+                  "logic_status": "not_mapped"
+                },
+                {
+                  "kind": "published_bfr_substantial_beneficial_interest",
+                  "statement": "The FAQ includes crop years in which the individual held an insurable interest directly or as a substantial beneficial interest holder (10 percent or more) in another person with an insurable interest.",
+                  "logic_status": "not_mapped"
+                },
+                {
+                  "kind": "published_entity_qualification",
+                  "statement": "A business entity may receive BFR benefits only when all of its substantial beneficial interest holders qualify individually as BFRs.",
+                  "logic_status": "not_mapped"
+                },
+                {
+                  "kind": "published_bfr_benefits",
+                  "items": [
+                    "administrative fee waiver for CAT and buy-up policies",
+                    "use of a previous producer’s production history with permission when the FAQ conditions are met",
+                    "higher substituted yield percentage for Yield Adjustment",
+                    "additional premium subsidy"
+                  ],
+                  "logic_status": "context_only"
+                },
+                {
+                  "kind": "published_bfr_benefit_duration_and_subsidy",
+                  "statement": "The FAQ says BFR benefits may last up to 10 crop years; additional premium subsidy is 15 percentage points for the first and second benefit years, 13 for the third, 11 for the fourth, and 10 for the fifth through tenth, subject to the applicable policy conditions.",
+                  "logic_status": "not_mapped"
+                },
+                {
+                  "kind": "published_vfr_distinction",
+                  "statement": "The FAQ describes separate veteran farmer/rancher qualifications and benefits for up to five crop years. BFR and VFR benefits cannot be received at the same time; a person who qualifies for both receives BFR benefits first.",
+                  "logic_status": "not_mapped"
+                },
+                {
+                  "kind": "published_effective_period_and_application_timing",
+                  "statement": "The FAQ says the BFR definition/benefit changes apply beginning with 2026 crop-year policies meeting the stated sales-closing-date conditions. Application deadlines depend on crop/policy timing; consult the current FAQ and an approved insurance provider for the applicable deadline.",
+                  "logic_status": "context_only"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.rma.crop-insurance",
+              "source_version": "RMA BFR/VFR FAQ dated November 2025, including 2026 crop-year changes; reviewed 2026-10-27.",
+              "retrieved_at": "2026-10-27T03:27:00Z",
+              "effective_at": null,
+              "transform_version": "rma-crop-insurance-source-review-v1",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://www.rma.usda.gov/about-crop-insurance/frequently-asked-questions/beginning-farmer-rancher-bfr-veteran-farmer-rancher",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://www.rma.usda.gov/about-crop-insurance/frequently-asked-questions/beginning-farmer-rancher-bfr-veteran-farmer-rancher",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.navigator": {
+                  "source_url": "https://www.rma.usda.gov/about-crop-insurance/frequently-asked-questions/beginning-farmer-rancher-bfr-veteran-farmer-rancher",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://www.rma.usda.gov/about-crop-insurance/frequently-asked-questions/beginning-farmer-rancher-bfr-veteran-farmer-rancher",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://www.rma.usda.gov/about-crop-insurance/frequently-asked-questions/beginning-farmer-rancher-bfr-veteran-farmer-rancher",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://www.rma.usda.gov/about-crop-insurance/frequently-asked-questions/beginning-farmer-rancher-bfr-veteran-farmer-rancher",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.criteria": {
+                  "source_url": "https://www.rma.usda.gov/about-crop-insurance/frequently-asked-questions/beginning-farmer-rancher-bfr-veteran-farmer-rancher",
+                  "observed_at": "2026-10-27T03:27:00Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false,
+              "publisher_page_version": "RMA BFR/VFR FAQ dated November 2025; 2026 crop-year changes; reviewed 2026-10-27"
+            },
+            "source_url": "https://www.rma.usda.gov/about-crop-insurance/frequently-asked-questions/beginning-farmer-rancher-bfr-veteran-farmer-rancher",
+            "schema_version": "eligibility-program-v1",
+            "observed_at": "2026-10-27T03:27:00Z",
+            "content_hash": "3b63806be8047c3e497b53de74ea5a05be550bb58edf13d99057ff7e4dbc6320"
+          }
+        ]
+      }
+    }
+  ],
+  "limits": {
+    "maximum_records_total": 15,
+    "no_raw_source_page_storage": true,
+    "refresh_mode": "operator_triggered",
+    "not_an_insurance_quote_or_coverage_confirmation": true,
+    "criteria_are_partial_and_non_executable": true
+  }
+}

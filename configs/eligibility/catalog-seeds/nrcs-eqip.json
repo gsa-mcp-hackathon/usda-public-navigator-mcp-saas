@@ -1,0 +1,476 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "usda.nrcs.eqip",
+    "reviewed_at": "2026-11-09T21:48:19.380618Z",
+    "publisher_version": "sha256:231ada3d027aa98e5703f2710ffd9480f66abd11fc6cc8137aa00bb83e2cbfcc",
+    "raw_source_documents_committed": false,
+    "access_method": "Official NRCS page content reviewed through current web retrieval. A local HTTP fetch timed out; no raw page body or response headers were retained.",
+    "pages": [
+      {
+        "url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program",
+        "title": "Environmental Quality Incentives Program (EQIP)",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program/apply-for-environmental-quality",
+        "title": "Apply for Environmental Quality Incentives Program (EQIP)",
+        "source_content_sha256": "231ada3d027aa98e5703f2710ffd9480f66abd11fc6cc8137aa00bb83e2cbfcc",
+        "source_visible_text_sha256": "e0405c6bb30e19eaa6aa4f2f9107b3a190423ce8ed57eea588b8cafc31e8a83d",
+        "retrieved_at": "2026-11-09T21:48:19.380618Z"
+      }
+    ]
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "usda.nrcs.eqip",
+      "source_name": "USDA Natural Resources Conservation Service Environmental Quality Incentives Program",
+      "source_url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "federal",
+          "owner_name": "Natural Resources Conservation Service, United States Department of Agriculture",
+          "verification_status": "verified",
+          "evidence_url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program"
+        },
+        "approved_scope": "Source-backed EQIP program discovery, application/referral guidance, and a partial non-executable transcription of published eligibility statements. Not an agency determination or a complete ruleset.",
+        "refresh_mode": "operator_triggered"
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "nrcs-eqip-program-listings",
+        "source_dataset_id": "NRCS EQIP program overview and application guidance",
+        "title": "USDA NRCS EQIP program listings and application referral",
+        "landing_page": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program",
+        "schema_version": "public-listing-v1",
+        "namespace_ids": [
+          "core",
+          "listing"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "refresh_mode": "operator_triggered",
+          "criteria_coverage": "not_assessed",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "listing": "eligibility-public-listing-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "listing": "public-listing-v1"
+          },
+          "content_type": "federal_conservation_program_listing_and_application_referral",
+          "maximum_records_total": 20
+        }
+      },
+      {
+        "dataset_id": "nrcs-eqip-published-criteria",
+        "source_dataset_id": "NRCS EQIP Apply page published requirements",
+        "title": "USDA NRCS EQIP partial published eligibility reference",
+        "landing_page": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program/apply-for-environmental-quality",
+        "schema_version": "eligibility-program-v4",
+        "namespace_ids": [
+          "core",
+          "eligibility"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "refresh_mode": "operator_triggered",
+          "criteria_coverage": "partial",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "eligibility": "eligibility-program-schema"
+          },
+          "schema_versions": {
+            "core": "core-v4",
+            "eligibility": "eligibility-program-v4"
+          },
+          "content_type": "published_partial_non_executable_eligibility_reference",
+          "published_criteria_available": true,
+          "criteria_mapping_status": "not_mapped",
+          "maximum_records_total": 10
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "nrcs-eqip-program-listings",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "Official USDA NRCS EQIP program and application pages reviewed 2026-10-27; no publisher revision or effective date identified; listing summary reviewed 2026-11-03",
+        "retrieved_at": "2026-11-03T23:53:26Z",
+        "transform_version": "nrcs-eqip-official-page-review-2",
+        "validation_outcome": "valid",
+        "detail": "NRCS EQIP program listing and application referral; published criteria are stored separately and remain unmapped.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "nrcs-eqip-program",
+            "record_type": "federal-conservation-program-listing",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Environmental Quality Incentives Program (EQIP)",
+              "listing.summary": "USDA NRCS describes EQIP as voluntary technical and financial conservation assistance for agricultural producers and forest landowners on working lands. The New Mexico NRCS page lists irrigation-system improvements and water conservation among EQIP practices and resource concerns; practices, ranking, and funding vary by location and period. This listing does not determine eligibility or funding.",
+              "listing.agency": "Natural Resources Conservation Service (NRCS), USDA",
+              "listing.applicant_types": [
+                "agricultural_producers",
+                "farmers",
+                "ranchers",
+                "forest_landowners"
+              ],
+              "listing.opportunity_url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              },
+              "criteria_program_ids": [
+                "usda-nrcs-eqip"
+              ],
+              "criteria_link_evidence": {
+                "policy_version": "scenario-mapped-criteria-links-v1",
+                "reviewed_at": "2026-11-05T12:42:00Z",
+                "links": [
+                  {
+                    "program_id": "usda-nrcs-eqip",
+                    "criteria_record_id": "nrcs-eqip-published-criteria",
+                    "relationship": "Federal EQIP program identity is linked to its separately stored NRCS criteria reference and partial mapped-rule record.",
+                    "source_urls": [
+                      "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program/apply-for-environmental-quality"
+                    ]
+                  }
+                ]
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.nrcs.eqip",
+              "source_version": "Official USDA NRCS EQIP program and application pages reviewed 2026-10-27; no publisher revision or effective date identified; listing summary reviewed 2026-11-03",
+              "retrieved_at": "2026-11-03T23:53:26Z",
+              "effective_at": null,
+              "transform_version": "nrcs-eqip-official-page-review-2",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program",
+                  "observed_at": "2026-10-27T02:56:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program",
+                  "observed_at": "2026-10-27T02:56:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program",
+                  "observed_at": "2026-10-27T02:56:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program/new-mexico/environmental-quality",
+                  "observed_at": "2026-11-03T23:30:53Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program",
+                  "observed_at": "2026-10-27T02:56:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program",
+                  "observed_at": "2026-10-27T02:56:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program",
+                  "observed_at": "2026-10-27T02:56:30Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-11-03T23:30:53Z",
+            "content_hash": "0ad3038dd3e8ee22a1e399154ce55c40492fa6417ab133bb38f856b2458c6c9a"
+          },
+          {
+            "source_record_id": "nrcs-eqip-application-guidance",
+            "record_type": "federal-program-application-referral",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "EQIP application, eligibility, and state ranking guidance",
+              "listing.summary": "NRCS accepts EQIP financial-assistance applications throughout the year, but states set ranking and funding deadlines. Applicants are directed to a local NRCS office; the published application page lists eligible applicant and land categories, FSA farm-record requirements, and other requirements. Funding applications are ranked; this referral does not evaluate eligibility or likelihood of selection.",
+              "listing.agency": "Natural Resources Conservation Service (NRCS), USDA",
+              "listing.applicant_types": [
+                "agricultural_producers",
+                "nonindustrial_private_forestland_owners",
+                "indian_tribes",
+                "agricultural_or_forestry_operation_interested_parties",
+                "water_management_entities"
+              ],
+              "listing.opportunity_url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program/apply-for-environmental-quality"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.nrcs.eqip",
+              "source_version": "Official USDA NRCS EQIP program and application pages reviewed 2026-10-27; no publisher revision or effective date identified; listing summary reviewed 2026-11-03",
+              "retrieved_at": "2026-11-03T23:53:26Z",
+              "effective_at": null,
+              "transform_version": "nrcs-eqip-official-page-review-2",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program/apply-for-environmental-quality",
+                  "observed_at": "2026-10-27T02:56:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program/apply-for-environmental-quality",
+                  "observed_at": "2026-10-27T02:56:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program/apply-for-environmental-quality",
+                  "observed_at": "2026-10-27T02:56:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program/apply-for-environmental-quality",
+                  "observed_at": "2026-10-27T02:56:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program/apply-for-environmental-quality",
+                  "observed_at": "2026-10-27T02:56:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program/apply-for-environmental-quality",
+                  "observed_at": "2026-10-27T02:56:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program/apply-for-environmental-quality",
+                  "observed_at": "2026-10-27T02:56:30Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program/apply-for-environmental-quality",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T02:56:30Z",
+            "content_hash": "8fe8c77414579f515d75371084d705f05ed72ad7e0e3ada53144da8f968a9b46"
+          }
+        ]
+      }
+    },
+    {
+      "dataset_id": "nrcs-eqip-published-criteria",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "sha256:231ada3d027aa98e5703f2710ffd9480f66abd11fc6cc8137aa00bb83e2cbfcc",
+        "retrieved_at": "2026-11-09T21:48:19.380618Z",
+        "transform_version": "nrcs-eqip-official-page-review-3",
+        "validation_outcome": "valid",
+        "detail": "Current official NRCS application page re-read via Core source.read; v4 reference retains one partial existing land-control mapping, seven unresolved requirement IDs, and source-backed details.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "nrcs-eqip-published-criteria",
+            "record_type": "federal-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "usda-nrcs-eqip",
+              "eligibility.program.catalog_version": "retrieved-2026-10-27",
+              "eligibility.program.navigator": "farm_business_conservation",
+              "eligibility.program.data_origin": "USDA NRCS EQIP application guidance",
+              "eligibility.program.title": "Environmental Quality Incentives Program (EQIP) published eligibility reference",
+              "eligibility.program.description": "Partial structured reference to requirements published on NRCS EQIP application guidance. Items are transcribed as source statements and remain unmapped to profile attributes or executable evaluation logic. The page warns that additional requirements may apply.",
+              "eligibility.program.details": [
+                {
+                  "kind": "application_step",
+                  "text": "Contact your local NRCS office to discuss whether EQIP fits your resource concern. If you proceed, a local NRCS conservationist will guide you through applying.",
+                  "source_id": "usda.nrcs.eqip"
+                },
+                {
+                  "kind": "deadline",
+                  "text": "Applications are accepted throughout the year. Each state sets specific deadlines for ranking and funding opportunities; confirm the applicable dates with NRCS.",
+                  "source_id": "usda.nrcs.eqip"
+                },
+                {
+                  "kind": "application_step",
+                  "text": "Establish or update Farm Service Agency records for both the applicant and the land. The records must indicate land control or ownership, adjusted-gross-income and payment-limit compliance, and highly-erodible-land and wetland-conservation compliance.",
+                  "source_id": "usda.nrcs.eqip"
+                },
+                {
+                  "kind": "application_step",
+                  "text": "After approval, participants work with an NRCS conservation planner to develop an EQIP plan of operations addressing at least one natural-resource concern.",
+                  "source_id": "usda.nrcs.eqip"
+                },
+                {
+                  "kind": "form",
+                  "text": "The NRCS page links to eForms to search for and complete the EQIP application form. Confirm the current form and instructions there.",
+                  "source_id": "usda.nrcs.eqip"
+                }
+              ],
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "eqip-fsa-records-eligible-land-control",
+                  "statement": "Farm records must indicate that the applicant controls or owns eligible land.",
+                  "mapping_status": "partial",
+                  "source_id": "usda.nrcs.eqip",
+                  "requirement_type": "eligibility",
+                  "concept_id": "eqip-fsa-records-eligible-land-control",
+                  "attribute": "nrcs.eqip.fsa_records_confirm_eligible_land_control"
+                },
+                {
+                  "requirement_id": "eligible-applicant-category",
+                  "statement": "Eligible applicants include agricultural producers, owners of non-industrial private forestland, Indian Tribes, persons with an interest in agricultural or forestry operations, and water management entities.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.nrcs.eqip",
+                  "requirement_type": "applicant_condition"
+                },
+                {
+                  "requirement_id": "eligible-land-category",
+                  "statement": "Eligible land includes cropland and hayland, rangeland, pastureland, non-industrial private forestland, other farm or ranch lands, and environmentally sensitive areas.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.nrcs.eqip",
+                  "requirement_type": "eligibility"
+                },
+                {
+                  "requirement_id": "agi-and-payment-limitations",
+                  "statement": "Farm records must indicate that the applicant meets adjusted gross income and payment limitation provisions.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.nrcs.eqip",
+                  "requirement_type": "eligibility"
+                },
+                {
+                  "requirement_id": "highly-erodible-land-and-wetland-compliance",
+                  "statement": "Farm records must indicate compliance with highly erodible land and wetland conservation requirements.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.nrcs.eqip",
+                  "requirement_type": "eligibility"
+                },
+                {
+                  "requirement_id": "eqip-plan-of-operations",
+                  "statement": "Approved participants, with NRCS conservation planners, must develop an EQIP plan of operations addressing at least one natural resource concern.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.nrcs.eqip",
+                  "requirement_type": "program_condition"
+                },
+                {
+                  "requirement_id": "state-ranking-and-funding-priority",
+                  "statement": "Applications are ranked; state-specific cutoff dates and resource priorities affect consideration for funding, which is separate from eligibility.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.nrcs.eqip",
+                  "requirement_type": "context"
+                },
+                {
+                  "requirement_id": "additional-local-restrictions",
+                  "statement": "Additional restrictions and program requirements may apply; applicants should contact the local NRCS office for situation-specific information.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.nrcs.eqip",
+                  "requirement_type": "context"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.nrcs.eqip",
+              "source_version": "sha256:231ada3d027aa98e5703f2710ffd9480f66abd11fc6cc8137aa00bb83e2cbfcc",
+              "retrieved_at": "2026-11-09T21:48:19.380618Z",
+              "effective_at": null,
+              "transform_version": "nrcs-eqip-official-page-review-3",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program/apply-for-environmental-quality",
+                  "observed_at": "2026-11-09T21:48:19.380618Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program/apply-for-environmental-quality",
+                  "observed_at": "2026-11-09T21:48:19.380618Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.navigator": {
+                  "source_url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program/apply-for-environmental-quality",
+                  "observed_at": "2026-11-09T21:48:19.380618Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program/apply-for-environmental-quality",
+                  "observed_at": "2026-11-09T21:48:19.380618Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program/apply-for-environmental-quality",
+                  "observed_at": "2026-11-09T21:48:19.380618Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program/apply-for-environmental-quality",
+                  "observed_at": "2026-11-09T21:48:19.380618Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.details": {
+                  "source_url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program/apply-for-environmental-quality",
+                  "observed_at": "2026-11-09T21:48:19.380618Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program/apply-for-environmental-quality",
+                  "observed_at": "2026-11-09T21:48:19.380618Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false,
+              "source_content_sha256": "231ada3d027aa98e5703f2710ffd9480f66abd11fc6cc8137aa00bb83e2cbfcc",
+              "source_visible_text_sha256": "e0405c6bb30e19eaa6aa4f2f9107b3a190423ce8ed57eea588b8cafc31e8a83d"
+            },
+            "source_url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program/apply-for-environmental-quality",
+            "schema_version": "eligibility-program-v4",
+            "observed_at": "2026-11-09T21:48:19.380618Z",
+            "content_hash": "5d00f10adb19e14fcd94b850b2cd54f52667d11d796729a239303effb2cdce1f"
+          }
+        ]
+      }
+    }
+  ],
+  "limits": [
+    "Criteria records are source statements, not executable rules or an eligibility result.",
+    "State-specific ranking dates, local practice priorities, payment schedules, and individual technical review are not normalized in this batch.",
+    "The two official pages exposed no publisher revision/effective date in the reviewed content."
+  ]
+}

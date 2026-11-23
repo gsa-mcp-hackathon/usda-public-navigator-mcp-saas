@@ -1,0 +1,36 @@
+{
+  "suite_id": "S05",
+  "name": "persona-outcomes",
+  "objective": "Core positive, negative, missing-fact and boundary personas produce source-cited criterion results",
+  "depends_on": [
+    "S03"
+  ],
+  "requires_operator": false,
+  "stop_on_fail": false,
+  "start_conditions": [
+    "S03 passed (tenant route captured)",
+    "--personas points to expected-outcomes.json"
+  ],
+  "stop_conditions": [
+    "None: every persona runs; failures are listed per criterion"
+  ],
+  "maps_to": [
+    "O-7",
+    "A-2",
+    "H-R (automatable part)"
+  ],
+  "persona_tests": {
+    "set_prefix": "Core",
+    "case_types": [
+      "positive",
+      "negative"
+    ],
+    "include_tags": [
+      "boundary",
+      "missing fact"
+    ]
+  },
+  "tests": [],
+  "all_tests_gate": false,
+  "pass_rule": "Suite PASS = all tests pass. PASS_WITH_DEFECTS = only non-gate tests failed (dependent suites still run). FAIL = a gate test failed (dependent suites are BLOCKED)."
+}

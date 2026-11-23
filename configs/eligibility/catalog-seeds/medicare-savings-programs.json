@@ -1,0 +1,875 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "cms.medicare-savings-programs",
+    "retrieved_at": "2026-10-30T02:08:10Z",
+    "publisher_version": "Medicare.gov page retrieved 2026-10-30; published 2026 Medicare Savings Program limits.",
+    "raw_source_documents_committed": false,
+    "source_observations": [
+      "Medicare.gov lists four Medicare Savings Programs and 2026 federal income/resource limits.",
+      "The page says state agencies administer applications, may use higher limits or disregard income/resources, and state-specific rules must be checked.",
+      "All four criteria records are partial and not mapped; no executable evaluation rules or eligibility conclusions are created.",
+      "This is a program-information/criteria source, not the separate CMS provider/service dataset or Data API integration mentioned in V1/V2."
+    ]
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "cms.medicare-savings-programs",
+      "source_name": "CMS Medicare Savings Programs",
+      "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "federal",
+          "owner_name": "Centers for Medicare & Medicaid Services",
+          "verification_status": "verified",
+          "evidence_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs"
+        },
+        "approved_scope": "Official Medicare Savings Program listings and published 2026 federal criteria references. Preserve state administration and state-specific variance; criteria remain partial and non-executable. This source does not ingest CMS provider/service datasets or the CMS Data API.",
+        "refresh_mode": "operator_triggered"
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "cms-medicare-savings-program-listings",
+        "source_dataset_id": "Medicare.gov Medicare Savings Programs page",
+        "title": "Medicare Savings Program national listings",
+        "landing_page": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+        "schema_version": "public-listing-v3",
+        "namespace_ids": [
+          "core",
+          "listing"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "listing": "eligibility-public-listing-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "listing": "public-listing-v3"
+          },
+          "content_type": "federal_medicare_savings_program_listings",
+          "refresh_mode": "operator_triggered",
+          "maximum_records_total": 4,
+          "criteria_coverage": "partial"
+        }
+      },
+      {
+        "dataset_id": "cms-medicare-savings-program-published-criteria",
+        "source_dataset_id": "Medicare.gov 2026 Medicare Savings Programs published requirements",
+        "title": "Medicare Savings Programs 2026 published criteria references",
+        "landing_page": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+        "schema_version": "eligibility-program-v2",
+        "namespace_ids": [
+          "core",
+          "eligibility"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "partial",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "eligibility": "eligibility-program-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "eligibility": "eligibility-program-v2"
+          },
+          "content_type": "published_partial_non_executable_eligibility_reference",
+          "published_criteria_available": true,
+          "criteria_mapping_status": "not_mapped",
+          "effective_period": "2026 published limits",
+          "refresh_mode": "operator_triggered",
+          "maximum_records_total": 4
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "cms-medicare-savings-program-listings",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "Medicare.gov page retrieved 2026-10-30; published 2026 Medicare Savings Program limits.",
+        "retrieved_at": "2026-10-30T02:08:10Z",
+        "transform_version": "cms-msp-source-review-v1",
+        "validation_outcome": "valid",
+        "detail": "4 official Medicare Savings Program listing records; 2026 thresholds; state variation preserved; partial and non-executable. CMS provider API data excluded.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "medicare-qmb-listing",
+            "record_type": "federal-medicare-savings-program-listing",
+            "canonical_attributes": {
+              "core.geography.country_code": "US",
+              "listing.record_kind": "assistance_program",
+              "listing.title": "Qualified Medicare Beneficiary (QMB) Program",
+              "listing.summary": "Helps pay Part A premiums when a person does not have premium-free Part A, Part B premiums, and Medicare-covered deductibles, coinsurance, and copayments. The state determines the program decision and application.",
+              "listing.agency": "Centers for Medicare & Medicaid Services (CMS); program applications are handled by state agencies",
+              "listing.program_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "listing_kind": "assistance_program",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "national",
+                "country_code": "US"
+              },
+              "need_topics": [
+                "healthcare_costs",
+                "medicare_premiums",
+                "low_income_support"
+              ],
+              "beneficiary_classes": [
+                "Medicare beneficiaries"
+              ]
+            },
+            "source_metadata": {
+              "source_id": "cms.medicare-savings-programs",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "source_title": "Medicare Savings Programs",
+              "publisher": "Centers for Medicare & Medicaid Services",
+              "source_version": "Medicare.gov page retrieved 2026-10-30; published 2026 Medicare Savings Program limits.",
+              "criteria_status": "partial_not_mapped",
+              "retrieved_at": "2026-10-30T02:08:10Z",
+              "effective_at": null,
+              "transform_version": "cms-msp-source-review-v1",
+              "field_provenance": {
+                "core.geography.country_code": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.record_kind": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.program_url": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+            "schema_version": "public-listing-v3",
+            "observed_at": "2026-10-30T02:08:10Z",
+            "content_hash": "ef9b6a7a2062d9e6aa586f4fad3f9bc1f30af4d404f7598cb952ba452e2d8c41"
+          },
+          {
+            "source_record_id": "medicare-slmb-listing",
+            "record_type": "federal-medicare-savings-program-listing",
+            "canonical_attributes": {
+              "core.geography.country_code": "US",
+              "listing.record_kind": "assistance_program",
+              "listing.title": "Specified Low-Income Medicare Beneficiary (SLMB) Program",
+              "listing.summary": "Helps pay Part B premiums. The published page says a person must have both Part A and Part B; state administration and eligibility rules apply.",
+              "listing.agency": "Centers for Medicare & Medicaid Services (CMS); program applications are handled by state agencies",
+              "listing.program_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "listing_kind": "assistance_program",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "national",
+                "country_code": "US"
+              },
+              "need_topics": [
+                "healthcare_costs",
+                "medicare_premiums",
+                "low_income_support"
+              ],
+              "beneficiary_classes": [
+                "Medicare beneficiaries"
+              ]
+            },
+            "source_metadata": {
+              "source_id": "cms.medicare-savings-programs",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "source_title": "Medicare Savings Programs",
+              "publisher": "Centers for Medicare & Medicaid Services",
+              "source_version": "Medicare.gov page retrieved 2026-10-30; published 2026 Medicare Savings Program limits.",
+              "criteria_status": "partial_not_mapped",
+              "retrieved_at": "2026-10-30T02:08:10Z",
+              "effective_at": null,
+              "transform_version": "cms-msp-source-review-v1",
+              "field_provenance": {
+                "core.geography.country_code": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.record_kind": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.program_url": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+            "schema_version": "public-listing-v3",
+            "observed_at": "2026-10-30T02:08:10Z",
+            "content_hash": "34b999102120d5d375042ff9363662e37b07bbb562c961cd8768911f9fe17bd9"
+          },
+          {
+            "source_record_id": "medicare-qi-listing",
+            "record_type": "federal-medicare-savings-program-listing",
+            "canonical_attributes": {
+              "core.geography.country_code": "US",
+              "listing.record_kind": "assistance_program",
+              "listing.title": "Qualifying Individual (QI) Program",
+              "listing.summary": "Helps pay Part B premiums. The person must have Part A and Part B, cannot qualify for other Medicaid coverage or benefits, and must reapply annually; states approve applications first-come, first-served with prior-year priority.",
+              "listing.agency": "Centers for Medicare & Medicaid Services (CMS); program applications are handled by state agencies",
+              "listing.program_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "listing_kind": "assistance_program",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "national",
+                "country_code": "US"
+              },
+              "need_topics": [
+                "healthcare_costs",
+                "medicare_premiums",
+                "low_income_support"
+              ],
+              "beneficiary_classes": [
+                "Medicare beneficiaries"
+              ]
+            },
+            "source_metadata": {
+              "source_id": "cms.medicare-savings-programs",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "source_title": "Medicare Savings Programs",
+              "publisher": "Centers for Medicare & Medicaid Services",
+              "source_version": "Medicare.gov page retrieved 2026-10-30; published 2026 Medicare Savings Program limits.",
+              "criteria_status": "partial_not_mapped",
+              "retrieved_at": "2026-10-30T02:08:10Z",
+              "effective_at": null,
+              "transform_version": "cms-msp-source-review-v1",
+              "field_provenance": {
+                "core.geography.country_code": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.record_kind": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.program_url": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+            "schema_version": "public-listing-v3",
+            "observed_at": "2026-10-30T02:08:10Z",
+            "content_hash": "6d032cf7c243359961d010a1ad7c156ad7085b12c7e27b96361532051f4a0e5d"
+          },
+          {
+            "source_record_id": "medicare-qdwi-listing",
+            "record_type": "federal-medicare-savings-program-listing",
+            "canonical_attributes": {
+              "core.geography.country_code": "US",
+              "listing.record_kind": "assistance_program",
+              "listing.title": "Qualified Disabled and Working Individual (QDWI) Program",
+              "listing.summary": "May help pay Medicare Part A premiums only. Published conditions include disability, current work, and loss of Social Security disability benefits and premium-free Part A after returning to work.",
+              "listing.agency": "Centers for Medicare & Medicaid Services (CMS); program applications are handled by state agencies",
+              "listing.program_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "listing_kind": "assistance_program",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "national",
+                "country_code": "US"
+              },
+              "need_topics": [
+                "healthcare_costs",
+                "medicare_premiums",
+                "low_income_support"
+              ],
+              "beneficiary_classes": [
+                "Medicare beneficiaries"
+              ]
+            },
+            "source_metadata": {
+              "source_id": "cms.medicare-savings-programs",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "source_title": "Medicare Savings Programs",
+              "publisher": "Centers for Medicare & Medicaid Services",
+              "source_version": "Medicare.gov page retrieved 2026-10-30; published 2026 Medicare Savings Program limits.",
+              "criteria_status": "partial_not_mapped",
+              "retrieved_at": "2026-10-30T02:08:10Z",
+              "effective_at": null,
+              "transform_version": "cms-msp-source-review-v1",
+              "field_provenance": {
+                "core.geography.country_code": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.record_kind": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.program_url": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+            "schema_version": "public-listing-v3",
+            "observed_at": "2026-10-30T02:08:10Z",
+            "content_hash": "65cfa2f6d71a07a31476f2518228dd11525e700c49d1bdf9c8793d06f8a9b8ff"
+          }
+        ]
+      }
+    },
+    {
+      "dataset_id": "cms-medicare-savings-program-published-criteria",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "Medicare.gov page retrieved 2026-10-30; published 2026 Medicare Savings Program limits.",
+        "retrieved_at": "2026-10-30T02:08:10Z",
+        "transform_version": "cms-msp-source-review-v1",
+        "validation_outcome": "valid",
+        "detail": "4 official Medicare Savings Program criteria-reference records; 2026 thresholds; state variation preserved; partial and non-executable. CMS provider API data excluded.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "medicare-qmb-published-criteria-2026",
+            "record_type": "federal-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "medicare-qmb",
+              "eligibility.program.catalog_version": "cms-medicare-msp-2026-reviewed-2026-10-30",
+              "eligibility.program.data_origin": "Official Medicare.gov Medicare Savings Programs page reviewed 2026-10-30: https://www.medicare.gov/basics/costs/help/medicare-savings-programs. Published criteria are partial and non-executable; state rules may be more generous.",
+              "eligibility.program.title": "Qualified Medicare Beneficiary (QMB) Program",
+              "eligibility.program.description": "Helps pay Part A premiums when a person does not have premium-free Part A, Part B premiums, and Medicare-covered deductibles, coinsurance, and copayments. The state determines the program decision and application.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "income_limit_2026",
+                  "statement": "For 2026, monthly income limits are $1,350 for an individual and $1,824 for a married couple. Income limits are slightly higher in Alaska and Hawaii; states may allow higher income or disregard some income.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "cms.medicare-savings-programs"
+                },
+                {
+                  "requirement_id": "resource_limit_2026",
+                  "statement": "For 2026, resource limits are $9,950 for an individual and $14,910 for a married couple. States may allow higher resources or disregard some resources.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "cms.medicare-savings-programs"
+                },
+                {
+                  "requirement_id": "covered_costs",
+                  "statement": "May help pay Part A premiums when Part A is not premium-free, Part B premiums, and Medicare-covered deductibles, coinsurance, and copayments.",
+                  "mapping_status": "context_only",
+                  "source_id": "cms.medicare-savings-programs"
+                },
+                {
+                  "requirement_id": "state_application",
+                  "statement": "The program is run by the state; the state determines which Medicare Savings Program(s) a person qualifies for and accepts the application.",
+                  "mapping_status": "context_only",
+                  "source_id": "cms.medicare-savings-programs"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "national",
+                "country_code": "US"
+              },
+              "criteria_mapping_status": "not_mapped",
+              "effective_period": "2026 published limits"
+            },
+            "source_metadata": {
+              "source_id": "cms.medicare-savings-programs",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "source_title": "Medicare Savings Programs",
+              "publisher": "Centers for Medicare & Medicaid Services",
+              "source_version": "Medicare.gov page retrieved 2026-10-30; published 2026 Medicare Savings Program limits.",
+              "criteria_status": "partial_not_mapped",
+              "retrieved_at": "2026-10-30T02:08:10Z",
+              "effective_at": null,
+              "transform_version": "cms-msp-source-review-v1",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+            "schema_version": "eligibility-program-v2",
+            "observed_at": "2026-10-30T02:08:10Z",
+            "content_hash": "e1c545ad7a0c276e24315bacb2af0bd06ab4a5ebcb36eae8bdc62987bb3d90cb"
+          },
+          {
+            "source_record_id": "medicare-slmb-published-criteria-2026",
+            "record_type": "federal-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "medicare-slmb",
+              "eligibility.program.catalog_version": "cms-medicare-msp-2026-reviewed-2026-10-30",
+              "eligibility.program.data_origin": "Official Medicare.gov Medicare Savings Programs page reviewed 2026-10-30: https://www.medicare.gov/basics/costs/help/medicare-savings-programs. Published criteria are partial and non-executable; state rules may be more generous.",
+              "eligibility.program.title": "Specified Low-Income Medicare Beneficiary (SLMB) Program",
+              "eligibility.program.description": "Helps pay Part B premiums. The published page says a person must have both Part A and Part B; state administration and eligibility rules apply.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "part_a_and_b",
+                  "statement": "The person must have both Medicare Part A and Part B.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "cms.medicare-savings-programs"
+                },
+                {
+                  "requirement_id": "income_limit_2026",
+                  "statement": "For 2026, monthly income limits are $1,616 for an individual and $2,184 for a married couple. Income limits are slightly higher in Alaska and Hawaii; states may allow higher income or disregard some income.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "cms.medicare-savings-programs"
+                },
+                {
+                  "requirement_id": "resource_limit_2026",
+                  "statement": "For 2026, resource limits are $9,950 for an individual and $14,910 for a married couple. States may allow higher resources or disregard some resources.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "cms.medicare-savings-programs"
+                },
+                {
+                  "requirement_id": "covered_costs",
+                  "statement": "Helps pay Medicare Part B premiums.",
+                  "mapping_status": "context_only",
+                  "source_id": "cms.medicare-savings-programs"
+                },
+                {
+                  "requirement_id": "state_application",
+                  "statement": "The program is run by the state; the state determines which Medicare Savings Program(s) a person qualifies for and accepts the application.",
+                  "mapping_status": "context_only",
+                  "source_id": "cms.medicare-savings-programs"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "national",
+                "country_code": "US"
+              },
+              "criteria_mapping_status": "not_mapped",
+              "effective_period": "2026 published limits"
+            },
+            "source_metadata": {
+              "source_id": "cms.medicare-savings-programs",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "source_title": "Medicare Savings Programs",
+              "publisher": "Centers for Medicare & Medicaid Services",
+              "source_version": "Medicare.gov page retrieved 2026-10-30; published 2026 Medicare Savings Program limits.",
+              "criteria_status": "partial_not_mapped",
+              "retrieved_at": "2026-10-30T02:08:10Z",
+              "effective_at": null,
+              "transform_version": "cms-msp-source-review-v1",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+            "schema_version": "eligibility-program-v2",
+            "observed_at": "2026-10-30T02:08:10Z",
+            "content_hash": "8981d64b5ba94b142e831a10e6e4b76b8cb7960f0436cbb6203a0834c3b08a47"
+          },
+          {
+            "source_record_id": "medicare-qi-published-criteria-2026",
+            "record_type": "federal-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "medicare-qi",
+              "eligibility.program.catalog_version": "cms-medicare-msp-2026-reviewed-2026-10-30",
+              "eligibility.program.data_origin": "Official Medicare.gov Medicare Savings Programs page reviewed 2026-10-30: https://www.medicare.gov/basics/costs/help/medicare-savings-programs. Published criteria are partial and non-executable; state rules may be more generous.",
+              "eligibility.program.title": "Qualifying Individual (QI) Program",
+              "eligibility.program.description": "Helps pay Part B premiums. The person must have Part A and Part B, cannot qualify for other Medicaid coverage or benefits, and must reapply annually; states approve applications first-come, first-served with prior-year priority.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "part_a_and_b",
+                  "statement": "The person must have both Medicare Part A and Part B.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "cms.medicare-savings-programs"
+                },
+                {
+                  "requirement_id": "income_limit_2026",
+                  "statement": "For 2026, monthly income limits are $1,816 for an individual and $2,455 for a married couple. Income limits are slightly higher in Alaska and Hawaii; states may allow higher income or disregard some income.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "cms.medicare-savings-programs"
+                },
+                {
+                  "requirement_id": "resource_limit_2026",
+                  "statement": "For 2026, resource limits are $9,950 for an individual and $14,910 for a married couple. States may allow higher resources or disregard some resources.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "cms.medicare-savings-programs"
+                },
+                {
+                  "requirement_id": "other_medicaid_benefits",
+                  "statement": "QI is available only to people who do not qualify for other Medicaid coverage or benefits.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "cms.medicare-savings-programs"
+                },
+                {
+                  "requirement_id": "annual_application",
+                  "statement": "The person must apply every year. State approvals are first-come, first-served, with priority for people who received QI the previous year.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "cms.medicare-savings-programs"
+                },
+                {
+                  "requirement_id": "covered_costs",
+                  "statement": "Helps pay Medicare Part B premiums.",
+                  "mapping_status": "context_only",
+                  "source_id": "cms.medicare-savings-programs"
+                },
+                {
+                  "requirement_id": "state_application",
+                  "statement": "The program is run by the state; the state determines which Medicare Savings Program(s) a person qualifies for and accepts the application.",
+                  "mapping_status": "context_only",
+                  "source_id": "cms.medicare-savings-programs"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "national",
+                "country_code": "US"
+              },
+              "criteria_mapping_status": "not_mapped",
+              "effective_period": "2026 published limits"
+            },
+            "source_metadata": {
+              "source_id": "cms.medicare-savings-programs",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "source_title": "Medicare Savings Programs",
+              "publisher": "Centers for Medicare & Medicaid Services",
+              "source_version": "Medicare.gov page retrieved 2026-10-30; published 2026 Medicare Savings Program limits.",
+              "criteria_status": "partial_not_mapped",
+              "retrieved_at": "2026-10-30T02:08:10Z",
+              "effective_at": null,
+              "transform_version": "cms-msp-source-review-v1",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+            "schema_version": "eligibility-program-v2",
+            "observed_at": "2026-10-30T02:08:10Z",
+            "content_hash": "d607c3791b67a3ebeb73e04f979ee5ec13ec8a4bb50fab399ef22a667bc0d838"
+          },
+          {
+            "source_record_id": "medicare-qdwi-published-criteria-2026",
+            "record_type": "federal-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "medicare-qdwi",
+              "eligibility.program.catalog_version": "cms-medicare-msp-2026-reviewed-2026-10-30",
+              "eligibility.program.data_origin": "Official Medicare.gov Medicare Savings Programs page reviewed 2026-10-30: https://www.medicare.gov/basics/costs/help/medicare-savings-programs. Published criteria are partial and non-executable; state rules may be more generous.",
+              "eligibility.program.title": "Qualified Disabled and Working Individual (QDWI) Program",
+              "eligibility.program.description": "May help pay Medicare Part A premiums only. Published conditions include disability, current work, and loss of Social Security disability benefits and premium-free Part A after returning to work.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "disability",
+                  "statement": "The person has a disability.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "cms.medicare-savings-programs"
+                },
+                {
+                  "requirement_id": "working",
+                  "statement": "The person is working.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "cms.medicare-savings-programs"
+                },
+                {
+                  "requirement_id": "lost_disability_benefit_and_part_a",
+                  "statement": "The person lost Social Security disability benefits and premium-free Medicare Part A because they returned to work.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "cms.medicare-savings-programs"
+                },
+                {
+                  "requirement_id": "income_limit_2026",
+                  "statement": "For 2026, monthly income limits are $5,405 for an individual and $7,299 for a married couple. Income limits are slightly higher in Alaska and Hawaii; states may allow higher income or disregard some income.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "cms.medicare-savings-programs"
+                },
+                {
+                  "requirement_id": "resource_limit_2026",
+                  "statement": "For 2026, resource limits are $4,000 for an individual and $6,000 for a married couple.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "cms.medicare-savings-programs"
+                },
+                {
+                  "requirement_id": "covered_costs",
+                  "statement": "Helps pay Medicare Part A premiums only.",
+                  "mapping_status": "context_only",
+                  "source_id": "cms.medicare-savings-programs"
+                },
+                {
+                  "requirement_id": "state_application",
+                  "statement": "The program is run by the state; the state determines which Medicare Savings Program(s) a person qualifies for and accepts the application.",
+                  "mapping_status": "context_only",
+                  "source_id": "cms.medicare-savings-programs"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "national",
+                "country_code": "US"
+              },
+              "criteria_mapping_status": "not_mapped",
+              "effective_period": "2026 published limits"
+            },
+            "source_metadata": {
+              "source_id": "cms.medicare-savings-programs",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "source_title": "Medicare Savings Programs",
+              "publisher": "Centers for Medicare & Medicaid Services",
+              "source_version": "Medicare.gov page retrieved 2026-10-30; published 2026 Medicare Savings Program limits.",
+              "criteria_status": "partial_not_mapped",
+              "retrieved_at": "2026-10-30T02:08:10Z",
+              "effective_at": null,
+              "transform_version": "cms-msp-source-review-v1",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+                  "observed_at": "2026-10-30T02:08:10Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+            "schema_version": "eligibility-program-v2",
+            "observed_at": "2026-10-30T02:08:10Z",
+            "content_hash": "08a76161a766a468837d1fb67035554d75f4652816c72bd5fcc43c27b646c6d1"
+          }
+        ]
+      }
+    }
+  ]
+}

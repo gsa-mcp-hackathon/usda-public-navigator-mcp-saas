@@ -1,0 +1,1429 @@
+{
+ "schema_version": "1.0",
+ "provenance": "recorded",
+ "run": {
+  "run_id": "R20261117-agent-replay-1794946060572",
+  "mode": "agent_assisted_mcp",
+  "model_calls": null,
+  "started_at_utc": "2026-11-17T20:07:40.572Z",
+  "ended_at_utc": "2026-11-17T20:25:17.229Z",
+  "core_version": "0.2.0",
+  "git_sha": null,
+  "note": "End-to-end scenario coverage, agent-assisted (ChatGPT/Codex assistant). Model, tokens and cost not recorded. Phoenix matches 0 of 61 at capture time."
+ },
+ "cases": [
+  {
+   "id": "S1",
+   "category": "recorded",
+   "question": "My son wants to get into farming and would like to know what USDA programs are available to help him get started. He will likely need financing to buy equipment and livestock. Can you tell me what USDA programs are available that can help?",
+   "expected": null,
+   "observed": "fsa-beginning-farmer-loan-set-aside",
+   "navigator_status": "partial",
+   "phoenix_status": "not_verified",
+   "failure_owner": null,
+   "answer": "Beginning-farmer classification returned one met rule. Four eligibility clauses remain unresolved. This does not establish operating-loan eligibility.",
+   "calls": [
+    {
+     "tool": "route_operation",
+     "operation_id": "program.inventory.search",
+     "duration_ms": 22320,
+     "inner_status": "ok",
+     "correlation_id": "005a2959-97b7-4bdf-b248-647fca33c05f",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:08:22.153Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.evaluate",
+     "duration_ms": 13845,
+     "inner_status": "ok",
+     "correlation_id": "dd18556c-5a99-4d8d-85c1-c13ee81f0987",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:11:46.081Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.requirements.preview",
+     "duration_ms": 21003,
+     "inner_status": "preview",
+     "correlation_id": "7b5dee2b-9f17-4fc8-8145-1940229aceba",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:15:57.732Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.requirements.write",
+     "duration_ms": 17284,
+     "inner_status": "written",
+     "correlation_id": "379aa331-ea93-4bc2-9958-ce2114477419",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:16:18.739Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.candidate.requirements.read",
+     "duration_ms": 4969,
+     "inner_status": "available",
+     "correlation_id": "47025186-6b0c-4985-8954-59d9b34dda8a",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:20:54.109Z"
+    }
+   ],
+   "binder": {
+    "package_id": "004efa5f-c3cd-5086-9c4c-576a4cbe46ab",
+    "program_id": "fsa-beginning-farmer-loan-set-aside",
+    "program_title": "Beginning Farmer and Rancher Loan Resources",
+    "revision": 1,
+    "created_at": "2026-11-17T20:16:34.885299Z",
+    "status": "available",
+    "coverage": "partial_source_backed_screening",
+    "criteria_evaluations": [
+     {
+      "title": "FSA Beginning Farmer classification requirements",
+      "program_id": "fsa-beginning-farmer-classification",
+      "criteria_status": "partial",
+      "mapped_rule_counts": {
+       "met": 1,
+       "unmet": 0,
+       "unknown": 0,
+       "evaluable": 1,
+       "not_applicable": 0
+      },
+      "unresolved_requirement_count": 5,
+      "unresolved_eligibility_rule_count": 4,
+      "source_completeness": "not_proven",
+      "evidence": [
+       {
+        "criterion_id": "farm-operation-years",
+        "outcome": "met",
+        "reason_code": null,
+        "explanation": "The known profile value satisfies the source-backed criterion.",
+        "recommended_action": null
+       }
+      ]
+     }
+    ],
+    "required_documents": [],
+    "forms": [],
+    "deadlines": [],
+    "procedural_steps": [],
+    "unavailable_detail_kinds": [
+     "application_step",
+     "form",
+     "required_document",
+     "deadline"
+    ],
+    "source_references": [
+     {
+      "title": "Official public source record",
+      "agency": "Farm Service Agency (FSA), USDA",
+      "url": "https://www.farmers.gov/loans",
+      "retrieved_at": "2026-10-27T02:48:30Z"
+     },
+     {
+      "title": "FSA Beginning Farmer classification requirements",
+      "agency": "Farm Service Agency (FSA), USDA",
+      "url": "https://www.fsa.usda.gov/resources/beginning-farmers-and-ranchers-loans",
+      "retrieved_at": "2026-10-28T17:38:02Z"
+     }
+    ],
+    "source_health": [
+     {
+      "source_id": "usda.farmers.gov",
+      "status": "current",
+      "last_successful_retrieval": "2026-10-27T02:48:30Z"
+     },
+     {
+      "source_id": "usda.fsa.beginning-farmers",
+      "status": "current",
+      "last_successful_retrieval": "2026-10-28T17:38:02Z"
+     }
+    ]
+   }
+  },
+  {
+   "id": "S2",
+   "category": "recorded",
+   "question": "A recent grass fire in my county also burned a great deal of my cane feed crop and caused extensive cattle losses.\u00a0 What federal assistance programs are available to help me recover?",
+   "expected": null,
+   "observed": "fsa-livestock-indemnity-program",
+   "navigator_status": "partial",
+   "phoenix_status": "not_verified",
+   "failure_owner": null,
+   "answer": "Livestock Indemnity Program was discovered. Source retrieval, bounded extraction and manual source review reached criteria preparation, which compiled zero rules and retained one unresolved clause. No eligibility comparison was performed.",
+   "calls": [
+    {
+     "tool": "route_operation",
+     "operation_id": "program.inventory.search",
+     "duration_ms": 32049,
+     "inner_status": "ok",
+     "correlation_id": "44e2670b-48d6-4e9c-9429-f158515dbc1f",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:08:22.153Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.inventory.search",
+     "duration_ms": null,
+     "inner_status": "ok",
+     "correlation_id": "56b60498-40af-4404-b41c-0a281850dbfa",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": null
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.evaluate",
+     "duration_ms": 40739,
+     "inner_status": "mapping_required",
+     "correlation_id": "55cf8578-6f25-47fa-a256-ee9afc33fd17",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:13:22.431Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.criteria.source.read",
+     "duration_ms": 6542,
+     "inner_status": "ok",
+     "correlation_id": "e3987673-9e9c-4f18-8dd7-8dc15c185edd",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:14:43.988Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.criteria.extract",
+     "duration_ms": 5872,
+     "inner_status": "candidate_only",
+     "correlation_id": "d6b67629-729e-46db-a652-e0f761f5d69a",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:15:23.532Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.criteria.prepare",
+     "duration_ms": 6288,
+     "inner_status": "candidate_requires_review",
+     "correlation_id": "1891dbd9-a687-4616-8cd1-29cfcb07a2e1",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:15:42.714Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.requirements.preview",
+     "duration_ms": 17034,
+     "inner_status": "preview",
+     "correlation_id": "fd278331-3992-4b0f-8b1b-7ff07b2892ce",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:16:36.028Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.requirements.write",
+     "duration_ms": 20606,
+     "inner_status": "written",
+     "correlation_id": "b70bd721-e972-4f80-b2f5-bedf9603a9eb",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:16:53.068Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.candidate.requirements.read",
+     "duration_ms": 5101,
+     "inner_status": "available",
+     "correlation_id": "c92fdbc1-653d-4467-9da4-8486548e4820",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:20:59.085Z"
+    }
+   ],
+   "binder": {
+    "package_id": "162eae8c-a9b7-516d-8e77-4c59b20c95df",
+    "program_id": "fsa-livestock-indemnity-program",
+    "program_title": "Livestock Indemnity Program (LIP)",
+    "revision": 1,
+    "created_at": "2026-11-17T20:17:12.411419Z",
+    "status": "available",
+    "coverage": "partial_source_backed_screening",
+    "criteria_evaluations": [],
+    "required_documents": [],
+    "forms": [],
+    "deadlines": [],
+    "procedural_steps": [],
+    "unavailable_detail_kinds": [
+     "application_step",
+     "form",
+     "required_document",
+     "deadline"
+    ],
+    "source_references": [
+     {
+      "title": "Official public source record",
+      "agency": "Farm Service Agency (FSA), USDA",
+      "url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+      "retrieved_at": "2026-10-27T11:22:29Z"
+     }
+    ],
+    "source_health": [
+     {
+      "source_id": "usda.fsa.disaster-assistance",
+      "status": "current",
+      "last_successful_retrieval": "2026-10-27T11:22:29Z"
+     }
+    ]
+   }
+  },
+  {
+   "id": "S3",
+   "category": "recorded",
+   "question": "I just bought a quarter section of ground adjacent to a river with some flooding related erosion as well as some slope runoff erosion on the property itself. \u00a0What conservation or improvement programs are available to help clean this property up and make it more sustainable?",
+   "expected": null,
+   "observed": "usda-nrcs-eqip",
+   "navigator_status": "partial",
+   "phoenix_status": "not_verified",
+   "failure_owner": null,
+   "answer": "EQIP returned unknown because FSA records confirming eligible land control were not supplied. Ownership alone was not substituted for that criterion.",
+   "calls": [
+    {
+     "tool": "route_operation",
+     "operation_id": "program.inventory.search",
+     "duration_ms": 12441,
+     "inner_status": "ok",
+     "correlation_id": "fcdfe0ba-c074-4e8a-aafe-bc984c33cae4",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:08:22.153Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.inventory.search",
+     "duration_ms": null,
+     "inner_status": "ok",
+     "correlation_id": "1d6a1c52-4d8b-406e-9b2c-78f631d013e0",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": null
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.evaluate",
+     "duration_ms": 14888,
+     "inner_status": "ok",
+     "correlation_id": "e00a7e7f-9b2e-4785-9c1f-d65244b4754a",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:12:55.066Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.requirements.preview",
+     "duration_ms": 16037,
+     "inner_status": "preview",
+     "correlation_id": "350b8907-24b4-4691-bcc7-b3be52c5b257",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:17:13.679Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.requirements.write",
+     "duration_ms": 17381,
+     "inner_status": "written",
+     "correlation_id": "4fd008f5-24cb-4a4e-959f-624448c1ad37",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:17:29.721Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.candidate.requirements.read",
+     "duration_ms": 7103,
+     "inner_status": "available",
+     "correlation_id": "cb9b2817-4d5c-4227-857d-0e84a0c9ce14",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:21:04.194Z"
+    }
+   ],
+   "binder": {
+    "package_id": "47891b98-6918-5185-9caa-959a27d9bb7e",
+    "program_id": "usda-nrcs-eqip",
+    "program_title": "Environmental Quality Incentives Program (EQIP) partial land-control screen",
+    "revision": 1,
+    "created_at": "2026-11-17T20:17:45.983056Z",
+    "status": "available",
+    "coverage": {
+     "score_meaning": "Fraction of evaluable mapped rule units marked met; not an eligibility probability. Unresolved clauses are excluded.",
+     "mapped_rule_counts": {
+      "met": 0,
+      "unmet": 0,
+      "unknown": 1,
+      "evaluable": 0,
+      "not_applicable": 0
+     },
+     "source_completeness": "not_proven",
+     "mapped_requirement_count": 1,
+     "mapped_rule_match_fraction": null,
+     "unresolved_requirement_count": 0,
+     "unresolved_eligibility_rule_count": 0
+    },
+    "criteria_evaluations": [
+     {
+      "title": "Environmental Quality Incentives Program (EQIP) partial land-control screen",
+      "program_id": "usda-nrcs-eqip",
+      "criteria_status": "mapped_for_candidate",
+      "mapped_rule_counts": {
+       "met": 0,
+       "unmet": 0,
+       "unknown": 1,
+       "evaluable": 0,
+       "not_applicable": 0
+      },
+      "unresolved_requirement_count": 0,
+      "unresolved_eligibility_rule_count": 0,
+      "source_completeness": "not_proven",
+      "evidence": [
+       {
+        "criterion_id": "eqip-fsa-records-eligible-land-control",
+        "outcome": "unknown",
+        "reason_code": "profile_fact_missing",
+        "explanation": "The profile value is missing; this criterion cannot be compared.",
+        "recommended_action": "ask_user_for_profile_fact"
+       }
+      ]
+     }
+    ],
+    "required_documents": [],
+    "forms": [
+     {
+      "kind": "form",
+      "text": "The NRCS page links to eForms to search for and complete the EQIP application form. Confirm the current form and instructions there.",
+      "source_id": "usda.nrcs.eqip"
+     }
+    ],
+    "deadlines": [
+     {
+      "kind": "deadline",
+      "text": "Applications are accepted throughout the year. Each state sets specific deadlines for ranking and funding opportunities; confirm the applicable dates with NRCS.",
+      "source_id": "usda.nrcs.eqip"
+     }
+    ],
+    "procedural_steps": [
+     {
+      "kind": "application_step",
+      "text": "Contact your local NRCS office to discuss whether EQIP fits your resource concern. If you proceed, a local NRCS conservationist will guide you through applying.",
+      "source_id": "usda.nrcs.eqip"
+     },
+     {
+      "kind": "application_step",
+      "text": "Establish or update Farm Service Agency records for both the applicant and the land. The records must indicate land control or ownership, adjusted-gross-income and payment-limit compliance, and highly-erodible-land and wetland-conservation compliance.",
+      "source_id": "usda.nrcs.eqip"
+     },
+     {
+      "kind": "application_step",
+      "text": "After approval, participants work with an NRCS conservation planner to develop an EQIP plan of operations addressing at least one natural-resource concern.",
+      "source_id": "usda.nrcs.eqip"
+     }
+    ],
+    "unavailable_detail_kinds": [
+     "required_document"
+    ],
+    "source_references": [
+     {
+      "title": "Official public source record",
+      "agency": "Natural Resources Conservation Service (NRCS), USDA",
+      "url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program",
+      "retrieved_at": "2026-11-03T23:53:26Z"
+     },
+     {
+      "title": "Environmental Quality Incentives Program (EQIP) published eligibility reference",
+      "agency": "Natural Resources Conservation Service (NRCS), USDA",
+      "url": "https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program/apply-for-environmental-quality",
+      "retrieved_at": "2026-11-09T21:48:19.380618Z"
+     }
+    ],
+    "source_health": [
+     {
+      "source_id": "usda.nrcs.eqip",
+      "status": "current",
+      "last_successful_retrieval": "2026-11-03T23:53:26Z"
+     },
+     {
+      "source_id": "usda.nrcs.eqip",
+      "status": "current",
+      "last_successful_retrieval": "2026-11-05T12:38:21.056195Z"
+     },
+     {
+      "source_id": "usda.nrcs.eqip",
+      "status": "current",
+      "last_successful_retrieval": "2026-11-09T21:48:19.380618Z"
+     }
+    ]
+   }
+  },
+  {
+   "id": "S4",
+   "category": "recorded",
+   "question": "A newly NM retired couple that fall in the low-income category recently had to move into an assisted living facility. What programs can they apply for to assist with the unplanned expenses?",
+   "expected": null,
+   "observed": "medicare-extra-help-listing",
+   "navigator_status": "partial",
+   "phoenix_status": "not_verified",
+   "failure_owner": null,
+   "answer": "Extra Help was screened as supplementary cost assistance and returned one met mapped rule with unresolved conditions. Assisted-living coverage remains unresolved, and external discovery returned upstream_unavailable.",
+   "calls": [
+    {
+     "tool": "route_operation",
+     "operation_id": "program.inventory.search",
+     "duration_ms": 36680,
+     "inner_status": "ok",
+     "correlation_id": "6b5e04a0-a15a-40c5-a623-b5c4535e47d9",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:09:01.746Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.discovery.external.search",
+     "duration_ms": 7061,
+     "inner_status": "upstream_unavailable",
+     "correlation_id": "5ef788d5-8db6-499b-b06c-cef0c7fd76e2",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:12:42.871Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.inventory.search",
+     "duration_ms": null,
+     "inner_status": "ok",
+     "correlation_id": "2fe78d42-a470-417f-a385-74aa14696919",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": null
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.evaluate",
+     "duration_ms": 27973,
+     "inner_status": "ok",
+     "correlation_id": "b75f25d1-3810-4553-9c23-55d3633b0fb1",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:13:22.431Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.requirements.preview",
+     "duration_ms": 16966,
+     "inner_status": "preview",
+     "correlation_id": "cbcc2d51-8deb-494d-8a2d-01e9b4fdff1c",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:17:47.109Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.requirements.write",
+     "duration_ms": 15075,
+     "inner_status": "written",
+     "correlation_id": "507e45b8-1d81-4a55-af35-616b75677ce1",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:18:04.080Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.candidate.requirements.read",
+     "duration_ms": 5540,
+     "inner_status": "available",
+     "correlation_id": "9d483c4c-f7d4-4fa0-92a3-2181b14a5253",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:21:11.306Z"
+    }
+   ],
+   "binder": {
+    "package_id": "7362c991-3b75-5c96-a00c-75d8c3991d3f",
+    "program_id": "medicare-extra-help-listing",
+    "program_title": "Extra Help (Medicare Part D Low-Income Subsidy)",
+    "revision": 1,
+    "created_at": "2026-11-17T20:18:18.153174Z",
+    "status": "available",
+    "coverage": "partial_source_backed_screening",
+    "criteria_evaluations": [
+     {
+      "title": "Extra Help (Medicare Part D Low-Income Subsidy)",
+      "program_id": "medicare-extra-help",
+      "criteria_status": "partial",
+      "mapped_rule_counts": {
+       "met": 1,
+       "unmet": 0,
+       "unknown": 0,
+       "evaluable": 1,
+       "not_applicable": 0
+      },
+      "unresolved_requirement_count": 6,
+      "unresolved_eligibility_rule_count": 5,
+      "source_completeness": "not_proven",
+      "evidence": [
+       {
+        "criterion_id": "income-limit-individual",
+        "outcome": "met",
+        "reason_code": null,
+        "explanation": "The known profile value satisfies the source-backed criterion.",
+        "recommended_action": null
+       }
+      ]
+     }
+    ],
+    "required_documents": [],
+    "forms": [],
+    "deadlines": [],
+    "procedural_steps": [],
+    "unavailable_detail_kinds": [
+     "application_step",
+     "form",
+     "required_document",
+     "deadline"
+    ],
+    "source_references": [
+     {
+      "title": "Extra Help (Medicare Part D Low-Income Subsidy)",
+      "agency": "Centers for Medicare & Medicaid Services (CMS); applications are available through the Social Security Administration (SSA), with free assistance from State Health Insurance Assistance Programs (SHIPs)",
+      "url": "https://www.medicare.gov/basics/costs/help/drug-costs",
+      "retrieved_at": "2026-11-11T02:14:49.224383Z"
+     }
+    ],
+    "source_health": [
+     {
+      "source_id": "cms.medicare-extra-help",
+      "status": "current",
+      "last_successful_retrieval": "2026-11-11T02:14:49.224383Z"
+     },
+     {
+      "source_id": "cms.medicare-extra-help",
+      "status": "current",
+      "last_successful_retrieval": "2026-11-11T02:14:49.224383Z"
+     }
+    ]
+   }
+  },
+  {
+   "id": "S5",
+   "category": "recorded",
+   "question": "I'm a retired veteran and I'm finding it harder and harder to take care of myself on my own.\u00a0 I'd really like some help, but I'm on a fixed income and can't afford to pay much.\u00a0 Are the programs I might qualify for that could help with my day-to-day needs?",
+   "expected": null,
+   "observed": "va-aid-attendance-housebound",
+   "navigator_status": "partial",
+   "phoenix_status": "not_verified",
+   "failure_owner": null,
+   "answer": "VA Aid and Attendance returned two met rules and one unknown housebound criterion, plus three unresolved eligibility clauses.",
+   "calls": [
+    {
+     "tool": "route_operation",
+     "operation_id": "program.inventory.search",
+     "duration_ms": 10083,
+     "inner_status": "ok",
+     "correlation_id": "21fb626d-260c-477e-8b0f-6119cf67f11e",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:09:01.746Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.evaluate",
+     "duration_ms": 12832,
+     "inner_status": "ok",
+     "correlation_id": "e0f9f06b-f7b7-4300-9f71-1a817b32485b",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:11:59.929Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.requirements.preview",
+     "duration_ms": 15521,
+     "inner_status": "preview",
+     "correlation_id": "ee61b1ea-a054-4c53-87c0-fcd69018afe2",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:18:19.162Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.requirements.write",
+     "duration_ms": 15995,
+     "inner_status": "written",
+     "correlation_id": "34a05a4f-11f8-4042-8d36-ebde641b8895",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:18:34.692Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.candidate.requirements.read",
+     "duration_ms": 4987,
+     "inner_status": "available",
+     "correlation_id": "e3c0acf9-5703-4209-a5dc-ee69a252cff7",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:21:16.858Z"
+    }
+   ],
+   "binder": {
+    "package_id": "7626c19c-c906-5720-9d3a-1c8ac452221d",
+    "program_id": "va-aid-attendance-housebound",
+    "program_title": "VA Aid and Attendance and Housebound allowance (partial screening criteria)",
+    "revision": 1,
+    "created_at": "2026-11-17T20:18:49.377996Z",
+    "status": "available",
+    "coverage": {
+     "score_meaning": "Fraction of evaluable mapped rule units marked met; not an eligibility probability. Unresolved clauses are excluded.",
+     "mapped_rule_counts": {
+      "met": 2,
+      "unmet": 0,
+      "unknown": 1,
+      "evaluable": 2,
+      "not_applicable": 0
+     },
+     "source_completeness": "not_proven",
+     "mapped_requirement_count": 3,
+     "mapped_rule_match_fraction": 1,
+     "unresolved_requirement_count": 4,
+     "unresolved_eligibility_rule_count": 3
+    },
+    "criteria_evaluations": [
+     {
+      "title": "VA Aid and Attendance and Housebound allowance - mapped criteria",
+      "program_id": "va-aid-attendance-housebound",
+      "criteria_status": "partial",
+      "mapped_rule_counts": {
+       "met": 2,
+       "unmet": 0,
+       "unknown": 1,
+       "evaluable": 2,
+       "not_applicable": 0
+      },
+      "unresolved_requirement_count": 4,
+      "unresolved_eligibility_rule_count": 3,
+      "source_completeness": "not_proven",
+      "evidence": [
+       {
+        "criterion_id": "va-pension-prerequisite",
+        "outcome": "met",
+        "reason_code": null,
+        "explanation": "The known profile value satisfies the source-backed criterion.",
+        "recommended_action": null
+       },
+       {
+        "criterion_id": "aid-attendance-daily-assistance",
+        "outcome": "met",
+        "reason_code": null,
+        "explanation": "The known profile value satisfies the source-backed criterion.",
+        "recommended_action": null
+       },
+       {
+        "criterion_id": "housebound-permanent-disability",
+        "outcome": "unknown",
+        "reason_code": "profile_fact_missing",
+        "explanation": "The profile value is missing; this criterion cannot be compared.",
+        "recommended_action": "ask_user_for_profile_fact"
+       }
+      ]
+     }
+    ],
+    "required_documents": [],
+    "forms": [
+     {
+      "kind": "form",
+      "text": "If you are in a nursing home, also fill out VA Form 21-0779, Request for Nursing Home Information in Connection with Claim for Aid and Attendance.",
+      "source_id": "us.va.public-benefits"
+     },
+     {
+      "kind": "form",
+      "text": "For a mail application, fill out VA Form 21-2680, Examination for Housebound Status or Permanent Need for Regular Aid and Attendance.",
+      "source_id": "us.va.public-benefits"
+     }
+    ],
+    "deadlines": [],
+    "procedural_steps": [
+     {
+      "kind": "application_step",
+      "text": "You can apply for VA Aid and Attendance or Housebound benefits online, by mail, or in person.",
+      "source_id": "us.va.public-benefits"
+     },
+     {
+      "kind": "application_step",
+      "text": "A medical examiner must fill out the examination information section for an online or mail application.",
+      "source_id": "us.va.public-benefits"
+     },
+     {
+      "kind": "application_step",
+      "text": "Mail the completed form to the Department of Veterans Affairs Pension Intake Center, PO Box 5365, Janesville, WI 53547-5365.",
+      "source_id": "us.va.public-benefits"
+     },
+     {
+      "kind": "application_step",
+      "text": "For an in-person application, bring your information to a nearby VA regional office.",
+      "source_id": "us.va.public-benefits"
+     }
+    ],
+    "unavailable_detail_kinds": [
+     "required_document",
+     "deadline"
+    ],
+    "source_references": [
+     {
+      "title": "Aid and Attendance and Housebound published criteria",
+      "agency": "U.S. Department of Veterans Affairs",
+      "url": "https://www.va.gov/pension/aid-attendance-housebound/",
+      "retrieved_at": "2026-10-29T13:22:00Z"
+     }
+    ],
+    "source_health": [
+     {
+      "source_id": "us.va.public-benefits",
+      "status": "current",
+      "last_successful_retrieval": "2026-11-03T23:53:26Z"
+     },
+     {
+      "source_id": "us.va.public-benefits",
+      "status": "current",
+      "last_successful_retrieval": "2026-11-09T04:51:31.259814Z"
+     },
+     {
+      "source_id": "us.va.public-benefits",
+      "status": "current",
+      "last_successful_retrieval": "2026-10-29T13:22:00Z"
+     }
+    ]
+   }
+  },
+  {
+   "id": "S6",
+   "category": "recorded",
+   "question": "I'm from western Kansas and I'm considering local assisted living and caregiver options my mother may qualify for, including in-home services.\u00a0 can you help us understand her options?",
+   "expected": null,
+   "observed": "acl-nwd-kansas",
+   "navigator_status": "partial",
+   "phoenix_status": "not_verified",
+   "failure_owner": null,
+   "answer": "Kansas aging and disability services was correctly identified as a referral resource. No program-specific eligibility comparison was available.",
+   "calls": [
+    {
+     "tool": "route_operation",
+     "operation_id": "program.inventory.search",
+     "duration_ms": 26685,
+     "inner_status": "ok",
+     "correlation_id": "e87ddd5a-6a68-441d-b92b-d8a406efb1ed",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:09:01.746Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.evaluate",
+     "duration_ms": 15096,
+     "inner_status": "not_assessed",
+     "correlation_id": "1c1ce306-bb96-469f-abd7-a777a4c3a45d",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:13:22.431Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.requirements.preview",
+     "duration_ms": 14555,
+     "inner_status": "preview",
+     "correlation_id": "51529f80-0002-4cf1-a5c1-afe1a8edcff0",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:18:50.698Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.requirements.write",
+     "duration_ms": 18386,
+     "inner_status": "written",
+     "correlation_id": "5ea358be-49b3-4484-8353-2de75fe2a5ba",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:19:05.260Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.candidate.requirements.read",
+     "duration_ms": 6957,
+     "inner_status": "available",
+     "correlation_id": "6e3e4a7a-5767-4c80-a55d-7e53aedccf5c",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:21:21.858Z"
+    }
+   ],
+   "binder": {
+    "package_id": "3bb7beb4-0987-50fa-af48-cc659a4eac09",
+    "program_id": "acl-nwd-kansas",
+    "program_title": "Kansas aging and disability services referral",
+    "revision": 1,
+    "created_at": "2026-11-17T20:19:22.575060Z",
+    "status": "available",
+    "coverage": "partial_source_backed_screening",
+    "criteria_evaluations": [],
+    "required_documents": [],
+    "forms": [],
+    "deadlines": [],
+    "procedural_steps": [],
+    "unavailable_detail_kinds": [
+     "application_step",
+     "form",
+     "required_document",
+     "deadline"
+    ],
+    "source_references": [
+     {
+      "title": "Official public source record",
+      "agency": "Kansas Department for Aging and Disability Services",
+      "url": "https://acl.gov/nwd/find-help",
+      "retrieved_at": "2026-10-30T01:44:03Z"
+     }
+    ],
+    "source_health": [
+     {
+      "source_id": "us.acl.aging-referrals",
+      "status": "current",
+      "last_successful_retrieval": "2026-10-30T01:44:03Z"
+     }
+    ]
+   }
+  },
+  {
+   "id": "S7",
+   "category": "recorded",
+   "question": "A husband in a low-income family with two children under 10 years old recently lost his job. His wife currently makes minimum wage. What financial assistance can the family apply for?",
+   "expected": null,
+   "observed": "missouri-snap",
+   "navigator_status": "partial",
+   "phoenix_status": "not_verified",
+   "failure_owner": null,
+   "answer": "Missouri SNAP returned a met residency rule and an unknown Social Security-number fact. Income, resources, and member-specific restrictions remain unresolved.",
+   "calls": [
+    {
+     "tool": "route_operation",
+     "operation_id": "program.inventory.search",
+     "duration_ms": 56615,
+     "inner_status": "ok",
+     "correlation_id": "7ca45ebd-7831-47fc-8efd-8af846eb2398",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:09:01.746Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.evaluate",
+     "duration_ms": 13473,
+     "inner_status": "ok",
+     "correlation_id": "e2866a11-32ea-4cd0-9ce9-b4baa344827b",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:12:12.763Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.requirements.preview",
+     "duration_ms": 15322,
+     "inner_status": "preview",
+     "correlation_id": "3bd27555-1c94-44d1-82ff-878e133a73ad",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:19:23.653Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.requirements.write",
+     "duration_ms": 15539,
+     "inner_status": "written",
+     "correlation_id": "92302ab8-4a5e-4246-8fb7-b68a1d69a479",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:19:38.982Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.candidate.requirements.read",
+     "duration_ms": 4829,
+     "inner_status": "available",
+     "correlation_id": "a5af5e49-0f08-4896-840e-29d3352fed20",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:21:28.825Z"
+    }
+   ],
+   "binder": {
+    "package_id": "a6b76fe1-f38c-5624-ae49-6ec24d3cbce8",
+    "program_id": "missouri-snap",
+    "program_title": "Missouri SNAP application and processing guidance",
+    "revision": 1,
+    "created_at": "2026-11-17T20:19:53.440026Z",
+    "status": "available",
+    "coverage": {
+     "score_meaning": "Fraction of evaluable mapped rule units marked met; not an eligibility probability. Unresolved clauses are excluded.",
+     "mapped_rule_counts": {
+      "met": 1,
+      "unmet": 0,
+      "unknown": 1,
+      "evaluable": 1,
+      "not_applicable": 0
+     },
+     "source_completeness": "not_proven",
+     "mapped_requirement_count": 2,
+     "mapped_rule_match_fraction": 1,
+     "unresolved_requirement_count": 3,
+     "unresolved_eligibility_rule_count": 3
+    },
+    "criteria_evaluations": [
+     {
+      "title": "Missouri SNAP eligibility criteria",
+      "program_id": "missouri-snap",
+      "criteria_status": "partial",
+      "mapped_rule_counts": {
+       "met": 1,
+       "unmet": 0,
+       "unknown": 1,
+       "evaluable": 1,
+       "not_applicable": 0
+      },
+      "unresolved_requirement_count": 3,
+      "unresolved_eligibility_rule_count": 3,
+      "source_completeness": "not_proven",
+      "evidence": [
+       {
+        "criterion_id": "state-residency-missouri",
+        "outcome": "met",
+        "reason_code": null,
+        "explanation": "The known profile value satisfies the source-backed criterion.",
+        "recommended_action": null
+       },
+       {
+        "criterion_id": "social-security-number",
+        "outcome": "unknown",
+        "reason_code": "profile_fact_missing",
+        "explanation": "The profile value is missing; this criterion cannot be compared.",
+        "recommended_action": "ask_user_for_profile_fact"
+       }
+      ]
+     }
+    ],
+    "required_documents": [],
+    "forms": [],
+    "deadlines": [
+     {
+      "kind": "deadline",
+      "text": "Missouri DSS says applicants typically learn whether they are approved within 30 days. FSD says processing an application and supporting documentation can take up to 10 days after receipt; this is a stated processing estimate, not an applicant submission deadline.",
+      "source_id": "missouri.dss.snap"
+     },
+     {
+      "kind": "deadline",
+      "text": "In some emergency cases, SNAP benefits may be available in seven days or less. The page says to complete Section 2 of the SNAP application or tell FSD at submission if the emergency questions apply; this does not guarantee expedited benefits.",
+      "source_id": "missouri.dss.snap"
+     }
+    ],
+    "procedural_steps": [
+     {
+      "kind": "application_step",
+      "text": "Apply online, print and complete a paper application, or request that a printed application be mailed to you. The page links an English and Spanish application and says Adobe Reader is required for the download.",
+      "source_id": "missouri.dss.snap"
+     },
+     {
+      "kind": "application_step",
+      "text": "Submit completed application forms online at mydssupload.mo.gov, by mail to Family Support Division, P.O. Box 2700, Jefferson City, MO 65102, or by fax at 573-526-9400.",
+      "source_id": "missouri.dss.snap"
+     },
+     {
+      "kind": "application_step",
+      "text": "If an interview is required, FSD will call after receiving the application. If you miss the call, visit a local resource center or call 855-823-4908 to complete the interview.",
+      "source_id": "missouri.dss.snap"
+     }
+    ],
+    "unavailable_detail_kinds": [
+     "form",
+     "required_document"
+    ],
+    "source_references": [
+     {
+      "title": "Apply for SNAP | Missouri Department of Social Services",
+      "agency": "Missouri Department of Social Services",
+      "url": "https://dss.mo.gov/food-assistance/apply-for-snap",
+      "retrieved_at": "2026-11-10T09:03:13.064667Z"
+     }
+    ],
+    "source_health": [
+     {
+      "source_id": "missouri.dss.snap",
+      "status": "current",
+      "last_successful_retrieval": "2026-11-08T23:22:34.399696Z"
+     },
+     {
+      "source_id": "missouri.dss.snap",
+      "status": "current",
+      "last_successful_retrieval": "2026-11-10T09:03:13.064667Z"
+     }
+    ]
+   }
+  },
+  {
+   "id": "S8",
+   "category": "recorded",
+   "question": "I'm employed full time, but my rent keeps increasing and I'm falling behind. I may lose my housing if I can't catch up soon. What assistance programs could help?",
+   "expected": null,
+   "observed": "hud-housing-choice-voucher",
+   "navigator_status": "partial",
+   "phoenix_status": "not_verified",
+   "failure_owner": null,
+   "answer": "The available HCV screen is local to St. Louis City. The Jackson County profile returned not_applicable with jurisdiction_mismatch. The saved packet omitted that comparison and reported not_evaluated. Follow-up program.results rejected both the initial request and the request corrected to the published schema.",
+   "calls": [
+    {
+     "tool": "route_operation",
+     "operation_id": "program.inventory.search",
+     "duration_ms": 66944,
+     "inner_status": "ok",
+     "correlation_id": "a47ff6bb-40d6-4b2e-a276-debfc1107b0f",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:09:01.746Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.evaluate",
+     "duration_ms": 13420,
+     "inner_status": "ok",
+     "correlation_id": "dfe3e252-ee39-4e58-a4d4-1c1ca19828eb",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:12:26.238Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.requirements.preview",
+     "duration_ms": 15765,
+     "inner_status": "preview",
+     "correlation_id": "088b8ebd-7d97-48c4-8891-c365ecc7bc60",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:19:54.529Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.requirements.write",
+     "duration_ms": 14564,
+     "inner_status": "written",
+     "correlation_id": "73678cce-e3ed-428b-aa42-e1fb688e2f87",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:20:10.302Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.candidate.requirements.read",
+     "duration_ms": 4662,
+     "inner_status": "available",
+     "correlation_id": "3bc34458-3171-41da-8a40-368d163d3d34",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:21:33.667Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.results",
+     "duration_ms": 5089,
+     "inner_status": "invalid_request",
+     "correlation_id": "392e3270-32f0-4597-bc3e-69cc2a42b896",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:22:51.912Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.results",
+     "duration_ms": 5177,
+     "inner_status": "invalid_request",
+     "correlation_id": "d902e052-75dd-4010-abab-c040b09b9c29",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:23:28.204Z"
+    }
+   ],
+   "binder": {
+    "package_id": "8f57ab42-3747-54de-bd06-8997191e7fb8",
+    "program_id": "hud-housing-choice-voucher",
+    "program_title": "Housing Choice Voucher (HCV) Program",
+    "revision": 1,
+    "created_at": "2026-11-17T20:20:23.862453Z",
+    "status": "available",
+    "coverage": "partial_source_backed_screening",
+    "criteria_evaluations": [],
+    "required_documents": [],
+    "forms": [],
+    "deadlines": [],
+    "procedural_steps": [],
+    "unavailable_detail_kinds": [
+     "application_step",
+     "form",
+     "required_document",
+     "deadline"
+    ],
+    "source_references": [
+     {
+      "title": "Official public source record",
+      "agency": "U.S. Department of Housing and Urban Development",
+      "url": "https://www.hud.gov/topics/housing_choice_voucher_program_section_8",
+      "retrieved_at": "2026-10-30T01:21:12Z"
+     }
+    ],
+    "source_health": [
+     {
+      "source_id": "us.hud.housing-assistance",
+      "status": "current",
+      "last_successful_retrieval": "2026-10-30T01:21:12Z"
+     }
+    ]
+   }
+  },
+  {
+   "id": "S9",
+   "category": "recorded",
+   "question": "I'm raising two children on my own and need help with childcare, food assistance, healthcare, and finding a better job. What resources are available?",
+   "expected": null,
+   "observed": "usagov-tanf-listing",
+   "navigator_status": "partial",
+   "phoenix_status": "not_verified",
+   "failure_owner": null,
+   "answer": "TANF was found as a referral after search refinement. Relevant childcare, healthcare and employment program coverage remains incomplete. External discovery returned upstream_unavailable.",
+   "calls": [
+    {
+     "tool": "route_operation",
+     "operation_id": "program.inventory.search",
+     "duration_ms": 46167,
+     "inner_status": "ok",
+     "correlation_id": "963583e8-2e59-451f-ac40-9d2df1abeb98",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:09:01.746Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.discovery.external.search",
+     "duration_ms": 12192,
+     "inner_status": "upstream_unavailable",
+     "correlation_id": "37fa3b21-7be3-4061-9a3a-f78f8216a920",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:12:42.871Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.inventory.search",
+     "duration_ms": 13836,
+     "inner_status": "ok",
+     "correlation_id": "bf86f247-d3b6-4b7c-b054-547157b75a27",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:14:03.174Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.inventory.search",
+     "duration_ms": null,
+     "inner_status": "ok",
+     "correlation_id": "cdc94adb-3983-4529-8a6e-0887349a2382",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": null
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.evaluate",
+     "duration_ms": 18122,
+     "inner_status": "not_assessed",
+     "correlation_id": "c9cb9bf6-95c7-44cc-8699-4b05c4f52dd8",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:14:50.533Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.requirements.preview",
+     "duration_ms": 14182,
+     "inner_status": "preview",
+     "correlation_id": "cf1e9953-e899-4118-9555-4d468b4c13db",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:20:24.874Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.requirements.write",
+     "duration_ms": 10984,
+     "inner_status": "written",
+     "correlation_id": "ea39bea8-005c-4008-9067-393398c6ebb8",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:20:39.064Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.candidate.requirements.read",
+     "duration_ms": 10225,
+     "inner_status": "available",
+     "correlation_id": "a07b0ec3-8970-45e7-975f-21f5059b2323",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:21:38.341Z"
+    }
+   ],
+   "binder": {
+    "package_id": "13f985ce-0327-5dac-9370-4c0864a561d9",
+    "program_id": "usagov-tanf-listing",
+    "program_title": "Temporary Assistance for Needy Families (TANF)",
+    "revision": 1,
+    "created_at": "2026-11-17T20:20:49.310898Z",
+    "status": "available",
+    "coverage": "partial_source_backed_screening",
+    "criteria_evaluations": [],
+    "required_documents": [],
+    "forms": [],
+    "deadlines": [],
+    "procedural_steps": [],
+    "unavailable_detail_kinds": [
+     "application_step",
+     "form",
+     "required_document",
+     "deadline"
+    ],
+    "source_references": [
+     {
+      "title": "Official public source record",
+      "agency": "U.S. General Services Administration (USAGov)",
+      "url": "https://www.usa.gov/welfare-benefits",
+      "retrieved_at": "2026-10-28T19:42:37Z"
+     }
+    ],
+    "source_health": [
+     {
+      "source_id": "usagov.benefits",
+      "status": "current",
+      "last_successful_retrieval": "2026-11-10T20:21:28Z"
+     }
+    ]
+   }
+  },
+  {
+   "id": "NEG1",
+   "category": "recorded",
+   "question": "Negative check: call a route that does not exist",
+   "expected": null,
+   "observed": null,
+   "navigator_status": "not_scored",
+   "phoenix_status": "not_verified",
+   "failure_owner": null,
+   "answer": null,
+   "calls": [
+    {
+     "tool": "route_operation",
+     "operation_id": "program.inventory.search",
+     "duration_ms": 5016,
+     "inner_status": "unknown_route",
+     "correlation_id": "17e13ce4-4714-4e9d-a86d-e6df9ad244f3",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:22:06.644Z"
+    }
+   ],
+   "binder": null
+  },
+  {
+   "id": "NEG2",
+   "category": "recorded",
+   "question": "Negative check: search with an invalid state code",
+   "expected": null,
+   "observed": null,
+   "navigator_status": "not_scored",
+   "phoenix_status": "not_verified",
+   "failure_owner": null,
+   "answer": null,
+   "calls": [
+    {
+     "tool": "route_operation",
+     "operation_id": "program.inventory.search",
+     "duration_ms": 13522,
+     "inner_status": "invalid_request",
+     "correlation_id": "feea766b-1ed1-42bd-87ea-45b6d299bd52",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:22:11.670Z"
+    }
+   ],
+   "binder": null
+  },
+  {
+   "id": "RECOVERY",
+   "category": "recorded",
+   "question": "Recovery: a valid search after the errors",
+   "expected": null,
+   "observed": null,
+   "navigator_status": "not_scored",
+   "phoenix_status": "not_verified",
+   "failure_owner": null,
+   "answer": null,
+   "calls": [
+    {
+     "tool": "route_operation",
+     "operation_id": "program.inventory.search",
+     "duration_ms": 12451,
+     "inner_status": "ok",
+     "correlation_id": "329b9e26-f7b0-4c5f-9b52-c872033d0139",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:22:25.203Z"
+    }
+   ],
+   "binder": null
+  },
+  {
+   "id": "EXPLORATORY",
+   "category": "recorded",
+   "question": "Exploratory: heating assistance in Maryland",
+   "expected": null,
+   "observed": null,
+   "navigator_status": "not_scored",
+   "phoenix_status": "not_verified",
+   "failure_owner": null,
+   "answer": null,
+   "calls": [
+    {
+     "tool": "route_operation",
+     "operation_id": "program.inventory.search",
+     "duration_ms": 14235,
+     "inner_status": "ok",
+     "correlation_id": "f3a2ed13-a38b-498f-af78-317ccf72de6a",
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T20:22:37.664Z"
+    }
+   ],
+   "binder": null
+  }
+ ]
+}

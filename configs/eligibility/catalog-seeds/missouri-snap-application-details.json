@@ -1,0 +1,246 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "missouri.dss.snap",
+    "retrieved_at": "2026-11-10T09:03:13.064667+00:00",
+    "publisher_version": "sha256:0ce7923a474bed7e4e3dc7f9f0557375b47049c6ec8667515a9c56ffb74d47d6",
+    "source_content_sha256": "0ce7923a474bed7e4e3dc7f9f0557375b47049c6ec8667515a9c56ffb74d47d6",
+    "source_visible_text_sha256": "8fa43daa0914585bc822092a0a757347d95a9a4cad4239af8cd15b6d0e5d7884",
+    "raw_source_documents_committed": false,
+    "pages": [
+      {
+        "url": "https://dss.mo.gov/food-assistance/apply-for-snap",
+        "title": "Apply for SNAP | Missouri Department of Social Services",
+        "source_content_sha256": "0ce7923a474bed7e4e3dc7f9f0557375b47049c6ec8667515a9c56ffb74d47d6",
+        "source_visible_text_sha256": "8fa43daa0914585bc822092a0a757347d95a9a4cad4239af8cd15b6d0e5d7884"
+      }
+    ]
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "missouri.dss.snap",
+      "source_name": "Missouri DSS Apply for SNAP",
+      "source_url": "https://dss.mo.gov/food-assistance/apply-for-snap",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "state",
+          "owner_name": "Missouri Department of Social Services",
+          "verification_status": "verified",
+          "evidence_url": "https://dss.mo.gov/food-assistance/apply-for-snap"
+        },
+        "approved_scope": "One supporting eligibility-program-v4 record for source-backed application steps, processing timelines, Missouri residency, and the household SSN condition on the existing Missouri SNAP listing. The listing remains the sole public listing and is linked through its existing stable criteria_program_ids relationship. Income, resources, and member-specific conviction or fugitive restrictions remain unresolved.",
+        "refresh_mode": "operator_triggered"
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "missouri-snap-application-details",
+        "source_dataset_id": "Missouri DSS SNAP application details",
+        "title": "Missouri SNAP source-backed application and processing details",
+        "landing_page": "https://dss.mo.gov/food-assistance/apply-for-snap",
+        "schema_version": "eligibility-program-v4",
+        "namespace_ids": [
+          "core",
+          "eligibility"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "partial",
+          "criteria_mapping_status": "partial",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "refresh_mode": "operator_triggered",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "eligibility": "eligibility-program-schema"
+          },
+          "schema_versions": {
+            "core": "core-v4",
+            "eligibility": "eligibility-program-v4"
+          },
+          "criteria_profile_schema_refs": [
+            {
+              "registry_id": "core-schema-registry",
+              "schema_version": "core-v4"
+            },
+            {
+              "registry_id": "eligibility-profile-extension-schema",
+              "schema_version": "eligibility-profile-v2"
+            }
+          ],
+          "content_type": "state_snap_application_details",
+          "published_criteria_available": true,
+          "maximum_records_total": 1
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "missouri-snap-application-details",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "sha256:0ce7923a474bed7e4e3dc7f9f0557375b47049c6ec8667515a9c56ffb74d47d6",
+        "retrieved_at": "2026-11-10T09:03:13.064667+00:00",
+        "transform_version": "missouri-snap-application-details-v1",
+        "validation_outcome": "valid",
+        "detail": "One source-backed supporting record; no second listing, no unsupported eligibility criteria, and no required-document claims.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "missouri-snap",
+            "record_type": "eligibility_program",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "missouri-snap",
+              "eligibility.program.catalog_version": "missouri-snap-application-details-2026-11-10",
+              "eligibility.program.navigator": "low_income_assistance",
+              "eligibility.program.data_origin": "public_source",
+              "eligibility.program.title": "Missouri SNAP application and processing guidance",
+              "eligibility.program.description": "Source-backed application and submission instructions, interview contingency, and processing timelines for the existing Missouri SNAP listing. Missouri residency and the household SSN condition are mapped; income, resources, and member-specific conviction or fugitive restrictions remain unresolved.",
+              "eligibility.program.criteria": [
+                {
+                  "criterion_id": "residency-missouri",
+                  "attribute": "core.geography.state_code",
+                  "operator": "eq",
+                  "value": "MO",
+                  "source_id": "missouri.dss.snap"
+                },
+                {
+                  "criterion_id": "all-members-have-or-applying-ssn",
+                  "attribute": "snap.all_members_have_or_applying_ssn",
+                  "operator": "eq",
+                  "value": true,
+                  "source_id": "missouri.dss.snap"
+                }
+              ],
+              "eligibility.program.details": [
+                {
+                  "kind": "application_step",
+                  "text": "Apply online, print and complete a paper application, or request that a printed application be mailed to you. The page links an English and Spanish application and says Adobe Reader is required for the download.",
+                  "source_id": "missouri.dss.snap"
+                },
+                {
+                  "kind": "application_step",
+                  "text": "Submit completed application forms online at mydssupload.mo.gov, by mail to Family Support Division, P.O. Box 2700, Jefferson City, MO 65102, or by fax at 573-526-9400.",
+                  "source_id": "missouri.dss.snap"
+                },
+                {
+                  "kind": "application_step",
+                  "text": "If an interview is required, FSD will call after receiving the application. If you miss the call, visit a local resource center or call 855-823-4908 to complete the interview.",
+                  "source_id": "missouri.dss.snap"
+                },
+                {
+                  "kind": "deadline",
+                  "text": "Missouri DSS says applicants typically learn whether they are approved within 30 days. FSD says processing an application and supporting documentation can take up to 10 days after receipt; this is a stated processing estimate, not an applicant submission deadline.",
+                  "source_id": "missouri.dss.snap"
+                },
+                {
+                  "kind": "deadline",
+                  "text": "In some emergency cases, SNAP benefits may be available in seven days or less. The page says to complete Section 2 of the SNAP application or tell FSD at submission if the emergency questions apply; this does not guarantee expedited benefits.",
+                  "source_id": "missouri.dss.snap"
+                }
+              ],
+              "core.geography.country_code": "US",
+              "core.geography.jurisdiction_level": "state",
+              "core.geography.state_code": "MO"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "state",
+                "country_code": "US",
+                "state_code": "MO"
+              }
+            },
+            "source_metadata": {
+              "publisher": "Missouri Department of Social Services",
+              "source_id": "missouri.dss.snap",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "source_title": "Apply for SNAP | Missouri Department of Social Services",
+              "source_version": "sha256:0ce7923a474bed7e4e3dc7f9f0557375b47049c6ec8667515a9c56ffb74d47d6",
+              "retrieved_at": "2026-11-10T09:03:13.064667+00:00",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://dss.mo.gov/food-assistance/apply-for-snap",
+                  "observed_at": "2026-11-10T09:03:13.064667+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://dss.mo.gov/food-assistance/apply-for-snap",
+                  "observed_at": "2026-11-10T09:03:13.064667+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.navigator": {
+                  "source_url": "https://dss.mo.gov/food-assistance/apply-for-snap",
+                  "observed_at": "2026-11-10T09:03:13.064667+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://dss.mo.gov/food-assistance/apply-for-snap",
+                  "observed_at": "2026-11-10T09:03:13.064667+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://dss.mo.gov/food-assistance/apply-for-snap",
+                  "observed_at": "2026-11-10T09:03:13.064667+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://dss.mo.gov/food-assistance/apply-for-snap",
+                  "observed_at": "2026-11-10T09:03:13.064667+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.criteria": {
+                  "source_url": "https://dss.mo.gov/food-assistance/apply-for-snap",
+                  "observed_at": "2026-11-10T09:03:13.064667+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.details": {
+                  "source_url": "https://dss.mo.gov/food-assistance/apply-for-snap",
+                  "observed_at": "2026-11-10T09:03:13.064667+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://dss.mo.gov/food-assistance/apply-for-snap",
+                  "observed_at": "2026-11-10T09:03:13.064667+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://dss.mo.gov/food-assistance/apply-for-snap",
+                  "observed_at": "2026-11-10T09:03:13.064667+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.state_code": {
+                  "source_url": "https://dss.mo.gov/food-assistance/apply-for-snap",
+                  "observed_at": "2026-11-10T09:03:13.064667+00:00",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "criteria_coverage": "partial",
+              "limitations": [
+                "This is a supporting program-details record for the existing Missouri SNAP listing; it does not add a second public listing.",
+                "Missouri residency and the household SSN condition are mapped. Current income limits, resources, and member-specific conviction or fugitive restrictions remain unresolved.",
+                "The source links to Verification Documents but does not enumerate a required-document checklist; no required documents are asserted.",
+                "The 10-day statement describes FSD processing time, not a deadline for the applicant. Typical and emergency processing times are not guarantees."
+              ],
+              "effective_at": null,
+              "transform_version": "missouri-snap-application-details-v1",
+              "raw_payload_stored": false
+            },
+            "source_url": "https://dss.mo.gov/food-assistance/apply-for-snap",
+            "schema_version": "eligibility-program-v4",
+            "observed_at": "2026-11-10T09:03:13.064667+00:00",
+            "content_hash": "e421b028313bd2e0867d21fac6199710df5e1e1f7792e3865f2fb78a003369be"
+          }
+        ]
+      }
+    }
+  ]
+}

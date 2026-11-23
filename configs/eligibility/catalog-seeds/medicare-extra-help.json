@@ -1,0 +1,303 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "cms.medicare-extra-help",
+    "retrieved_at": "2026-10-30T02:33:27Z",
+    "publisher_version": "Medicare.gov Help with drug costs page retrieved 2026-10-30; published 2026 Extra Help income and resource limits.",
+    "raw_source_documents_committed": false,
+    "source_observations": [
+      "Medicare.gov describes Extra Help as assistance with Part D premiums and cost sharing.",
+      "The page publishes 2026 income and resource limits for individuals and married couples and notes limits may increase annually.",
+      "The page identifies automatic qualification pathways, SSA application, SHIP assistance, and excluded territories.",
+      "Criteria are partial and non-executable; state variation, Alaska/Hawaii thresholds, and individual eligibility are not inferred."
+    ]
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "cms.medicare-extra-help",
+      "source_name": "CMS Medicare Extra Help",
+      "source_url": "https://www.medicare.gov/basics/costs/help/drug-costs",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "federal",
+          "owner_name": "Centers for Medicare & Medicaid Services",
+          "verification_status": "verified",
+          "evidence_url": "https://www.medicare.gov/basics/costs/help/drug-costs"
+        },
+        "approved_scope": "Official Extra Help program listing and partial 2026 published criteria references. Preserve state variation; criteria remain non-executable. The linked Social Security application is referral context only. This does not ingest CMS provider/service datasets or personal benefits data.",
+        "refresh_mode": "operator_triggered"
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "cms-medicare-extra-help-listings",
+        "source_dataset_id": "Medicare.gov Extra Help program page",
+        "title": "Medicare Extra Help program listing",
+        "landing_page": "https://www.medicare.gov/basics/costs/help/drug-costs",
+        "schema_version": "public-listing-v3",
+        "namespace_ids": [
+          "core",
+          "listing"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "listing": "eligibility-public-listing-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "listing": "public-listing-v3"
+          },
+          "content_type": "federal_medicare_extra_help_listing",
+          "refresh_mode": "operator_triggered",
+          "maximum_records_total": 1,
+          "criteria_coverage": "partial"
+        }
+      },
+      {
+        "dataset_id": "cms-medicare-extra-help-published-criteria",
+        "source_dataset_id": "Medicare.gov 2026 Extra Help published criteria",
+        "title": "Medicare Extra Help 2026 published criteria references",
+        "landing_page": "https://www.medicare.gov/basics/costs/help/drug-costs",
+        "schema_version": "eligibility-program-v2",
+        "namespace_ids": [
+          "core",
+          "eligibility"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "partial",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "eligibility": "eligibility-program-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "eligibility": "eligibility-program-v2"
+          },
+          "content_type": "published_partial_non_executable_eligibility_reference",
+          "published_criteria_available": true,
+          "criteria_mapping_status": "not_mapped",
+          "effective_period": "2026 published limits",
+          "refresh_mode": "operator_triggered",
+          "maximum_records_total": 1
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "cms-medicare-extra-help-listings",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "Medicare.gov Help with drug costs page retrieved 2026-10-30; published 2026 Extra Help income and resource limits.",
+        "retrieved_at": "2026-10-30T02:33:27Z",
+        "transform_version": "cms-extra-help-source-review-v1",
+        "validation_outcome": "valid",
+        "detail": "One official Medicare Extra Help listing; national discovery entry; no eligibility determination.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "medicare-extra-help-listing",
+            "record_type": "federal-medicare-program-listing",
+            "canonical_attributes": {
+              "core.geography.country_code": "US",
+              "listing.record_kind": "assistance_program",
+              "listing.title": "Extra Help (Medicare Part D Low-Income Subsidy)",
+              "listing.summary": "Helps people with limited income and resources pay Medicare Part D premiums, deductibles, coinsurance, and other costs. Some people qualify automatically; others can apply through Social Security. Medicare.gov also directs applicants to State Health Insurance Assistance Programs for free application help.",
+              "listing.agency": "Centers for Medicare & Medicaid Services (CMS); applications are available through the Social Security Administration (SSA), with free assistance from State Health Insurance Assistance Programs (SHIPs)",
+              "listing.program_url": "https://www.medicare.gov/basics/costs/help/drug-costs"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "listing_kind": "assistance_program",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "national",
+                "country_code": "US"
+              },
+              "need_topics": [
+                "medicare_drug_costs",
+                "prescription_drug_assistance",
+                "low_income_support"
+              ],
+              "beneficiary_classes": [
+                "People with Medicare and limited income and resources"
+              ],
+              "criteria_program_ids": [
+                "medicare-extra-help"
+              ]
+            },
+            "source_metadata": {
+              "source_id": "cms.medicare-extra-help",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "source_title": "Help with drug costs",
+              "publisher": "Centers for Medicare & Medicaid Services",
+              "source_version": "Medicare.gov Help with drug costs page retrieved 2026-10-30; published 2026 Extra Help income and resource limits.",
+              "criteria_status": "partial_not_mapped",
+              "retrieved_at": "2026-10-30T02:33:27Z",
+              "effective_at": null,
+              "transform_version": "cms-extra-help-source-review-v1",
+              "field_provenance": {
+                "core.geography.country_code": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/drug-costs",
+                  "observed_at": "2026-10-30T02:33:27Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.record_kind": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/drug-costs",
+                  "observed_at": "2026-10-30T02:33:27Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/drug-costs",
+                  "observed_at": "2026-10-30T02:33:27Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/drug-costs",
+                  "observed_at": "2026-10-30T02:33:27Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/drug-costs",
+                  "observed_at": "2026-10-30T02:33:27Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.program_url": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/drug-costs",
+                  "observed_at": "2026-10-30T02:33:27Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.medicare.gov/basics/costs/help/drug-costs",
+            "schema_version": "public-listing-v3",
+            "observed_at": "2026-10-30T02:33:27Z",
+            "content_hash": "c6861ddbd1106e8eb54de2d881689fd6a3353b0571d0cf5f9b7bb7f0bf39c5e8"
+          }
+        ]
+      }
+    },
+    {
+      "dataset_id": "cms-medicare-extra-help-published-criteria",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "Medicare.gov Help with drug costs page retrieved 2026-10-30; published 2026 Extra Help income and resource limits.",
+        "retrieved_at": "2026-10-30T02:33:27Z",
+        "transform_version": "cms-extra-help-source-review-v1",
+        "validation_outcome": "valid",
+        "detail": "One partial 2026 published-criteria reference; unmapped and non-executable; state and Alaska/Hawaii variation preserved.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "medicare-extra-help-published-criteria-2026",
+            "record_type": "federal-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "medicare-extra-help",
+              "eligibility.program.catalog_version": "cms-extra-help-2026-reviewed-2026-10-30",
+              "eligibility.program.data_origin": "Official Medicare.gov Help with drug costs page reviewed 2026-10-30: https://www.medicare.gov/basics/costs/help/drug-costs. Published criteria are partial and non-executable.",
+              "eligibility.program.title": "Extra Help (Medicare Part D Low-Income Subsidy)",
+              "eligibility.program.description": "Helps people with limited income and resources pay Medicare Part D premiums, deductibles, coinsurance, and other costs.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "income_and_resource_limits_2026",
+                  "statement": "For 2026, the published income limit is $23,940 for an individual and $32,460 for a married couple. The published resource limit is $18,090 for an individual and $36,100 for a married couple. Medicare.gov says these limits may go up each year. The page points to separate, higher limits for Alaska and Hawaii; those values are not included in this record.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "cms.medicare-extra-help"
+                },
+                {
+                  "requirement_id": "automatic_qualification_pathways",
+                  "statement": "Medicare.gov says Extra Help is automatic for people with full-benefit Medicaid coverage, state payment of Part B premiums through a Medicare Savings Program, or Supplemental Security Income (SSI) payments from Social Security.",
+                  "mapping_status": "context_only",
+                  "source_id": "cms.medicare-extra-help"
+                },
+                {
+                  "requirement_id": "application_and_geographic_limits",
+                  "statement": "People who do not qualify automatically can apply through Social Security and may receive free application help from SHIP. Medicare.gov says Extra Help is unavailable in Puerto Rico, the U.S. Virgin Islands, Guam, the Northern Mariana Islands, and American Samoa; it points residents to their State Medical Assistance office for other local programs.",
+                  "mapping_status": "context_only",
+                  "source_id": "cms.medicare-extra-help"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "national",
+                "country_code": "US"
+              },
+              "criteria_mapping_status": "not_mapped",
+              "effective_period": "2026 published limits"
+            },
+            "source_metadata": {
+              "source_id": "cms.medicare-extra-help",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "source_title": "Help with drug costs",
+              "publisher": "Centers for Medicare & Medicaid Services",
+              "source_version": "Medicare.gov Help with drug costs page retrieved 2026-10-30; published 2026 Extra Help income and resource limits.",
+              "criteria_status": "partial_not_mapped",
+              "retrieved_at": "2026-10-30T02:33:27Z",
+              "effective_at": null,
+              "transform_version": "cms-extra-help-source-review-v1",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/drug-costs",
+                  "observed_at": "2026-10-30T02:33:27Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/drug-costs",
+                  "observed_at": "2026-10-30T02:33:27Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/drug-costs",
+                  "observed_at": "2026-10-30T02:33:27Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/drug-costs",
+                  "observed_at": "2026-10-30T02:33:27Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/drug-costs",
+                  "observed_at": "2026-10-30T02:33:27Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://www.medicare.gov/basics/costs/help/drug-costs",
+                  "observed_at": "2026-10-30T02:33:27Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false,
+              "content_hash": "bca57c78acf9efe4ccfd2999adc747e601220c62fcf33d8c081fc80256314104"
+            },
+            "source_url": "https://www.medicare.gov/basics/costs/help/drug-costs",
+            "schema_version": "eligibility-program-v2",
+            "observed_at": "2026-10-30T02:33:27Z",
+            "content_hash": "bca57c78acf9efe4ccfd2999adc747e601220c62fcf33d8c081fc80256314104"
+          }
+        ]
+      }
+    }
+  ]
+}

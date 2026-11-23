@@ -1,0 +1,143 @@
+{
+  "suite_id": "S08",
+  "name": "wiring-and-contract-drift",
+  "objective": "Registry wiring and published contracts match runtime behavior",
+  "depends_on": [
+    "S03"
+  ],
+  "requires_operator": false,
+  "stop_on_fail": false,
+  "all_tests_gate": false,
+  "stop_conditions": [
+    "No writes; each check runs once (P-5 read retry only)"
+  ],
+  "pass_rule": "PASS_WITH_DEFECTS for non-gate failures; failures are consolidated in DEFECTS.md, not looped.",
+  "start_conditions": [
+    "S03 captured tenant_template_version"
+  ],
+  "maps_to": [
+    "#242 wiring"
+  ],
+  "tests": [
+    {
+      "id": "S08-T01",
+      "title": "Exactly one active eligibility template (no stale versions advertised)",
+      "action": {
+        "type": "derived",
+        "check": "active_template_versions",
+        "target": "eligibility"
+      },
+      "assertions": [
+        {
+          "path": "versions",
+          "op": "len_eq",
+          "value": 1
+        }
+      ],
+      "gate": false
+    },
+    {
+      "id": "S08-T02",
+      "title": "General profile schema is published on the active template",
+      "action": {
+        "type": "call",
+        "tool": "read_cluster_schema",
+        "args": {
+          "template_id": "eligibility",
+          "template_version": "${tenant_template_version}",
+          "schema_ref": "#/$defs/EligibilityProfile"
+        }
+      },
+      "assertions": [
+        {
+          "path": "status",
+          "op": "eq",
+          "value": "available"
+        }
+      ],
+      "gate": false
+    },
+    {
+      "id": "S08-T03",
+      "title": "Inventory search browses with no need phrase (schema and runtime agree)",
+      "action": {
+        "type": "call",
+        "tool": "route_operation",
+        "args": {
+          "route_id": "eligibility",
+          "operation_id": "program.inventory.search",
+          "arguments": {
+            "page_size": 5
+          }
+        }
+      },
+      "assertions": [
+        {
+          "path": "status",
+          "op": "eq",
+          "value": "ok"
+        },
+        {
+          "path": "result.candidates",
+          "op": "len_gte",
+          "value": 1
+        }
+      ],
+      "gate": false
+    },
+    {
+      "id": "S08-T04",
+      "title": "Out-of-range argument returns a structured validation result, not bare unavailable",
+      "action": {
+        "type": "call",
+        "tool": "route_operation",
+        "args": {
+          "route_id": "eligibility",
+          "operation_id": "program.inventory.list",
+          "arguments": {
+            "page_size": 26
+          }
+        }
+      },
+      "assertions": [
+        {
+          "path": "status",
+          "op": "ne",
+          "value": "unavailable",
+          "label": "invalid input is distinguishable from an outage"
+        }
+      ],
+      "gate": false
+    },
+    {
+      "id": "S08-T05",
+      "title": "Candidate normalize accepts arguments shaped like its published schema",
+      "action": {
+        "type": "call",
+        "tool": "route_operation",
+        "args": {
+          "route_id": "eligibility",
+          "operation_id": "program.candidate.normalize",
+          "arguments": {
+            "source_id": "usda.farmers.gov",
+            "source_record_id": "s08-schema-shape-check",
+            "source_version": "S08 contract check",
+            "source_url": "https://www.farmers.gov/loans",
+            "retrieved_at": "2026-10-31T00:00:00Z",
+            "listing": {
+              "title": "S08 schema-shape check"
+            }
+          }
+        }
+      },
+      "assertions": [
+        {
+          "path": "result.status",
+          "op": "eq",
+          "value": "candidate_ready_for_review"
+        }
+      ],
+      "gate": false
+    }
+  ]
+}

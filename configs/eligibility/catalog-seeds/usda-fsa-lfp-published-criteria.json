@@ -1,0 +1,226 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "usda.fsa.disaster-assistance",
+    "reviewed_at": "2026-11-23T00:20:00Z",
+    "publisher_version": "FSA LFP page reviewed 2026-11-22; publisher revision not stated.",
+    "raw_source_documents_committed": false,
+    "access_method": "Official FSA HTML retrieved by HTTPS; raw response SHA-256 recorded, page body not retained.",
+    "pages": [
+      {
+        "url": "https://www.fsa.usda.gov/resources/disaster-recovery/livestock-forage-disaster-program-lfp",
+        "title": "Livestock Forage Disaster Program (LFP) | Farm Service Agency",
+        "source_content_sha256": null
+      }
+    ]
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "usda.fsa.disaster-assistance",
+      "source_name": "USDA Farm Service Agency Disaster Assistance Programs",
+      "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "federal",
+          "owner_name": "United States Department of Agriculture Farm Service Agency",
+          "verification_status": "verified",
+          "evidence_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs"
+        },
+        "approved_scope": "Shared federal disaster-program discovery listings from the official FSA disaster assistance page. Program descriptions are not complete criteria, individual eligibility determinations, current application status, or benefit estimates.",
+        "refresh_mode": "operator_triggered"
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "fsa-lfp-published-criteria",
+        "source_dataset_id": "FSA LFP page published requirements",
+        "title": "USDA FSA LFP published requirements and application guidance",
+        "landing_page": "https://www.fsa.usda.gov/resources/disaster-recovery/livestock-forage-disaster-program-lfp",
+        "schema_version": "eligibility-program-v4",
+        "namespace_ids": [
+          "core",
+          "eligibility"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "refresh_mode": "operator_triggered",
+          "criteria_coverage": "partial",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "eligibility": "eligibility-program-schema"
+          },
+          "schema_versions": {
+            "core": "core-v4",
+            "eligibility": "eligibility-program-v4"
+          },
+          "content_type": "published_partial_non_executable_eligibility_reference",
+          "published_criteria_available": true,
+          "criteria_mapping_status": "not_mapped",
+          "maximum_records_total": 1
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "fsa-lfp-published-criteria",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "FSA LFP page reviewed 2026-11-22; publisher revision not stated.",
+        "retrieved_at": "2026-11-23T00:20:00Z",
+        "transform_version": "fsa-lfp-published-criteria-v1",
+        "validation_outcome": "valid",
+        "detail": "Source-backed LFP eligibility statements, forms, supporting documents and deadline; nothing mapped to a profile attribute.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "fsa-lfp-published-criteria",
+            "record_type": "federal-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "usda-fsa-livestock-forage-disaster",
+              "eligibility.program.catalog_version": "fsa-lfp-published-criteria-2026-11-22",
+              "eligibility.program.navigator": "farm_business",
+              "eligibility.program.data_origin": "USDA FSA Livestock Forage Disaster Program page",
+              "eligibility.program.title": "Livestock Forage Disaster Program (LFP) published requirements and application guidance",
+              "eligibility.program.description": "Source-backed transcription of who the FSA LFP page says is eligible, how drought payment months are determined, and how to apply (forms, supporting documents, deadline). No requirement is mapped to a profile attribute: drought status depends on the county's U.S. Drought Monitor rating, which a profile cannot supply. Not an FSA determination.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "lfp-eligible-applicant",
+                  "statement": "Eligible applicants are livestock producers who own or lease grazing land or pastureland in an area affected by qualifying drought or fire and who document their grazing losses.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.disaster-assistance",
+                  "requirement_type": "eligibility"
+                },
+                {
+                  "requirement_id": "lfp-drought-land",
+                  "statement": "For drought, the land must be privately owned or cash-leased and in a county with qualifying drought as rated by the U.S. Drought Monitor during the normal grazing period.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.disaster-assistance",
+                  "requirement_type": "eligibility"
+                },
+                {
+                  "requirement_id": "lfp-fire-federal-range",
+                  "statement": "For fire, the producer must be unable to graze normal permitted livestock on federally managed rangeland because of fire; qualifying fire losses are limited to federally managed land.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.disaster-assistance",
+                  "requirement_type": "eligibility"
+                },
+                {
+                  "requirement_id": "lfp-eligible-livestock",
+                  "statement": "Eligible livestock are beef and dairy cattle, buffalo, bison, beefalo, water buffalo, equine, goats, sheep, alpacas, ostriches, emus, deer, elk, caribou or reindeer, and llamas kept for commercial use as part of a farming operation.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.disaster-assistance",
+                  "requirement_type": "eligibility"
+                },
+                {
+                  "requirement_id": "lfp-drought-payment-months",
+                  "statement": "Monthly payments depend on drought level and duration: D2 for 4 consecutive weeks, 1 payment; D2 for 7 of 8 consecutive weeks, 2; D3 at any time, 3; D3 for 4 weeks or D4 at any time, 4; D4 for 4 weeks, 5. The page says the D2 one-month threshold was reduced from eight weeks to four.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.disaster-assistance",
+                  "requirement_type": "eligibility"
+                }
+              ],
+              "eligibility.program.details": [
+                {
+                  "kind": "application_step",
+                  "text": "Submit the LFP application and supporting forms to your local FSA office. Find your office with the FSA office locator at https://www.fsa.usda.gov/office-locator. The page lists no phone number.",
+                  "source_id": "usda.fsa.disaster-assistance"
+                },
+                {
+                  "kind": "form",
+                  "text": "Forms named on the FSA page: CCC-853 Livestock Forage Disaster Program Application; FSA-578 Report of Acreage; AD-2047 Customer Data Worksheet.",
+                  "source_id": "usda.fsa.disaster-assistance"
+                },
+                {
+                  "kind": "form",
+                  "text": "Also named on the page, as applicable: CCC-901 Member Information for Legal Entities; CCC-902I Farm Operating Plan for an Individual; CCC-902E Farm Operating Plan for an entity; CCC-941 Average Adjusted Gross Income Certification and Consent to Disclosure of Tax Information; AD-1026 Highly Erodible Land Conservation and Wetland Conservation Certification; SF-3881 ACH Vendor/Miscellaneous Payment Enrollment Form (direct deposit).",
+                  "source_id": "usda.fsa.disaster-assistance"
+                },
+                {
+                  "kind": "required_document",
+                  "text": "Supporting documentation named on the page: proof of grazing losses as of the designated drought date, grazing leases or permits, proof of land ownership, and livestock inventory information.",
+                  "source_id": "usda.fsa.disaster-assistance"
+                },
+                {
+                  "kind": "deadline",
+                  "text": "The page states applications must be submitted by March 1 following the end of the calendar year in which the grazing loss occurred. Enrollment instructions and deadlines are available from the local FSA office.",
+                  "source_id": "usda.fsa.disaster-assistance"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.fsa.disaster-assistance",
+              "source_version": "FSA LFP page reviewed 2026-11-22; publisher revision not stated.",
+              "retrieved_at": "2026-11-23T00:20:00Z",
+              "effective_at": null,
+              "transform_version": "fsa-lfp-published-criteria-v1",
+              "approval_status": "approved",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://www.fsa.usda.gov/resources/disaster-recovery/livestock-forage-disaster-program-lfp",
+                  "observed_at": "2026-11-23T00:20:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://www.fsa.usda.gov/resources/disaster-recovery/livestock-forage-disaster-program-lfp",
+                  "observed_at": "2026-11-23T00:20:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.navigator": {
+                  "source_url": "https://www.fsa.usda.gov/resources/disaster-recovery/livestock-forage-disaster-program-lfp",
+                  "observed_at": "2026-11-23T00:20:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://www.fsa.usda.gov/resources/disaster-recovery/livestock-forage-disaster-program-lfp",
+                  "observed_at": "2026-11-23T00:20:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://www.fsa.usda.gov/resources/disaster-recovery/livestock-forage-disaster-program-lfp",
+                  "observed_at": "2026-11-23T00:20:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://www.fsa.usda.gov/resources/disaster-recovery/livestock-forage-disaster-program-lfp",
+                  "observed_at": "2026-11-23T00:20:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://www.fsa.usda.gov/resources/disaster-recovery/livestock-forage-disaster-program-lfp",
+                  "observed_at": "2026-11-23T00:20:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.details": {
+                  "source_url": "https://www.fsa.usda.gov/resources/disaster-recovery/livestock-forage-disaster-program-lfp",
+                  "observed_at": "2026-11-23T00:20:00Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.fsa.usda.gov/resources/disaster-recovery/livestock-forage-disaster-program-lfp",
+            "schema_version": "eligibility-program-v4",
+            "observed_at": "2026-11-23T00:20:00Z",
+            "content_hash": "2a5f34ee66fbae71ae4789ee77ce5525aeaceb167a53aefdcf88def52269c8f3"
+          }
+        ]
+      }
+    }
+  ]
+}

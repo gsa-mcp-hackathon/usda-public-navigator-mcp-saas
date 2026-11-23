@@ -1,0 +1,151 @@
+{
+  "contract_version": "profile-projection-v5",
+  "mapping_version": "eligibility-core-v7-to-profile-v5",
+  "template_id": "eligibility",
+  "template_version": "0.1.46",
+  "source_schema_registry_id": "core-schema-registry",
+  "source_schema_version": "core-v7",
+  "allowed_fixture_sets": [
+    {
+      "fixture_set_id": "phase-ab",
+      "fixture_set_version": "1.0.0"
+    }
+  ],
+  "navigators": [
+    {
+      "navigator": "farmer_producer",
+      "target_schema_version": "farmer-profile-v2",
+      "fields": [
+        {
+          "source_attribute_id": "core.geography.state_code",
+          "target_field": "state_code"
+        },
+        {
+          "source_attribute_id": "core.geography.county_name",
+          "target_field": "county_name"
+        },
+        {
+          "source_attribute_id": "core.farm_business.operation_type",
+          "target_field": "operation_type"
+        },
+        {
+          "source_attribute_id": "core.farm_business.years_farming",
+          "target_field": "years_farming"
+        },
+        {
+          "source_attribute_id": "core.farm_business.acreage",
+          "target_field": "acreage"
+        }
+      ]
+    },
+    {
+      "navigator": "senior_caregiver",
+      "target_schema_version": "senior-profile-v3",
+      "fields": [
+        {
+          "source_attribute_id": "core.geography.state_code",
+          "target_field": "state_code"
+        },
+        {
+          "source_attribute_id": "core.geography.county_name",
+          "target_field": "county_name"
+        },
+        {
+          "source_attribute_id": "core.person.age_band",
+          "target_field": "age_band"
+        },
+        {
+          "source_attribute_id": "core.household.annual_income_usd",
+          "target_field": "annual_household_income_usd"
+        },
+        {
+          "source_attribute_id": "core.household.size",
+          "target_field": "household_size"
+        },
+        {
+          "source_attribute_id": "core.household.monthly_gross_income_usd",
+          "target_field": "monthly_gross_income_usd"
+        },
+        {
+          "source_attribute_id": "core.household.monthly_net_income_usd",
+          "target_field": "monthly_net_income_usd"
+        },
+        {
+          "source_attribute_id": "core.person.veteran.va_healthcare_status",
+          "target_field": "veteran_va_healthcare_status"
+        },
+        {
+          "source_attribute_id": "core.person.veteran.service_discharge_status",
+          "target_field": "veteran_service_discharge_status"
+        },
+        {
+          "source_attribute_id": "core.person.veteran.service_connected_disability_rating_percent",
+          "target_field": "veteran_service_connected_disability_rating_percent"
+        },
+        {
+          "source_attribute_id": "core.person.veteran.personal_care_need",
+          "target_field": "veteran_personal_care_need"
+        },
+        {
+          "source_attribute_id": "core.person.veteran.continuous_in_person_care_months",
+          "target_field": "veteran_continuous_in_person_care_months"
+        },
+        {
+          "source_attribute_id": "core.person.caregiver.age_years",
+          "target_field": "caregiver_age_years"
+        },
+        {
+          "source_attribute_id": "core.person.caregiver.relationship_to_veteran",
+          "target_field": "caregiver_relationship_to_veteran"
+        },
+        {
+          "source_attribute_id": "core.person.caregiver.lives_or_willing_to_live_full_time_with_veteran",
+          "target_field": "caregiver_lives_or_willing_to_live_full_time_with_veteran"
+        }
+      ]
+    },
+    {
+      "navigator": "low_income_assistance",
+      "target_schema_version": "household-profile-v2",
+      "fields": [
+        {
+          "source_attribute_id": "core.geography.state_code",
+          "target_field": "state_code"
+        },
+        {
+          "source_attribute_id": "core.geography.county_name",
+          "target_field": "county_name"
+        },
+        {
+          "source_attribute_id": "core.household.annual_income_usd",
+          "target_field": "annual_household_income_usd"
+        },
+        {
+          "source_attribute_id": "core.household.size",
+          "target_field": "household_size"
+        },
+        {
+          "source_attribute_id": "core.household.adults",
+          "target_field": "household_adults"
+        },
+        {
+          "source_attribute_id": "core.household.children",
+          "target_field": "household_children"
+        },
+        {
+          "source_attribute_id": "core.household.monthly_gross_income_usd",
+          "target_field": "monthly_gross_income_usd"
+        },
+        {
+          "source_attribute_id": "core.household.monthly_net_income_usd",
+          "target_field": "monthly_net_income_usd"
+        }
+      ]
+    },
+    {
+      "navigator": "general",
+      "target_schema_version": "core-v8",
+      "fields": []
+    }
+  ]
+}

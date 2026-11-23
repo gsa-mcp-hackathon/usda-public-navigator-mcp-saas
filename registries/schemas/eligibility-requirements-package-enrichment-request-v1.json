@@ -1,0 +1,43 @@
+{
+  "registry_id": "eligibility-requirements-package-enrichment-request-v1-schema",
+  "schema_version": "eligibility-requirements-package-enrichment-request-v1",
+  "namespaces": {
+    "requirements": "Saved package detail enrichment"
+  },
+  "dimensions": {
+    "requirements.package": "Existing saved package",
+    "requirements.revision": "Compare-and-set package revision",
+    "requirements.details": "Source-cited binder detail records",
+    "requirements.profile": "Synthetic profile scope"
+  },
+  "attributes": {
+    "requirements.package_id": {
+      "dimension_id": "requirements.package",
+      "type": "string",
+      "format": "uuid"
+    },
+    "requirements.expected_revision": {
+      "dimension_id": "requirements.revision",
+      "type": "integer",
+      "minimum": 1
+    },
+    "requirements.details": {
+      "dimension_id": "requirements.details",
+      "type": "array",
+      "min_items": 1,
+      "max_items": 100
+    },
+    "requirements.profile_id": {
+      "dimension_id": "requirements.profile",
+      "type": "string",
+      "pattern": "^(?:demo|synthetic)-"
+    },
+    "requirements.profile_ref": {
+      "dimension_id": "requirements.profile",
+      "type": "string",
+      "min_length": 1,
+      "max_length": 2048
+    }
+  },
+  "description": "Append source-cited details to one existing package using tenant/profile scope and expected revision."
+}

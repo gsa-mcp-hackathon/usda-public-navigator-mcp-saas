@@ -1,0 +1,16 @@
+{
+  "manifest_version": "public-catalog-record-update-plan-v1",
+  "plan_id": "hcv-hud-income-screen-remove-unverified-crosswalk-20261122-v1",
+  "target": {
+    "dataset_id": "hud-hcv-income-screen",
+    "source_record_id": "hud-housing-choice-voucher"
+  },
+  "seed_path": "configs/eligibility/catalog-seeds/hud-hcv-income-screen.json",
+  "expected_before_content_sha256": "3109aed06e7e630744f0a4fd785789e834e75e53ea0c43a026d1811dc239d1f3",
+  "expected_after_content_sha256": "ddec87283dbc0489108b2090a5b05931e93d55410b81b153cf9ab47b0f3ad267",
+  "write_policy": {
+    "mode": "serialized_precondition_readback",
+    "server_side_compare_and_swap": false,
+    "single_writer_group": "lane-a-hcv-data-write"
+  }
+}

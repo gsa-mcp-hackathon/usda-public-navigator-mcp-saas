@@ -1,0 +1,46 @@
+{
+  "driver_run_id": "129f465a-53a7-4e11-bcf0-0bd0c2ba28b1",
+  "started": "2026-11-21T17:42:55Z",
+  "finished": "2026-11-21T17:51:35Z",
+  "steps": 32,
+  "identifiers_seen": [
+    "run_24c5bf16",
+    "03f26d79-ef5d-4565-826a-eac3b99552a9",
+    "5b1a4a62-0887-4f99-b932-7ca22c6c1776"
+  ],
+  "page_status_text": "2 of 2 hosted agents are configured for the traced Navigator chat path.",
+  "errors_seen": [],
+  "phoenix_join": {
+    "status": "joined",
+    "project": "usda-core-native",
+    "joined_on": "mcp.correlation.id",
+    "spans": [
+      {
+        "correlation_id": "24c5bf16-8ce2-4680-b5c9-ce14b48688b8",
+        "trace_id": "4d23db526fbd04c659587511c35cf97f",
+        "span_id": "1a97670ca540b339",
+        "tool": "route_operation"
+      },
+      {
+        "correlation_id": "03f26d79-ef5d-4565-826a-eac3b99552a9",
+        "trace_id": "8f76480dac82c8045b2058e9cc9f3f1c",
+        "span_id": "86a66e7e7b97ff66",
+        "tool": "route_operation"
+      },
+      {
+        "correlation_id": "5b1a4a62-0887-4f99-b932-7ca22c6c1776",
+        "trace_id": "8f76480dac82c8045b2058e9cc9f3f1c",
+        "span_id": "09b71f9dc5a06643",
+        "tool": "route_operation"
+      }
+    ],
+    "note": "Only IDs the browser agent read from the page are listed. Other spans from the same chat exist in the project but are not claimed here."
+  },
+  "checks": {
+    "classification_not_approval": "pass",
+    "states_agency_decides": "pass",
+    "separates_confirmed_from_unchecked": "pass",
+    "no_pii_given": "pass",
+    "no_errors_on_page": "pass"
+  }
+}

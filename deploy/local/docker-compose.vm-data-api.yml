@@ -1,0 +1,58 @@
+# Architecture-aligned VM profile: apps reach the Data API, never PostgreSQL.
+services:
+  core:
+    environment:
+      REGISTRY_BACKEND: persistence_api
+      PERSISTENCE_API_URL: ${PERSISTENCE_API_URL:-http://mcp-saas-vm-data-api:8080}
+      PERSISTENCE_API_TOKEN_FILE: /run/secrets/registry_reader
+    networks:
+      - default
+      - data_api
+    secrets:
+      - source: mcp-saas-registry-read-token
+        target: registry_reader
+        uid: "10001"
+        gid: "10001"
+        mode: "0400"
+
+  tenant-federal:
+    environment:
+      CATALOG_BACKEND: persistence_api
+      PERSISTENCE_API_URL: ${PERSISTENCE_API_URL:-http://mcp-saas-vm-data-api:8080}
+      PERSISTENCE_API_CATALOG_TOKEN_FILE: /run/secrets/catalog_reader
+    networks:
+      - default
+      - data_api
+    secrets:
+      - source: mcp-saas-catalog-read-token
+        target: catalog_reader
+        uid: "10001"
+        gid: "10001"
+        mode: "0400"
+
+  tenant-kansas:
+    environment:
+      CATALOG_BACKEND: persistence_api
+      PERSISTENCE_API_URL: ${PERSISTENCE_API_URL:-http://mcp-saas-vm-data-api:8080}
+      PERSISTENCE_API_CATALOG_TOKEN_FILE: /run/secrets/catalog_reader
+    networks:
+      - default
+      - data_api
+    secrets:
+      - source: mcp-saas-catalog-read-token
+        target: catalog_reader
+        uid: "10001"
+        gid: "10001"
+        mode: "0400"
+
+networks:
+  default: {}
+  data_api:
+    name: ${MCP_DATA_API_NETWORK:-mcp-data-api-net}
+    external: true
+
+secrets:
+  mcp-saas-registry-read-token:
+    external: true
+  mcp-saas-catalog-read-token:
+    external: true

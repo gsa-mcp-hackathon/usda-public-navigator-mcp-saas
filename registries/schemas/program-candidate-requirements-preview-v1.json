@@ -1,0 +1,38 @@
+{
+  "registry_id": "eligibility-program-candidate-requirements-preview-schema",
+  "schema_version": "program-candidate-requirements-preview-v1",
+  "namespaces": {
+    "package": "Request-scoped client-side requirements packet",
+    "source": "Citations and source completeness limits",
+    "effects": "Explicit no-persistence result boundary"
+  },
+  "dimensions": {
+    "package.requirements": "Documents, forms, deadlines, steps, mapped criteria, and unresolved criteria",
+    "source.evidence": "Public source references supplied with the selected candidate",
+    "effects.preview": "Non-persistent preview state"
+  },
+  "attributes": {
+    "preview.preview_id": {"dimension_id": "package.requirements", "type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "package.criteria_package_id": {"dimension_id": "package.requirements", "type": "string"},
+    "package.requirements": {"dimension_id": "package.requirements", "type": "object"},
+    "package.requirements.required_documents": {"dimension_id": "package.requirements", "type": "array"},
+    "package.requirements.forms": {"dimension_id": "package.requirements", "type": "array"},
+    "package.requirements.deadlines": {"dimension_id": "package.requirements", "type": "array"},
+    "package.requirements.procedural_steps": {"dimension_id": "package.requirements", "type": "array"},
+    "package.unavailable_detail_kinds": {"dimension_id": "package.requirements", "type": "array"},
+    "package.criteria": {"dimension_id": "package.requirements", "type": "object"},
+    "package.source_completeness": {"dimension_id": "source.evidence", "type": "string", "allowed_values": ["not_proven"]},
+    "package.source_references": {"dimension_id": "source.evidence", "type": "array"},
+    "package.source_validation": {"dimension_id": "source.evidence", "type": "object", "description": "Caller-supplied lineage consistency is checked; Core does not independently fetch the source."},
+    "effects.request_scoped": {"dimension_id": "effects.preview", "type": "boolean", "const": true},
+    "effects.written": {"dimension_id": "effects.preview", "type": "boolean", "const": false},
+    "effects.rules_activated": {"dimension_id": "effects.preview", "type": "boolean", "const": false}
+  },
+  "relationships": {
+    "package.requirements.cite_source": {
+      "source_dimension": "package.requirements",
+      "target_dimension": "source.evidence",
+      "cardinality": "many_to_many"
+    }
+  }
+}

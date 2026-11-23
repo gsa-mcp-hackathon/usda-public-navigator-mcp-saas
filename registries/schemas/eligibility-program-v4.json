@@ -1,0 +1,265 @@
+{
+  "registry_id": "eligibility-program-schema",
+  "schema_version": "eligibility-program-v4",
+  "namespaces": {
+    "eligibility": "Eligibility template program catalog semantics"
+  },
+  "dimensions": {
+    "eligibility.program": "A public program as defined by the Eligibility template"
+  },
+  "attributes": {
+    "eligibility.program.program_id": {
+      "dimension_id": "eligibility.program",
+      "type": "string"
+    },
+    "eligibility.program.catalog_version": {
+      "dimension_id": "eligibility.program",
+      "type": "string"
+    },
+    "eligibility.program.navigator": {
+      "dimension_id": "eligibility.program",
+      "type": "string"
+    },
+    "eligibility.program.data_origin": {
+      "dimension_id": "eligibility.program",
+      "type": "string"
+    },
+    "eligibility.program.title": {
+      "dimension_id": "eligibility.program",
+      "type": "string"
+    },
+    "eligibility.program.description": {
+      "dimension_id": "eligibility.program",
+      "type": "string"
+    },
+    "eligibility.program.criteria": {
+      "dimension_id": "eligibility.program",
+      "type": "array"
+    },
+    "eligibility.program.published_requirements": {
+      "dimension_id": "eligibility.program",
+      "type": "array",
+      "description": "Published source statements and optional normalized mapping candidates. A mapped candidate is not approved or active until separately reviewed and published.",
+      "items": {
+        "type": "object",
+        "required": [
+          "requirement_id",
+          "statement",
+          "mapping_status",
+          "source_id"
+        ],
+        "properties": {
+          "requirement_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "mapping_status": {
+            "type": "string",
+            "enum": [
+              "mapped",
+              "partial",
+              "not_mapped",
+              "context_only",
+              "source_not_published",
+              "stale",
+              "unavailable"
+            ]
+          },
+          "source_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "requirement_type": {
+            "type": "string",
+            "enum": [
+              "eligibility",
+              "program_condition",
+              "applicant_condition",
+              "context"
+            ]
+          },
+          "concept_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "attribute": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "operator": {
+            "type": "string",
+            "enum": [
+              "eq",
+              "neq",
+              "gt",
+              "gte",
+              "lt",
+              "lte"
+            ]
+          },
+          "value": {
+            "type": "number"
+          },
+          "unit": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "eligibility.program.details": {
+      "dimension_id": "eligibility.program",
+      "type": "array",
+      "description": "Source-backed application requirements detail; each item references a declared source_id.",
+      "items": {
+        "type": "object",
+        "required": [
+          "kind",
+          "text",
+          "source_id"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "application_step",
+              "form",
+              "required_document",
+              "deadline"
+            ]
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "source_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "eligibility.program.source_references": {
+      "dimension_id": "eligibility.program",
+      "type": "array",
+      "description": "Additional cited public sources used by details. Primary source remains source_metadata.source_id.",
+      "items": {
+        "type": "object",
+        "required": [
+          "contract_version",
+          "source_id",
+          "source_type",
+          "approval_status",
+          "agency",
+          "title",
+          "url",
+          "jurisdiction",
+          "retrieved_at"
+        ],
+        "properties": {
+          "contract_version": {
+            "type": "string",
+            "const": "source-reference-v1"
+          },
+          "source_id": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 80,
+            "pattern": "^[a-z0-9][a-z0-9._-]{1,79}$"
+          },
+          "source_type": {
+            "type": "string",
+            "const": "public_source"
+          },
+          "approval_status": {
+            "type": "string",
+            "const": "approved"
+          },
+          "agency": {
+            "type": "string",
+            "minLength": 1
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "jurisdiction": {
+            "type": "object",
+            "required": [
+              "level"
+            ],
+            "properties": {
+              "level": {
+                "type": "string",
+                "enum": [
+                  "federal",
+                  "state",
+                  "territory",
+                  "local",
+                  "tribal"
+                ]
+              },
+              "country_code": {
+                "type": "string",
+                "pattern": "^[A-Z]{2}$",
+                "default": "US"
+              },
+              "state_code": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^[A-Z]{2}$"
+              },
+              "county_name": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          },
+          "retrieved_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "effective_date": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          },
+          "publisher_version": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "relationships": {}
+}

@@ -1,0 +1,49 @@
+{
+  "registry_id": "eligibility-program-criteria-package-schema",
+  "schema_version": "program-criteria-package-preview-v1",
+  "namespaces": {
+    "criteria": "Deterministic, review-only program criteria package preview",
+    "source": "Source identity and retrieval lineage"
+  },
+  "dimensions": {
+    "criteria.package": "Versioned package candidate with executable and unresolved clauses",
+    "source.provenance": "Published-source references attached to each clause"
+  },
+  "attributes": {
+    "criteria.package_id": {"dimension_id": "criteria.package", "type": "string"},
+    "criteria.program_id": {"dimension_id": "criteria.package", "type": "string"},
+    "criteria.navigator": {"dimension_id": "criteria.package", "type": "string"},
+    "criteria.status": {
+      "dimension_id": "criteria.package",
+      "type": "string",
+      "allowed_values": ["candidate_requires_review"]
+    },
+    "criteria.compiled_rules": {"dimension_id": "criteria.package", "type": "array"},
+    "criteria.unresolved_requirements": {
+      "dimension_id": "criteria.package",
+      "type": "array",
+      "item_fields": {
+        "requirement_id": "string",
+        "reason": "string",
+        "reason_code": "stable machine-readable diagnostic code",
+        "explanation": "plain-language reason the clause cannot be compiled",
+        "recommended_action": "machine-readable next step",
+        "ask_user": "boolean; false when the gap is in source, schema, or rule support"
+      }
+    },
+    "criteria.coverage": {
+      "dimension_id": "criteria.package",
+      "type": "object",
+      "source_completeness_reason": "The supplied clauses are candidates; no evidence establishes that they include every applicable requirement.",
+      "source_completeness_action": "review_source_scope_and_effective_dates"
+    },
+    "criteria.governance": {"dimension_id": "criteria.package", "type": "object"},
+    "criteria.program_record_preview": {"dimension_id": "criteria.package", "type": "object"},
+    "source.id": {"dimension_id": "source.provenance", "type": "string"},
+    "source.version": {"dimension_id": "source.provenance", "type": "string"},
+    "source.url": {"dimension_id": "source.provenance", "type": "string", "pattern": "^https://"},
+    "source.retrieved_at": {"dimension_id": "source.provenance", "type": "string"},
+    "source.content_sha256": {"dimension_id": "source.provenance", "type": "string", "pattern": "^[a-fA-F0-9]{64}$"}
+  },
+  "relationships": {}
+}

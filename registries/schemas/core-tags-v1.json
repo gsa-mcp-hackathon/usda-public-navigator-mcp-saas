@@ -1,0 +1,45 @@
+{
+  "registry_id": "core-tag-registry",
+  "schema_version": "1.0.0",
+  "namespaces": {
+    "core": "Global reusable classification and semantic-context metadata"
+  },
+  "dimensions": {
+    "core.tag": "A reusable metadata tag attached to a typed platform entity"
+  },
+  "attributes": {},
+  "relationships": {},
+  "tags": {
+    "core.record.context": {
+      "meaning": "A reusable context label that qualifies an entity without replacing typed attributes or changing authorization.",
+      "value_type": "string",
+      "applies_to": [
+        "profile",
+        "public_dataset",
+        "pattern_template",
+        "tenant",
+        "source",
+        "route"
+      ],
+      "lifecycle_state": "active"
+    },
+    "core.evaluation.purpose": {
+      "meaning": "Identifies synthetic records intentionally approved for an evaluation purpose; allowlist membership remains the access control.",
+      "value_type": "string",
+      "allowed_values": [
+        "synthetic_fixture"
+      ],
+      "applies_to": [
+        "profile"
+      ],
+      "lifecycle_state": "active"
+    }
+  },
+  "compatibility_policy": {
+    "definition_identity": "registry_id + schema_version + tag_id",
+    "same_version_change": "immutable",
+    "additive_change": "publish a new compatible schema version",
+    "meaning_or_value_type_change": "publish a new schema version and preserve the prior definition",
+    "deprecation": "mark deprecated and provide replaced_by in the new schema version"
+  }
+}

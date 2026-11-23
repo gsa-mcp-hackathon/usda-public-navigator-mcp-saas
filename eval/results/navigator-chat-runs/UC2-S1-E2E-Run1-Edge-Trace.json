@@ -1,0 +1,52 @@
+{
+  "driver_run_id": "ccfa1060-a52b-4581-9f05-95a991a02f1c",
+  "started": "2026-11-21T18:04:35Z",
+  "finished": "2026-11-21T18:09:57Z",
+  "steps": 33,
+  "identifiers_seen": {
+    "agent": "usda_mcp_eligibility_agent",
+    "client": "ibm-watsonx-orchestrate",
+    "run_keys": [
+      "run_dcac851e",
+      "run_0e72c2ab"
+    ],
+    "run_mode": "deployed chat",
+    "operation": "program.inventory.search",
+    "correlation_ids": [
+      "dcac851e-2f1f-4eea-abdb-85592daf70b9",
+      "0e72c2ab-49a9-4939-a4e6-e5192df53371"
+    ],
+    "instructions_version": "v7"
+  },
+  "page_status_text": "2 of 2 hosted agents are configured for the traced Navigator chat path.",
+  "errors_seen": [],
+  "phoenix_join": {
+    "status": "joined",
+    "project": "usda-core-native",
+    "joined_on": "mcp.correlation.id",
+    "spans": [
+      {
+        "correlation_id": "dcac851e-2f1f-4eea-abdb-85592daf70b9",
+        "trace_id": "76061a6c625e285ae0af58e0d5611f67",
+        "span_id": "b57fe9c5175c21b7",
+        "tool": "route_operation"
+      },
+      {
+        "correlation_id": "0e72c2ab-49a9-4939-a4e6-e5192df53371",
+        "trace_id": "7ba5f0332de7093683f821398d35a78b",
+        "span_id": "1cdd60a13982fa48",
+        "tool": "route_operation"
+      }
+    ],
+    "note": "Only IDs the browser agent read from the page are listed. Other spans from the same chat exist in the project but are not claimed here."
+  },
+  "checks": {
+    "recognizes_caregiver_is_chatting": "pass",
+    "surfaces_senior_food_and_aging_referral_listings": "pass",
+    "no_approval_or_decision_stated": "pass",
+    "respects_withheld_income": "pass",
+    "no_pii_given": "pass",
+    "no_errors_on_page": "pass"
+  },
+  "observation": "Reply 1 labels all three programs 'USDA catalog' in a table; the browser agent could not tell whether that first turn came from a catalog search or from the model's own knowledge. Check the call log for the first turn in Phoenix."
+}

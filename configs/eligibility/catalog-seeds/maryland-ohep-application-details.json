@@ -1,0 +1,239 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "maryland.ohep",
+    "reviewed_at": "2026-11-23T10:09:41.034Z",
+    "publisher_version": "sha256:03a02e0fa6c6a86f0904921711f288d18cd2b0eb9e120ff67f1d08c7d07d4369",
+    "source_content_sha256": "03a02e0fa6c6a86f0904921711f288d18cd2b0eb9e120ff67f1d08c7d07d4369",
+    "raw_source_documents_committed": false,
+    "access_method": "Rendered official page and linked documents reviewed with Playwright; rendered text and link targets captured.",
+    "source_visible_text_sha256": "74a04ee3296e2b9b60186bb11b422253bbb833f0eccf92f831e2410d43065fb3",
+    "source_policy_reference": {
+      "policy_id": "eligibility-public-search-domains",
+      "policy_version": "1.2.4",
+      "content_sha256": "a78aff8eff8fd47d04481602684cdcdc6e55bd80e16458e32c270adbb6e22e24"
+    },
+    "source_locator": "Rendered page headings: HOW TO APPLY FOR ENERGY ASSISTANCE; 1. DROP BOXES; 2. ONLINE SUBMISSION; 3. MAIL-IN APPLICATION; 4. TELEPHONE; 5. IN-PERSON; Information Needed with Application; Application Documents."
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "maryland.ohep",
+      "source_name": "Maryland Office of Home Energy Programs",
+      "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "state",
+          "owner_name": "Maryland Department of Human Services, Office of Home Energy Programs",
+          "verification_status": "verified",
+          "evidence_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/"
+        },
+        "approved_scope": "Maryland MEAP, EUSP, and ARA public program discovery and published requirement references for UC-2/UC-3; no profile data, raw page copy, eligibility decision, or grant calculation. The checked-in supporting details also preserve the official MEAP application routes and source-listed application information; no criteria scoring, eligibility determination, or grant calculation is added.",
+        "refresh_mode": "operator_triggered"
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "maryland-ohep-application-details",
+        "source_dataset_id": "Maryland DHS OHEP MEAP application details",
+        "title": "Maryland OHEP MEAP source-backed application details",
+        "landing_page": "https://dhs.maryland.gov/office-of-home-energy-programs/apply-energy-assistance/",
+        "schema_version": "eligibility-program-v4",
+        "namespace_ids": [
+          "core",
+          "eligibility"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "not_assessed",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "eligibility": "eligibility-program-schema"
+          },
+          "schema_versions": {
+            "core": "core-v4",
+            "eligibility": "eligibility-program-v4"
+          },
+          "content_type": "maryland_energy_assistance_application_details",
+          "published_criteria_available": true,
+          "criteria_mapping_status": "not_mapped",
+          "refresh_mode": "operator_triggered",
+          "maximum_records_total": 1,
+          "criteria_profile_schema_refs": [
+            {
+              "registry_id": "core-schema-registry",
+              "schema_version": "core-v4"
+            },
+            {
+              "registry_id": "eligibility-profile-extension-schema",
+              "schema_version": "eligibility-profile-v2"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "maryland-ohep-application-details",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "sha256:03a02e0fa6c6a86f0904921711f288d18cd2b0eb9e120ff67f1d08c7d07d4369",
+        "retrieved_at": "2026-11-23T10:09:41.034Z",
+        "transform_version": "maryland-ohep-application-details-v1",
+        "validation_outcome": "valid",
+        "detail": "One source-backed MEAP application-details record; no criteria or eligibility decision.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "md-ohep-meap",
+            "record_type": "maryland-ohep-application-details-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "md-ohep-meap",
+              "eligibility.program.catalog_version": "Maryland OHEP application instructions reviewed 2026-11-23",
+              "eligibility.program.data_origin": "public_source",
+              "eligibility.program.title": "Maryland Energy Assistance Program (MEAP)",
+              "eligibility.program.description": "Maryland OHEP offers year-round home-energy assistance. This record contains application routes and application information from the official page; household eligibility and grant amount are not evaluated.",
+              "eligibility.program.details": [
+                {
+                  "kind": "application_step",
+                  "text": "Submit an application online through MarylandBenefits.gov.",
+                  "source_id": "maryland.ohep"
+                },
+                {
+                  "kind": "application_step",
+                  "text": "For a paper application, use the DHS-FIA-9780 OHEP Application for Energy Assistance. The OHEP page lists local-office drop boxes and a mail-in option; use its Local Home Energy Program Office link to find the office.",
+                  "source_id": "maryland.ohep"
+                },
+                {
+                  "kind": "application_step",
+                  "text": "For a telephone application, call 1-800-332-6347. The OHEP page says to mail or email documents after the phone application; clear pictures are accepted.",
+                  "source_id": "maryland.ohep"
+                },
+                {
+                  "kind": "application_step",
+                  "text": "You may apply in person at a local OHEP office.",
+                  "source_id": "maryland.ohep"
+                },
+                {
+                  "kind": "form",
+                  "text": "DHS-FIA-9780 — OHEP Application for Energy Assistance. English and Spanish application PDFs are linked from the official application page.",
+                  "source_id": "maryland.ohep"
+                },
+                {
+                  "kind": "required_document",
+                  "text": "The application page lists these items as information needed with an application: applicant photo ID; proof of residency; Social Security cards for all household members; gross income for the last 30 days; and a utility/heating bill. This is a preparation list, not an eligibility determination.",
+                  "source_id": "maryland.ohep"
+                },
+                {
+                  "kind": "deadline",
+                  "text": "The OHEP application page labels the program year-round and does not state a fixed application deadline or processing time.",
+                  "source_id": "maryland.ohep"
+                }
+              ],
+              "core.geography.country_code": "US",
+              "core.geography.jurisdiction_level": "state",
+              "core.geography.state_code": "MD"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "state",
+                "country_code": "US",
+                "state_code": "MD"
+              },
+              "criteria_mapping_status": "not_mapped",
+              "criteria_program_ids": [
+                "md-ohep-meap"
+              ]
+            },
+            "source_metadata": {
+              "source_id": "maryland.ohep",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "source_title": "How to Apply for Energy Assistance",
+              "publisher": "Maryland Department of Human Services, Office of Home Energy Programs",
+              "source_version": "sha256:03a02e0fa6c6a86f0904921711f288d18cd2b0eb9e120ff67f1d08c7d07d4369",
+              "source_content_sha256": "03a02e0fa6c6a86f0904921711f288d18cd2b0eb9e120ff67f1d08c7d07d4369",
+              "retrieved_at": "2026-11-23T10:09:41.034Z",
+              "effective_at": null,
+              "transform_version": "maryland-ohep-application-details-v1",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/apply-energy-assistance/",
+                  "observed_at": "2026-11-23T10:09:41.034Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/apply-energy-assistance/",
+                  "observed_at": "2026-11-23T10:09:41.034Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/apply-energy-assistance/",
+                  "observed_at": "2026-11-23T10:09:41.034Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/apply-energy-assistance/",
+                  "observed_at": "2026-11-23T10:09:41.034Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/apply-energy-assistance/",
+                  "observed_at": "2026-11-23T10:09:41.034Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/apply-energy-assistance/",
+                  "observed_at": "2026-11-23T10:09:41.034Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/apply-energy-assistance/",
+                  "observed_at": "2026-11-23T10:09:41.034Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.state_code": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/apply-energy-assistance/",
+                  "observed_at": "2026-11-23T10:09:41.034Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.details": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/apply-energy-assistance/",
+                  "observed_at": "2026-11-23T10:09:41.034Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false,
+              "criteria_coverage": "not_assessed",
+              "limitations": [
+                "The separate OHEP criteria reference is review-only and is not an executable ruleset.",
+                "The source asks for gross income for the last 30 days; the synthetic persona supplies annual income only, so no conversion or eligibility score is made.",
+                "The source page says the program is year-round but provides no fixed application deadline or processing time."
+              ],
+              "source_visible_text_sha256": "74a04ee3296e2b9b60186bb11b422253bbb833f0eccf92f831e2410d43065fb3",
+              "source_policy_reference": {
+                "policy_id": "eligibility-public-search-domains",
+                "policy_version": "1.2.4",
+                "content_sha256": "a78aff8eff8fd47d04481602684cdcdc6e55bd80e16458e32c270adbb6e22e24"
+              },
+              "content_hash": "cc67acb5c95cabc6949a8567474916bc28c92cf08a0f405b050754b43872a42d"
+            },
+            "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/apply-energy-assistance/",
+            "schema_version": "eligibility-program-v4",
+            "observed_at": "2026-11-23T10:09:41.034Z",
+            "content_hash": "02408036c9c3ad9dac3c183765aeda21a003f3073cc460f2ebbc2ee88831d4ea"
+          }
+        ]
+      }
+    }
+  ]
+}

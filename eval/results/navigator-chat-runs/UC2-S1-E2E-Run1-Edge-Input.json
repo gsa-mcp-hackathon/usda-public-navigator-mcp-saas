@@ -1,0 +1,14 @@
+{
+  "scenario": "UC2-S1",
+  "kind": "Edge",
+  "edge": "caregiver is the one chatting; beneficiary income withheld",
+  "run": 1,
+  "page": "team web app for demo and testing",
+  "driver": "TinyFish browser agent, run ccfa1060-a52b-4581-9f05-95a991a02f1c",
+  "persona": "fictional adult child chatting for an older mother in Missouri, mother over 65 and living alone, income withheld",
+  "rules": "answer only from stated facts; withhold income, name and IDs; at most 3 follow-ups",
+  "user_messages": [
+    "I'm helping my elderly mother with her bills and food. She is on a small fixed income. What programs might help her?",
+    "She lives in Missouri, she is over 65. I am her adult child chatting for her. I would rather not say her income, her name, or any ID numbers. She lives alone."
+  ]
+}

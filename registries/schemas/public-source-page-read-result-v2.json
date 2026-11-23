@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_version": "public-source-page-read-result-v2",
+  "title": "PublicSourcePageReadResult",
+  "description": "Bounded, transient public-page text with retrieval provenance or a reasoned non-success status.",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "ok",
+        "invalid_request",
+        "source_not_permitted",
+        "source_redirected",
+        "source_unsupported",
+        "source_unavailable",
+        "unavailable"
+      ]
+    },
+    "reason_code": {
+      "type": "string"
+    },
+    "next_action": {
+      "type": "string"
+    },
+    "source_id": {
+      "type": "string"
+    },
+    "source_record_id": {
+      "type": "string"
+    },
+    "source_version": {
+      "type": "string"
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "retrieved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source_content_sha256": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    },
+    "source_locator": {
+      "type": "string"
+    },
+    "source_title": {
+      "type": "string"
+    },
+    "source_text": {
+      "type": "string",
+      "maxLength": 50000
+    },
+    "source_text_truncated": {
+      "type": "boolean"
+    },
+    "content_trust": {
+      "type": "string",
+      "const": "untrusted_source_data"
+    },
+    "authority_class": {
+      "type": "string"
+    },
+    "authority_jurisdiction": {
+      "type": "string"
+    },
+    "source_verification_status": {
+      "type": "string",
+      "const": "unverified"
+    },
+    "policy_entry_id": {
+      "type": "string"
+    },
+    "policy_reference": {
+      "type": "object",
+      "properties": {
+        "policy_id": {
+          "type": "string"
+        },
+        "policy_version": {
+          "type": "string"
+        },
+        "content_sha256": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{64}$"
+        }
+      },
+      "required": [
+        "policy_id",
+        "policy_version",
+        "content_sha256"
+      ],
+      "additionalProperties": false
+    },
+    "content_persistence": {
+      "type": "string",
+      "const": "none"
+    },
+    "eligibility_evaluation_performed": {
+      "type": "boolean",
+      "const": false
+    },
+    "source_visible_text_sha256": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    }
+  },
+  "required": [
+    "status"
+  ],
+  "additionalProperties": true
+}

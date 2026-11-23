@@ -1,0 +1,40 @@
+{
+  "run_id": "e2e-20261119-a",
+  "findings": [
+    {
+      "id": "F1",
+      "area": "IBM binding",
+      "finding": "IBM exposes 21 of 44 tools; 23 operator tools missing, blocking S2-S5, S8"
+    },
+    {
+      "id": "F2",
+      "area": "decide_program_candidate_review",
+      "finding": "returns invalid_decision with no reason or correlation ID for an approve of a source_verified=false candidate; publication blocked"
+    },
+    {
+      "id": "F3",
+      "area": "error opacity",
+      "finding": "preview_public_catalog_registration (invalid_registration) and validate_tenant_onboarding (invalid_specification) give no field-level detail"
+    },
+    {
+      "id": "F4",
+      "area": "catalog health",
+      "finding": "program.inventory.search reports catalog_read_failures invalid_catalog_response for kansas-dcf-snap-residency-guidance and maryland-dhs-snap-listings"
+    },
+    {
+      "id": "F5",
+      "area": "fleet",
+      "finding": "27 requests on 11/19 with no route: 26 unknown_route, 1 unavailable"
+    },
+    {
+      "id": "F6",
+      "area": "fixtures",
+      "finding": "list_evaluation_fixtures unauthorized for guessed set eligibility-demo@1.0.0; real set ID needed"
+    },
+    {
+      "id": "F7",
+      "area": "cost/latency",
+      "finding": "program.inventory.search mean 6989ms, program.evaluate mean 6137ms; IBM run context reached ~147K tokens per call"
+    }
+  ]
+}

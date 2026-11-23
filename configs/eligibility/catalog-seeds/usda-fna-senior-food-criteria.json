@@ -1,0 +1,759 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "usda.fna.senior-food",
+    "retrieved_at": "2026-10-28T20:04:44Z",
+    "publisher_version": "USDA FNA 2026 CSFP income guidelines issued 2026-02-10; page updated 2026-02-17; reviewed 2026-10-28; USDA FNA SFMNP program page updated 2026-04-22 and 2026-2027 income guideline memo published 2026-04-10; reviewed 2026-10-28",
+    "raw_source_documents_committed": false,
+    "source_observations": [
+      {
+        "url": "https://fns-prod.azureedge.us/csfp/income-guidelines",
+        "title": "CSFP Income Guidelines — 2026",
+        "status": "reviewed",
+        "note": "2026 household-size tables; 150% ceiling and optional lower levels."
+      },
+      {
+        "url": "https://fns-prod.azureedge.us/csfp/factsheet",
+        "title": "CSFP Factsheet",
+        "status": "reviewed",
+        "note": "150% maximum, possible designated service-area residency and nutritional risk."
+      },
+      {
+        "url": "https://fns-prod.azureedge.us/csfp/applicant-recipient",
+        "title": "CSFP Applicant/Recipient",
+        "status": "reviewed",
+        "note": "Page currently says 130%; retained as an apparent stale-page discrepancy against the current 2026 income guideline and factsheet."
+      },
+      {
+        "url": "https://www.fna.usda.gov/sfmnp",
+        "title": "Senior Farmers Market Nutrition Program",
+        "status": "reviewed",
+        "note": "General age-60 and 185% description; 2026-2027 guideline memo listed."
+      },
+      {
+        "url": "https://www.fna.usda.gov/sfmnp/ieg-2026-2027",
+        "title": "2026-2027 SFMNP Income Eligibility Guidelines",
+        "status": "reference_only",
+        "note": "Guideline page found, but linked body/table was not directly extractable in this review."
+      }
+    ]
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "usda.fna.senior-food",
+      "source_name": "USDA Food and Nutrition Administration (FNA) Senior Food Programs",
+      "source_url": "https://fns-prod.azureedge.us/csfp/income-guidelines",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "federal",
+          "owner_name": "USDA Food and Nutrition Administration",
+          "verification_status": "verified",
+          "evidence_url": "https://fns-prod.azureedge.us/csfp/income-guidelines"
+        },
+        "approved_scope": "Official CSFP and SFMNP program descriptions and published criteria references, including the 2026 CSFP income tables. Records remain partial and non-executable.",
+        "refresh_mode": "operator_triggered"
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "usda-fna-csfp-published-criteria",
+        "source_dataset_id": "USDA FNA CSFP program pages and 2026 income guidelines",
+        "title": "USDA CSFP published eligibility criteria and 2026 income guideline tables",
+        "landing_page": "https://fns-prod.azureedge.us/csfp/income-guidelines",
+        "schema_version": "eligibility-program-v2",
+        "namespace_ids": [
+          "core",
+          "eligibility"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "partial",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "eligibility": "eligibility-program-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "eligibility": "eligibility-program-v2"
+          },
+          "content_type": "published_partial_non_executable_eligibility_reference",
+          "published_criteria_available": true,
+          "criteria_mapping_status": "not_mapped",
+          "effective_period": "2026 income guidelines",
+          "refresh_mode": "operator_triggered",
+          "maximum_records_total": 10
+        }
+      },
+      {
+        "dataset_id": "usda-fna-sfmnp-published-criteria",
+        "source_dataset_id": "USDA FNA SFMNP page and 2026-2027 guideline reference",
+        "title": "USDA SFMNP published general eligibility and current guideline reference",
+        "landing_page": "https://www.fna.usda.gov/sfmnp",
+        "schema_version": "eligibility-program-v2",
+        "namespace_ids": [
+          "core",
+          "eligibility"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "partial",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "eligibility": "eligibility-program-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "eligibility": "eligibility-program-v2"
+          },
+          "content_type": "published_partial_non_executable_eligibility_reference",
+          "published_criteria_available": true,
+          "criteria_mapping_status": "not_mapped",
+          "effective_period": "2026-2027 guideline cycle",
+          "refresh_mode": "operator_triggered",
+          "maximum_records_total": 10
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "usda-fna-csfp-published-criteria",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "USDA FNA 2026 CSFP income guidelines issued 2026-02-10; page updated 2026-02-17; reviewed 2026-10-28",
+        "retrieved_at": "2026-10-28T20:04:44Z",
+        "transform_version": "fna-senior-food-criteria-review-v1",
+        "validation_outcome": "valid",
+        "detail": "Four partial CSFP criteria records: general rules and 2026 regional income tables. No executable rules.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "fna-csfp-general-criteria",
+            "record_type": "federal-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "usda-csfp",
+              "eligibility.program.catalog_version": "usda-fna-2026-reviewed-2026-10-28",
+              "eligibility.program.data_origin": "Official USDA FNA source reviewed 2026-10-28: https://fns-prod.azureedge.us/csfp/factsheet; source statements are partial and non-executable.",
+              "eligibility.program.title": "Commodity Supplemental Food Program (CSFP)",
+              "eligibility.program.description": "USDA FNA describes CSFP as monthly USDA Foods support for qualifying low-income people age 60 and older. State/ITO rules and local service-area availability vary; published statements below are not executable criteria.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "minimum_age",
+                  "statement": "Participants must be at least 60 years of age.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                },
+                {
+                  "requirement_id": "income_ceiling",
+                  "statement": "State agencies and Indian Tribal Organizations set household income limits at or below 150% of the Federal Poverty Guidelines; an agency may set a lower limit. The 2026 annual table is published separately by geography and household size.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                },
+                {
+                  "requirement_id": "local_residency",
+                  "statement": "A state agency or Indian Tribal Organization may set local residency requirements based on designated service areas, but may not require a minimum period of residency.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                },
+                {
+                  "requirement_id": "nutritional_risk",
+                  "statement": "A state agency or Indian Tribal Organization may require participants to be at nutritional risk, as determined by a physician or local agency staff.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                },
+                {
+                  "requirement_id": "local_availability",
+                  "statement": "CSFP may not be available in every area within a participating state; applicants must verify local availability with the state distributing agency or local agency.",
+                  "mapping_status": "context_only",
+                  "source_id": "usda.fna.senior-food"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "national",
+                "country_code": "US"
+              },
+              "assistance_listing_ids": [
+                "10.565"
+              ],
+              "assistance_listing_crosswalk": {
+                "basis": "curated_source_crosswalk",
+                "reviewed_at": "2026-10-28",
+                "evidence_urls": [
+                  "https://www.usaspending.gov/award/ASST_NON_213CO033J8003_12F2",
+                  "https://www.fns.usda.gov/csfp/factsheet"
+                ]
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.fna.senior-food",
+              "source_version": "USDA FNA 2026 CSFP income guidelines issued 2026-02-10; page updated 2026-02-17; reviewed 2026-10-28",
+              "retrieved_at": "2026-10-28T20:04:44Z",
+              "effective_at": null,
+              "transform_version": "fna-senior-food-criteria-review-v1",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/factsheet",
+                  "observed_at": "2026-10-28T20:04:44Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/factsheet",
+                  "observed_at": "2026-10-28T20:04:44Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/factsheet",
+                  "observed_at": "2026-10-28T20:04:44Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/factsheet",
+                  "observed_at": "2026-10-28T20:04:44Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/factsheet",
+                  "observed_at": "2026-10-28T20:04:44Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/factsheet",
+                  "observed_at": "2026-10-28T20:04:44Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://fns-prod.azureedge.us/csfp/factsheet",
+            "schema_version": "eligibility-program-v2",
+            "observed_at": "2026-10-28T20:04:44Z",
+            "content_hash": "d4245002848bb66b8dbb431317a0b44e7e428feba8052f0c9d3a3e6131c7692f"
+          },
+          {
+            "source_record_id": "fna-csfp-2026-income-1",
+            "record_type": "federal-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "usda-csfp",
+              "eligibility.program.catalog_version": "usda-fna-2026-reviewed-2026-10-28",
+              "eligibility.program.data_origin": "Official USDA FNA source reviewed 2026-10-28: https://fns-prod.azureedge.us/csfp/income-guidelines; source statements are partial and non-executable.",
+              "eligibility.program.title": "Commodity Supplemental Food Program (CSFP) — 2026 income guideline table",
+              "eligibility.program.description": "Official 2026 household-income reference table for 48 contiguous states, Puerto Rico, and District of Columbia. State/ITO actual income limits may be lower than the federal 150% ceiling; values are preserved as published and not compiled as executable rules.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "income_table_1",
+                  "statement": "2026 CSFP table for 48 contiguous states, Puerto Rico, and District of Columbia; 1: 100% FPG annual $15,960; 130% FPG annual $20,748, monthly $1,729, weekly $399; 150% FPG annual $23,940, monthly $1,995, weekly $461. These are published reference values, not a state-specific limit or eligibility determination.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                },
+                {
+                  "requirement_id": "income_table_2",
+                  "statement": "2026 CSFP table for 48 contiguous states, Puerto Rico, and District of Columbia; 2: 100% FPG annual $21,640; 130% FPG annual $28,132, monthly $2,345, weekly $541; 150% FPG annual $32,460, monthly $2,705, weekly $625. These are published reference values, not a state-specific limit or eligibility determination.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                },
+                {
+                  "requirement_id": "income_table_3",
+                  "statement": "2026 CSFP table for 48 contiguous states, Puerto Rico, and District of Columbia; 3: 100% FPG annual $27,320; 130% FPG annual $35,516, monthly $2,960, weekly $683; 150% FPG annual $40,980, monthly $3,415, weekly $789. These are published reference values, not a state-specific limit or eligibility determination.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                },
+                {
+                  "requirement_id": "income_table_4",
+                  "statement": "2026 CSFP table for 48 contiguous states, Puerto Rico, and District of Columbia; 4: 100% FPG annual $33,000; 130% FPG annual $42,900, monthly $3,575, weekly $825; 150% FPG annual $49,500, monthly $4,125, weekly $952. These are published reference values, not a state-specific limit or eligibility determination.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                },
+                {
+                  "requirement_id": "income_table_5",
+                  "statement": "2026 CSFP table for 48 contiguous states, Puerto Rico, and District of Columbia; 5: 100% FPG annual $38,680; 130% FPG annual $50,284, monthly $4,191, weekly $967; 150% FPG annual $58,020, monthly $4,835, weekly $1,116. These are published reference values, not a state-specific limit or eligibility determination.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                },
+                {
+                  "requirement_id": "income_table_6",
+                  "statement": "2026 CSFP table for 48 contiguous states, Puerto Rico, and District of Columbia; 6: 100% FPG annual $44,360; 130% FPG annual $57,668, monthly $4,806, weekly $1,109; 150% FPG annual $66,540, monthly $5,545, weekly $1,280. These are published reference values, not a state-specific limit or eligibility determination.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                },
+                {
+                  "requirement_id": "income_table_7",
+                  "statement": "2026 CSFP table for 48 contiguous states, Puerto Rico, and District of Columbia; 7: 100% FPG annual $50,040; 130% FPG annual $65,052, monthly $5,421, weekly $1,251; 150% FPG annual $75,060, monthly $6,255, weekly $1,444. These are published reference values, not a state-specific limit or eligibility determination.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                },
+                {
+                  "requirement_id": "income_table_8",
+                  "statement": "2026 CSFP table for 48 contiguous states, Puerto Rico, and District of Columbia; 8: 100% FPG annual $55,720; 130% FPG annual $72,436, monthly $6,037, weekly $1,393; 150% FPG annual $83,580, monthly $6,965, weekly $1,608. These are published reference values, not a state-specific limit or eligibility determination.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                },
+                {
+                  "requirement_id": "income_table_each_additional_household_member",
+                  "statement": "2026 CSFP table for 48 contiguous states, Puerto Rico, and District of Columbia; each additional household member: 100% FPG annual $5,680; 130% FPG annual $7,384, monthly $616, weekly $142; 150% FPG annual $8,520, monthly $710, weekly $164. These are published reference values, not a state-specific limit or eligibility determination.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "national",
+                "country_code": "US"
+              },
+              "assistance_listing_ids": [
+                "10.565"
+              ],
+              "assistance_listing_crosswalk": {
+                "basis": "curated_source_crosswalk",
+                "reviewed_at": "2026-10-28",
+                "evidence_urls": [
+                  "https://www.usaspending.gov/award/ASST_NON_213CO033J8003_12F2",
+                  "https://www.fns.usda.gov/csfp/factsheet"
+                ]
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.fna.senior-food",
+              "source_version": "USDA FNA 2026 CSFP income guidelines issued 2026-02-10; page updated 2026-02-17; reviewed 2026-10-28",
+              "retrieved_at": "2026-10-28T20:04:44Z",
+              "effective_at": null,
+              "transform_version": "fna-senior-food-criteria-review-v1",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/income-guidelines",
+                  "observed_at": "2026-10-28T20:04:44Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/income-guidelines",
+                  "observed_at": "2026-10-28T20:04:44Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/income-guidelines",
+                  "observed_at": "2026-10-28T20:04:44Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/income-guidelines",
+                  "observed_at": "2026-10-28T20:04:44Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/income-guidelines",
+                  "observed_at": "2026-10-28T20:04:44Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/income-guidelines",
+                  "observed_at": "2026-10-28T20:04:44Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://fns-prod.azureedge.us/csfp/income-guidelines",
+            "schema_version": "eligibility-program-v2",
+            "observed_at": "2026-10-28T20:04:44Z",
+            "content_hash": "c520ff5790cdc039cf28d42b41b97270dfea204989a976c6943e2194c4b08878"
+          },
+          {
+            "source_record_id": "fna-csfp-2026-income-2",
+            "record_type": "federal-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "usda-csfp",
+              "eligibility.program.catalog_version": "usda-fna-2026-reviewed-2026-10-28",
+              "eligibility.program.data_origin": "Official USDA FNA source reviewed 2026-10-28: https://fns-prod.azureedge.us/csfp/income-guidelines; source statements are partial and non-executable.",
+              "eligibility.program.title": "Commodity Supplemental Food Program (CSFP) — 2026 income guideline table",
+              "eligibility.program.description": "Official 2026 household-income reference table for Alaska. State/ITO actual income limits may be lower than the federal 150% ceiling; values are preserved as published and not compiled as executable rules.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "income_table_1",
+                  "statement": "2026 CSFP table for Alaska; 1: 100% FPG annual $19,950; 130% FPG annual $25,935, monthly $2,162, weekly $499; 150% FPG annual $29,925, monthly $2,494, weekly $576. These are published reference values, not a state-specific limit or eligibility determination.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                },
+                {
+                  "requirement_id": "income_table_2",
+                  "statement": "2026 CSFP table for Alaska; 2: 100% FPG annual $27,050; 130% FPG annual $35,165, monthly $2,931, weekly $677; 150% FPG annual $40,575, monthly $3,382, weekly $781. These are published reference values, not a state-specific limit or eligibility determination.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                },
+                {
+                  "requirement_id": "income_table_3",
+                  "statement": "2026 CSFP table for Alaska; 3: 100% FPG annual $34,150; 130% FPG annual $44,395, monthly $3,700, weekly $854; 150% FPG annual $51,225, monthly $4,269, weekly $986. These are published reference values, not a state-specific limit or eligibility determination.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                },
+                {
+                  "requirement_id": "income_table_4",
+                  "statement": "2026 CSFP table for Alaska; 4: 100% FPG annual $41,250; 130% FPG annual $53,625, monthly $4,469, weekly $1,032; 150% FPG annual $61,875, monthly $5,157, weekly $1,190. These are published reference values, not a state-specific limit or eligibility determination.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                },
+                {
+                  "requirement_id": "income_table_5",
+                  "statement": "2026 CSFP table for Alaska; 5: 100% FPG annual $48,350; 130% FPG annual $62,855, monthly $5,238, weekly $1,209; 150% FPG annual $72,525, monthly $6,044, weekly $1,395. These are published reference values, not a state-specific limit or eligibility determination.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                },
+                {
+                  "requirement_id": "income_table_6",
+                  "statement": "2026 CSFP table for Alaska; 6: 100% FPG annual $55,450; 130% FPG annual $72,085, monthly $6,008, weekly $1,387; 150% FPG annual $83,175, monthly $6,932, weekly $1,600. These are published reference values, not a state-specific limit or eligibility determination.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                },
+                {
+                  "requirement_id": "income_table_7",
+                  "statement": "2026 CSFP table for Alaska; 7: 100% FPG annual $62,550; 130% FPG annual $81,315, monthly $6,777, weekly $1,564; 150% FPG annual $93,825, monthly $7,819, weekly $1,805. These are published reference values, not a state-specific limit or eligibility determination.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                },
+                {
+                  "requirement_id": "income_table_8",
+                  "statement": "2026 CSFP table for Alaska; 8: 100% FPG annual $69,650; 130% FPG annual $90,545, monthly $7,546, weekly $1,742; 150% FPG annual $104,475, monthly $8,707, weekly $2,010. These are published reference values, not a state-specific limit or eligibility determination.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                },
+                {
+                  "requirement_id": "income_table_each_additional_household_member",
+                  "statement": "2026 CSFP table for Alaska; each additional household member: 100% FPG annual $7,100; 130% FPG annual $9,230, monthly $770, weekly $178; 150% FPG annual $10,650, monthly $888, weekly $205. These are published reference values, not a state-specific limit or eligibility determination.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "national",
+                "country_code": "US"
+              },
+              "assistance_listing_ids": [
+                "10.565"
+              ],
+              "assistance_listing_crosswalk": {
+                "basis": "curated_source_crosswalk",
+                "reviewed_at": "2026-10-28",
+                "evidence_urls": [
+                  "https://www.usaspending.gov/award/ASST_NON_213CO033J8003_12F2",
+                  "https://www.fns.usda.gov/csfp/factsheet"
+                ]
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.fna.senior-food",
+              "source_version": "USDA FNA 2026 CSFP income guidelines issued 2026-02-10; page updated 2026-02-17; reviewed 2026-10-28",
+              "retrieved_at": "2026-10-28T20:04:44Z",
+              "effective_at": null,
+              "transform_version": "fna-senior-food-criteria-review-v1",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/income-guidelines",
+                  "observed_at": "2026-10-28T20:04:44Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/income-guidelines",
+                  "observed_at": "2026-10-28T20:04:44Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/income-guidelines",
+                  "observed_at": "2026-10-28T20:04:44Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/income-guidelines",
+                  "observed_at": "2026-10-28T20:04:44Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/income-guidelines",
+                  "observed_at": "2026-10-28T20:04:44Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/income-guidelines",
+                  "observed_at": "2026-10-28T20:04:44Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://fns-prod.azureedge.us/csfp/income-guidelines",
+            "schema_version": "eligibility-program-v2",
+            "observed_at": "2026-10-28T20:04:44Z",
+            "content_hash": "29b4a1317adf4c2318ff3426469103e1b7b3841a7e09893735a41308fe7cfec5"
+          },
+          {
+            "source_record_id": "fna-csfp-2026-income-3",
+            "record_type": "federal-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "usda-csfp",
+              "eligibility.program.catalog_version": "usda-fna-2026-reviewed-2026-10-28",
+              "eligibility.program.data_origin": "Official USDA FNA source reviewed 2026-10-28: https://fns-prod.azureedge.us/csfp/income-guidelines; source statements are partial and non-executable.",
+              "eligibility.program.title": "Commodity Supplemental Food Program (CSFP) — 2026 income guideline table",
+              "eligibility.program.description": "Official 2026 household-income reference table for Hawaii. State/ITO actual income limits may be lower than the federal 150% ceiling; values are preserved as published and not compiled as executable rules.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "income_table_1",
+                  "statement": "2026 CSFP table for Hawaii; 1: 100% FPG annual $18,360; 130% FPG annual $23,868, monthly $1,989, weekly $459; 150% FPG annual $27,540, monthly $2,295, weekly $530. These are published reference values, not a state-specific limit or eligibility determination.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                },
+                {
+                  "requirement_id": "income_table_2",
+                  "statement": "2026 CSFP table for Hawaii; 2: 100% FPG annual $24,890; 130% FPG annual $32,357, monthly $2,697, weekly $623; 150% FPG annual $37,335, monthly $3,112, weekly $718. These are published reference values, not a state-specific limit or eligibility determination.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                },
+                {
+                  "requirement_id": "income_table_3",
+                  "statement": "2026 CSFP table for Hawaii; 3: 100% FPG annual $31,420; 130% FPG annual $40,846, monthly $3,404, weekly $786; 150% FPG annual $47,130, monthly $3,928, weekly $907. These are published reference values, not a state-specific limit or eligibility determination.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                },
+                {
+                  "requirement_id": "income_table_4",
+                  "statement": "2026 CSFP table for Hawaii; 4: 100% FPG annual $37,950; 130% FPG annual $49,335, monthly $4,112, weekly $949; 150% FPG annual $56,925, monthly $4,744, weekly $1,095. These are published reference values, not a state-specific limit or eligibility determination.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                },
+                {
+                  "requirement_id": "income_table_5",
+                  "statement": "2026 CSFP table for Hawaii; 5: 100% FPG annual $44,480; 130% FPG annual $57,824, monthly $4,819, weekly $1,112; 150% FPG annual $66,720, monthly $5,560, weekly $1,284. These are published reference values, not a state-specific limit or eligibility determination.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                },
+                {
+                  "requirement_id": "income_table_6",
+                  "statement": "2026 CSFP table for Hawaii; 6: 100% FPG annual $51,010; 130% FPG annual $66,313, monthly $5,527, weekly $1,276; 150% FPG annual $76,515, monthly $6,377, weekly $1,472. These are published reference values, not a state-specific limit or eligibility determination.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                },
+                {
+                  "requirement_id": "income_table_7",
+                  "statement": "2026 CSFP table for Hawaii; 7: 100% FPG annual $57,540; 130% FPG annual $74,802, monthly $6,234, weekly $1,439; 150% FPG annual $86,310, monthly $7,193, weekly $1,660. These are published reference values, not a state-specific limit or eligibility determination.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                },
+                {
+                  "requirement_id": "income_table_8",
+                  "statement": "2026 CSFP table for Hawaii; 8: 100% FPG annual $64,070; 130% FPG annual $83,291, monthly $6,941, weekly $1,602; 150% FPG annual $96,105, monthly $8,009, weekly $1,849. These are published reference values, not a state-specific limit or eligibility determination.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                },
+                {
+                  "requirement_id": "income_table_each_additional_household_member",
+                  "statement": "2026 CSFP table for Hawaii; each additional household member: 100% FPG annual $6,530; 130% FPG annual $8,489, monthly $708, weekly $164; 150% FPG annual $9,795, monthly $817, weekly $189. These are published reference values, not a state-specific limit or eligibility determination.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "national",
+                "country_code": "US"
+              },
+              "assistance_listing_ids": [
+                "10.565"
+              ],
+              "assistance_listing_crosswalk": {
+                "basis": "curated_source_crosswalk",
+                "reviewed_at": "2026-10-28",
+                "evidence_urls": [
+                  "https://www.usaspending.gov/award/ASST_NON_213CO033J8003_12F2",
+                  "https://www.fns.usda.gov/csfp/factsheet"
+                ]
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.fna.senior-food",
+              "source_version": "USDA FNA 2026 CSFP income guidelines issued 2026-02-10; page updated 2026-02-17; reviewed 2026-10-28",
+              "retrieved_at": "2026-10-28T20:04:44Z",
+              "effective_at": null,
+              "transform_version": "fna-senior-food-criteria-review-v1",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/income-guidelines",
+                  "observed_at": "2026-10-28T20:04:44Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/income-guidelines",
+                  "observed_at": "2026-10-28T20:04:44Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/income-guidelines",
+                  "observed_at": "2026-10-28T20:04:44Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/income-guidelines",
+                  "observed_at": "2026-10-28T20:04:44Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/income-guidelines",
+                  "observed_at": "2026-10-28T20:04:44Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/income-guidelines",
+                  "observed_at": "2026-10-28T20:04:44Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://fns-prod.azureedge.us/csfp/income-guidelines",
+            "schema_version": "eligibility-program-v2",
+            "observed_at": "2026-10-28T20:04:44Z",
+            "content_hash": "e1a94ca6f7aaf36c77639ea7e030f8307fb30aade40dfd1ef38469236fa266e7"
+          }
+        ]
+      }
+    },
+    {
+      "dataset_id": "usda-fna-sfmnp-published-criteria",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "USDA FNA SFMNP program page updated 2026-04-22 and 2026-2027 income guideline memo published 2026-04-10; reviewed 2026-10-28",
+        "retrieved_at": "2026-10-28T20:04:44Z",
+        "transform_version": "fna-senior-food-criteria-review-v1",
+        "validation_outcome": "valid",
+        "detail": "One partial SFMNP criteria record; state rules and 2026-2027 dollar table remain unverified.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "fna-sfmnp-general-criteria-2026",
+            "record_type": "federal-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "usda-sfmnp",
+              "eligibility.program.catalog_version": "usda-fna-2026-reviewed-2026-10-28",
+              "eligibility.program.data_origin": "Official USDA FNA source reviewed 2026-10-28: https://www.fna.usda.gov/sfmnp; source statements are partial and non-executable.",
+              "eligibility.program.title": "Senior Farmers Market Nutrition Program (SFMNP)",
+              "eligibility.program.description": "USDA FNA describes SFMNP as support for low-income seniors through state-administered farmers market programs. The federal page gives a general age/income description and points to current 2026-2027 guidelines; state participation and actual rules must be checked.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "minimum_age",
+                  "statement": "USDA FNA generally defines low-income seniors served by SFMNP as individuals at least 60 years old. State program rules should be checked.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                },
+                {
+                  "requirement_id": "income_guideline",
+                  "statement": "USDA FNA generally describes SFMNP as serving seniors with household income not more than 185% of the Federal Poverty Guidelines. This general description does not replace the current participating state agency rules.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fna.senior-food"
+                },
+                {
+                  "requirement_id": "state_participation",
+                  "statement": "SFMNP operates through state, territory, and tribal administering agencies; availability must be verified for the applicant jurisdiction and local program.",
+                  "mapping_status": "context_only",
+                  "source_id": "usda.fna.senior-food"
+                },
+                {
+                  "requirement_id": "current_guideline_reference",
+                  "statement": "USDA FNA lists 2026-2027 SFMNP Income Eligibility Guidelines, published 2026-04-10. The linked guideline body/table was not available for direct extraction in this review; no household-size dollar amounts are asserted in this record.",
+                  "mapping_status": "context_only",
+                  "source_id": "usda.fna.senior-food"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "national",
+                "country_code": "US"
+              },
+              "assistance_listing_ids": [
+                "10.576"
+              ],
+              "assistance_listing_crosswalk": {
+                "basis": "curated_source_crosswalk",
+                "reviewed_at": "2026-10-28",
+                "evidence_urls": [
+                  "https://www.usaspending.gov/award/ASST_NON_235GA720I4003_012",
+                  "https://www.fns.usda.gov/sfmnp/senior-farmers-market-nutrition-program-sfmnp"
+                ]
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.fna.senior-food",
+              "source_version": "USDA FNA SFMNP program page updated 2026-04-22 and 2026-2027 income guideline memo published 2026-04-10; reviewed 2026-10-28",
+              "retrieved_at": "2026-10-28T20:04:44Z",
+              "effective_at": null,
+              "transform_version": "fna-senior-food-criteria-review-v1",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://www.fna.usda.gov/sfmnp",
+                  "observed_at": "2026-10-28T20:04:44Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://www.fna.usda.gov/sfmnp",
+                  "observed_at": "2026-10-28T20:04:44Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://www.fna.usda.gov/sfmnp",
+                  "observed_at": "2026-10-28T20:04:44Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://www.fna.usda.gov/sfmnp",
+                  "observed_at": "2026-10-28T20:04:44Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://www.fna.usda.gov/sfmnp",
+                  "observed_at": "2026-10-28T20:04:44Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://www.fna.usda.gov/sfmnp",
+                  "observed_at": "2026-10-28T20:04:44Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.fna.usda.gov/sfmnp",
+            "schema_version": "eligibility-program-v2",
+            "observed_at": "2026-10-28T20:04:44Z",
+            "content_hash": "06466771a1c53d4e7ba86e63058a39f2f17a1e94b2cf9dea558eb12cc91e4120"
+          }
+        ]
+      }
+    }
+  ]
+}

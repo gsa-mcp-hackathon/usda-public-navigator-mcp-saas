@@ -1,0 +1,35 @@
+{
+  "suite_id": "S11",
+  "name": "general-profile-outcomes",
+  "objective": "The Core persona oracle holds when each persona is sent as a sparse general profile instead of a demo Navigator profile",
+  "depends_on": [
+    "S03"
+  ],
+  "requires_operator": false,
+  "stop_on_fail": false,
+  "all_tests_gate": false,
+  "stop_conditions": [
+    "No writes; each check runs once (P-5 read retry only)"
+  ],
+  "pass_rule": "PASS_WITH_DEFECTS for non-gate failures; failures are consolidated in DEFECTS.md, not looped.",
+  "start_conditions": [
+    "S03 passed (tenant route captured)",
+    "--personas points to expected-outcomes.json (v0.3.0+)"
+  ],
+  "maps_to": [
+    "A-2"
+  ],
+  "persona_tests": {
+    "set_prefix": "Core",
+    "case_types": [
+      "positive",
+      "negative"
+    ],
+    "include_tags": [
+      "boundary",
+      "missing fact"
+    ],
+    "profile_mode": "general"
+  },
+  "tests": []
+}

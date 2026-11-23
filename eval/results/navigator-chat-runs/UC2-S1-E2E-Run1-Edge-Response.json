@@ -1,0 +1,8 @@
+{
+  "note": "Each reply is summarized from the browser agent's capture, not quoted word for word.",
+  "assistant_replies": [
+    "(reply 1) Names SNAP, the Commodity Supplemental Food Program and the Senior Farmers Market Nutrition Program, each labelled 'USDA catalog'; says USDA mainly covers food and that LIHEAP exists outside USDA for utility bills; asks for her state, monthly income and household size.",
+    "(reply 2) Restates what it knows about the mother (Missouri, 65 or older, lives alone, small fixed income, amount not shared); lists Missouri SNAP (Missouri DSS), CSFP and SFMNP (needs confirmation); adds the Missouri Community Options and Resources help line from the Administration for Community Living page; mentions LIHEAP again as outside USDA; gives one next step, the help line."
+  ],
+  "final_outcome_summary": "Caregiver recognized: the replies speak about the mother and ask about her, not the person chatting. Listings named with sources; no approval or eligibility decision given. Income withheld and the chat continued."
+}

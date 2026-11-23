@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_version": "program-source-page-read-v1",
+  "title": "PublicSourcePageReadRequest",
+  "description": "Read one exact HTTPS URL selected from shared inventory or public lead search. The active public-search policy must permit the URL.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "source_url": {
+      "type": "string",
+      "format": "uri",
+      "maxLength": 2083,
+      "description": "Exact HTTPS source URL returned by inventory or external lead search; redirects are not followed."
+    }
+  },
+  "required": [
+    "source_url"
+  ]
+}

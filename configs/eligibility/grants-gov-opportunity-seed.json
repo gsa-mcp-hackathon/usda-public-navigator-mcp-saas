@@ -1,0 +1,45 @@
+{
+  "manifest_version": "1.0.0",
+  "source_id": "grants.gov.opportunities",
+  "dataset_id": "grants-gov-current-opportunities",
+  "dataset_title": "Current Grants.gov funding opportunities",
+  "source_dataset_id": "grants-gov-posted-opportunities",
+  "schema_version": "public-listing-v1",
+  "catalog_namespace": "programs",
+  "catalog_version": "eligibility-demo-v1",
+  "pattern_id": "eligibility",
+  "pattern_version": "0.1.4",
+  "tenant_id": "eligibility-demo",
+  "jurisdiction": {
+    "level": "federal",
+    "country_code": "US"
+  },
+  "query": {
+    "status": "posted",
+    "keyword": null,
+    "maximum_rows": 25,
+    "maximum_records_per_run": 25,
+    "exclude_future_open_and_past_close_dates": true
+  },
+  "field_boundary": [
+    "opportunity_id",
+    "opportunity_number",
+    "title",
+    "agency_name",
+    "synopsis",
+    "applicant_types_when_supplied",
+    "status",
+    "open_date",
+    "close_date",
+    "canonical_opportunity_url",
+    "agency_directory_url",
+    "retrieved_at",
+    "query",
+    "source_version",
+    "criteria_available_false"
+  ],
+  "criteria_extraction": false,
+  "profile_access": false,
+  "scheduled_refresh": false,
+  "notice": "This product uses the Grants.gov API but is not endorsed or certified by the U.S. Department of Health and Human Services."
+}

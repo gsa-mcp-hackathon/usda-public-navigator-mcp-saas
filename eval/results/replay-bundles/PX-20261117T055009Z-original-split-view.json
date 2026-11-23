@@ -1,0 +1,311 @@
+{
+ "run": {
+  "run_id": "PX-20261117T055009Z-original-split-view",
+  "mode": "phoenix_recorded",
+  "model_calls": null,
+  "started_at_utc": "2026-11-17T05:50:09Z",
+  "ended_at_utc": "2026-11-17T05:59:54Z",
+  "core_version": "0.2.0",
+  "git_sha": null,
+  "note": "The 23 calls from navigator_split_view_real_phoenix_spans.html, with its five chat questions. Correlation IDs were not included in that file."
+ },
+ "schema_version": "1.0",
+ "provenance": "recorded",
+ "cases": [
+  {
+   "id": "G1",
+   "category": "recorded",
+   "question": "What can this server do, and which version is it?",
+   "expected": null,
+   "observed": null,
+   "navigator_status": "not_scored",
+   "phoenix_status": "not_verified",
+   "failure_owner": null,
+   "answer": null,
+   "calls": [
+    {
+     "tool": "describe_core_capabilities",
+     "operation_id": null,
+     "duration_ms": 722,
+     "inner_status": null,
+     "correlation_id": null,
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T05:50:09Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": null,
+     "duration_ms": 463,
+     "inner_status": null,
+     "correlation_id": null,
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T05:50:43Z"
+    },
+    {
+     "tool": "list_core_routes",
+     "operation_id": null,
+     "duration_ms": 106,
+     "inner_status": null,
+     "correlation_id": null,
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T05:50:47Z"
+    },
+    {
+     "tool": "list_registered_tenants",
+     "operation_id": null,
+     "duration_ms": 190,
+     "inner_status": null,
+     "correlation_id": null,
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T05:50:52Z"
+    },
+    {
+     "tool": "read_source_policy_state",
+     "operation_id": null,
+     "duration_ms": 187,
+     "inner_status": null,
+     "correlation_id": null,
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T05:50:59Z"
+    }
+   ]
+  },
+  {
+   "id": "G2",
+   "category": "recorded",
+   "question": "How many workflows does the bootstrap list? Which route is shared?",
+   "expected": null,
+   "observed": null,
+   "navigator_status": "not_scored",
+   "phoenix_status": "not_verified",
+   "failure_owner": null,
+   "answer": null,
+   "calls": [
+    {
+     "tool": "describe_core_capabilities",
+     "operation_id": null,
+     "duration_ms": 761,
+     "inner_status": null,
+     "correlation_id": null,
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T05:52:17Z"
+    },
+    {
+     "tool": "read_core_workflow",
+     "operation_id": null,
+     "duration_ms": 1,
+     "inner_status": null,
+     "correlation_id": null,
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T05:52:24Z"
+    },
+    {
+     "tool": "list_core_routes",
+     "operation_id": null,
+     "duration_ms": 171,
+     "inner_status": null,
+     "correlation_id": null,
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T05:52:27Z"
+    },
+    {
+     "tool": "list_cluster_templates",
+     "operation_id": null,
+     "duration_ms": 382,
+     "inner_status": null,
+     "correlation_id": null,
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T05:52:31Z"
+    },
+    {
+     "tool": "read_cluster_schema",
+     "operation_id": null,
+     "duration_ms": 128,
+     "inner_status": null,
+     "correlation_id": null,
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T05:52:35Z"
+    }
+   ]
+  },
+  {
+   "id": "G3",
+   "category": "recorded",
+   "question": "Find rental assistance programs in Missouri.",
+   "expected": null,
+   "observed": null,
+   "navigator_status": "not_scored",
+   "phoenix_status": "not_verified",
+   "failure_owner": null,
+   "answer": "Found programs with source links. Slowest step so far: search.",
+   "calls": [
+    {
+     "tool": "route_operation",
+     "operation_id": "program.inventory.search",
+     "duration_ms": 7592,
+     "inner_status": null,
+     "correlation_id": null,
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T05:53:52Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.inventory.search",
+     "duration_ms": 7442,
+     "inner_status": null,
+     "correlation_id": null,
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T05:55:00Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.inventory.search",
+     "duration_ms": 8370,
+     "inner_status": null,
+     "correlation_id": null,
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T05:56:15Z"
+    }
+   ]
+  },
+  {
+   "id": "G4",
+   "category": "recorded",
+   "question": "What input does the evaluate operation take?",
+   "expected": null,
+   "observed": null,
+   "navigator_status": "not_scored",
+   "phoenix_status": "not_verified",
+   "failure_owner": null,
+   "answer": null,
+   "calls": [
+    {
+     "tool": "read_cluster_schema",
+     "operation_id": null,
+     "duration_ms": 179,
+     "inner_status": null,
+     "correlation_id": null,
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T05:56:28Z"
+    },
+    {
+     "tool": "read_cluster_schema",
+     "operation_id": null,
+     "duration_ms": 133,
+     "inner_status": null,
+     "correlation_id": null,
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T05:56:31Z"
+    },
+    {
+     "tool": "read_cluster_schema",
+     "operation_id": null,
+     "duration_ms": 133,
+     "inner_status": null,
+     "correlation_id": null,
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T05:56:34Z"
+    },
+    {
+     "tool": "read_cluster_schema",
+     "operation_id": null,
+     "duration_ms": 137,
+     "inner_status": null,
+     "correlation_id": null,
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T05:56:35Z"
+    },
+    {
+     "tool": "read_cluster_schema",
+     "operation_id": null,
+     "duration_ms": 118,
+     "inner_status": null,
+     "correlation_id": null,
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T05:56:37Z"
+    },
+    {
+     "tool": "describe_core_capabilities",
+     "operation_id": null,
+     "duration_ms": 411,
+     "inner_status": null,
+     "correlation_id": null,
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T05:56:45Z"
+    }
+   ]
+  },
+  {
+   "id": "G5",
+   "category": "recorded",
+   "question": "Evaluate this household for Housing Choice Voucher.",
+   "expected": null,
+   "observed": null,
+   "navigator_status": "not_scored",
+   "phoenix_status": "not_verified",
+   "failure_owner": null,
+   "answer": "Evaluation returned outcomes per criterion. Not an official determination.",
+   "calls": [
+    {
+     "tool": "route_operation",
+     "operation_id": "program.evaluate",
+     "duration_ms": 6819,
+     "inner_status": null,
+     "correlation_id": null,
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T05:59:20Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.evaluate",
+     "duration_ms": 6525,
+     "inner_status": null,
+     "correlation_id": null,
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T05:59:32Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.evaluate",
+     "duration_ms": 6616,
+     "inner_status": null,
+     "correlation_id": null,
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T05:59:43Z"
+    },
+    {
+     "tool": "route_operation",
+     "operation_id": "program.evaluate",
+     "duration_ms": 6104,
+     "inner_status": null,
+     "correlation_id": null,
+     "trace_id": null,
+     "span_id": null,
+     "started_at_utc": "2026-11-17T05:59:54Z"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,82 @@
+{
+  "registry_id": "public-data-schema-registry",
+  "schema_version": "public-data-v1",
+  "namespaces": {
+    "core": "Reusable data and provenance semantics",
+    "gsa": "GSA Per Diem source semantics",
+    "farmers": "Farmers.gov reference semantics",
+    "datagov": "Data.gov catalog semantics",
+    "ssa": "Aggregated SSA statistics semantics",
+    "md": "Maryland state-source semantics, kept distinct from shared federal concepts"
+  },
+  "dimensions": {
+    "core.dataset": "Reusable catalog dataset metadata",
+    "core.geography": "Geographic context",
+    "core.time": "Time period context",
+    "gsa.per_diem": "GSA Per Diem rate semantics",
+    "md.agriculture": "Maryland agricultural dataset semantics",
+    "md.geography": "Maryland county and geographic context"
+  },
+  "attributes": {
+    "core.dataset.title": {
+      "dimension_id": "core.dataset",
+      "type": "string"
+    },
+    "core.dataset.publisher": {
+      "dimension_id": "core.dataset",
+      "type": "string"
+    },
+    "core.dataset.description": {
+      "dimension_id": "core.dataset",
+      "type": "string"
+    },
+    "core.dataset.keywords": {
+      "dimension_id": "core.dataset",
+      "type": "array"
+    },
+    "core.dataset.source_identifier": {
+      "dimension_id": "core.dataset",
+      "type": "string"
+    },
+    "core.dataset.content_type": {
+      "dimension_id": "core.dataset",
+      "type": "string"
+    },
+    "core.geography.state_code": {
+      "dimension_id": "core.geography",
+      "type": "string"
+    },
+    "core.time.fiscal_year": {
+      "dimension_id": "core.time",
+      "type": "integer"
+    },
+    "core.time.month": {
+      "dimension_id": "core.time",
+      "type": "string"
+    },
+    "gsa.per_diem.daily_rate": {
+      "dimension_id": "gsa.per_diem",
+      "type": "number"
+    },
+    "md.agriculture.market_name": {
+      "dimension_id": "md.agriculture",
+      "type": "string"
+    },
+    "md.agriculture.market_start_date": {
+      "dimension_id": "md.agriculture",
+      "type": "string"
+    },
+    "md.agriculture.market_end_date": {
+      "dimension_id": "md.agriculture",
+      "type": "string"
+    },
+    "md.agriculture.federal_benefits_label": {
+      "dimension_id": "md.agriculture",
+      "type": "string"
+    },
+    "md.geography.county": {
+      "dimension_id": "md.geography",
+      "type": "string"
+    }
+  }
+}

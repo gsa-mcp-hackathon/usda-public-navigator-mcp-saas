@@ -1,0 +1,98 @@
+{
+  "registry_id": "eligibility-program-requirements-schema",
+  "schema_version": "program-requirements-extraction-v2",
+  "namespaces": {
+    "extraction": "Review-only candidate extraction from source-backed program requirements",
+    "source": "Public source provenance and retrieval evidence"
+  },
+  "dimensions": {
+    "extraction.requirements": "Candidate statements extracted from one bounded source excerpt",
+    "source.provenance": "Source identity, version, and retrieval evidence"
+  },
+  "attributes": {
+    "source.id": {
+      "dimension_id": "source.provenance",
+      "type": "string"
+    },
+    "source.record_id": {
+      "dimension_id": "source.provenance",
+      "type": "string"
+    },
+    "source.version": {
+      "dimension_id": "source.provenance",
+      "type": "string"
+    },
+    "source.url": {
+      "dimension_id": "source.provenance",
+      "type": "string",
+      "pattern": "^https://"
+    },
+    "source.retrieved_at": {
+      "dimension_id": "source.provenance",
+      "type": "string"
+    },
+    "source.content_sha256": {
+      "dimension_id": "source.provenance",
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    },
+    "source.locator": {
+      "dimension_id": "source.provenance",
+      "type": "string"
+    },
+    "extraction.status": {
+      "dimension_id": "extraction.requirements",
+      "type": "string",
+      "allowed_values": [
+        "candidate_only"
+      ]
+    },
+    "extraction.source_completeness": {
+      "dimension_id": "extraction.requirements",
+      "type": "string",
+      "allowed_values": [
+        "not_proven"
+      ]
+    },
+    "extraction.method": {
+      "dimension_id": "extraction.requirements",
+      "type": "string"
+    },
+    "extraction.requirement_candidates": {
+      "dimension_id": "extraction.requirements",
+      "type": "array"
+    },
+    "extraction.omitted_candidate_count": {
+      "dimension_id": "extraction.requirements",
+      "type": "integer"
+    },
+    "extraction.scanned_paragraph_count": {
+      "dimension_id": "extraction.requirements",
+      "type": "integer"
+    },
+    "extraction.truncated_candidate_count": {
+      "dimension_id": "extraction.requirements",
+      "type": "integer"
+    },
+    "extraction.eligibility_rules_created": {
+      "dimension_id": "extraction.requirements",
+      "type": "integer",
+      "allowed_values": [
+        0
+      ]
+    },
+    "extraction.persistence_performed": {
+      "dimension_id": "extraction.requirements",
+      "type": "boolean",
+      "allowed_values": [
+        false
+      ]
+    },
+    "source.visible_text_sha256": {
+      "dimension_id": "source.provenance",
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    }
+  },
+  "relationships": {}
+}

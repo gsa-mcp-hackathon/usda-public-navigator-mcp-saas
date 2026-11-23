@@ -1,0 +1,94 @@
+{
+  "registry_id": "public-dataset-registry",
+  "schema_version": "public-datasets-v1",
+  "record_limits": {
+    "max_records_per_dataset": 1000,
+    "max_records_per_run": 100
+  },
+  "deduplication": "Stable source-scoped identifiers are idempotency keys. Cross-source matches are candidates only and are never merged automatically.",
+  "sources": [
+    {
+      "source_id": "datagov.catalog",
+      "name": "Data.gov Catalog API",
+      "url": "https://api.gsa.gov/technology/datagov/v4/",
+      "access_status": "available",
+      "content_type": "catalog_metadata",
+      "patterns": [
+        "eligibility",
+        "data_discovery"
+      ],
+      "notes": "The Catalog API uses an API key and may throttle the shared DEMO_KEY. The public search page is a no-key metadata-only fallback; both identify datasets, not their underlying data."
+    },
+    {
+      "source_id": "farmers.gov.loans",
+      "name": "Farmers.gov farm loans page",
+      "url": "https://www.farmers.gov/loans",
+      "access_status": "metadata_only",
+      "content_type": "public_web_reference",
+      "patterns": [
+        "eligibility"
+      ],
+      "notes": "One public reference record only; not treated as a structured program API."
+    },
+    {
+      "source_id": "usda.farmers.gov",
+      "name": "USDA Farmers.gov Data and Reports directory",
+      "url": "https://www.farmers.gov/data",
+      "access_status": "available",
+      "content_type": "public_data_resource_directory",
+      "patterns": [
+        "eligibility",
+        "data_discovery"
+      ],
+      "notes": "Directory metadata points to official USDA program-data and historical/planning resources. Directory references are context only, not program criteria or eligibility results; each linked data source requires separate review and ingestion."
+    },
+    {
+      "source_id": "gsa.perdiem",
+      "name": "GSA Per Diem API",
+      "url": "https://open.gsa.gov/api/perdiem/",
+      "access_status": "available",
+      "content_type": "structured_api",
+      "patterns": [
+        "travel_rates",
+        "geospatial"
+      ],
+      "notes": "Uses public api.data.gov DEMO_KEY for bounded exploration."
+    },
+    {
+      "source_id": "grants.gov.opportunities",
+      "name": "Grants.gov funding opportunities API",
+      "url": "https://api.grants.gov/v1/api/search2",
+      "access_status": "available",
+      "content_type": "structured_api",
+      "patterns": [
+        "eligibility",
+        "data_discovery"
+      ],
+      "notes": "Unauthenticated search2 and fetchOpportunity APIs; the bounded inventory is posted funding-opportunity metadata, not a complete federal benefits catalog or eligibility rules. Preserve Grants.gov source attribution and the required non-endorsement notice."
+    },
+    {
+      "source_id": "maryland.farmers_markets",
+      "name": "Maryland Farmers Markets API",
+      "url": "https://opendata.maryland.gov/resource/sw6s-2vmw.json",
+      "access_status": "available",
+      "content_type": "structured_state_api",
+      "patterns": [
+        "data_discovery",
+        "agriculture"
+      ],
+      "notes": "Official state portal. Small sample allowlists name, county, dates, and source benefit label; contact and precise location fields are discarded."
+    },
+    {
+      "source_id": "ssa.oasdi",
+      "name": "Social Security Administration OASDI statistics",
+      "url": "https://www.ssa.gov/policy/docs/statcomps/oasdi_sc/flat-series.html",
+      "access_status": "blocked",
+      "content_type": "aggregated_statistics",
+      "patterns": [
+        "eligibility",
+        "retirement"
+      ],
+      "notes": "Official bulk JSON returned HTTP 403 from the hosted environment; no personal data or SSNs are collected."
+    }
+  ]
+}

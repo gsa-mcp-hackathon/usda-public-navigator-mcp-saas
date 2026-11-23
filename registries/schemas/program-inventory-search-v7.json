@@ -1,0 +1,180 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "registry_id": "eligibility-program-inventory-search-v7-schema",
+  "schema_version": "program-inventory-search-v7",
+  "namespaces": {
+    "inventory": "Shared program inventory search results and recovery guidance"
+  },
+  "dimensions": {
+    "inventory.result": "Search results and their relevance to the expressed need",
+    "inventory.recovery": "Next action when catalog coverage is insufficient"
+  },
+  "attributes": {
+    "inventory.relevance_status": {
+      "dimension_id": "inventory.result",
+      "type": "string",
+      "allowed_values": [
+        "relevant_matches",
+        "weak_matches",
+        "no_relevant_match",
+        "browse",
+        "inventory_unavailable"
+      ]
+    },
+    "inventory.weak_match_count": {
+      "dimension_id": "inventory.result",
+      "type": "integer"
+    },
+    "inventory.next_action": {
+      "dimension_id": "inventory.recovery",
+      "type": "object"
+    }
+  },
+  "title": "ProgramInventorySearchResult",
+  "description": "Partial public-program inventory results with a typed relevance signal and executable recovery action; search is not an eligibility assessment.",
+  "type": "object",
+  "properties": {
+    "contract_version": {
+      "const": "program-inventory-search-v7"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ok",
+        "no_match",
+        "no_coverage",
+        "unavailable",
+        "unsupported_jurisdiction",
+        "invalid_request"
+      ]
+    },
+    "relevance_status": {
+      "type": "string",
+      "enum": [
+        "relevant_matches",
+        "weak_matches",
+        "no_relevant_match",
+        "browse",
+        "inventory_unavailable"
+      ]
+    },
+    "weak_match_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Lexical candidates withheld because their source-backed metadata did not establish specific relevance."
+    },
+    "next_action": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "operation_id": {
+              "const": "program.discovery.external.search"
+            },
+            "need_query": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 500
+            },
+            "jurisdiction_code": {
+              "type": "string",
+              "pattern": "^US(?:-[A-Z]{2})?$"
+            },
+            "reason": {
+              "type": "string",
+              "enum": [
+                "no_relevant_inventory_match",
+                "catalog_coverage_incomplete",
+                "inventory_unavailable"
+              ]
+            }
+          },
+          "required": [
+            "operation_id",
+            "need_query",
+            "jurisdiction_code",
+            "reason"
+          ]
+        }
+      ],
+      "description": "Executable public-source discovery action. Resulting leads remain unverified and are not eligible for scoring until mapped and validated."
+    },
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "cluster_id": {
+      "type": "string"
+    },
+    "pattern_version": {
+      "type": "string"
+    },
+    "coverage": {
+      "type": "string",
+      "enum": [
+        "partial",
+        "unavailable"
+      ]
+    },
+    "catalog_truncated": {
+      "type": "boolean"
+    },
+    "truncated": {
+      "type": "boolean"
+    },
+    "next_cursor": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_health": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "unavailable_sources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "catalog_read_failures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "evaluation_performed": {
+      "const": false
+    },
+    "explanation": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract_version",
+    "status",
+    "cluster_id",
+    "pattern_version",
+    "candidates",
+    "source_health",
+    "unavailable_sources",
+    "coverage",
+    "relevance_status",
+    "weak_match_count",
+    "next_action",
+    "explanation"
+  ],
+  "additionalProperties": true
+}

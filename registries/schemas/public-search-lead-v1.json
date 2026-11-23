@@ -1,0 +1,126 @@
+{
+  "registry_id": "eligibility-public-search-lead-schema",
+  "schema_version": "public-search-lead-v1",
+  "namespaces": {
+    "search": "Unreviewed public-source discovery leads",
+    "source": "Authority, provenance, and permitted-use metadata"
+  },
+  "dimensions": {
+    "search.lead": "Ephemeral search result that is not an active catalog record",
+    "source.authority": "Source authority classification and jurisdiction evidence, including unverified discovery scopes",
+    "source.provenance": "Policy, retrieval, and review evidence"
+  },
+  "attributes": {
+    "search.lead.id": {
+      "dimension_id": "search.lead",
+      "type": "string"
+    },
+    "search.lead.title": {
+      "dimension_id": "search.lead",
+      "type": "string"
+    },
+    "search.lead.summary": {
+      "dimension_id": "search.lead",
+      "type": "string"
+    },
+    "search.lead.canonical_source_url": {
+      "dimension_id": "search.lead",
+      "type": "string"
+    },
+    "search.lead.program_jurisdiction": {
+      "dimension_id": "search.lead",
+      "type": "string",
+      "allowed_values": [
+        "unknown"
+      ]
+    },
+    "search.lead.catalog_status": {
+      "dimension_id": "search.lead",
+      "type": "string",
+      "allowed_values": [
+        "not_checked"
+      ]
+    },
+    "search.lead.criteria_status": {
+      "dimension_id": "search.lead",
+      "type": "string",
+      "allowed_values": [
+        "not_assessed"
+      ]
+    },
+    "search.lead.review_status": {
+      "dimension_id": "search.lead",
+      "type": "string",
+      "allowed_values": [
+        "unreviewed"
+      ]
+    },
+    "source.identity": {
+      "dimension_id": "source.authority",
+      "type": "object"
+    },
+    "source.authority_class": {
+      "dimension_id": "source.authority",
+      "type": "string",
+      "allowed_values": [
+        "federal",
+        "state",
+        "local",
+        "tribal",
+        "institutional",
+        "approved_operator",
+        "unverified_domain_class",
+        "unverified_related_domain"
+      ]
+    },
+    "source.scope_kind": {
+      "dimension_id": "source.authority",
+      "type": "string",
+      "allowed_values": [
+        "exact_host_path",
+        "domain_suffix",
+        "related_domain"
+      ]
+    },
+    "source.verification_status": {
+      "dimension_id": "source.authority",
+      "type": "string",
+      "allowed_values": [
+        "unverified"
+      ]
+    },
+    "source.owner": {
+      "dimension_id": "source.authority",
+      "type": "string"
+    },
+    "source.authority_jurisdiction": {
+      "dimension_id": "source.authority",
+      "type": "string"
+    },
+    "source.permitted_uses": {
+      "dimension_id": "source.authority",
+      "type": "array"
+    },
+    "source.verification_evidence": {
+      "dimension_id": "source.authority",
+      "type": "string"
+    },
+    "source.policy_id": {
+      "dimension_id": "source.provenance",
+      "type": "string"
+    },
+    "source.policy_version": {
+      "dimension_id": "source.provenance",
+      "type": "string"
+    },
+    "source.retrieved_at_utc": {
+      "dimension_id": "source.provenance",
+      "type": "string"
+    },
+    "source.reviewed_at": {
+      "dimension_id": "source.provenance",
+      "type": "string"
+    }
+  },
+  "relationships": {}
+}

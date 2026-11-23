@@ -1,0 +1,94 @@
+{
+  "profile_id": "client-only",
+  "description": "Phase profile for a stack that runs with operator tools disabled (W2), before provider and operator wiring",
+  "suite_ids": ["S01", "S02", "S03", "S04", "S05", "S08", "S11"],
+  "test_assertions": {
+    "S01": {
+      "S01-T01": [
+        {
+          "path": "tools",
+          "op": "contains_all",
+          "value": [
+            "create_profile_resume_claim",
+            "describe_core_capabilities",
+            "list_cluster_templates",
+            "list_core_routes",
+            "list_registered_tenants",
+            "preview_profile_refinement",
+            "read_cluster_capability",
+            "read_cluster_schema",
+            "read_core_workflow",
+            "read_profile",
+            "read_program_candidate_publication",
+            "read_source_metadata",
+            "read_source_policy_state",
+            "read_tenant_binding",
+            "resume_profile",
+            "revoke_profile_resume_claim",
+            "route_operation",
+            "set_saved_program_interest",
+            "validate_cluster_template",
+            "validate_tenant_onboarding",
+            "write_profile"
+          ],
+          "label": "client-facing Core tools are published"
+        },
+        {
+          "path": "tools",
+          "op": "contains_none",
+          "value": [
+            "activate_cluster_template",
+            "activate_tenant",
+            "bind_cluster_template_operation",
+            "deactivate_tenant",
+            "decide_program_candidate_review",
+            "decide_source_policy_candidate",
+            "get_fleet_operations_report",
+            "list_evaluation_fixtures",
+            "manage_program_candidate_publication",
+            "manage_source_policy_lifecycle",
+            "publish_program_candidate_to_cluster_inventory",
+            "read_evaluation_fixture",
+            "register_cluster_template",
+            "register_program_candidate_for_review",
+            "register_source_policy_candidate",
+            "register_tenant"
+          ],
+          "label": "operator and fleet tools are absent in the client-only phase"
+        }
+      ],
+      "S01-T05": [
+        {
+          "path": "bootstrap.operator_workflows",
+          "op": "len_eq",
+          "value": 0,
+          "label": "operator workflows are absent in the client-only phase"
+        },
+        {
+          "path": "bootstrap.client_workflows",
+          "op": "contains_all",
+          "value": [
+            "profile_capture",
+            "navigator_discovery_then_question",
+            "progressive_program_discovery"
+          ],
+          "label": "required client workflows are published"
+        }
+      ]
+    }
+  },
+  "not_applicable_tests": {
+    "S01": {
+      "S01-T04": "no provider binding yet; registry availability is checked once provider wiring is enabled."
+    }
+  },
+  "not_applicable_suites": {
+    "S02": "operator authorization tools are disabled in this phase; verify when they are enabled.",
+    "S03": "registry and route wiring is not configured until provider wiring.",
+    "S04": "operator validation and mutation tools are disabled in this phase.",
+    "S05": "eligibility outcome tests need the registry and reference seed.",
+    "S08": "wiring and contract drift checks need the registry and operator tools.",
+    "S11": "general-profile outcome tests need the registry and reference seed."
+  },
+  "not_applicable_tools": ["validate_cluster_template", "validate_tenant_onboarding"]
+}

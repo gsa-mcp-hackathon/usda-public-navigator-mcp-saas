@@ -1,0 +1,4 @@
+query,responses,category,expected_tool_path
+"Search the platform's program inventory for rental housing assistance in Missouri. For the listing titled Public Housing, what is the value of its evaluation_available field? Respond with exactly one of: true, false.",false,coverage.unmapped,operation:program.inventory.search
+"Search the platform's program inventory for rental housing assistance in Missouri. For the listing titled HUD Public Housing Agency (PHA) Contact Directory, what is the value of its evaluation_available field? Respond with exactly one of: true, false.",false,coverage.unmapped,operation:program.inventory.search
+"Search the platform's program inventory for irrigation and water conservation help for a farm in New Mexico. For the listing titled Emergency Conservation Program (ECP), what is the value of its evaluation_available field? Respond with exactly one of: true, false.",false,coverage.unmapped,operation:program.inventory.search

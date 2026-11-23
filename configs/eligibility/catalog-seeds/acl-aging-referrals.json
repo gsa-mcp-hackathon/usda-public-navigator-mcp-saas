@@ -1,0 +1,502 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "us.acl.aging-referrals",
+    "reviewed_at": "2026-10-30T01:44:03Z",
+    "publisher_version": "ACL Find Help in Your State or Territory page reviewed 2026-10-30; Eldercare Locator page last modified 2026-03-02.",
+    "raw_source_documents_committed": false,
+    "access_method": "Official ACL and Eldercare Locator pages reviewed through web retrieval; raw page bodies were not retained.",
+    "pages": [
+      {
+        "url": "https://acl.gov/nwd/find-help",
+        "title": "Find Help in Your State or Territory | ACL",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://eldercare.acl.gov/home",
+        "title": "Eldercare Locator | ACL",
+        "source_content_sha256": null
+      }
+    ]
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "us.acl.aging-referrals",
+      "source_name": "Administration for Community Living Eldercare Locator and state aging referrals",
+      "source_url": "https://acl.gov/nwd/find-help",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "federal",
+          "owner_name": "Administration for Community Living, U.S. Department of Health and Human Services",
+          "verification_status": "verified",
+          "evidence_url": "https://acl.gov/nwd/find-help"
+        },
+        "refresh_mode": "operator_triggered",
+        "approved_scope": "Shared cluster-public national Eldercare Locator referral plus ACL-listed state aging/disability referral contacts for KS, MD, MO, and NM. Referral availability only; no program criteria, service availability, or individual eligibility result is inferred."
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "acl-aging-caregiver-referrals",
+        "source_dataset_id": "ACL Eldercare Locator and No Wrong Door state contacts for KS, MD, MO, and NM",
+        "title": "ACL national Eldercare Locator and state aging/caregiver referrals",
+        "landing_page": "https://acl.gov/nwd/find-help",
+        "schema_version": "public-listing-v1",
+        "namespace_ids": [
+          "core",
+          "listing"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "not_assessed",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "refresh_mode": "operator_triggered",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "listing": "eligibility-public-listing-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "listing": "public-listing-v1"
+          },
+          "content_type": "federal_and_state_aging_caregiver_referrals",
+          "maximum_records_total": 10
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "acl-aging-caregiver-referrals",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "ACL Find Help in Your State or Territory page reviewed 2026-10-30; Eldercare Locator page last modified 2026-03-02.",
+        "retrieved_at": "2026-10-30T01:44:03Z",
+        "transform_version": "acl-aging-referral-review-v1",
+        "validation_outcome": "valid",
+        "detail": "Five normalized referrals: one national Eldercare Locator and four state contacts listed by ACL. Referral records only; no eligibility rules or individual outcomes are asserted.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "acl-eldercare-locator-national",
+            "record_type": "federal-service-referral",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Eldercare Locator — national older-adult and caregiver referral",
+              "listing.summary": "The Administration for Community Living's Eldercare Locator connects older adults and their families or caregivers with local services. Search by location; call or text 1-800-677-1116, use online chat, or email EldercareLocator@USAging.org. This is a referral service, not an eligibility program or eligibility result.",
+              "listing.agency": "Administration for Community Living (ACL), U.S. Department of Health and Human Services",
+              "listing.applicant_types": [
+                "older adults",
+                "people with disabilities",
+                "caregivers",
+                "family members"
+              ],
+              "listing.opportunity_url": "https://eldercare.acl.gov/home"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "not_assessed",
+              "service_scope": "aging_disability_caregiver_referral",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "us.acl.aging-referrals",
+              "source_version": "ACL Find Help in Your State or Territory page reviewed 2026-10-30; Eldercare Locator page last modified 2026-03-02.",
+              "retrieved_at": "2026-10-30T01:44:03Z",
+              "effective_at": null,
+              "transform_version": "acl-aging-referral-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://eldercare.acl.gov/home",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://eldercare.acl.gov/home",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://eldercare.acl.gov/home",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://eldercare.acl.gov/home",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://eldercare.acl.gov/home",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://eldercare.acl.gov/home",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://eldercare.acl.gov/home",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://eldercare.acl.gov/home",
+            "content_hash": "938787a9f20a34371db1e6d29af7ed7a572b125964454bcce30fba1fe57e56a7",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-30T01:44:03Z"
+          },
+          {
+            "source_record_id": "acl-nwd-kansas",
+            "record_type": "state-service-referral",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "state",
+              "core.geography.country_code": "US",
+              "listing.title": "Kansas aging and disability services referral",
+              "listing.summary": "ACL lists the Kansas Department for Aging and Disability Services as the state help route for older adults, people with disabilities, caregivers, and families, with contact number 1-866-468-7887. Use the state resource to locate relevant services; the referral itself does not establish program eligibility.",
+              "listing.agency": "Kansas Department for Aging and Disability Services",
+              "listing.applicant_types": [
+                "older adults",
+                "people with disabilities",
+                "caregivers",
+                "family members"
+              ],
+              "listing.opportunity_url": "https://www.kdads.ks.gov/",
+              "core.geography.state_code": "KS"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "not_assessed",
+              "service_scope": "aging_disability_caregiver_referral",
+              "jurisdiction": {
+                "level": "state",
+                "country_code": "US",
+                "state_code": "KS"
+              }
+            },
+            "source_metadata": {
+              "source_id": "us.acl.aging-referrals",
+              "source_version": "ACL Find Help in Your State or Territory page reviewed 2026-10-30; Eldercare Locator page last modified 2026-03-02.",
+              "retrieved_at": "2026-10-30T01:44:03Z",
+              "effective_at": null,
+              "transform_version": "acl-aging-referral-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://acl.gov/nwd/find-help",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://acl.gov/nwd/find-help",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://acl.gov/nwd/find-help",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://acl.gov/nwd/find-help",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://acl.gov/nwd/find-help",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://acl.gov/nwd/find-help",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://acl.gov/nwd/find-help",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.state_code": {
+                  "source_url": "https://acl.gov/nwd/find-help",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://acl.gov/nwd/find-help",
+            "content_hash": "ac0d8910a7cd6f392e6dee7301671a24c6da299a88a28fd285e091259d793d68",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-30T01:44:03Z"
+          },
+          {
+            "source_record_id": "acl-nwd-maryland",
+            "record_type": "state-service-referral",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "state",
+              "core.geography.country_code": "US",
+              "listing.title": "Maryland Access Point aging and disability referrals",
+              "listing.summary": "ACL lists Maryland Access Point as Maryland's help route for older adults, people with disabilities, caregivers, and families, with contact number 1-844-627-5465. Maryland Access Point provides service and support referrals; the referral itself does not establish program eligibility.",
+              "listing.agency": "Maryland Access Point",
+              "listing.applicant_types": [
+                "older adults",
+                "people with disabilities",
+                "caregivers",
+                "family members"
+              ],
+              "listing.opportunity_url": "https://marylandaccesspoint.211md.org/",
+              "core.geography.state_code": "MD"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "not_assessed",
+              "service_scope": "aging_disability_caregiver_referral",
+              "jurisdiction": {
+                "level": "state",
+                "country_code": "US",
+                "state_code": "MD"
+              }
+            },
+            "source_metadata": {
+              "source_id": "us.acl.aging-referrals",
+              "source_version": "ACL Find Help in Your State or Territory page reviewed 2026-10-30; Eldercare Locator page last modified 2026-03-02.",
+              "retrieved_at": "2026-10-30T01:44:03Z",
+              "effective_at": null,
+              "transform_version": "acl-aging-referral-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://acl.gov/nwd/find-help",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://acl.gov/nwd/find-help",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://acl.gov/nwd/find-help",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://acl.gov/nwd/find-help",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://acl.gov/nwd/find-help",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://acl.gov/nwd/find-help",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://acl.gov/nwd/find-help",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.state_code": {
+                  "source_url": "https://acl.gov/nwd/find-help",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://acl.gov/nwd/find-help",
+            "content_hash": "cee8975118f81b746e03890fa67f783eece3182dd184bc079feb8d31ab286c92",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-30T01:44:03Z"
+          },
+          {
+            "source_record_id": "acl-nwd-missouri",
+            "record_type": "state-service-referral",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "state",
+              "core.geography.country_code": "US",
+              "listing.title": "Missouri Community Options and Resources referral",
+              "listing.summary": "ACL lists Missouri Community Options & Resources as Missouri's help route for older adults, people with disabilities, caregivers, and families, with contact number 1-855-834-8555. Use the state resource to locate services; the referral itself does not establish program eligibility.",
+              "listing.agency": "Missouri Community Options & Resources",
+              "listing.applicant_types": [
+                "older adults",
+                "people with disabilities",
+                "caregivers",
+                "family members"
+              ],
+              "listing.opportunity_url": "https://mocor.mo.gov/",
+              "core.geography.state_code": "MO"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "not_assessed",
+              "service_scope": "aging_disability_caregiver_referral",
+              "jurisdiction": {
+                "level": "state",
+                "country_code": "US",
+                "state_code": "MO"
+              }
+            },
+            "source_metadata": {
+              "source_id": "us.acl.aging-referrals",
+              "source_version": "ACL Find Help in Your State or Territory page reviewed 2026-10-30; Eldercare Locator page last modified 2026-03-02.",
+              "retrieved_at": "2026-10-30T01:44:03Z",
+              "effective_at": null,
+              "transform_version": "acl-aging-referral-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://acl.gov/nwd/find-help",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://acl.gov/nwd/find-help",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://acl.gov/nwd/find-help",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://acl.gov/nwd/find-help",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://acl.gov/nwd/find-help",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://acl.gov/nwd/find-help",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://acl.gov/nwd/find-help",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.state_code": {
+                  "source_url": "https://acl.gov/nwd/find-help",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://acl.gov/nwd/find-help",
+            "content_hash": "1e83f588a828e837d54b385780e8e46db468c3ffaf47ab8acbb544c02ca08755",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-30T01:44:03Z"
+          },
+          {
+            "source_record_id": "acl-nwd-new-mexico",
+            "record_type": "state-service-referral",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "state",
+              "core.geography.country_code": "US",
+              "listing.title": "New Mexico Aging Services and disability referral",
+              "listing.summary": "ACL lists New Mexico Aging Services as the state help route for older adults, people with disabilities, caregivers, and families, with contact number 1-800-432-2080. Use the state resource to locate services; the referral itself does not establish program eligibility.",
+              "listing.agency": "New Mexico Aging & Long-Term Services Department",
+              "listing.applicant_types": [
+                "older adults",
+                "people with disabilities",
+                "caregivers",
+                "family members"
+              ],
+              "listing.opportunity_url": "https://www.aging.nm.gov/",
+              "core.geography.state_code": "NM"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "not_assessed",
+              "service_scope": "aging_disability_caregiver_referral",
+              "jurisdiction": {
+                "level": "state",
+                "country_code": "US",
+                "state_code": "NM"
+              }
+            },
+            "source_metadata": {
+              "source_id": "us.acl.aging-referrals",
+              "source_version": "ACL Find Help in Your State or Territory page reviewed 2026-10-30; Eldercare Locator page last modified 2026-03-02.",
+              "retrieved_at": "2026-10-30T01:44:03Z",
+              "effective_at": null,
+              "transform_version": "acl-aging-referral-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://acl.gov/nwd/find-help",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://acl.gov/nwd/find-help",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://acl.gov/nwd/find-help",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://acl.gov/nwd/find-help",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://acl.gov/nwd/find-help",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://acl.gov/nwd/find-help",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://acl.gov/nwd/find-help",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.state_code": {
+                  "source_url": "https://acl.gov/nwd/find-help",
+                  "observed_at": "2026-10-30T01:44:03Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://acl.gov/nwd/find-help",
+            "content_hash": "3858197eb1b829cd5870c356bbde3c531d0789a91dc3a580c34bf96c8e09e915",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-30T01:44:03Z"
+          }
+        ]
+      }
+    }
+  ]
+}

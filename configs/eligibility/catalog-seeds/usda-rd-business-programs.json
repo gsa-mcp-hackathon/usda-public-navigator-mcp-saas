@@ -1,0 +1,1416 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "usda.rural-development",
+    "reviewed_at": "2026-10-27T03:06:45Z",
+    "publisher_version": "not identified in reviewed page content",
+    "raw_source_documents_committed": false,
+    "access_method": "Official USDA Rural Development page content reviewed through the web retrieval tool. Raw HTML, response headers, and publisher snapshot files were not retained.",
+    "pages": [
+      {
+        "url": "https://www.rd.usda.gov/programs-services",
+        "title": "Programs & Services | Rural Development",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.rd.usda.gov/programs-services/business-programs",
+        "title": "Business Programs | Rural Development",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.rd.usda.gov/programs-services/business-programs/rural-business-development-grants",
+        "title": "Rural Business Development Grants | Rural Development",
+        "source_content_sha256": null
+      }
+    ]
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "usda.rural-development",
+      "source_name": "USDA Rural Development public program directory",
+      "source_url": "https://www.rd.usda.gov/programs-services",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "federal",
+          "owner_name": "USDA Rural Development, United States Department of Agriculture",
+          "verification_status": "verified",
+          "evidence_url": "https://www.rd.usda.gov/programs-services"
+        },
+        "approved_scope": "Shared public discovery listings and referral pointers from USDA Rural Development program pages, plus a partial source-statement reference for RBDG. Published text is not a complete executable ruleset or an eligibility determination.",
+        "refresh_mode": "operator_triggered"
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "usda-rd-program-directory",
+        "source_dataset_id": "USDA Rural Development Programs & Services directory",
+        "title": "USDA Rural Development program directory and category referral",
+        "landing_page": "https://www.rd.usda.gov/programs-services",
+        "schema_version": "public-listing-v1",
+        "namespace_ids": [
+          "core",
+          "listing"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "not_assessed",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "refresh_mode": "operator_triggered",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "listing": "eligibility-public-listing-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "listing": "public-listing-v1"
+          },
+          "content_type": "federal_program_directory_referral",
+          "maximum_records_total": 5
+        }
+      },
+      {
+        "dataset_id": "usda-rd-business-programs",
+        "source_dataset_id": "USDA Rural Development Business Programs page",
+        "title": "USDA Rural Development business-program listing snapshot",
+        "landing_page": "https://www.rd.usda.gov/programs-services/business-programs",
+        "schema_version": "public-listing-v1",
+        "namespace_ids": [
+          "core",
+          "listing"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "not_assessed",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "refresh_mode": "operator_triggered",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "listing": "eligibility-public-listing-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "listing": "public-listing-v1"
+          },
+          "content_type": "federal_business_program_listings",
+          "maximum_records_total": 20
+        }
+      },
+      {
+        "dataset_id": "usda-rd-rbdg-published-criteria",
+        "source_dataset_id": "Rural Business Development Grants official program page",
+        "title": "USDA Rural Business Development Grants published requirement reference",
+        "landing_page": "https://www.rd.usda.gov/programs-services/business-programs/rural-business-development-grants",
+        "schema_version": "eligibility-program-v1",
+        "namespace_ids": [
+          "core",
+          "eligibility"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "partial",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "refresh_mode": "operator_triggered",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "eligibility": "eligibility-program-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "eligibility": "eligibility-program-v1"
+          },
+          "content_type": "published_partial_non_executable_eligibility_reference",
+          "maximum_records_total": 10
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "usda-rd-program-directory",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "USDA Rural Development Programs & Services and Business Programs pages reviewed 2026-10-27; no publisher revision/effective date captured.",
+        "retrieved_at": "2026-10-27T03:06:45Z",
+        "transform_version": "usda-rd-business-programs-review-v1",
+        "validation_outcome": "valid",
+        "detail": "Official USDA RD navigation index; category referral only; program coverage not complete.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "usda-rd-program-services-directory",
+            "record_type": "federal-program-directory-referral",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "USDA Rural Development Programs & Services directory",
+              "listing.summary": "USDA Rural Development describes more than fifty financial-assistance programs. Its directory organizes program pages under business, community facilities, cooperative, electric, energy, multifamily housing, single-family housing, telecommunications, and water/environment categories. This is a navigation index; not every category or program listing has been normalized in this batch, and the page does not determine eligibility.",
+              "listing.agency": "USDA Rural Development",
+              "listing.opportunity_url": "https://www.rd.usda.gov/programs-services"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.rural-development",
+              "source_version": "USDA Rural Development Programs & Services and Business Programs pages reviewed 2026-10-27; no publisher revision/effective date captured.",
+              "retrieved_at": "2026-10-27T03:06:45Z",
+              "effective_at": null,
+              "transform_version": "usda-rd-business-programs-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.rd.usda.gov/programs-services",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.rd.usda.gov/programs-services",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.rd.usda.gov/programs-services",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.rd.usda.gov/programs-services",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.rd.usda.gov/programs-services",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.rd.usda.gov/programs-services",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.rd.usda.gov/programs-services",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T03:06:45Z",
+            "content_hash": "ccd82b89eb7eb44fede4f5543dbbe114b47b71f571641928178886dcc82d7c42"
+          }
+        ]
+      }
+    },
+    {
+      "dataset_id": "usda-rd-business-programs",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "USDA Rural Development Programs & Services and Business Programs pages reviewed 2026-10-27; no publisher revision/effective date captured.",
+        "retrieved_at": "2026-10-27T03:06:45Z",
+        "transform_version": "usda-rd-business-programs-review-v1",
+        "validation_outcome": "valid",
+        "detail": "Normalized 16 program listings from the USDA RD Business Programs directory; applicant criteria and current funding status are not assessed except where stated in summary.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "business-and-industry-guaranteed-loan",
+            "record_type": "federal-rural-development-business-program",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Business and Industry Guaranteed Loan Program",
+              "listing.summary": "Provides loan guarantees through commercial lenders for rural business capital and development. The program page identifies lenders as the applicants for the guarantee and rural businesses/individuals as potential borrowers; individual requirements and rural location rules are on the detailed page.",
+              "listing.agency": "USDA Rural Development",
+              "listing.opportunity_url": "https://www.rd.usda.gov/programs-services/business-programs/business-and-industry-guaranteed-loan"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.rural-development",
+              "source_version": "USDA Rural Development Programs & Services and Business Programs pages reviewed 2026-10-27; no publisher revision/effective date captured.",
+              "retrieved_at": "2026-10-27T03:06:45Z",
+              "effective_at": null,
+              "transform_version": "usda-rd-business-programs-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs/business-and-industry-guaranteed-loan",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T03:06:45Z",
+            "content_hash": "2d29f5dd85a30b250f9c877db85ce0276c20ecbcf3b7bd185012ed93aa3168d5"
+          },
+          {
+            "source_record_id": "timber-production-expansion-guaranteed-loan",
+            "record_type": "federal-rural-development-business-program",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Timber Production Expansion Guaranteed Loan Program",
+              "listing.summary": "Provides financial support through qualified lenders for establishing, reopening, expanding, or improving sawmills and wood-processing facilities that process ecosystem-restoration byproducts from National Forest System lands.",
+              "listing.agency": "USDA Rural Development",
+              "listing.opportunity_url": "https://www.rd.usda.gov/timber-production-expansion-guaranteed-loan-program-tpep"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.rural-development",
+              "source_version": "USDA Rural Development Programs & Services and Business Programs pages reviewed 2026-10-27; no publisher revision/effective date captured.",
+              "retrieved_at": "2026-10-27T03:06:45Z",
+              "effective_at": null,
+              "transform_version": "usda-rd-business-programs-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.rd.usda.gov/timber-production-expansion-guaranteed-loan-program-tpep",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T03:06:45Z",
+            "content_hash": "8c5685cb3ee5c700aefc48e710a065cb91a9d43ae86e319473f3f0385ece27bd"
+          },
+          {
+            "source_record_id": "biorefinery-renewable-chemical-biobased-manufacturing",
+            "record_type": "federal-rural-development-business-program",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Biorefinery, Renewable Chemical, and Biobased Product Manufacturing Program (9003)",
+              "listing.summary": "Offers loan guarantees to support development, construction, or retrofit of facilities using eligible advanced biofuels, renewable chemicals, and biobased products. The program is focused on manufacturing and technology projects, not general farm operating support.",
+              "listing.agency": "USDA Rural Development",
+              "listing.opportunity_url": "https://www.rd.usda.gov/programs-services/energy-programs/biorefinery-renewable-chemical-and-biobased-product-manufacturing-program"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.rural-development",
+              "source_version": "USDA Rural Development Programs & Services and Business Programs pages reviewed 2026-10-27; no publisher revision/effective date captured.",
+              "retrieved_at": "2026-10-27T03:06:45Z",
+              "effective_at": null,
+              "transform_version": "usda-rd-business-programs-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/energy-programs/biorefinery-renewable-chemical-and-biobased-product-manufacturing-program",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T03:06:45Z",
+            "content_hash": "8640250dcf96f66f0271a1b170a1cba01afd6ed3d2a40dc7756883e6188f7f44"
+          },
+          {
+            "source_record_id": "biopreferred-certification",
+            "record_type": "federal-rural-development-business-program",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "BioPreferred Certification Program",
+              "listing.summary": "Voluntary USDA certification and labeling intended to expand markets and federal purchasing for biobased products, including products made from farm commodities. This is a certification/market pathway, not a grant listing.",
+              "listing.agency": "USDA Rural Development",
+              "listing.opportunity_url": "https://www.rd.usda.gov/programs-services/biopreferred-program"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.rural-development",
+              "source_version": "USDA Rural Development Programs & Services and Business Programs pages reviewed 2026-10-27; no publisher revision/effective date captured.",
+              "retrieved_at": "2026-10-27T03:06:45Z",
+              "effective_at": null,
+              "transform_version": "usda-rd-business-programs-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/biopreferred-program",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T03:06:45Z",
+            "content_hash": "776ac38e3722d7992139f98a23f1ce5ed87fbab465ed99d6a5feb73d1a125271"
+          },
+          {
+            "source_record_id": "agriculture-innovation-center",
+            "record_type": "federal-rural-development-business-program",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Agriculture Innovation Center Program",
+              "listing.summary": "Grants support existing Agriculture Innovation Centers that provide technical assistance to agricultural producers developing and marketing value-added products. The directory describes grant recipients as the Centers.",
+              "listing.agency": "USDA Rural Development",
+              "listing.opportunity_url": "https://www.rd.usda.gov/programs-services/business-programs/agriculture-innovation-center-program"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.rural-development",
+              "source_version": "USDA Rural Development Programs & Services and Business Programs pages reviewed 2026-10-27; no publisher revision/effective date captured.",
+              "retrieved_at": "2026-10-27T03:06:45Z",
+              "effective_at": null,
+              "transform_version": "usda-rd-business-programs-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs/agriculture-innovation-center-program",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T03:06:45Z",
+            "content_hash": "bd68b7127af1051b51a215c110ee7b0210eddd83588d34c0c8ee7099c4cf503f"
+          },
+          {
+            "source_record_id": "intermediary-relending-program",
+            "record_type": "federal-rural-development-business-program",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Intermediary Relending Program",
+              "listing.summary": "Provides low-interest loans to local intermediaries that re-lend to businesses to improve rural economic conditions and create jobs; the intermediary is the direct USDA recipient in the program description.",
+              "listing.agency": "USDA Rural Development",
+              "listing.opportunity_url": "https://www.rd.usda.gov/programs-services/business-programs/intermediary-relending-program"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.rural-development",
+              "source_version": "USDA Rural Development Programs & Services and Business Programs pages reviewed 2026-10-27; no publisher revision/effective date captured.",
+              "retrieved_at": "2026-10-27T03:06:45Z",
+              "effective_at": null,
+              "transform_version": "usda-rd-business-programs-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs/intermediary-relending-program",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T03:06:45Z",
+            "content_hash": "692e0bd5ff17f8e8c7bf5347c5aab22addceebe83dd331ef8519bf46962899ec"
+          },
+          {
+            "source_record_id": "meat-poultry-processing-expansion-phase-4",
+            "record_type": "federal-rural-development-business-program",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Meat and Poultry Processing Expansion Program — Phase 4",
+              "listing.summary": "The directory describes grants to help eligible meat and poultry processors expand capacity and strengthen competition and supply-chain resilience. Current application status and detailed recipient requirements require the linked program page.",
+              "listing.agency": "USDA Rural Development",
+              "listing.opportunity_url": "https://www.rd.usda.gov/programs-services/business-programs/meat-and-poultry-processing-expansion-program-phase-4"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.rural-development",
+              "source_version": "USDA Rural Development Programs & Services and Business Programs pages reviewed 2026-10-27; no publisher revision/effective date captured.",
+              "retrieved_at": "2026-10-27T03:06:45Z",
+              "effective_at": null,
+              "transform_version": "usda-rd-business-programs-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs/meat-and-poultry-processing-expansion-program-phase-4",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T03:06:45Z",
+            "content_hash": "687db1c3c046cdd8160908769d1faca1dec363a0af1d9f38d2a9381e340ef3ae"
+          },
+          {
+            "source_record_id": "rural-business-development-grants",
+            "record_type": "federal-rural-development-business-program",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Rural Business Development Grants",
+              "listing.summary": "Provides grants for technical assistance and training for small rural businesses. The detailed USDA page restricts direct applications to public bodies/government entities, federally recognized Tribes, and qualifying nonprofits; individuals and individual for-profit businesses are not direct grant recipients under the published page. See the separate criteria reference in this catalog.",
+              "listing.agency": "USDA Rural Development",
+              "listing.opportunity_url": "https://www.rd.usda.gov/programs-services/business-programs/rural-business-development-grants"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.rural-development",
+              "source_version": "USDA Rural Development Programs & Services and Business Programs pages reviewed 2026-10-27; no publisher revision/effective date captured.",
+              "retrieved_at": "2026-10-27T03:06:45Z",
+              "effective_at": null,
+              "transform_version": "usda-rd-business-programs-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs/rural-business-development-grants",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T03:06:45Z",
+            "content_hash": "8d3d2dd5ef7a4f8d08a56007eb4a8d9c11b4774f1f92ebd27777f7ca3654d6ac"
+          },
+          {
+            "source_record_id": "rural-business-investment-program",
+            "record_type": "federal-rural-development-business-program",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Rural Business Investment Program",
+              "listing.summary": "Provides a Rural Business Investment Company license to developmental capital organizations to help meet equity-capital needs in rural areas. This is an investment-company intermediary pathway, not a direct individual grant.",
+              "listing.agency": "USDA Rural Development",
+              "listing.opportunity_url": "https://www.rd.usda.gov/programs-services/business-programs/rural-business-investment-program"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.rural-development",
+              "source_version": "USDA Rural Development Programs & Services and Business Programs pages reviewed 2026-10-27; no publisher revision/effective date captured.",
+              "retrieved_at": "2026-10-27T03:06:45Z",
+              "effective_at": null,
+              "transform_version": "usda-rd-business-programs-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs/rural-business-investment-program",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T03:06:45Z",
+            "content_hash": "2d724db7e6474de50aed0b1ba43d29e71204d2fce86da9ff25f4c3ac09a971d7"
+          },
+          {
+            "source_record_id": "rural-economic-development-loan-grant",
+            "record_type": "federal-rural-development-business-program",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Rural Economic Development Loan and Grant Programs",
+              "listing.summary": "Provides funding through local utility organizations; USDA zero-interest loans go to utilities that pass funding through to rural businesses for employment-related projects. The direct applicant and ultimate recipient are different roles.",
+              "listing.agency": "USDA Rural Development",
+              "listing.opportunity_url": "https://www.rd.usda.gov/programs-services/business-programs/rural-economic-development-loan-grant-programs"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.rural-development",
+              "source_version": "USDA Rural Development Programs & Services and Business Programs pages reviewed 2026-10-27; no publisher revision/effective date captured.",
+              "retrieved_at": "2026-10-27T03:06:45Z",
+              "effective_at": null,
+              "transform_version": "usda-rd-business-programs-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs/rural-economic-development-loan-grant-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T03:06:45Z",
+            "content_hash": "02151f1cd7f08a32d6de2ede65c1e288efbfadcdfd8b3277c16706781816a77f"
+          },
+          {
+            "source_record_id": "rural-microentrepreneur-assistance",
+            "record_type": "federal-rural-development-business-program",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Rural Microentrepreneur Assistance Program",
+              "listing.summary": "Provides loans and grants to Microenterprise Development Organizations for revolving microloan funds, and training/technical assistance for microenterprise borrowers and entrepreneurs. The direct recipient may differ from an ultimate business beneficiary.",
+              "listing.agency": "USDA Rural Development",
+              "listing.opportunity_url": "https://www.rd.usda.gov/programs-services/business-programs/rural-microentrepreneur-assistance-program"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.rural-development",
+              "source_version": "USDA Rural Development Programs & Services and Business Programs pages reviewed 2026-10-27; no publisher revision/effective date captured.",
+              "retrieved_at": "2026-10-27T03:06:45Z",
+              "effective_at": null,
+              "transform_version": "usda-rd-business-programs-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs/rural-microentrepreneur-assistance-program",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T03:06:45Z",
+            "content_hash": "548057afb30e7ea993653fee85f44a9d6bbf062867cc0c4071569f7c7b8f318c"
+          },
+          {
+            "source_record_id": "strategic-economic-community-development",
+            "record_type": "federal-rural-development-business-program",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Strategic Economic and Community Development Program",
+              "listing.summary": "Bolsters participating Rural Development program funds for projects supporting strategic community investment plans. Treat this as a program overlay/priority context, not a separate individual benefit without program-specific rules.",
+              "listing.agency": "USDA Rural Development",
+              "listing.opportunity_url": "https://www.rd.usda.gov/programs-services/business-programs/strategic-economic-and-community-development"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.rural-development",
+              "source_version": "USDA Rural Development Programs & Services and Business Programs pages reviewed 2026-10-27; no publisher revision/effective date captured.",
+              "retrieved_at": "2026-10-27T03:06:45Z",
+              "effective_at": null,
+              "transform_version": "usda-rd-business-programs-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs/strategic-economic-and-community-development",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T03:06:45Z",
+            "content_hash": "7b6618be5633943ba8764ad27ccde730d09cd2c13cb72623b6dd8148e720d95c"
+          },
+          {
+            "source_record_id": "value-added-producer-grants",
+            "record_type": "federal-rural-development-business-program",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Value-Added Producer Grants",
+              "listing.summary": "Supports agricultural producers entering value-added activities such as processing and marketing new products, with the stated goals of developing products, expanding markets, and increasing producer income. Detailed eligibility and application cycle are not normalized here.",
+              "listing.agency": "USDA Rural Development",
+              "listing.opportunity_url": "https://www.rd.usda.gov/programs-services/business-programs/value-added-producer-grants"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.rural-development",
+              "source_version": "USDA Rural Development Programs & Services and Business Programs pages reviewed 2026-10-27; no publisher revision/effective date captured.",
+              "retrieved_at": "2026-10-27T03:06:45Z",
+              "effective_at": null,
+              "transform_version": "usda-rd-business-programs-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs/value-added-producer-grants",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T03:06:45Z",
+            "content_hash": "8516b11061c3764729b2a6f02a57bba68c1440c00b00fa18f3ddde52198a9406"
+          },
+          {
+            "source_record_id": "delta-health-care-services-grant",
+            "record_type": "federal-rural-development-business-program",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Delta Health Care Services Grant",
+              "listing.summary": "Provides financial assistance addressing unmet health needs in the Delta Region. The listing is region-specific; eligible applicants and current funding status require the detailed program page.",
+              "listing.agency": "USDA Rural Development",
+              "listing.opportunity_url": "https://www.rd.usda.gov/programs-services/business-programs/delta-health-care-services-grant"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.rural-development",
+              "source_version": "USDA Rural Development Programs & Services and Business Programs pages reviewed 2026-10-27; no publisher revision/effective date captured.",
+              "retrieved_at": "2026-10-27T03:06:45Z",
+              "effective_at": null,
+              "transform_version": "usda-rd-business-programs-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs/delta-health-care-services-grant",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T03:06:45Z",
+            "content_hash": "9739ed073f63126a2646e1ceeb56f94210feba88f07ee1b3dee7ee11e2615e64"
+          },
+          {
+            "source_record_id": "fertilizer-investment-expansion-fields",
+            "record_type": "federal-rural-development-business-program",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Fertilizer Investment & Expansion for Long-term Domestic Supply (FIELDS) Program",
+              "listing.summary": "Supports new or expanded independent domestic fertilizer production capacity and additional domestic fertilizer options for agricultural producers. The listing describes a supply-chain objective, not direct producer eligibility.",
+              "listing.agency": "USDA Rural Development",
+              "listing.opportunity_url": "https://www.rd.usda.gov/programs-services/business-programs/fertilizer-investment-expansion-long-term-domestic-supply"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.rural-development",
+              "source_version": "USDA Rural Development Programs & Services and Business Programs pages reviewed 2026-10-27; no publisher revision/effective date captured.",
+              "retrieved_at": "2026-10-27T03:06:45Z",
+              "effective_at": null,
+              "transform_version": "usda-rd-business-programs-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs/fertilizer-investment-expansion-long-term-domestic-supply",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T03:06:45Z",
+            "content_hash": "edf7fa5ba8baad5c075a554e97fc23f882ccafd96b0d8c9c21ed81ddb8f41c98"
+          },
+          {
+            "source_record_id": "spur-ranchers-loan-guarantees",
+            "record_type": "federal-rural-development-business-program",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Strengthening Processing for U.S. Ranchers (SPUR) Loan Guarantees",
+              "listing.summary": "Provides a loan guarantee to commercial lenders for eligible borrowers seeking to expand, improve, or diversify meat, poultry, and seafood processing capacity. The program works through a lender; detailed borrower criteria are not mapped here.",
+              "listing.agency": "USDA Rural Development",
+              "listing.opportunity_url": "https://www.rd.usda.gov/programs-services/business-programs/spur-program"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.rural-development",
+              "source_version": "USDA Rural Development Programs & Services and Business Programs pages reviewed 2026-10-27; no publisher revision/effective date captured.",
+              "retrieved_at": "2026-10-27T03:06:45Z",
+              "effective_at": null,
+              "transform_version": "usda-rd-business-programs-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs/spur-program",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.rd.usda.gov/programs-services/business-programs",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T03:06:45Z",
+            "content_hash": "46ac5f8f3b086854edeee670e55d038fcedb73a75a749752e0f40b660f163117"
+          }
+        ]
+      }
+    },
+    {
+      "dataset_id": "usda-rd-rbdg-published-criteria",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "USDA Rural Development Programs & Services and Business Programs pages reviewed 2026-10-27; no publisher revision/effective date captured.",
+        "retrieved_at": "2026-10-27T03:06:45Z",
+        "transform_version": "usda-rd-business-programs-review-v1",
+        "validation_outcome": "valid",
+        "detail": "Partial transcription of published RBDG statements; unmapped and non-executable; 2026 application window closed.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "usda-rd-rbdg-published-criteria",
+            "record_type": "federal-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "usda-rd-rbdg",
+              "eligibility.program.catalog_version": "review-2026-10-27",
+              "eligibility.program.navigator": "rural_business",
+              "eligibility.program.data_origin": "USDA Rural Development Rural Business Development Grants program page",
+              "eligibility.program.title": "Rural Business Development Grants published criteria reference",
+              "eligibility.program.description": "Partial source-structured reference to RBDG applicant, project geography, evaluation, application, and timing statements. Statements remain unmapped to profile attributes and non-executable. The direct-applicant limitation is material: the page says individuals and individual businesses are not eligible grant recipients. The published 2026 application window is closed; current-cycle status must be rechecked. This is not a benefits determination.",
+              "eligibility.program.criteria": [
+                {
+                  "kind": "published_direct_applicant_categories",
+                  "options": [
+                    "Public Body/Government Entity",
+                    "Federally Recognized Indian Tribe",
+                    "Nonprofit entity primarily serving rural areas"
+                  ],
+                  "logic_status": "not_mapped"
+                },
+                {
+                  "kind": "published_direct_applicant_exclusion",
+                  "statement": "For-profit entities, individuals, and individual businesses are not eligible to receive grants under this program.",
+                  "logic_status": "not_mapped"
+                },
+                {
+                  "kind": "published_project_geography",
+                  "statement": "Grant-funded projects must benefit rural areas or towns outside the urbanized periphery of a city with a population of 50,000 or more; the official page links to an eligible-area lookup.",
+                  "logic_status": "not_mapped"
+                },
+                {
+                  "kind": "published_application_evaluation_factors",
+                  "factors": [
+                    "evidence of job creation at local businesses",
+                    "percentage of non-federal funding committed",
+                    "economic need in the area served",
+                    "consistency with local economic development priorities",
+                    "grantee experience with similar efforts"
+                  ],
+                  "logic_status": "context_only"
+                },
+                {
+                  "kind": "published_application_path",
+                  "statement": "The page directs prospective applicants to contact a USDA Rural Development program official in their state; applications are submitted through Grants.gov.",
+                  "logic_status": "context_only"
+                },
+                {
+                  "kind": "published_application_window",
+                  "statement": "The page reports the 2026 application window closed, with June 15, 2026 for SECD applications and June 30, 2026 for other applications. Both dates have passed as of this review; check the official page/state office for a later cycle.",
+                  "logic_status": "context_only"
+                },
+                {
+                  "kind": "published_additional_requirements",
+                  "statement": "The page states there are no additional requirements at the national level and that any state-specific requirements will be listed for the selected state.",
+                  "logic_status": "not_mapped"
+                },
+                {
+                  "kind": "published_limitations",
+                  "statement": "Other factors may be described in the Notice of Solicitation of Applications (NOSA); the published page advises consulting current program instructions and state office information.",
+                  "logic_status": "unknown"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.rural-development",
+              "source_version": "USDA Rural Development Programs & Services and Business Programs pages reviewed 2026-10-27; no publisher revision/effective date captured.",
+              "retrieved_at": "2026-10-27T03:06:45Z",
+              "effective_at": null,
+              "transform_version": "usda-rd-business-programs-review-v1",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs/rural-business-development-grants",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs/rural-business-development-grants",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.navigator": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs/rural-business-development-grants",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs/rural-business-development-grants",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs/rural-business-development-grants",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs/rural-business-development-grants",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.criteria": {
+                  "source_url": "https://www.rd.usda.gov/programs-services/business-programs/rural-business-development-grants",
+                  "observed_at": "2026-10-27T03:06:45Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.rd.usda.gov/programs-services/business-programs/rural-business-development-grants",
+            "schema_version": "eligibility-program-v1",
+            "observed_at": "2026-10-27T03:06:45Z",
+            "content_hash": "9ae0d616a9c525179002395cccc5711b0573aafb5dbdec72733fce02e5eb0583"
+          }
+        ]
+      }
+    }
+  ],
+  "limits": [
+    "The directory pages are discovery listings, not complete criteria coverage.",
+    "Only the RBDG detail page was separately transcribed into a partial criteria reference; no criteria are mapped to profile attributes or executed.",
+    "Business Program listings describe 16 items displayed on the reviewed page; other Rural Development program categories are not included in this batch.",
+    "The RBDG page reports its 2026 application period closed; later funding windows and all state-specific details require a fresh source check.",
+    "No publisher revision, ETag, Last-Modified value, or raw HTML snapshot was captured."
+  ]
+}

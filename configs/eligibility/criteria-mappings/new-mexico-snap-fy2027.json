@@ -1,0 +1,74 @@
+{
+  "contract_version": "criteria-mapping-manifest-v1",
+  "mapping_id": "new-mexico-hca-snap-fy2027-income-screens",
+  "program_id": "nm-snap",
+  "source": {
+    "source_id": "new-mexico.hca.snap",
+    "source_record_id": "hca-snap-fy2027-income-guidelines",
+    "source_content_sha256": "ae07cd3d32901c28171436b870b2e7cab7a5fab8d6f626289e16ecc98b6a7fc0",
+    "source_version": "ISD 017 revision 2026-09-15; effective 2026-10-01 through 2027-09-30; sha256:4f570d6c9c0ba821665c4cb0ed73410f1970b88c333a6d2b2d8fa3e1f407c84a",
+    "source_url": "https://www.hca.nm.gov/wp-content/uploads/ISD-017-FPG-Form-FY-2027-10.01.26-to-09.30.2027-SNAP-and-Cash.pdf",
+    "retrieved_at": "2026-10-27T01:55:59Z",
+    "criteria_path": "eligibility.program.criteria"
+  },
+  "source_completeness": "partial",
+  "mappings": [
+    {
+      "requirement_id": "nm-snap-gross-income-130-fpg",
+      "statement": "Published New Mexico SNAP FY2027 gross monthly income standard at 130% of the Federal Poverty Guidelines; threshold varies by household size.",
+      "requirement_type": "eligibility",
+      "mapping_status": "mapped",
+      "concept_id": "snap.gross_monthly_income_limit",
+      "attribute": "core.household.monthly_gross_income_usd",
+      "operator": "lte_by",
+      "context_attribute": "core.household.size",
+      "table": {
+        "rows_from": "eligibility.program.criteria",
+        "key_field": "household_size",
+        "value_field": "monthly_usd",
+        "filters": {
+          "basis": "130_percent_fpg_gross",
+          "kind": "monthly_income_standard"
+        }
+      },
+      "unit": "USD/month",
+      "threshold_basis": "Published 130% FPG gross monthly standard; effective 2026-10-01 through 2027-09-30. This is one screening criterion, not a complete SNAP eligibility rule."
+    },
+    {
+      "requirement_id": "nm-snap-net-income-100-fpg",
+      "statement": "Published New Mexico SNAP FY2027 net monthly income standard at 100% of the Federal Poverty Guidelines; threshold varies by household size.",
+      "requirement_type": "eligibility",
+      "mapping_status": "mapped",
+      "concept_id": "snap.net_monthly_income_limit",
+      "attribute": "core.household.monthly_net_income_usd",
+      "operator": "lte_by",
+      "context_attribute": "core.household.size",
+      "table": {
+        "rows_from": "eligibility.program.criteria",
+        "key_field": "household_size",
+        "value_field": "monthly_usd",
+        "filters": {
+          "basis": "100_percent_fpg_net",
+          "kind": "monthly_income_standard"
+        }
+      },
+      "unit": "USD/month",
+      "threshold_basis": "Published 100% FPG net monthly standard; effective 2026-10-01 through 2027-09-30. This mapping compares a supplied net-income fact; it does not compute deductions."
+    },
+    {
+      "requirement_id": "nm-snap-categorical-gross-income-200-fpg",
+      "statement": "The source lists a 200% FPG gross income standard for categorical eligibility.",
+      "requirement_type": "eligibility",
+      "mapping_status": "partial",
+      "unresolved_reason": "Conditional categorical eligibility requires a validated qualifying-category fact and explicit applicability logic that are not present in this mapping. Preserve as review-only; do not treat this threshold as a general gross-income limit."
+    }
+  ],
+  "unmapped_source_scope": [
+    "Income deductions and the computation of net income",
+    "Asset limits and their age/disability applicability",
+    "Categorical eligibility predicates and alternative income pathways",
+    "Residency, work, student, household-composition, and other SNAP conditions",
+    "Application periods, local policy, and agency determination"
+  ],
+  "evaluation_boundary": "Evaluate only the two individually mapped income screens. Return their separate cited outcomes; never roll them into an overall SNAP eligibility decision. Missing profile facts, household sizes outside the table, and unresolved source conditions remain unknown or review-only."
+}

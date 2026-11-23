@@ -1,0 +1,15 @@
+{
+  "scenario": "UC3-S2",
+  "kind": "Edge",
+  "edge": "housing criteria not mapped; person withholds household details",
+  "run": 1,
+  "page": "team web app for demo and testing",
+  "driver": "TinyFish browser agent, run e1c3a99f-d649-4a24-99c8-c934f4e4cec8",
+  "persona": "fictional renter in St. Louis, Missouri, at risk of losing housing, withholds income and household details",
+  "rules": "answer only from stated facts; withhold income, household details, name, address and IDs; at most 3 follow-ups",
+  "user_messages": [
+    "I might lose my housing soon because I can't keep up with rent. What help is there in St. Louis, Missouri?",
+    "I would rather not say. I just know I rent in St. Louis, Missouri and need rental help.",
+    "Please look up the St. Louis local housing agency contact from HUD's official directory."
+  ]
+}

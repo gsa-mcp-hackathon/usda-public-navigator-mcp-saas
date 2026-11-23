@@ -1,0 +1,734 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "usda.fsa.disaster-assistance",
+    "reviewed_at": "2026-10-27T11:22:29Z",
+    "publisher_version": "not stated on the reviewed page",
+    "raw_source_documents_committed": false,
+    "access_method": "Official FSA page reviewed through current web retrieval; page body and raw files not retained.",
+    "pages": [
+      {
+        "url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+        "title": "Disaster Assistance Programs | Farm Service Agency",
+        "source_content_sha256": null
+      }
+    ]
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "usda.fsa.disaster-assistance",
+      "source_name": "USDA Farm Service Agency Disaster Assistance Programs",
+      "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "federal",
+          "owner_name": "United States Department of Agriculture Farm Service Agency",
+          "verification_status": "verified",
+          "evidence_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs"
+        },
+        "approved_scope": "Shared federal disaster-program discovery listings from the official FSA disaster assistance page. Program descriptions are not complete criteria, individual eligibility determinations, current application status, or benefit estimates.",
+        "refresh_mode": "operator_triggered"
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "usda-fsa-disaster-assistance-programs",
+        "source_dataset_id": "FSA Disaster Assistance Programs page",
+        "title": "USDA FSA disaster assistance program listings",
+        "landing_page": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+        "schema_version": "public-listing-v1",
+        "namespace_ids": [
+          "core",
+          "listing"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "not_assessed",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "refresh_mode": "operator_triggered",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "listing": "eligibility-public-listing-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "listing": "public-listing-v1"
+          },
+          "content_type": "federal_fsa_disaster_program_listings",
+          "maximum_records_total": 100
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "usda-fsa-disaster-assistance-programs",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "FSA Disaster Assistance Programs page reviewed 2026-10-27; publisher revision not stated.",
+        "retrieved_at": "2026-10-27T11:22:29Z",
+        "transform_version": "fsa-fema-disaster-source-review-v1",
+        "validation_outcome": "valid",
+        "detail": "Ten bounded FSA program discovery listings transcribed from the official disaster assistance page. Criteria and current program availability are not asserted.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "fsa-livestock-forage-disaster-program",
+            "record_type": "federal-fsa-disaster-program-listing",
+            "canonical_attributes": {
+              "core.geography.country_code": "US",
+              "core.geography.jurisdiction_level": "federal",
+              "listing.title": "Livestock Forage Disaster Program (LFP)",
+              "listing.summary": "FSA provides compensation to eligible livestock producers who have suffered grazing losses due to drought or fire on native or improved pastureland with permanent vegetative cover, or land planted specifically for grazing.",
+              "listing.agency": "Farm Service Agency (FSA), USDA",
+              "listing.opportunity_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.fsa.disaster-assistance",
+              "source_version": "FSA Disaster Assistance Programs page reviewed 2026-10-27; publisher revision not stated.",
+              "retrieved_at": "2026-10-27T11:22:29Z",
+              "effective_at": null,
+              "transform_version": "fsa-fema-disaster-source-review-v1",
+              "field_provenance": {
+                "core.geography.country_code": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T11:22:29Z",
+            "content_hash": "44a9e434caa69b3c0b573eb6b0c8e104b4db82643ec33cd4a073628e47b716e0"
+          },
+          {
+            "source_record_id": "fsa-livestock-indemnity-program",
+            "record_type": "federal-fsa-disaster-program-listing",
+            "canonical_attributes": {
+              "core.geography.country_code": "US",
+              "core.geography.jurisdiction_level": "federal",
+              "listing.title": "Livestock Indemnity Program (LIP)",
+              "listing.summary": "FSA provides benefits to livestock producers for livestock deaths in excess of normal mortality caused by adverse weather or attacks by animals reintroduced into the wild by the federal government.",
+              "listing.agency": "Farm Service Agency (FSA), USDA",
+              "listing.opportunity_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.fsa.disaster-assistance",
+              "source_version": "FSA Disaster Assistance Programs page reviewed 2026-10-27; publisher revision not stated.",
+              "retrieved_at": "2026-10-27T11:22:29Z",
+              "effective_at": null,
+              "transform_version": "fsa-fema-disaster-source-review-v1",
+              "field_provenance": {
+                "core.geography.country_code": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T11:22:29Z",
+            "content_hash": "701cf13362cc69f48ba83f46b99e8c480bdc97a3672900388f4525fa4bfdcf98"
+          },
+          {
+            "source_record_id": "fsa-emergency-assistance-livestock-honeybees-fish",
+            "record_type": "federal-fsa-disaster-program-listing",
+            "canonical_attributes": {
+              "core.geography.country_code": "US",
+              "core.geography.jurisdiction_level": "federal",
+              "listing.title": "Emergency Assistance for Livestock, Honeybees, and Farm-Raised Fish (ELAP)",
+              "listing.summary": "FSA describes emergency assistance for livestock, honeybees, and farm-raised fish losses due to disease, adverse weather, or other conditions not covered by LFP and LIP.",
+              "listing.agency": "Farm Service Agency (FSA), USDA",
+              "listing.opportunity_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.fsa.disaster-assistance",
+              "source_version": "FSA Disaster Assistance Programs page reviewed 2026-10-27; publisher revision not stated.",
+              "retrieved_at": "2026-10-27T11:22:29Z",
+              "effective_at": null,
+              "transform_version": "fsa-fema-disaster-source-review-v1",
+              "field_provenance": {
+                "core.geography.country_code": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T11:22:29Z",
+            "content_hash": "1a5b3b529d460a38dedc7a3dcda983bd84db86aadc3c0891b453200fe6568644"
+          },
+          {
+            "source_record_id": "fsa-emergency-livestock-relief-program",
+            "record_type": "federal-fsa-disaster-program-listing",
+            "canonical_attributes": {
+              "core.geography.country_code": "US",
+              "core.geography.jurisdiction_level": "federal",
+              "listing.title": "Emergency Livestock Relief Program (ELRP)",
+              "listing.summary": "FSA describes relief for livestock producers with approved 2021 LFP applications for forage losses due to severe drought or wildfire; the page says no producer application is required. This is a published program description and does not establish current availability.",
+              "listing.agency": "Farm Service Agency (FSA), USDA",
+              "listing.opportunity_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.fsa.disaster-assistance",
+              "source_version": "FSA Disaster Assistance Programs page reviewed 2026-10-27; publisher revision not stated.",
+              "retrieved_at": "2026-10-27T11:22:29Z",
+              "effective_at": null,
+              "transform_version": "fsa-fema-disaster-source-review-v1",
+              "field_provenance": {
+                "core.geography.country_code": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T11:22:29Z",
+            "content_hash": "e16ccee451f8072f4f10ca39fe984841d47aa475515442d5e451fec71121d7f0"
+          },
+          {
+            "source_record_id": "fsa-emergency-farm-loans",
+            "record_type": "federal-fsa-disaster-program-listing",
+            "canonical_attributes": {
+              "core.geography.country_code": "US",
+              "core.geography.jurisdiction_level": "federal",
+              "listing.title": "Emergency Loan Program",
+              "listing.summary": "FSA provides loans to help producers recover from production and physical losses due to drought, flooding, other natural disasters, or qualifying quarantine.",
+              "listing.agency": "Farm Service Agency (FSA), USDA",
+              "listing.opportunity_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.fsa.disaster-assistance",
+              "source_version": "FSA Disaster Assistance Programs page reviewed 2026-10-27; publisher revision not stated.",
+              "retrieved_at": "2026-10-27T11:22:29Z",
+              "effective_at": null,
+              "transform_version": "fsa-fema-disaster-source-review-v1",
+              "field_provenance": {
+                "core.geography.country_code": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T11:22:29Z",
+            "content_hash": "b6b14d8eca8e82663264287702a3fe88d7d0ed2aed62cb7639c3f728f7460b4d"
+          },
+          {
+            "source_record_id": "fsa-disaster-set-aside-program",
+            "record_type": "federal-fsa-disaster-program-listing",
+            "canonical_attributes": {
+              "core.geography.country_code": "US",
+              "core.geography.jurisdiction_level": "federal",
+              "listing.title": "Disaster Set-Aside Program (DSA)",
+              "listing.summary": "FSA describes moving up to one full year of a payment to the end of an existing direct loan for producers unable to make scheduled payments; the page identifies disaster-designated counties and contiguous counties as part of the program context.",
+              "listing.agency": "Farm Service Agency (FSA), USDA",
+              "listing.opportunity_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.fsa.disaster-assistance",
+              "source_version": "FSA Disaster Assistance Programs page reviewed 2026-10-27; publisher revision not stated.",
+              "retrieved_at": "2026-10-27T11:22:29Z",
+              "effective_at": null,
+              "transform_version": "fsa-fema-disaster-source-review-v1",
+              "field_provenance": {
+                "core.geography.country_code": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T11:22:29Z",
+            "content_hash": "2be77e58e49d7f168cf01d6d14056ee5d92da80a20d12a20c9caf8b34bd57e87"
+          },
+          {
+            "source_record_id": "fsa-emergency-conservation-program",
+            "record_type": "federal-fsa-disaster-program-listing",
+            "canonical_attributes": {
+              "core.geography.country_code": "US",
+              "core.geography.jurisdiction_level": "federal",
+              "listing.title": "Emergency Conservation Program (ECP)",
+              "listing.summary": "FSA helps farmers and ranchers repair farmland damage caused by natural disasters and put water-conservation methods in place during severe drought.",
+              "listing.agency": "Farm Service Agency (FSA), USDA",
+              "listing.opportunity_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.fsa.disaster-assistance",
+              "source_version": "FSA Disaster Assistance Programs page reviewed 2026-10-27; publisher revision not stated.",
+              "retrieved_at": "2026-10-27T11:22:29Z",
+              "effective_at": null,
+              "transform_version": "fsa-fema-disaster-source-review-v1",
+              "field_provenance": {
+                "core.geography.country_code": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T11:22:29Z",
+            "content_hash": "31be111677f9fc818aad7d9139e0d69599c6b568ea7c640aea4552c1eba19815"
+          },
+          {
+            "source_record_id": "fsa-emergency-forest-restoration-program",
+            "record_type": "federal-fsa-disaster-program-listing",
+            "canonical_attributes": {
+              "core.geography.country_code": "US",
+              "core.geography.jurisdiction_level": "federal",
+              "listing.title": "Emergency Forest Restoration Program (EFRP)",
+              "listing.summary": "FSA helps owners of non-industrial private forests restore forest health damaged by natural disasters.",
+              "listing.agency": "Farm Service Agency (FSA), USDA",
+              "listing.opportunity_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.fsa.disaster-assistance",
+              "source_version": "FSA Disaster Assistance Programs page reviewed 2026-10-27; publisher revision not stated.",
+              "retrieved_at": "2026-10-27T11:22:29Z",
+              "effective_at": null,
+              "transform_version": "fsa-fema-disaster-source-review-v1",
+              "field_provenance": {
+                "core.geography.country_code": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T11:22:29Z",
+            "content_hash": "ddb5707abc097074a87858ea45ff17558cd81897a175c38afb2470a6cd957ebd"
+          },
+          {
+            "source_record_id": "fsa-noninsured-disaster-assistance-program",
+            "record_type": "federal-fsa-disaster-program-listing",
+            "canonical_attributes": {
+              "core.geography.country_code": "US",
+              "core.geography.jurisdiction_level": "federal",
+              "listing.title": "Noninsured Disaster Assistance Program (NAP)",
+              "listing.summary": "FSA describes payments for covered producers of covered noninsurable crops when low yields, inventory loss, or prevented planting result from natural disasters; the page says producers must have purchased NAP coverage for the current crop year.",
+              "listing.agency": "Farm Service Agency (FSA), USDA",
+              "listing.opportunity_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.fsa.disaster-assistance",
+              "source_version": "FSA Disaster Assistance Programs page reviewed 2026-10-27; publisher revision not stated.",
+              "retrieved_at": "2026-10-27T11:22:29Z",
+              "effective_at": null,
+              "transform_version": "fsa-fema-disaster-source-review-v1",
+              "field_provenance": {
+                "core.geography.country_code": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T11:22:29Z",
+            "content_hash": "9c25fde5c7c973c11deb58faa18f58b03d7b8fee4532f6ce4cc25e5b7e1ab316"
+          },
+          {
+            "source_record_id": "fsa-tree-assistance-program",
+            "record_type": "federal-fsa-disaster-program-listing",
+            "canonical_attributes": {
+              "core.geography.country_code": "US",
+              "core.geography.jurisdiction_level": "federal",
+              "listing.title": "Tree Assistance Program (TAP)",
+              "listing.summary": "FSA provides financial assistance to qualifying orchardists and nursery tree growers to replant or rehabilitate eligible trees, bushes, and vines damaged by natural disasters.",
+              "listing.agency": "Farm Service Agency (FSA), USDA",
+              "listing.opportunity_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.fsa.disaster-assistance",
+              "source_version": "FSA Disaster Assistance Programs page reviewed 2026-10-27; publisher revision not stated.",
+              "retrieved_at": "2026-10-27T11:22:29Z",
+              "effective_at": null,
+              "transform_version": "fsa-fema-disaster-source-review-v1",
+              "field_provenance": {
+                "core.geography.country_code": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T11:22:29Z",
+            "content_hash": "ee5e839ea2d7159d47b6a65e98306f8a3b0fc3ea79d4600472e73934d51bd178"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,226 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "usda.fna.senior-food",
+    "reviewed_at": "2026-10-29T19:10:00Z",
+    "publisher_version": "sha256:47609c9fd77198790b89fc1933bb9de82f1bfa76c3620c9c438a20bd6f709d77",
+    "source_content_sha256": "47609c9fd77198790b89fc1933bb9de82f1bfa76c3620c9c438a20bd6f709d77",
+    "raw_source_documents_committed": false,
+    "access_method": "Mapped from exact persisted source-backed criteria record fna-csfp-general-criteria; no source page copy is included."
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "usda.fna.senior-food",
+      "source_name": "USDA Food and Nutrition Administration (FNA) Senior Food Programs",
+      "source_url": "https://fns-prod.azureedge.us/csfp/income-guidelines",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "federal",
+          "owner_name": "USDA Food and Nutrition Administration",
+          "verification_status": "verified",
+          "evidence_url": "https://fns-prod.azureedge.us/csfp/income-guidelines"
+        },
+        "approved_scope": "Official CSFP and SFMNP program descriptions and published criteria references, including the 2026 CSFP income tables. Records remain partial and non-executable.",
+        "refresh_mode": "operator_triggered"
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "usda-fna-csfp-mapped-criteria",
+        "source_dataset_id": "USDA CSFP minimum-age mapped criteria",
+        "title": "USDA CSFP partial minimum-age mapped criteria",
+        "landing_page": "https://fns-prod.azureedge.us/csfp/income-guidelines",
+        "schema_version": "eligibility-program-v2",
+        "namespace_ids": [
+          "core",
+          "eligibility"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "partial",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "eligibility": "eligibility-program-schema"
+          },
+          "schema_versions": {
+            "core": "core-v4",
+            "eligibility": "eligibility-program-v2"
+          },
+          "content_type": "approved_partial_mapped_eligibility_criteria",
+          "published_criteria_available": true,
+          "criteria_mapping_status": "partial",
+          "effective_period": "No effective date stated in the cited general-criteria record",
+          "refresh_mode": "operator_triggered",
+          "maximum_records_total": 1,
+          "criteria_profile_schema_refs": [
+            {
+              "registry_id": "core-schema-registry",
+              "schema_version": "core-v4"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "usda-fna-csfp-mapped-criteria",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "USDA FNS CSFP Factsheet page retrieved 2026-10-29; publisher page update 2026-02-17",
+        "retrieved_at": "2026-10-29T19:10:00Z",
+        "transform_version": "csfp-minimum-age-mapping-v2",
+        "validation_outcome": "valid",
+        "detail": "Separate one-record mapping dataset; existing published-reference records are preserved unchanged.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "usda-csfp",
+            "record_type": "eligibility_program",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "usda-csfp",
+              "eligibility.program.catalog_version": "csfp-minimum-age-2026-10-29",
+              "eligibility.program.navigator": "senior_caregiver",
+              "eligibility.program.data_origin": "public_source",
+              "eligibility.program.title": "Commodity Supplemental Food Program (CSFP) partial minimum-age screen",
+              "eligibility.program.description": "Compares only the published minimum age of 60. State/ITO income limits, residency, local availability, nutritional-risk choices, nursing-home conditions, and all local administration remain unresolved.",
+              "eligibility.program.criteria": [
+                {
+                  "criterion_id": "csfp-minimum-age-60",
+                  "attribute": "core.person.age_band",
+                  "operator": "one_of",
+                  "value": [
+                    "60_64",
+                    "65_74",
+                    "75_plus",
+                    "65_plus"
+                  ],
+                  "source_id": "usda.fna.senior-food"
+                }
+              ],
+              "core.geography.country_code": "US",
+              "core.geography.jurisdiction_level": "federal"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              },
+              "criteria_mapping_review": {
+                "reviewed_at": "2026-10-29T19:10:00Z",
+                "source_content_sha256": "47609c9fd77198790b89fc1933bb9de82f1bfa76c3620c9c438a20bd6f709d77",
+                "mapped_requirement_ids": [
+                  "csfp-minimum-age-60"
+                ],
+                "unresolved_requirement_ids": [
+                  "csfp-state-income-limit",
+                  "csfp-local-residency-and-nutritional-risk",
+                  "csfp-local-availability"
+                ],
+                "source_record_id": "fna-csfp-general-criteria",
+                "source_record_content_sha256": "d4245002848bb66b8dbb431317a0b44e7e428feba8052f0c9d3a3e6131c7692f"
+              },
+              "assistance_listing_ids": [
+                "10.565"
+              ],
+              "assistance_listing_crosswalk": {
+                "basis": "curated_source_crosswalk",
+                "reviewed_at": "2026-10-28",
+                "evidence_urls": [
+                  "https://www.usaspending.gov/award/ASST_NON_213CO033J8003_12F2",
+                  "https://www.fns.usda.gov/csfp/factsheet"
+                ]
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.fna.senior-food",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "source_title": "Commodity Supplemental Food Program Factsheet",
+              "publisher": "USDA Food and Nutrition Administration",
+              "source_version": "USDA FNS CSFP Factsheet page retrieved 2026-10-29; publisher page update 2026-02-17",
+              "source_content_sha256": "47609c9fd77198790b89fc1933bb9de82f1bfa76c3620c9c438a20bd6f709d77",
+              "retrieved_at": "2026-10-29T19:10:00Z",
+              "effective_at": null,
+              "transform_version": "csfp-minimum-age-mapping-v2",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/factsheet",
+                  "observed_at": "2026-10-29T19:10:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/factsheet",
+                  "observed_at": "2026-10-29T19:10:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.navigator": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/factsheet",
+                  "observed_at": "2026-10-29T19:10:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/factsheet",
+                  "observed_at": "2026-10-29T19:10:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/factsheet",
+                  "observed_at": "2026-10-29T19:10:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/factsheet",
+                  "observed_at": "2026-10-29T19:10:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.criteria": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/factsheet",
+                  "observed_at": "2026-10-29T19:10:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/factsheet",
+                  "observed_at": "2026-10-29T19:10:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://fns-prod.azureedge.us/csfp/factsheet",
+                  "observed_at": "2026-10-29T19:10:00Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false,
+              "criteria_coverage": "partial",
+              "limitations": [
+                "Only the published federal minimum-age clause is compared.",
+                "The mapping is derived from persisted source record fna-csfp-general-criteria (normalized record SHA-256: d4245002848bb66b8dbb431317a0b44e7e428feba8052f0c9d3a3e6131c7692f); its reviewed source-page snapshot is dated 2026-10-29 (SHA-256: 47609c9fd77198790b89fc1933bb9de82f1bfa76c3620c9c438a20bd6f709d77).",
+                "The current direct MCP source-reader alias for the CDN URL is unverified and is not used as the authority for this mapping.",
+                "A met result is not a CSFP eligibility determination.",
+                "Do not apply federal poverty tables as a state/ITO income limit; state and local rules remain unresolved."
+              ],
+              "content_hash": "1d0df6146c4148e5b6ebcb264a017c20b619877c44aa8e72df4618a93f1f2ee0"
+            },
+            "source_url": "https://fns-prod.azureedge.us/csfp/factsheet",
+            "schema_version": "eligibility-program-v2",
+            "observed_at": "2026-11-05T03:06:34.388953Z",
+            "content_hash": "c6ab0ee077442711e7426a89af73fba10eda1d9901c9d1b9e925169fd4771b44"
+          }
+        ]
+      }
+    }
+  ],
+  "limits": [
+    "The state and ITO income, residency, and availability rules are not mapped.",
+    "This record is not a complete CSFP eligibility rule."
+  ]
+}

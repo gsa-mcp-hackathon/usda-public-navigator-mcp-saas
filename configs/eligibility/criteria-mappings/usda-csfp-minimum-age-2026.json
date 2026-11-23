@@ -1,0 +1,50 @@
+{
+  "contract_version": "criteria-mapping-manifest-v1",
+  "mapping_id": "usda-csfp-minimum-age-2026",
+  "program_id": "usda-csfp",
+  "source": {
+    "source_id": "usda.fna.senior-food",
+    "source_record_id": "fna-csfp-general-criteria",
+    "source_content_sha256": "47609c9fd77198790b89fc1933bb9de82f1bfa76c3620c9c438a20bd6f709d77",
+    "source_version": "USDA FNS CSFP Factsheet page retrieved 2026-10-29; publisher page update 2026-02-17",
+    "source_url": "https://fns-prod.azureedge.us/csfp/factsheet",
+    "retrieved_at": "2026-10-29T19:10:00Z",
+    "criteria_path": "eligibility.program.published_requirements"
+  },
+  "source_completeness": "partial",
+  "mappings": [
+    {
+      "requirement_id": "csfp-minimum-age-60",
+      "statement": "Participants must be at least 60 years of age.",
+      "requirement_type": "eligibility",
+      "mapping_status": "mapped",
+      "concept_id": "csfp.minimum_age",
+      "attribute": "core.person.age_band",
+      "operator": "one_of",
+      "value": ["60_64", "65_74", "75_plus", "65_plus"],
+      "unit": null
+    },
+    {
+      "requirement_id": "csfp-state-income-limit",
+      "statement": "State agencies and Indian Tribal Organizations set household income limits at or below 150% of the Federal Poverty Guidelines; an agency may set a lower limit.",
+      "requirement_type": "eligibility",
+      "mapping_status": "partial",
+      "unresolved_reason": "The federal ceiling is not the applicant's state/ITO limit; the state-specific limit and income calculation have not been sourced and mapped. Separate USDA page text reports a conflicting 130% threshold and requires reconciliation before income comparison."
+    },
+    {
+      "requirement_id": "csfp-local-residency-and-nutritional-risk",
+      "statement": "A state agency or Indian Tribal Organization may set designated service-area residency requirements and may require nutritional risk as determined by a physician or local agency staff.",
+      "requirement_type": "eligibility",
+      "mapping_status": "partial",
+      "unresolved_reason": "These are optional state/ITO conditions. The applicable local agency rules and source-backed profile predicates are not mapped."
+    },
+    {
+      "requirement_id": "csfp-local-availability",
+      "statement": "CSFP may not be available in every area within a participating state; applicants must verify local availability with the state distributing agency or local agency.",
+      "requirement_type": "context",
+      "mapping_status": "context_only",
+      "unresolved_reason": "This is a local availability check, not a profile criterion."
+    }
+  ],
+  "evaluation_boundary": "Evaluate only the published minimum-age clause. This is not a CSFP eligibility result. Preserve unknown age bands and all unmapped state/ITO rules as unresolved; do not apply federal income ceilings as state limits."
+}

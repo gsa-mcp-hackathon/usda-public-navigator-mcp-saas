@@ -1,0 +1,11 @@
+query,responses,category,expected_tool_path
+Read the Core capability map. What Core version does it report? Return the version string only.,0.2.0,platform.bootstrap,tool:describe_core_capabilities
+Read the Core capability map. It states whether endpoint URLs are exposed to clients. Return that value only: true or false.,false,platform.bootstrap,tool:describe_core_capabilities
+Read the Core capability map. Its bootstrap section has a client_workflows list. How many entries are in that list? Return the number only.,6,platform.bootstrap,tool:describe_core_capabilities
+Read the Core capability map. The route dispatcher accepts one legacy field that it ignores and that never selects a target. Return that field name only.,route_version,platform.routing,tool:describe_core_capabilities
+"Call the route dispatcher with route_id ""eval-missing-route"" and operation_id ""program.discover"". No such route is registered. Return the exact value of the status field the Core reports (not the reason field), and nothing else.",unknown_route,platform.routing,operation:program.discover
+"Call the route dispatcher with route_id ""eval-missing-route"" and operation_id ""program.discover"". The response includes a recovery hint naming one tool. Return that tool name only.",list_core_routes,platform.routing,operation:program.discover
+Read the active route inventory. Which route_id publishes the operation whose operation_id is exactly program.evaluate? Return the route_id only.,eligibility-demo,platform.registry,tool:list_core_routes
+"Read the active route inventory. Is the route that publishes program.inventory.search bound to a tenant, or shared with no tenant? Respond with exactly one of: tenant_bound, shared.",shared,platform.registry,tool:list_core_routes
+List the registered tenants. Tenant eligibility-demo has several registered template versions. Which template_version is in lifecycle state active? Return the version only.,0.1.48,platform.tenant,tool:list_registered_tenants
+Read the active source policy state. Which manifest_version is active? Return the version only.,1.2.5,platform.governance,tool:read_source_policy_state

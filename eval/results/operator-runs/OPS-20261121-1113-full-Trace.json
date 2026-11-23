@@ -1,0 +1,3592 @@
+{
+  "run_id": "R20261121-161343",
+  "correlation_ids": [
+    "00962b90-245f-421e-964c-d547bf92f52f",
+    "01c498fa-ab72-40e4-846a-0bcd83854702",
+    "18d6449b-e7d3-4c5a-989d-a6c0379bb8fb",
+    "1c4fbe02-5802-4211-99e3-2cb1aaa4334d",
+    "1cab5331-5462-492c-948e-1f7ff55f440c",
+    "26a0dbba-2bd1-4cd9-a127-8d886545f83d",
+    "309cba91-2dc5-4010-be29-f319bfe97e8a",
+    "4a4f1415-a30f-4e99-a387-0788e7e901a1",
+    "615ae191-4f58-4d3d-8e2f-2e51cce65c12",
+    "6b547672-77ff-4cfd-828d-e9a8f5b9cc54",
+    "6befc6f9-396d-43a0-8c0f-a3417d75b478",
+    "7323b0b6-5e84-4d33-a6c8-27b726c5149f",
+    "76da3734-0455-4e01-958a-73489f620ebb",
+    "7a90d1a9-4e2d-4136-9b72-9765414210dc",
+    "8c07e9a0-ff7d-4242-a4db-cb11bce07afd",
+    "8ebf8e4f-dccb-468f-8cba-f3f4be1008f1",
+    "96463363-4068-4650-bd2c-52e13199a234",
+    "9675401f-fca0-4bb8-8289-d9f5f7e87a9e",
+    "984e45bf-df0d-43ae-84ed-bca1b9c8c03f",
+    "ae123008-f89f-4a70-ad5a-b9173a09a069",
+    "b22dcc0e-f8e0-42dd-9808-8fe519a274b4",
+    "bb03e99b-961f-49a3-bd40-9b2e45854354",
+    "bcf8b61d-d28d-4347-b0c8-253ec4fbf399",
+    "c659c26d-60ce-4f75-bc33-1fe71c0a2bda",
+    "d466f9c4-a74a-4678-befd-7692676a1992",
+    "d49d01ab-63ca-4907-847a-411e17ba6b9d",
+    "d84c4ccd-5321-4b31-87e3-6c5348ed5a3c",
+    "dd60995f-d71d-4f37-ae9d-2476e30432fe",
+    "de9d81d7-f8ed-4493-8424-64e619d4cddc",
+    "e11b9d24-cd89-487a-9572-d4aebb2176d3",
+    "e300c49d-4ea1-4280-b7ef-9ea62bac1b24",
+    "e85f2df9-75fb-458f-a2db-b64195ec30a2",
+    "e9359efc-ae54-4729-9836-1313fc796943",
+    "ed14c984-a3c2-4761-85f1-a9e0a6eeedac",
+    "ee2da116-c4df-4802-8878-49c5fe2e4622",
+    "f3a3d977-ebed-4a3b-980c-2fcc58dd1f13",
+    "f56de066-6b60-4a69-99fe-5b4a01a5fd35",
+    "f77841d0-1fae-4e6a-82f3-cea34fbd1310"
+  ],
+  "package_ids": [
+    "5649e540-c022-5b05-897c-6963f75250db",
+    "criteria-445741ec47c8a4125eae21c367c4ff97",
+    "criteria-49e1662e9acb456e2e9c05a5a85e3dd8"
+  ],
+  "ids_by_kind": {
+    "profile_id": [
+      "synthetic-farmer-mo-beginning",
+      "synthetic-farmer-mo-boundary-10",
+      "synthetic-farmer-mo-boundary-11",
+      "synthetic-farmer-mo-established",
+      "synthetic-farmer-mo-unknown-years",
+      "synthetic-farmer-mo-veteran-new",
+      "synthetic-household-ks-kc-family",
+      "synthetic-household-mo-kc-family"
+    ],
+    "request_id": [
+      "182d27c2-aaf4-43cb-b9d8-3a9664427d10"
+    ],
+    "tenant_id": [
+      "eligibility-demo"
+    ],
+    "program_id": [
+      "fsa-beginning-farmer-classification",
+      "fsa-beginning-farmer-loan-set-aside",
+      "missouri-snap",
+      "program-ref-af2b0af1add118892f4fd6af7f291e5c",
+      "usda-fsa-direct-farm-loans",
+      "usda-fsa-guaranteed-farm-loan"
+    ],
+    "listing_id": [
+      "acl-eldercare-locator-national",
+      "farm-operating-loans",
+      "farm-ownership-loans",
+      "fsa-beginning-farmer-loan-set-aside",
+      "fsa-disaster-set-aside-program"
+    ],
+    "source_id": [
+      "cms.medicare-extra-help",
+      "grants.gov.opportunities",
+      "kansas.dcf.food-assistance-residency",
+      "maryland.dhs.snap",
+      "maryland.ohep",
+      "missouri.dese.child-care-subsidy",
+      "missouri.dss.snap",
+      "missouri.dss.temporary-assistance",
+      "new-mexico.hca.snap",
+      "public-domain.gov",
+      "sam.gov.assistance_listings",
+      "us.acl.aging-referrals",
+      "us.hud.housing-assistance",
+      "us.hud.income-limits",
+      "us.va.public-benefits",
+      "usagov.benefits",
+      "usda.farmers.gov",
+      "usda.fna.senior-food",
+      "usda.fsa.beginning-farmers",
+      "usda.fsa.disaster-assistance",
+      "usda.nrcs.eqip"
+    ],
+    "source_record_id": [
+      "acl-eldercare-locator-national",
+      "farm-operating-loans",
+      "farm-ownership-loans",
+      "fsa-beginning-farmer-classification-criteria",
+      "fsa-beginning-farmer-loan-set-aside",
+      "fsa-direct-farm-loan-criteria",
+      "fsa-disaster-set-aside-program",
+      "fsa-guaranteed-farm-loan-criteria",
+      "s08-schema-shape-check",
+      "source-page-562476b2361dce3f4411"
+    ],
+    "template_id": [
+      "eligibility"
+    ],
+    "package_id": [
+      "5649e540-c022-5b05-897c-6963f75250db"
+    ],
+    "criteria_package_id": [
+      "criteria-445741ec47c8a4125eae21c367c4ff97",
+      "criteria-49e1662e9acb456e2e9c05a5a85e3dd8"
+    ],
+    "active_ruleset_package_id": [
+      "criteria-445741ec47c8a4125eae21c367c4ff97",
+      "criteria-49e1662e9acb456e2e9c05a5a85e3dd8"
+    ]
+  },
+  "calls": [
+    {
+      "suite": "S01",
+      "test": "S01-T02",
+      "tool": "describe_core_capabilities",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {},
+      "started_at_utc": "2026-11-21T16:13:44.132965+00:00",
+      "duration_ms": 2110,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {},
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S01",
+      "test": "S01-T03",
+      "tool": "describe_core_capabilities",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {},
+      "started_at_utc": "2026-11-21T16:13:46.555711+00:00",
+      "duration_ms": 582,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {},
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S01",
+      "test": "S01-T04",
+      "tool": "describe_core_capabilities",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {},
+      "started_at_utc": "2026-11-21T16:13:47.434215+00:00",
+      "duration_ms": 577,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {},
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S01",
+      "test": "S01-T05",
+      "tool": "describe_core_capabilities",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {},
+      "started_at_utc": "2026-11-21T16:13:48.306631+00:00",
+      "duration_ms": 556,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {},
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S01",
+      "test": "S01-T06",
+      "tool": "read_core_workflow",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "workflow_id": "progressive_program_discovery"
+      },
+      "started_at_utc": "2026-11-21T16:13:49.189981+00:00",
+      "duration_ms": 191,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {},
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S02",
+      "test": "S02-T01",
+      "tool": "get_fleet_operations_report",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "from_utc": "2026-11-21T00:00:00Z",
+        "to_utc": "2026-11-21T16:13:43Z"
+      },
+      "started_at_utc": "2026-11-21T16:13:49.684914+00:00",
+      "duration_ms": 153,
+      "attempt": 1,
+      "status": "operator_authorization_required",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {},
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S02",
+      "test": "S02-T02",
+      "tool": "get_fleet_operations_report",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "from_utc": "2026-11-21T00:00:00Z",
+        "to_utc": "2026-11-21T16:13:43Z"
+      },
+      "started_at_utc": "2026-11-21T16:13:50.149654+00:00",
+      "duration_ms": 165,
+      "attempt": 1,
+      "status": "operator_authorization_required",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {},
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S02",
+      "test": "S02-T03",
+      "tool": "read_profile",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "profile_ref": "synthetic-suite-probe"
+      },
+      "started_at_utc": "2026-11-21T16:13:50.657191+00:00",
+      "duration_ms": 147,
+      "attempt": 1,
+      "status": "profile_not_found_in_scope",
+      "correlation_id": "ae123008-f89f-4a70-ad5a-b9173a09a069",
+      "package_ids": [],
+      "ids": {},
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S02",
+      "test": "S02-T04",
+      "tool": "list_evaluation_fixtures",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "fixture_set_id": "phase-ab",
+        "fixture_set_version": "1.0.0"
+      },
+      "started_at_utc": "2026-11-21T16:13:51.100806+00:00",
+      "duration_ms": 152,
+      "attempt": 1,
+      "status": "operator_authorization_required",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {},
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S02",
+      "test": "S02-T05",
+      "tool": "read_evaluation_fixture",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "fixture_set_id": "phase-ab",
+        "fixture_set_version": "1.0.0",
+        "fixture_id": "fixture-ab12"
+      },
+      "started_at_utc": "2026-11-21T16:13:51.570606+00:00",
+      "duration_ms": 154,
+      "attempt": 1,
+      "status": "operator_authorization_required",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {},
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S02",
+      "test": "S02-T06",
+      "tool": "get_fleet_operations_report",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "from_utc": "2026-11-21T00:00:00Z",
+        "to_utc": "2026-11-21T16:13:43Z"
+      },
+      "started_at_utc": "2026-11-21T16:13:52.046407+00:00",
+      "duration_ms": 309,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S03",
+      "test": "S03-T00",
+      "tool": "list_core_routes",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "page_size": 100
+      },
+      "started_at_utc": "2026-11-21T16:13:52.653818+00:00",
+      "duration_ms": 287,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S03",
+      "test": "S03-T00",
+      "tool": "list_cluster_templates",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "page_size": 100
+      },
+      "started_at_utc": "2026-11-21T16:13:52.939890+00:00",
+      "duration_ms": 840,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S03",
+      "test": "S03-T00",
+      "tool": "list_registered_tenants",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "page_size": 100
+      },
+      "started_at_utc": "2026-11-21T16:13:53.797707+00:00",
+      "duration_ms": 347,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S03",
+      "test": "S03-T01",
+      "tool": "list_core_routes",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "page_size": 100
+      },
+      "started_at_utc": "2026-11-21T16:13:54.452765+00:00",
+      "duration_ms": 618,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S03",
+      "test": "S03-T01",
+      "tool": "list_cluster_templates",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "page_size": 100
+      },
+      "started_at_utc": "2026-11-21T16:13:55.079262+00:00",
+      "duration_ms": 1237,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S03",
+      "test": "S03-T01",
+      "tool": "list_registered_tenants",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "page_size": 100
+      },
+      "started_at_utc": "2026-11-21T16:13:56.327616+00:00",
+      "duration_ms": 414,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S03",
+      "test": "S03-T02",
+      "tool": "read_tenant_binding",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "template_id": "eligibility",
+        "template_version": "0.1.48",
+        "tenant_id": "eligibility-demo"
+      },
+      "started_at_utc": "2026-11-21T16:13:57.057791+00:00",
+      "duration_ms": 299,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "source_id": [
+          "usda.fsa.beginning-farmers",
+          "missouri.dss.snap",
+          "kansas.dcf.food-assistance-residency",
+          "grants.gov.opportunities"
+        ],
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S03",
+      "test": "S03-T03",
+      "tool": "list_core_routes",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "page_size": 100
+      },
+      "started_at_utc": "2026-11-21T16:13:57.665422+00:00",
+      "duration_ms": 586,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S03",
+      "test": "S03-T03",
+      "tool": "list_cluster_templates",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "page_size": 100
+      },
+      "started_at_utc": "2026-11-21T16:13:58.252279+00:00",
+      "duration_ms": 724,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S03",
+      "test": "S03-T03",
+      "tool": "list_registered_tenants",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "page_size": 100
+      },
+      "started_at_utc": "2026-11-21T16:13:58.986455+00:00",
+      "duration_ms": 296,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S03",
+      "test": "S03-T04",
+      "tool": "list_core_routes",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "page_size": 100
+      },
+      "started_at_utc": "2026-11-21T16:13:59.562751+00:00",
+      "duration_ms": 268,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S03",
+      "test": "S03-T04",
+      "tool": "list_cluster_templates",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "page_size": 100
+      },
+      "started_at_utc": "2026-11-21T16:13:59.832688+00:00",
+      "duration_ms": 716,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S03",
+      "test": "S03-T04",
+      "tool": "list_registered_tenants",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "page_size": 100
+      },
+      "started_at_utc": "2026-11-21T16:14:00.562231+00:00",
+      "duration_ms": 362,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S03",
+      "test": "S03-T04",
+      "tool": "read_tenant_binding",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "template_id": "eligibility",
+        "template_version": "0.1.48",
+        "tenant_id": "eligibility-demo"
+      },
+      "started_at_utc": "2026-11-21T16:14:00.929466+00:00",
+      "duration_ms": 276,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "source_id": [
+          "usda.fsa.beginning-farmers",
+          "missouri.dss.snap",
+          "kansas.dcf.food-assistance-residency",
+          "grants.gov.opportunities"
+        ],
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S03",
+      "test": "S03-T05",
+      "tool": "list_core_routes",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "page_size": 100
+      },
+      "started_at_utc": "2026-11-21T16:14:01.524755+00:00",
+      "duration_ms": 258,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S03",
+      "test": "S03-T05",
+      "tool": "list_cluster_templates",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "page_size": 100
+      },
+      "started_at_utc": "2026-11-21T16:14:01.778208+00:00",
+      "duration_ms": 689,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S03",
+      "test": "S03-T05",
+      "tool": "list_registered_tenants",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "page_size": 100
+      },
+      "started_at_utc": "2026-11-21T16:14:02.473931+00:00",
+      "duration_ms": 363,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S03",
+      "test": "S03-T06",
+      "tool": "list_core_routes",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "page_size": 100
+      },
+      "started_at_utc": "2026-11-21T16:14:03.149643+00:00",
+      "duration_ms": 259,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S03",
+      "test": "S03-T06",
+      "tool": "list_cluster_templates",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "page_size": 100
+      },
+      "started_at_utc": "2026-11-21T16:14:03.406422+00:00",
+      "duration_ms": 687,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S03",
+      "test": "S03-T06",
+      "tool": "list_registered_tenants",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "page_size": 100
+      },
+      "started_at_utc": "2026-11-21T16:14:04.120284+00:00",
+      "duration_ms": 345,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S03",
+      "test": "S03-T07",
+      "tool": "read_cluster_schema",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "template_id": "eligibility",
+        "template_version": "0.1.48",
+        "schema_ref": "#/$defs/ProgramInventorySearchArgumentsV3"
+      },
+      "started_at_utc": "2026-11-21T16:14:04.753224+00:00",
+      "duration_ms": 245,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S03",
+      "test": "S03-T08",
+      "tool": "list_core_routes",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "page_size": 100
+      },
+      "started_at_utc": "2026-11-21T16:14:05.307320+00:00",
+      "duration_ms": 331,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S03",
+      "test": "S03-T08",
+      "tool": "list_cluster_templates",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "page_size": 100
+      },
+      "started_at_utc": "2026-11-21T16:14:05.642716+00:00",
+      "duration_ms": 637,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S03",
+      "test": "S03-T08",
+      "tool": "list_registered_tenants",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "page_size": 100
+      },
+      "started_at_utc": "2026-11-21T16:14:06.292146+00:00",
+      "duration_ms": 377,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S03",
+      "test": "S03-T09",
+      "tool": "read_source_metadata",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "template_id": "eligibility",
+        "template_version": "0.1.48",
+        "tenant_id": "eligibility-demo",
+        "catalog_namespace": "programs",
+        "dataset_id": "grants-gov-current-opportunities"
+      },
+      "started_at_utc": "2026-11-21T16:14:06.993709+00:00",
+      "duration_ms": 261,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "source_id": [
+          "grants.gov.opportunities"
+        ],
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S03",
+      "test": "S03-T10",
+      "tool": "read_source_metadata",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "template_id": "eligibility",
+        "template_version": "0.1.48",
+        "tenant_id": "eligibility-demo",
+        "catalog_namespace": "programs",
+        "dataset_id": "kansas-dcf-snap-residency-guidance"
+      },
+      "started_at_utc": "2026-11-21T16:14:07.538243+00:00",
+      "duration_ms": 263,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "source_id": [
+          "kansas.dcf.food-assistance-residency"
+        ],
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S03",
+      "test": "S03-T11",
+      "tool": "read_source_metadata",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "template_id": "eligibility",
+        "template_version": "0.1.48",
+        "tenant_id": "eligibility-demo",
+        "catalog_namespace": "programs",
+        "dataset_id": "missouri-dss-snap-guidance"
+      },
+      "started_at_utc": "2026-11-21T16:14:08.108487+00:00",
+      "duration_ms": 227,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "source_id": [
+          "missouri.dss.snap"
+        ],
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S03",
+      "test": "S03-T12",
+      "tool": "read_source_metadata",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "template_id": "eligibility",
+        "template_version": "0.1.48",
+        "tenant_id": "eligibility-demo",
+        "catalog_namespace": "programs",
+        "dataset_id": "usda-fsa-beginning-farmers-guidance"
+      },
+      "started_at_utc": "2026-11-21T16:14:08.634396+00:00",
+      "duration_ms": 264,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "source_id": [
+          "usda.fsa.beginning-farmers"
+        ],
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S03",
+      "test": "S03-T13",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.requirements.preview",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.requirements.preview",
+        "arguments": {
+          "program_id": "fsa-beginning-farmer-classification",
+          "ambiguous_attributes": [],
+          "profile_payload": {
+            "profile_id": "synthetic-farmer-mo-beginning",
+            "navigator": "farmer_producer",
+            "schema_version": "farmer-profile-v1",
+            "state_code": "MO",
+            "county_name": "Boone",
+            "acreage": 120.0,
+            "commodities": [
+              "corn",
+              "soybeans"
+            ],
+            "years_farming": 3,
+            "veteran_status": false,
+            "beginning_farmer_status": true,
+            "land_tenure": "leased",
+            "operation_type": "row_crops",
+            "operation_goal": "expand operation and buy land"
+          }
+        }
+      },
+      "started_at_utc": "2026-11-21T16:14:09.196803+00:00",
+      "duration_ms": 6106,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "d49d01ab-63ca-4907-847a-411e17ba6b9d",
+      "package_ids": [
+        "criteria-445741ec47c8a4125eae21c367c4ff97",
+        "5649e540-c022-5b05-897c-6963f75250db"
+      ],
+      "ids": {
+        "profile_id": [
+          "synthetic-farmer-mo-beginning"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "fsa-beginning-farmer-classification",
+          "fsa-beginning-farmer-loan-set-aside"
+        ],
+        "listing_id": [
+          "fsa-beginning-farmer-loan-set-aside"
+        ],
+        "source_id": [
+          "usda.fsa.beginning-farmers",
+          "usda.farmers.gov"
+        ],
+        "source_record_id": [
+          "fsa-beginning-farmer-classification-criteria"
+        ],
+        "package_id": [
+          "5649e540-c022-5b05-897c-6963f75250db"
+        ],
+        "criteria_package_id": [
+          "criteria-445741ec47c8a4125eae21c367c4ff97"
+        ]
+      },
+      "trace_id": "7247928a9adc470944c7791bc86cc7db",
+      "span_id": "0270cadf93ff4adc"
+    },
+    {
+      "suite": "S03",
+      "test": "S03-T14",
+      "tool": "read_cluster_capability",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "template_id": "eligibility",
+        "template_version": "0.1.48"
+      },
+      "started_at_utc": "2026-11-21T16:14:15.686673+00:00",
+      "duration_ms": 318,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S03",
+      "test": "S03-T15",
+      "tool": "read_cluster_capability",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "template_id": "eligibility",
+        "template_version": "999.0.0"
+      },
+      "started_at_utc": "2026-11-21T16:14:16.333049+00:00",
+      "duration_ms": 291,
+      "attempt": 1,
+      "status": "not_found",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {},
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S03",
+      "test": "S03-T16",
+      "tool": "read_source_policy_state",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {},
+      "started_at_utc": "2026-11-21T16:14:16.929670+00:00",
+      "duration_ms": 321,
+      "attempt": 1,
+      "status": "active",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "request_id": [
+          "182d27c2-aaf4-43cb-b9d8-3a9664427d10"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S04",
+      "test": "S04-T01",
+      "tool": "route_operation",
+      "route_id": "suite-unknown-route",
+      "operation_id": "program.discover",
+      "arguments": {
+        "route_id": "suite-unknown-route",
+        "operation_id": "program.discover",
+        "arguments": {}
+      },
+      "started_at_utc": "2026-11-21T16:14:17.557005+00:00",
+      "duration_ms": 351,
+      "attempt": 1,
+      "status": "unknown_route",
+      "correlation_id": "dd60995f-d71d-4f37-ae9d-2476e30432fe",
+      "package_ids": [],
+      "ids": {},
+      "trace_id": "d383c2ee3948488c1340ddb6f4ddd7fa",
+      "span_id": "fc5a02d5beeacc90"
+    },
+    {
+      "suite": "S04",
+      "test": "S04-T03",
+      "tool": "validate_tenant_onboarding",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "specification": {}
+      },
+      "started_at_utc": "2026-11-21T16:14:18.546630+00:00",
+      "duration_ms": 265,
+      "attempt": 1,
+      "status": "invalid_specification",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {},
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S05",
+      "test": "S05-P01",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.discover",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.discover",
+        "arguments": {
+          "profile_payload": {
+            "profile_id": "synthetic-farmer-mo-beginning",
+            "navigator": "farmer_producer",
+            "schema_version": "farmer-profile-v1",
+            "state_code": "MO",
+            "county_name": "Boone",
+            "acreage": 120.0,
+            "commodities": [
+              "corn",
+              "soybeans"
+            ],
+            "years_farming": 3,
+            "veteran_status": false,
+            "beginning_farmer_status": true,
+            "land_tenure": "leased",
+            "operation_type": "row_crops",
+            "operation_goal": "expand operation and buy land",
+            "attributes": {}
+          },
+          "ambiguous_attributes": [],
+          "selected_program_id": "fsa-beginning-farmer-classification"
+        }
+      },
+      "started_at_utc": "2026-11-21T16:14:19.455826+00:00",
+      "duration_ms": 5394,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "f56de066-6b60-4a69-99fe-5b4a01a5fd35",
+      "package_ids": [],
+      "ids": {
+        "profile_id": [
+          "synthetic-farmer-mo-beginning"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "fsa-beginning-farmer-classification"
+        ],
+        "listing_id": [
+          "fsa-beginning-farmer-loan-set-aside"
+        ],
+        "source_id": [
+          "maryland.dhs.snap",
+          "us.va.public-benefits",
+          "usda.fsa.beginning-farmers",
+          "usda.fsa.disaster-assistance",
+          "usda.fna.senior-food",
+          "usagov.benefits",
+          "usda.nrcs.eqip",
+          "new-mexico.hca.snap",
+          "missouri.dss.temporary-assistance",
+          "missouri.dss.snap",
+          "missouri.dese.child-care-subsidy",
+          "maryland.ohep",
+          "kansas.dcf.food-assistance-residency",
+          "us.hud.housing-assistance",
+          "us.hud.income-limits",
+          "usda.farmers.gov",
+          "cms.medicare-extra-help",
+          "us.acl.aging-referrals",
+          "public-domain.gov"
+        ],
+        "source_record_id": [
+          "fsa-beginning-farmer-classification-criteria"
+        ]
+      },
+      "trace_id": "6ac99f9b98efa51e877b2eff465a0008",
+      "span_id": "a3bac2f2365cacb6"
+    },
+    {
+      "suite": "S05",
+      "test": "S05-P01",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.evaluate",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.evaluate",
+        "arguments": {
+          "profile_payload": {
+            "profile_id": "synthetic-farmer-mo-beginning",
+            "navigator": "farmer_producer",
+            "schema_version": "farmer-profile-v1",
+            "state_code": "MO",
+            "county_name": "Boone",
+            "acreage": 120.0,
+            "commodities": [
+              "corn",
+              "soybeans"
+            ],
+            "years_farming": 3,
+            "veteran_status": false,
+            "beginning_farmer_status": true,
+            "land_tenure": "leased",
+            "operation_type": "row_crops",
+            "operation_goal": "expand operation and buy land",
+            "attributes": {}
+          },
+          "program_id": "fsa-beginning-farmer-classification"
+        }
+      },
+      "started_at_utc": "2026-11-21T16:14:24.851504+00:00",
+      "duration_ms": 6519,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "bb03e99b-961f-49a3-bd40-9b2e45854354",
+      "package_ids": [
+        "criteria-445741ec47c8a4125eae21c367c4ff97"
+      ],
+      "ids": {
+        "profile_id": [
+          "synthetic-farmer-mo-beginning"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "fsa-beginning-farmer-classification"
+        ],
+        "source_id": [
+          "usda.fsa.beginning-farmers",
+          "public-domain.gov"
+        ],
+        "source_record_id": [
+          "fsa-beginning-farmer-classification-criteria"
+        ],
+        "criteria_package_id": [
+          "criteria-445741ec47c8a4125eae21c367c4ff97"
+        ]
+      },
+      "trace_id": "4a4cfe1c5fc37dfbc617d0682816bfd0",
+      "span_id": "8c9ec66a6f2a122a"
+    },
+    {
+      "suite": "S05",
+      "test": "S05-P02",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.discover",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.discover",
+        "arguments": {
+          "profile_payload": {
+            "profile_id": "synthetic-farmer-mo-veteran-new",
+            "navigator": "farmer_producer",
+            "schema_version": "farmer-profile-v1",
+            "state_code": "MO",
+            "county_name": "Greene",
+            "acreage": 40.0,
+            "commodities": [
+              "goats"
+            ],
+            "years_farming": 2,
+            "veteran_status": true,
+            "land_tenure": "owned",
+            "operation_type": "livestock",
+            "attributes": {}
+          },
+          "ambiguous_attributes": [],
+          "selected_program_id": "fsa-beginning-farmer-classification"
+        }
+      },
+      "started_at_utc": "2026-11-21T16:14:31.693190+00:00",
+      "duration_ms": 5641,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "f3a3d977-ebed-4a3b-980c-2fcc58dd1f13",
+      "package_ids": [],
+      "ids": {
+        "profile_id": [
+          "synthetic-farmer-mo-veteran-new"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "fsa-beginning-farmer-classification"
+        ],
+        "listing_id": [
+          "fsa-beginning-farmer-loan-set-aside"
+        ],
+        "source_id": [
+          "maryland.dhs.snap",
+          "us.va.public-benefits",
+          "usda.fsa.beginning-farmers",
+          "usda.fsa.disaster-assistance",
+          "usda.fna.senior-food",
+          "usagov.benefits",
+          "usda.nrcs.eqip",
+          "new-mexico.hca.snap",
+          "missouri.dss.temporary-assistance",
+          "missouri.dss.snap",
+          "missouri.dese.child-care-subsidy",
+          "maryland.ohep",
+          "kansas.dcf.food-assistance-residency",
+          "us.hud.housing-assistance",
+          "us.hud.income-limits",
+          "usda.farmers.gov",
+          "cms.medicare-extra-help",
+          "us.acl.aging-referrals",
+          "public-domain.gov"
+        ],
+        "source_record_id": [
+          "fsa-beginning-farmer-classification-criteria"
+        ]
+      },
+      "trace_id": "85764b5ad3319e48eb66a19ef83a58e5",
+      "span_id": "c630c19e4386676b"
+    },
+    {
+      "suite": "S05",
+      "test": "S05-P02",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.evaluate",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.evaluate",
+        "arguments": {
+          "profile_payload": {
+            "profile_id": "synthetic-farmer-mo-veteran-new",
+            "navigator": "farmer_producer",
+            "schema_version": "farmer-profile-v1",
+            "state_code": "MO",
+            "county_name": "Greene",
+            "acreage": 40.0,
+            "commodities": [
+              "goats"
+            ],
+            "years_farming": 2,
+            "veteran_status": true,
+            "land_tenure": "owned",
+            "operation_type": "livestock",
+            "attributes": {}
+          },
+          "program_id": "fsa-beginning-farmer-classification"
+        }
+      },
+      "started_at_utc": "2026-11-21T16:14:37.329275+00:00",
+      "duration_ms": 5454,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "e85f2df9-75fb-458f-a2db-b64195ec30a2",
+      "package_ids": [
+        "criteria-445741ec47c8a4125eae21c367c4ff97"
+      ],
+      "ids": {
+        "profile_id": [
+          "synthetic-farmer-mo-veteran-new"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "fsa-beginning-farmer-classification"
+        ],
+        "source_id": [
+          "usda.fsa.beginning-farmers",
+          "public-domain.gov"
+        ],
+        "source_record_id": [
+          "fsa-beginning-farmer-classification-criteria"
+        ],
+        "criteria_package_id": [
+          "criteria-445741ec47c8a4125eae21c367c4ff97"
+        ]
+      },
+      "trace_id": "1ccd7efc6691f37ff69d78b3e4f27b10",
+      "span_id": "803043ca82e0cd46"
+    },
+    {
+      "suite": "S05",
+      "test": "S05-P03",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.discover",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.discover",
+        "arguments": {
+          "profile_payload": {
+            "profile_id": "synthetic-household-mo-kc-family",
+            "navigator": "low_income_assistance",
+            "schema_version": "household-profile-v1",
+            "state_code": "MO",
+            "county_name": "Jackson",
+            "annual_household_income_usd": 28000,
+            "household_size": 4,
+            "household_adults": 2,
+            "household_children": 2,
+            "employment_status": "part_time",
+            "housing_status": "renter",
+            "food_assistance_need": true,
+            "utility_assistance_need": true,
+            "health_coverage_status": "uninsured",
+            "childcare_need": true,
+            "attributes": {}
+          },
+          "ambiguous_attributes": [],
+          "selected_program_id": "missouri-snap"
+        }
+      },
+      "started_at_utc": "2026-11-21T16:14:43.073135+00:00",
+      "duration_ms": 5376,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "309cba91-2dc5-4010-be29-f319bfe97e8a",
+      "package_ids": [
+        "criteria-49e1662e9acb456e2e9c05a5a85e3dd8"
+      ],
+      "ids": {
+        "profile_id": [
+          "synthetic-household-mo-kc-family"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "missouri-snap"
+        ],
+        "source_id": [
+          "maryland.dhs.snap",
+          "us.va.public-benefits",
+          "usda.fsa.beginning-farmers",
+          "usda.fsa.disaster-assistance",
+          "usda.fna.senior-food",
+          "usagov.benefits",
+          "usda.nrcs.eqip",
+          "new-mexico.hca.snap",
+          "missouri.dss.temporary-assistance",
+          "missouri.dss.snap",
+          "missouri.dese.child-care-subsidy",
+          "maryland.ohep",
+          "kansas.dcf.food-assistance-residency",
+          "us.hud.housing-assistance",
+          "us.hud.income-limits",
+          "usda.farmers.gov",
+          "cms.medicare-extra-help",
+          "us.acl.aging-referrals"
+        ],
+        "active_ruleset_package_id": [
+          "criteria-49e1662e9acb456e2e9c05a5a85e3dd8"
+        ]
+      },
+      "trace_id": "b5d1e59efbf373c6279cba6dc890bd17",
+      "span_id": "f1e6c05e9f824328"
+    },
+    {
+      "suite": "S05",
+      "test": "S05-P03",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.evaluate",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.evaluate",
+        "arguments": {
+          "profile_payload": {
+            "profile_id": "synthetic-household-mo-kc-family",
+            "navigator": "low_income_assistance",
+            "schema_version": "household-profile-v1",
+            "state_code": "MO",
+            "county_name": "Jackson",
+            "annual_household_income_usd": 28000,
+            "household_size": 4,
+            "household_adults": 2,
+            "household_children": 2,
+            "employment_status": "part_time",
+            "housing_status": "renter",
+            "food_assistance_need": true,
+            "utility_assistance_need": true,
+            "health_coverage_status": "uninsured",
+            "childcare_need": true,
+            "attributes": {}
+          },
+          "program_id": "missouri-snap"
+        }
+      },
+      "started_at_utc": "2026-11-21T16:14:48.456424+00:00",
+      "duration_ms": 5249,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "9675401f-fca0-4bb8-8289-d9f5f7e87a9e",
+      "package_ids": [
+        "criteria-49e1662e9acb456e2e9c05a5a85e3dd8"
+      ],
+      "ids": {
+        "profile_id": [
+          "synthetic-household-mo-kc-family"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "missouri-snap"
+        ],
+        "source_id": [
+          "missouri.dss.snap"
+        ],
+        "source_record_id": [
+          "source-page-562476b2361dce3f4411"
+        ],
+        "criteria_package_id": [
+          "criteria-49e1662e9acb456e2e9c05a5a85e3dd8"
+        ]
+      },
+      "trace_id": "2cbde847dfdc2543111b14167225fef4",
+      "span_id": "36ab7521df10c764"
+    },
+    {
+      "suite": "S05",
+      "test": "S05-P04",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.discover",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.discover",
+        "arguments": {
+          "profile_payload": {
+            "profile_id": "synthetic-farmer-mo-established",
+            "navigator": "farmer_producer",
+            "schema_version": "farmer-profile-v1",
+            "state_code": "MO",
+            "county_name": "Audrain",
+            "acreage": 900.0,
+            "years_farming": 15,
+            "land_tenure": "owned",
+            "operation_type": "row_crops",
+            "attributes": {}
+          },
+          "ambiguous_attributes": [],
+          "selected_program_id": "fsa-beginning-farmer-classification"
+        }
+      },
+      "started_at_utc": "2026-11-21T16:14:54.003852+00:00",
+      "duration_ms": 5405,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "6b547672-77ff-4cfd-828d-e9a8f5b9cc54",
+      "package_ids": [],
+      "ids": {
+        "profile_id": [
+          "synthetic-farmer-mo-established"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "fsa-beginning-farmer-classification"
+        ],
+        "listing_id": [
+          "fsa-beginning-farmer-loan-set-aside"
+        ],
+        "source_id": [
+          "maryland.dhs.snap",
+          "us.va.public-benefits",
+          "usda.fsa.beginning-farmers",
+          "usda.fsa.disaster-assistance",
+          "usda.fna.senior-food",
+          "usagov.benefits",
+          "usda.nrcs.eqip",
+          "new-mexico.hca.snap",
+          "missouri.dss.temporary-assistance",
+          "missouri.dss.snap",
+          "missouri.dese.child-care-subsidy",
+          "maryland.ohep",
+          "kansas.dcf.food-assistance-residency",
+          "us.hud.housing-assistance",
+          "us.hud.income-limits",
+          "usda.farmers.gov",
+          "cms.medicare-extra-help",
+          "us.acl.aging-referrals",
+          "public-domain.gov"
+        ],
+        "source_record_id": [
+          "fsa-beginning-farmer-classification-criteria"
+        ]
+      },
+      "trace_id": "f65239ae4d3039c6c58b20bb94c6d220",
+      "span_id": "9061b8ecf5e8122b"
+    },
+    {
+      "suite": "S05",
+      "test": "S05-P04",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.evaluate",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.evaluate",
+        "arguments": {
+          "profile_payload": {
+            "profile_id": "synthetic-farmer-mo-established",
+            "navigator": "farmer_producer",
+            "schema_version": "farmer-profile-v1",
+            "state_code": "MO",
+            "county_name": "Audrain",
+            "acreage": 900.0,
+            "years_farming": 15,
+            "land_tenure": "owned",
+            "operation_type": "row_crops",
+            "attributes": {}
+          },
+          "program_id": "fsa-beginning-farmer-classification"
+        }
+      },
+      "started_at_utc": "2026-11-21T16:14:59.420429+00:00",
+      "duration_ms": 6267,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "1cab5331-5462-492c-948e-1f7ff55f440c",
+      "package_ids": [
+        "criteria-445741ec47c8a4125eae21c367c4ff97"
+      ],
+      "ids": {
+        "profile_id": [
+          "synthetic-farmer-mo-established"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "fsa-beginning-farmer-classification"
+        ],
+        "source_id": [
+          "usda.fsa.beginning-farmers",
+          "public-domain.gov"
+        ],
+        "source_record_id": [
+          "fsa-beginning-farmer-classification-criteria"
+        ],
+        "criteria_package_id": [
+          "criteria-445741ec47c8a4125eae21c367c4ff97"
+        ]
+      },
+      "trace_id": "9291bdc36d4030ef5b0f15d2f02be56d",
+      "span_id": "2edb6499d0013cd8"
+    },
+    {
+      "suite": "S05",
+      "test": "S05-P05",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.discover",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.discover",
+        "arguments": {
+          "profile_payload": {
+            "profile_id": "synthetic-household-ks-kc-family",
+            "navigator": "low_income_assistance",
+            "schema_version": "household-profile-v1",
+            "state_code": "KS",
+            "county_name": "Wyandotte",
+            "annual_household_income_usd": 28000,
+            "household_size": 4,
+            "household_adults": 2,
+            "household_children": 2,
+            "employment_status": "part_time",
+            "housing_status": "renter",
+            "food_assistance_need": true,
+            "attributes": {}
+          },
+          "ambiguous_attributes": [],
+          "selected_program_id": "missouri-snap"
+        }
+      },
+      "started_at_utc": "2026-11-21T16:15:06.027379+00:00",
+      "duration_ms": 5368,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "8c07e9a0-ff7d-4242-a4db-cb11bce07afd",
+      "package_ids": [],
+      "ids": {
+        "profile_id": [
+          "synthetic-household-ks-kc-family"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "missouri-snap"
+        ],
+        "source_id": [
+          "maryland.dhs.snap",
+          "us.va.public-benefits",
+          "usda.fsa.beginning-farmers",
+          "usda.fsa.disaster-assistance",
+          "usda.fna.senior-food",
+          "usagov.benefits",
+          "usda.nrcs.eqip",
+          "new-mexico.hca.snap",
+          "missouri.dss.temporary-assistance",
+          "missouri.dss.snap",
+          "missouri.dese.child-care-subsidy",
+          "maryland.ohep",
+          "kansas.dcf.food-assistance-residency",
+          "us.hud.housing-assistance",
+          "us.hud.income-limits",
+          "usda.farmers.gov",
+          "cms.medicare-extra-help",
+          "us.acl.aging-referrals"
+        ]
+      },
+      "trace_id": "19d74dd33e4ed0b343ab7e68892cda4e",
+      "span_id": "49dc2a1e92378f30"
+    },
+    {
+      "suite": "S05",
+      "test": "S05-P05",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.evaluate",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.evaluate",
+        "arguments": {
+          "profile_payload": {
+            "profile_id": "synthetic-household-ks-kc-family",
+            "navigator": "low_income_assistance",
+            "schema_version": "household-profile-v1",
+            "state_code": "KS",
+            "county_name": "Wyandotte",
+            "annual_household_income_usd": 28000,
+            "household_size": 4,
+            "household_adults": 2,
+            "household_children": 2,
+            "employment_status": "part_time",
+            "housing_status": "renter",
+            "food_assistance_need": true,
+            "attributes": {}
+          },
+          "program_id": "missouri-snap"
+        }
+      },
+      "started_at_utc": "2026-11-21T16:15:11.406126+00:00",
+      "duration_ms": 5345,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "ee2da116-c4df-4802-8878-49c5fe2e4622",
+      "package_ids": [
+        "criteria-49e1662e9acb456e2e9c05a5a85e3dd8"
+      ],
+      "ids": {
+        "profile_id": [
+          "synthetic-household-ks-kc-family"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "missouri-snap"
+        ],
+        "source_id": [
+          "missouri.dss.snap"
+        ],
+        "source_record_id": [
+          "source-page-562476b2361dce3f4411"
+        ],
+        "criteria_package_id": [
+          "criteria-49e1662e9acb456e2e9c05a5a85e3dd8"
+        ]
+      },
+      "trace_id": "9fab26db16359e427801cb07427a6a67",
+      "span_id": "1e9f6bd0149daac1"
+    },
+    {
+      "suite": "S05",
+      "test": "S05-P06",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.discover",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.discover",
+        "arguments": {
+          "profile_payload": {
+            "profile_id": "synthetic-farmer-mo-unknown-years",
+            "navigator": "farmer_producer",
+            "schema_version": "farmer-profile-v1",
+            "state_code": "MO",
+            "county_name": "Callaway",
+            "operation_type": "row_crops",
+            "attributes": {}
+          },
+          "ambiguous_attributes": [],
+          "selected_program_id": "fsa-beginning-farmer-classification"
+        }
+      },
+      "started_at_utc": "2026-11-21T16:15:17.059029+00:00",
+      "duration_ms": 4289,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "e11b9d24-cd89-487a-9572-d4aebb2176d3",
+      "package_ids": [],
+      "ids": {
+        "profile_id": [
+          "synthetic-farmer-mo-unknown-years"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "fsa-beginning-farmer-classification"
+        ],
+        "listing_id": [
+          "fsa-beginning-farmer-loan-set-aside"
+        ],
+        "source_id": [
+          "maryland.dhs.snap",
+          "us.va.public-benefits",
+          "usda.fsa.beginning-farmers",
+          "usda.fsa.disaster-assistance",
+          "usda.fna.senior-food",
+          "usagov.benefits",
+          "usda.nrcs.eqip",
+          "new-mexico.hca.snap",
+          "missouri.dss.temporary-assistance",
+          "missouri.dss.snap",
+          "missouri.dese.child-care-subsidy",
+          "maryland.ohep",
+          "kansas.dcf.food-assistance-residency",
+          "us.hud.housing-assistance",
+          "us.hud.income-limits",
+          "usda.farmers.gov",
+          "cms.medicare-extra-help",
+          "us.acl.aging-referrals",
+          "public-domain.gov"
+        ],
+        "source_record_id": [
+          "fsa-beginning-farmer-classification-criteria"
+        ]
+      },
+      "trace_id": "a3b289ef376197578235fbf90140d167",
+      "span_id": "96f1a956459c9328"
+    },
+    {
+      "suite": "S05",
+      "test": "S05-P06",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.evaluate",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.evaluate",
+        "arguments": {
+          "profile_payload": {
+            "profile_id": "synthetic-farmer-mo-unknown-years",
+            "navigator": "farmer_producer",
+            "schema_version": "farmer-profile-v1",
+            "state_code": "MO",
+            "county_name": "Callaway",
+            "operation_type": "row_crops",
+            "attributes": {}
+          },
+          "program_id": "fsa-beginning-farmer-classification"
+        }
+      },
+      "started_at_utc": "2026-11-21T16:15:21.351884+00:00",
+      "duration_ms": 5373,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "1c4fbe02-5802-4211-99e3-2cb1aaa4334d",
+      "package_ids": [
+        "criteria-445741ec47c8a4125eae21c367c4ff97"
+      ],
+      "ids": {
+        "profile_id": [
+          "synthetic-farmer-mo-unknown-years"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "fsa-beginning-farmer-classification"
+        ],
+        "source_id": [
+          "usda.fsa.beginning-farmers",
+          "public-domain.gov"
+        ],
+        "source_record_id": [
+          "fsa-beginning-farmer-classification-criteria"
+        ],
+        "criteria_package_id": [
+          "criteria-445741ec47c8a4125eae21c367c4ff97"
+        ]
+      },
+      "trace_id": "522b6e1193315a315925e0121280ab7d",
+      "span_id": "82bdde524e810bdf"
+    },
+    {
+      "suite": "S05",
+      "test": "S05-P07",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.discover",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.discover",
+        "arguments": {
+          "profile_payload": {
+            "profile_id": "synthetic-farmer-mo-boundary-10",
+            "navigator": "farmer_producer",
+            "schema_version": "farmer-profile-v1",
+            "state_code": "MO",
+            "county_name": "Cole",
+            "years_farming": 10,
+            "land_tenure": "leased",
+            "operation_type": "row_crops",
+            "attributes": {}
+          },
+          "ambiguous_attributes": [],
+          "selected_program_id": "fsa-beginning-farmer-classification"
+        }
+      },
+      "started_at_utc": "2026-11-21T16:15:27.040372+00:00",
+      "duration_ms": 5355,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "ed14c984-a3c2-4761-85f1-a9e0a6eeedac",
+      "package_ids": [],
+      "ids": {
+        "profile_id": [
+          "synthetic-farmer-mo-boundary-10"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "fsa-beginning-farmer-classification"
+        ],
+        "listing_id": [
+          "fsa-beginning-farmer-loan-set-aside"
+        ],
+        "source_id": [
+          "maryland.dhs.snap",
+          "us.va.public-benefits",
+          "usda.fsa.beginning-farmers",
+          "usda.fsa.disaster-assistance",
+          "usda.fna.senior-food",
+          "usagov.benefits",
+          "usda.nrcs.eqip",
+          "new-mexico.hca.snap",
+          "missouri.dss.temporary-assistance",
+          "missouri.dss.snap",
+          "missouri.dese.child-care-subsidy",
+          "maryland.ohep",
+          "kansas.dcf.food-assistance-residency",
+          "us.hud.housing-assistance",
+          "us.hud.income-limits",
+          "usda.farmers.gov",
+          "cms.medicare-extra-help",
+          "us.acl.aging-referrals",
+          "public-domain.gov"
+        ],
+        "source_record_id": [
+          "fsa-beginning-farmer-classification-criteria"
+        ]
+      },
+      "trace_id": "3a5f3462a803cd0910dcc0b4d1de1f66",
+      "span_id": "b2044eeb55dbc5b4"
+    },
+    {
+      "suite": "S05",
+      "test": "S05-P07",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.evaluate",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.evaluate",
+        "arguments": {
+          "profile_payload": {
+            "profile_id": "synthetic-farmer-mo-boundary-10",
+            "navigator": "farmer_producer",
+            "schema_version": "farmer-profile-v1",
+            "state_code": "MO",
+            "county_name": "Cole",
+            "years_farming": 10,
+            "land_tenure": "leased",
+            "operation_type": "row_crops",
+            "attributes": {}
+          },
+          "program_id": "fsa-beginning-farmer-classification"
+        }
+      },
+      "started_at_utc": "2026-11-21T16:15:32.396788+00:00",
+      "duration_ms": 6794,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "96463363-4068-4650-bd2c-52e13199a234",
+      "package_ids": [
+        "criteria-445741ec47c8a4125eae21c367c4ff97"
+      ],
+      "ids": {
+        "profile_id": [
+          "synthetic-farmer-mo-boundary-10"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "fsa-beginning-farmer-classification"
+        ],
+        "source_id": [
+          "usda.fsa.beginning-farmers",
+          "public-domain.gov"
+        ],
+        "source_record_id": [
+          "fsa-beginning-farmer-classification-criteria"
+        ],
+        "criteria_package_id": [
+          "criteria-445741ec47c8a4125eae21c367c4ff97"
+        ]
+      },
+      "trace_id": "209692dd8eb22d4d4f0cec02063229da",
+      "span_id": "f80494393ee59af3"
+    },
+    {
+      "suite": "S05",
+      "test": "S05-P08",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.discover",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.discover",
+        "arguments": {
+          "profile_payload": {
+            "profile_id": "synthetic-farmer-mo-boundary-11",
+            "navigator": "farmer_producer",
+            "schema_version": "farmer-profile-v1",
+            "state_code": "MO",
+            "county_name": "Cole",
+            "years_farming": 11,
+            "land_tenure": "owned",
+            "operation_type": "row_crops",
+            "attributes": {}
+          },
+          "ambiguous_attributes": [],
+          "selected_program_id": "fsa-beginning-farmer-classification"
+        }
+      },
+      "started_at_utc": "2026-11-21T16:15:39.487766+00:00",
+      "duration_ms": 5067,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "615ae191-4f58-4d3d-8e2f-2e51cce65c12",
+      "package_ids": [],
+      "ids": {
+        "profile_id": [
+          "synthetic-farmer-mo-boundary-11"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "fsa-beginning-farmer-classification"
+        ],
+        "listing_id": [
+          "fsa-beginning-farmer-loan-set-aside"
+        ],
+        "source_id": [
+          "maryland.dhs.snap",
+          "us.va.public-benefits",
+          "usda.fsa.beginning-farmers",
+          "usda.fsa.disaster-assistance",
+          "usda.fna.senior-food",
+          "usagov.benefits",
+          "usda.nrcs.eqip",
+          "new-mexico.hca.snap",
+          "missouri.dss.temporary-assistance",
+          "missouri.dss.snap",
+          "missouri.dese.child-care-subsidy",
+          "maryland.ohep",
+          "kansas.dcf.food-assistance-residency",
+          "us.hud.housing-assistance",
+          "us.hud.income-limits",
+          "usda.farmers.gov",
+          "cms.medicare-extra-help",
+          "us.acl.aging-referrals",
+          "public-domain.gov"
+        ],
+        "source_record_id": [
+          "fsa-beginning-farmer-classification-criteria"
+        ]
+      },
+      "trace_id": "bd1faf6130124fa8cc75cc943476fdbc",
+      "span_id": "341286bf3942c1bf"
+    },
+    {
+      "suite": "S05",
+      "test": "S05-P08",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.evaluate",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.evaluate",
+        "arguments": {
+          "profile_payload": {
+            "profile_id": "synthetic-farmer-mo-boundary-11",
+            "navigator": "farmer_producer",
+            "schema_version": "farmer-profile-v1",
+            "state_code": "MO",
+            "county_name": "Cole",
+            "years_farming": 11,
+            "land_tenure": "owned",
+            "operation_type": "row_crops",
+            "attributes": {}
+          },
+          "program_id": "fsa-beginning-farmer-classification"
+        }
+      },
+      "started_at_utc": "2026-11-21T16:15:44.549146+00:00",
+      "duration_ms": 5367,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "01c498fa-ab72-40e4-846a-0bcd83854702",
+      "package_ids": [
+        "criteria-445741ec47c8a4125eae21c367c4ff97"
+      ],
+      "ids": {
+        "profile_id": [
+          "synthetic-farmer-mo-boundary-11"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "fsa-beginning-farmer-classification"
+        ],
+        "source_id": [
+          "usda.fsa.beginning-farmers",
+          "public-domain.gov"
+        ],
+        "source_record_id": [
+          "fsa-beginning-farmer-classification-criteria"
+        ],
+        "criteria_package_id": [
+          "criteria-445741ec47c8a4125eae21c367c4ff97"
+        ]
+      },
+      "trace_id": "adb3b0c21d138a4c59c3d028cdc25264",
+      "span_id": "88775609843491e3"
+    },
+    {
+      "suite": "S08",
+      "test": "S08-T01",
+      "tool": "list_core_routes",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "page_size": 100
+      },
+      "started_at_utc": "2026-11-21T16:15:50.235644+00:00",
+      "duration_ms": 280,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S08",
+      "test": "S08-T01",
+      "tool": "list_cluster_templates",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "page_size": 100
+      },
+      "started_at_utc": "2026-11-21T16:15:50.521557+00:00",
+      "duration_ms": 571,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S08",
+      "test": "S08-T01",
+      "tool": "list_registered_tenants",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "page_size": 100
+      },
+      "started_at_utc": "2026-11-21T16:15:51.089444+00:00",
+      "duration_ms": 321,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S08",
+      "test": "S08-T02",
+      "tool": "read_cluster_schema",
+      "route_id": null,
+      "operation_id": null,
+      "arguments": {
+        "template_id": "eligibility",
+        "template_version": "0.1.48",
+        "schema_ref": "#/$defs/EligibilityProfile"
+      },
+      "started_at_utc": "2026-11-21T16:15:51.759967+00:00",
+      "duration_ms": 306,
+      "attempt": 1,
+      "status": "available",
+      "correlation_id": null,
+      "package_ids": [],
+      "ids": {
+        "template_id": [
+          "eligibility"
+        ]
+      },
+      "trace_id": null,
+      "span_id": null
+    },
+    {
+      "suite": "S08",
+      "test": "S08-T03",
+      "tool": "route_operation",
+      "route_id": "eligibility",
+      "operation_id": "program.inventory.search",
+      "arguments": {
+        "route_id": "eligibility",
+        "operation_id": "program.inventory.search",
+        "arguments": {
+          "page_size": 5
+        }
+      },
+      "started_at_utc": "2026-11-21T16:15:52.361660+00:00",
+      "duration_ms": 7302,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "b22dcc0e-f8e0-42dd-9808-8fe519a274b4",
+      "package_ids": [
+        "criteria-445741ec47c8a4125eae21c367c4ff97"
+      ],
+      "ids": {
+        "program_id": [
+          "fsa-beginning-farmer-classification",
+          "usda-fsa-guaranteed-farm-loan",
+          "usda-fsa-direct-farm-loans"
+        ],
+        "listing_id": [
+          "fsa-disaster-set-aside-program",
+          "fsa-beginning-farmer-loan-set-aside",
+          "farm-ownership-loans",
+          "farm-operating-loans",
+          "acl-eldercare-locator-national"
+        ],
+        "source_id": [
+          "maryland.dhs.snap",
+          "sam.gov.assistance_listings",
+          "grants.gov.opportunities",
+          "usda.fsa.disaster-assistance",
+          "usda.fsa.beginning-farmers",
+          "usda.farmers.gov",
+          "us.acl.aging-referrals"
+        ],
+        "source_record_id": [
+          "fsa-disaster-set-aside-program",
+          "fsa-beginning-farmer-loan-set-aside",
+          "fsa-beginning-farmer-classification-criteria",
+          "farm-ownership-loans",
+          "fsa-guaranteed-farm-loan-criteria",
+          "fsa-direct-farm-loan-criteria",
+          "farm-operating-loans",
+          "acl-eldercare-locator-national"
+        ],
+        "active_ruleset_package_id": [
+          "criteria-445741ec47c8a4125eae21c367c4ff97"
+        ]
+      },
+      "trace_id": "1a79e4029b15470050b6f1d1f88d7263",
+      "span_id": "93afd99753f2f2b4"
+    },
+    {
+      "suite": "S08",
+      "test": "S08-T04",
+      "tool": "route_operation",
+      "route_id": "eligibility",
+      "operation_id": "program.inventory.list",
+      "arguments": {
+        "route_id": "eligibility",
+        "operation_id": "program.inventory.list",
+        "arguments": {
+          "page_size": 26
+        }
+      },
+      "started_at_utc": "2026-11-21T16:15:59.987841+00:00",
+      "duration_ms": 675,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "c659c26d-60ce-4f75-bc33-1fe71c0a2bda",
+      "package_ids": [],
+      "ids": {},
+      "trace_id": "85925880cc2664e41bebf475e6831815",
+      "span_id": "ab90cf2a3c24556a"
+    },
+    {
+      "suite": "S08",
+      "test": "S08-T05",
+      "tool": "route_operation",
+      "route_id": "eligibility",
+      "operation_id": "program.candidate.normalize",
+      "arguments": {
+        "route_id": "eligibility",
+        "operation_id": "program.candidate.normalize",
+        "arguments": {
+          "source_id": "usda.farmers.gov",
+          "source_record_id": "s08-schema-shape-check",
+          "source_version": "S08 contract check",
+          "source_url": "https://www.farmers.gov/loans",
+          "retrieved_at": "2026-10-31T00:00:00Z",
+          "listing": {
+            "title": "S08 schema-shape check"
+          }
+        }
+      },
+      "started_at_utc": "2026-11-21T16:16:00.964703+00:00",
+      "duration_ms": 730,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "bcf8b61d-d28d-4347-b0c8-253ec4fbf399",
+      "package_ids": [],
+      "ids": {
+        "program_id": [
+          "program-ref-af2b0af1add118892f4fd6af7f291e5c"
+        ],
+        "source_id": [
+          "usda.farmers.gov"
+        ],
+        "source_record_id": [
+          "s08-schema-shape-check"
+        ]
+      },
+      "trace_id": "01ed67b0936040594d52a6f3411a0cc4",
+      "span_id": "e3dff93cbf789ee0"
+    },
+    {
+      "suite": "S11",
+      "test": "S11-P01",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.discover",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.discover",
+        "arguments": {
+          "profile_payload": {
+            "profile_id": "synthetic-farmer-mo-beginning",
+            "navigator": "general",
+            "schema_version": "general-profile-v1",
+            "attributes": {
+              "core.geography.state_code": "MO",
+              "core.geography.county_name": "Boone",
+              "core.farm_business.acreage": 120.0,
+              "core.farm_business.years_farming": 3,
+              "core.farm_business.operation_type": "row_crops"
+            }
+          },
+          "ambiguous_attributes": [],
+          "selected_program_id": "fsa-beginning-farmer-classification"
+        }
+      },
+      "started_at_utc": "2026-11-21T16:16:02.000226+00:00",
+      "duration_ms": 5199,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "d466f9c4-a74a-4678-befd-7692676a1992",
+      "package_ids": [],
+      "ids": {
+        "profile_id": [
+          "synthetic-farmer-mo-beginning"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "fsa-beginning-farmer-classification"
+        ],
+        "listing_id": [
+          "fsa-beginning-farmer-loan-set-aside"
+        ],
+        "source_id": [
+          "maryland.dhs.snap",
+          "us.va.public-benefits",
+          "usda.fsa.beginning-farmers",
+          "usda.fsa.disaster-assistance",
+          "usda.fna.senior-food",
+          "usagov.benefits",
+          "usda.nrcs.eqip",
+          "new-mexico.hca.snap",
+          "missouri.dss.temporary-assistance",
+          "missouri.dss.snap",
+          "missouri.dese.child-care-subsidy",
+          "maryland.ohep",
+          "kansas.dcf.food-assistance-residency",
+          "us.hud.housing-assistance",
+          "us.hud.income-limits",
+          "usda.farmers.gov",
+          "cms.medicare-extra-help",
+          "us.acl.aging-referrals",
+          "public-domain.gov"
+        ],
+        "source_record_id": [
+          "fsa-beginning-farmer-classification-criteria"
+        ]
+      },
+      "trace_id": "81e3a4f838e171db6a8b9117b94b5181",
+      "span_id": "df9a7d97b5b0af04"
+    },
+    {
+      "suite": "S11",
+      "test": "S11-P01",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.evaluate",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.evaluate",
+        "arguments": {
+          "profile_payload": {
+            "profile_id": "synthetic-farmer-mo-beginning",
+            "navigator": "general",
+            "schema_version": "general-profile-v1",
+            "attributes": {
+              "core.geography.state_code": "MO",
+              "core.geography.county_name": "Boone",
+              "core.farm_business.acreage": 120.0,
+              "core.farm_business.years_farming": 3,
+              "core.farm_business.operation_type": "row_crops"
+            }
+          },
+          "program_id": "fsa-beginning-farmer-classification"
+        }
+      },
+      "started_at_utc": "2026-11-21T16:16:07.210136+00:00",
+      "duration_ms": 5742,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "e9359efc-ae54-4729-9836-1313fc796943",
+      "package_ids": [
+        "criteria-445741ec47c8a4125eae21c367c4ff97"
+      ],
+      "ids": {
+        "profile_id": [
+          "synthetic-farmer-mo-beginning"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "fsa-beginning-farmer-classification"
+        ],
+        "source_id": [
+          "usda.fsa.beginning-farmers",
+          "public-domain.gov"
+        ],
+        "source_record_id": [
+          "fsa-beginning-farmer-classification-criteria"
+        ],
+        "criteria_package_id": [
+          "criteria-445741ec47c8a4125eae21c367c4ff97"
+        ]
+      },
+      "trace_id": "d65bec28f75a786f6e90c4a0980915f3",
+      "span_id": "51df6434500b9e8f"
+    },
+    {
+      "suite": "S11",
+      "test": "S11-P02",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.discover",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.discover",
+        "arguments": {
+          "profile_payload": {
+            "profile_id": "synthetic-farmer-mo-veteran-new",
+            "navigator": "general",
+            "schema_version": "general-profile-v1",
+            "attributes": {
+              "core.geography.state_code": "MO",
+              "core.geography.county_name": "Greene",
+              "core.farm_business.acreage": 40.0,
+              "core.farm_business.years_farming": 2,
+              "core.farm_business.operation_type": "livestock"
+            }
+          },
+          "ambiguous_attributes": [],
+          "selected_program_id": "fsa-beginning-farmer-classification"
+        }
+      },
+      "started_at_utc": "2026-11-21T16:16:13.255244+00:00",
+      "duration_ms": 5350,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "984e45bf-df0d-43ae-84ed-bca1b9c8c03f",
+      "package_ids": [],
+      "ids": {
+        "profile_id": [
+          "synthetic-farmer-mo-veteran-new"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "fsa-beginning-farmer-classification"
+        ],
+        "listing_id": [
+          "fsa-beginning-farmer-loan-set-aside"
+        ],
+        "source_id": [
+          "maryland.dhs.snap",
+          "us.va.public-benefits",
+          "usda.fsa.beginning-farmers",
+          "usda.fsa.disaster-assistance",
+          "usda.fna.senior-food",
+          "usagov.benefits",
+          "usda.nrcs.eqip",
+          "new-mexico.hca.snap",
+          "missouri.dss.temporary-assistance",
+          "missouri.dss.snap",
+          "missouri.dese.child-care-subsidy",
+          "maryland.ohep",
+          "kansas.dcf.food-assistance-residency",
+          "us.hud.housing-assistance",
+          "us.hud.income-limits",
+          "usda.farmers.gov",
+          "cms.medicare-extra-help",
+          "us.acl.aging-referrals",
+          "public-domain.gov"
+        ],
+        "source_record_id": [
+          "fsa-beginning-farmer-classification-criteria"
+        ]
+      },
+      "trace_id": "a2abd3ea17732de099d57fa42f4e69a6",
+      "span_id": "286831bdaabcba98"
+    },
+    {
+      "suite": "S11",
+      "test": "S11-P02",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.evaluate",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.evaluate",
+        "arguments": {
+          "profile_payload": {
+            "profile_id": "synthetic-farmer-mo-veteran-new",
+            "navigator": "general",
+            "schema_version": "general-profile-v1",
+            "attributes": {
+              "core.geography.state_code": "MO",
+              "core.geography.county_name": "Greene",
+              "core.farm_business.acreage": 40.0,
+              "core.farm_business.years_farming": 2,
+              "core.farm_business.operation_type": "livestock"
+            }
+          },
+          "program_id": "fsa-beginning-farmer-classification"
+        }
+      },
+      "started_at_utc": "2026-11-21T16:16:18.605555+00:00",
+      "duration_ms": 6426,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "f77841d0-1fae-4e6a-82f3-cea34fbd1310",
+      "package_ids": [
+        "criteria-445741ec47c8a4125eae21c367c4ff97"
+      ],
+      "ids": {
+        "profile_id": [
+          "synthetic-farmer-mo-veteran-new"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "fsa-beginning-farmer-classification"
+        ],
+        "source_id": [
+          "usda.fsa.beginning-farmers",
+          "public-domain.gov"
+        ],
+        "source_record_id": [
+          "fsa-beginning-farmer-classification-criteria"
+        ],
+        "criteria_package_id": [
+          "criteria-445741ec47c8a4125eae21c367c4ff97"
+        ]
+      },
+      "trace_id": "dff87fe48fcf3ba5c04e2ba5b376ee8a",
+      "span_id": "d477be8f38fb2e0d"
+    },
+    {
+      "suite": "S11",
+      "test": "S11-P03",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.discover",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.discover",
+        "arguments": {
+          "profile_payload": {
+            "profile_id": "synthetic-household-mo-kc-family",
+            "navigator": "general",
+            "schema_version": "general-profile-v1",
+            "attributes": {
+              "core.geography.state_code": "MO",
+              "core.geography.county_name": "Jackson",
+              "core.household.annual_income_usd": 28000,
+              "core.household.size": 4,
+              "core.household.adults": 2,
+              "core.household.children": 2,
+              "core.household.housing_status": "renter"
+            }
+          },
+          "ambiguous_attributes": [],
+          "selected_program_id": "missouri-snap"
+        }
+      },
+      "started_at_utc": "2026-11-21T16:16:25.352601+00:00",
+      "duration_ms": 5064,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "18d6449b-e7d3-4c5a-989d-a6c0379bb8fb",
+      "package_ids": [
+        "criteria-49e1662e9acb456e2e9c05a5a85e3dd8"
+      ],
+      "ids": {
+        "profile_id": [
+          "synthetic-household-mo-kc-family"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "missouri-snap"
+        ],
+        "source_id": [
+          "maryland.dhs.snap",
+          "us.va.public-benefits",
+          "usda.fsa.beginning-farmers",
+          "usda.fsa.disaster-assistance",
+          "usda.fna.senior-food",
+          "usagov.benefits",
+          "usda.nrcs.eqip",
+          "new-mexico.hca.snap",
+          "missouri.dss.temporary-assistance",
+          "missouri.dss.snap",
+          "missouri.dese.child-care-subsidy",
+          "maryland.ohep",
+          "kansas.dcf.food-assistance-residency",
+          "us.hud.housing-assistance",
+          "us.hud.income-limits",
+          "usda.farmers.gov",
+          "cms.medicare-extra-help",
+          "us.acl.aging-referrals"
+        ],
+        "active_ruleset_package_id": [
+          "criteria-49e1662e9acb456e2e9c05a5a85e3dd8"
+        ]
+      },
+      "trace_id": "4e297524117ef026e5362531b76f577d",
+      "span_id": "76c20c40c60705c9"
+    },
+    {
+      "suite": "S11",
+      "test": "S11-P03",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.evaluate",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.evaluate",
+        "arguments": {
+          "profile_payload": {
+            "profile_id": "synthetic-household-mo-kc-family",
+            "navigator": "general",
+            "schema_version": "general-profile-v1",
+            "attributes": {
+              "core.geography.state_code": "MO",
+              "core.geography.county_name": "Jackson",
+              "core.household.annual_income_usd": 28000,
+              "core.household.size": 4,
+              "core.household.adults": 2,
+              "core.household.children": 2,
+              "core.household.housing_status": "renter"
+            }
+          },
+          "program_id": "missouri-snap"
+        }
+      },
+      "started_at_utc": "2026-11-21T16:16:30.420365+00:00",
+      "duration_ms": 5202,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "d84c4ccd-5321-4b31-87e3-6c5348ed5a3c",
+      "package_ids": [
+        "criteria-49e1662e9acb456e2e9c05a5a85e3dd8"
+      ],
+      "ids": {
+        "profile_id": [
+          "synthetic-household-mo-kc-family"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "missouri-snap"
+        ],
+        "source_id": [
+          "missouri.dss.snap"
+        ],
+        "source_record_id": [
+          "source-page-562476b2361dce3f4411"
+        ],
+        "criteria_package_id": [
+          "criteria-49e1662e9acb456e2e9c05a5a85e3dd8"
+        ]
+      },
+      "trace_id": "dfd33d61d3bdeba01cdc74fc396609ab",
+      "span_id": "978c00ad29845d2b"
+    },
+    {
+      "suite": "S11",
+      "test": "S11-P04",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.discover",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.discover",
+        "arguments": {
+          "profile_payload": {
+            "profile_id": "synthetic-farmer-mo-established",
+            "navigator": "general",
+            "schema_version": "general-profile-v1",
+            "attributes": {
+              "core.geography.state_code": "MO",
+              "core.geography.county_name": "Audrain",
+              "core.farm_business.acreage": 900.0,
+              "core.farm_business.years_farming": 15,
+              "core.farm_business.operation_type": "row_crops"
+            }
+          },
+          "ambiguous_attributes": [],
+          "selected_program_id": "fsa-beginning-farmer-classification"
+        }
+      },
+      "started_at_utc": "2026-11-21T16:16:35.936068+00:00",
+      "duration_ms": 4880,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "e300c49d-4ea1-4280-b7ef-9ea62bac1b24",
+      "package_ids": [],
+      "ids": {
+        "profile_id": [
+          "synthetic-farmer-mo-established"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "fsa-beginning-farmer-classification"
+        ],
+        "listing_id": [
+          "fsa-beginning-farmer-loan-set-aside"
+        ],
+        "source_id": [
+          "maryland.dhs.snap",
+          "us.va.public-benefits",
+          "usda.fsa.beginning-farmers",
+          "usda.fsa.disaster-assistance",
+          "usda.fna.senior-food",
+          "usagov.benefits",
+          "usda.nrcs.eqip",
+          "new-mexico.hca.snap",
+          "missouri.dss.temporary-assistance",
+          "missouri.dss.snap",
+          "missouri.dese.child-care-subsidy",
+          "maryland.ohep",
+          "kansas.dcf.food-assistance-residency",
+          "us.hud.housing-assistance",
+          "us.hud.income-limits",
+          "usda.farmers.gov",
+          "cms.medicare-extra-help",
+          "us.acl.aging-referrals",
+          "public-domain.gov"
+        ],
+        "source_record_id": [
+          "fsa-beginning-farmer-classification-criteria"
+        ]
+      },
+      "trace_id": "304dff8527b1c4b90a0f8ca564659d1c",
+      "span_id": "7717e9353466d5fe"
+    },
+    {
+      "suite": "S11",
+      "test": "S11-P04",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.evaluate",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.evaluate",
+        "arguments": {
+          "profile_payload": {
+            "profile_id": "synthetic-farmer-mo-established",
+            "navigator": "general",
+            "schema_version": "general-profile-v1",
+            "attributes": {
+              "core.geography.state_code": "MO",
+              "core.geography.county_name": "Audrain",
+              "core.farm_business.acreage": 900.0,
+              "core.farm_business.years_farming": 15,
+              "core.farm_business.operation_type": "row_crops"
+            }
+          },
+          "program_id": "fsa-beginning-farmer-classification"
+        }
+      },
+      "started_at_utc": "2026-11-21T16:16:40.818734+00:00",
+      "duration_ms": 5119,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "4a4f1415-a30f-4e99-a387-0788e7e901a1",
+      "package_ids": [
+        "criteria-445741ec47c8a4125eae21c367c4ff97"
+      ],
+      "ids": {
+        "profile_id": [
+          "synthetic-farmer-mo-established"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "fsa-beginning-farmer-classification"
+        ],
+        "source_id": [
+          "usda.fsa.beginning-farmers",
+          "public-domain.gov"
+        ],
+        "source_record_id": [
+          "fsa-beginning-farmer-classification-criteria"
+        ],
+        "criteria_package_id": [
+          "criteria-445741ec47c8a4125eae21c367c4ff97"
+        ]
+      },
+      "trace_id": "750b2c348224ad32b8c63339511d5696",
+      "span_id": "8bee138d145f3714"
+    },
+    {
+      "suite": "S11",
+      "test": "S11-P05",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.discover",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.discover",
+        "arguments": {
+          "profile_payload": {
+            "profile_id": "synthetic-household-ks-kc-family",
+            "navigator": "general",
+            "schema_version": "general-profile-v1",
+            "attributes": {
+              "core.geography.state_code": "KS",
+              "core.geography.county_name": "Wyandotte",
+              "core.household.annual_income_usd": 28000,
+              "core.household.size": 4,
+              "core.household.adults": 2,
+              "core.household.children": 2,
+              "core.household.housing_status": "renter"
+            }
+          },
+          "ambiguous_attributes": [],
+          "selected_program_id": "missouri-snap"
+        }
+      },
+      "started_at_utc": "2026-11-21T16:16:46.251912+00:00",
+      "duration_ms": 5168,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "de9d81d7-f8ed-4493-8424-64e619d4cddc",
+      "package_ids": [],
+      "ids": {
+        "profile_id": [
+          "synthetic-household-ks-kc-family"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "missouri-snap"
+        ],
+        "source_id": [
+          "maryland.dhs.snap",
+          "us.va.public-benefits",
+          "usda.fsa.beginning-farmers",
+          "usda.fsa.disaster-assistance",
+          "usda.fna.senior-food",
+          "usagov.benefits",
+          "usda.nrcs.eqip",
+          "new-mexico.hca.snap",
+          "missouri.dss.temporary-assistance",
+          "missouri.dss.snap",
+          "missouri.dese.child-care-subsidy",
+          "maryland.ohep",
+          "kansas.dcf.food-assistance-residency",
+          "us.hud.housing-assistance",
+          "us.hud.income-limits",
+          "usda.farmers.gov",
+          "cms.medicare-extra-help",
+          "us.acl.aging-referrals"
+        ]
+      },
+      "trace_id": "ec5702bdd20871245b7af0423fdea9b8",
+      "span_id": "c633a6c6ecf47a3a"
+    },
+    {
+      "suite": "S11",
+      "test": "S11-P05",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.evaluate",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.evaluate",
+        "arguments": {
+          "profile_payload": {
+            "profile_id": "synthetic-household-ks-kc-family",
+            "navigator": "general",
+            "schema_version": "general-profile-v1",
+            "attributes": {
+              "core.geography.state_code": "KS",
+              "core.geography.county_name": "Wyandotte",
+              "core.household.annual_income_usd": 28000,
+              "core.household.size": 4,
+              "core.household.adults": 2,
+              "core.household.children": 2,
+              "core.household.housing_status": "renter"
+            }
+          },
+          "program_id": "missouri-snap"
+        }
+      },
+      "started_at_utc": "2026-11-21T16:16:51.422127+00:00",
+      "duration_ms": 5579,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "7323b0b6-5e84-4d33-a6c8-27b726c5149f",
+      "package_ids": [
+        "criteria-49e1662e9acb456e2e9c05a5a85e3dd8"
+      ],
+      "ids": {
+        "profile_id": [
+          "synthetic-household-ks-kc-family"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "missouri-snap"
+        ],
+        "source_id": [
+          "missouri.dss.snap"
+        ],
+        "source_record_id": [
+          "source-page-562476b2361dce3f4411"
+        ],
+        "criteria_package_id": [
+          "criteria-49e1662e9acb456e2e9c05a5a85e3dd8"
+        ]
+      },
+      "trace_id": "7613cfc5e60418f529b92ceb2b49d55a",
+      "span_id": "bd884f0f07e98148"
+    },
+    {
+      "suite": "S11",
+      "test": "S11-P06",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.discover",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.discover",
+        "arguments": {
+          "profile_payload": {
+            "profile_id": "synthetic-farmer-mo-unknown-years",
+            "navigator": "general",
+            "schema_version": "general-profile-v1",
+            "attributes": {
+              "core.geography.state_code": "MO",
+              "core.geography.county_name": "Callaway",
+              "core.farm_business.operation_type": "row_crops"
+            }
+          },
+          "ambiguous_attributes": [],
+          "selected_program_id": "fsa-beginning-farmer-classification"
+        }
+      },
+      "started_at_utc": "2026-11-21T16:16:57.300810+00:00",
+      "duration_ms": 4702,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "76da3734-0455-4e01-958a-73489f620ebb",
+      "package_ids": [],
+      "ids": {
+        "profile_id": [
+          "synthetic-farmer-mo-unknown-years"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "fsa-beginning-farmer-classification"
+        ],
+        "listing_id": [
+          "fsa-beginning-farmer-loan-set-aside"
+        ],
+        "source_id": [
+          "maryland.dhs.snap",
+          "us.va.public-benefits",
+          "usda.fsa.beginning-farmers",
+          "usda.fsa.disaster-assistance",
+          "usda.fna.senior-food",
+          "usagov.benefits",
+          "usda.nrcs.eqip",
+          "new-mexico.hca.snap",
+          "missouri.dss.temporary-assistance",
+          "missouri.dss.snap",
+          "missouri.dese.child-care-subsidy",
+          "maryland.ohep",
+          "kansas.dcf.food-assistance-residency",
+          "us.hud.housing-assistance",
+          "us.hud.income-limits",
+          "usda.farmers.gov",
+          "cms.medicare-extra-help",
+          "us.acl.aging-referrals",
+          "public-domain.gov"
+        ],
+        "source_record_id": [
+          "fsa-beginning-farmer-classification-criteria"
+        ]
+      },
+      "trace_id": "f71f3a2cc4ef9af82f63b2e322d2bcea",
+      "span_id": "c023b1fa24b893d9"
+    },
+    {
+      "suite": "S11",
+      "test": "S11-P06",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.evaluate",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.evaluate",
+        "arguments": {
+          "profile_payload": {
+            "profile_id": "synthetic-farmer-mo-unknown-years",
+            "navigator": "general",
+            "schema_version": "general-profile-v1",
+            "attributes": {
+              "core.geography.state_code": "MO",
+              "core.geography.county_name": "Callaway",
+              "core.farm_business.operation_type": "row_crops"
+            }
+          },
+          "program_id": "fsa-beginning-farmer-classification"
+        }
+      },
+      "started_at_utc": "2026-11-21T16:17:02.001289+00:00",
+      "duration_ms": 5139,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "8ebf8e4f-dccb-468f-8cba-f3f4be1008f1",
+      "package_ids": [
+        "criteria-445741ec47c8a4125eae21c367c4ff97"
+      ],
+      "ids": {
+        "profile_id": [
+          "synthetic-farmer-mo-unknown-years"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "fsa-beginning-farmer-classification"
+        ],
+        "source_id": [
+          "usda.fsa.beginning-farmers",
+          "public-domain.gov"
+        ],
+        "source_record_id": [
+          "fsa-beginning-farmer-classification-criteria"
+        ],
+        "criteria_package_id": [
+          "criteria-445741ec47c8a4125eae21c367c4ff97"
+        ]
+      },
+      "trace_id": "3bdf9ce5c88b2f23e60840531633da5a",
+      "span_id": "5bd5c66de7648419"
+    },
+    {
+      "suite": "S11",
+      "test": "S11-P07",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.discover",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.discover",
+        "arguments": {
+          "profile_payload": {
+            "profile_id": "synthetic-farmer-mo-boundary-10",
+            "navigator": "general",
+            "schema_version": "general-profile-v1",
+            "attributes": {
+              "core.geography.state_code": "MO",
+              "core.geography.county_name": "Cole",
+              "core.farm_business.years_farming": 10,
+              "core.farm_business.operation_type": "row_crops"
+            }
+          },
+          "ambiguous_attributes": [],
+          "selected_program_id": "fsa-beginning-farmer-classification"
+        }
+      },
+      "started_at_utc": "2026-11-21T16:17:07.449250+00:00",
+      "duration_ms": 5134,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "00962b90-245f-421e-964c-d547bf92f52f",
+      "package_ids": [],
+      "ids": {
+        "profile_id": [
+          "synthetic-farmer-mo-boundary-10"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "fsa-beginning-farmer-classification"
+        ],
+        "listing_id": [
+          "fsa-beginning-farmer-loan-set-aside"
+        ],
+        "source_id": [
+          "maryland.dhs.snap",
+          "us.va.public-benefits",
+          "usda.fsa.beginning-farmers",
+          "usda.fsa.disaster-assistance",
+          "usda.fna.senior-food",
+          "usagov.benefits",
+          "usda.nrcs.eqip",
+          "new-mexico.hca.snap",
+          "missouri.dss.temporary-assistance",
+          "missouri.dss.snap",
+          "missouri.dese.child-care-subsidy",
+          "maryland.ohep",
+          "kansas.dcf.food-assistance-residency",
+          "us.hud.housing-assistance",
+          "us.hud.income-limits",
+          "usda.farmers.gov",
+          "cms.medicare-extra-help",
+          "us.acl.aging-referrals",
+          "public-domain.gov"
+        ],
+        "source_record_id": [
+          "fsa-beginning-farmer-classification-criteria"
+        ]
+      },
+      "trace_id": "e5ed48312a32aa9b17abec797f2660d7",
+      "span_id": "269740c1c57426d8"
+    },
+    {
+      "suite": "S11",
+      "test": "S11-P07",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.evaluate",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.evaluate",
+        "arguments": {
+          "profile_payload": {
+            "profile_id": "synthetic-farmer-mo-boundary-10",
+            "navigator": "general",
+            "schema_version": "general-profile-v1",
+            "attributes": {
+              "core.geography.state_code": "MO",
+              "core.geography.county_name": "Cole",
+              "core.farm_business.years_farming": 10,
+              "core.farm_business.operation_type": "row_crops"
+            }
+          },
+          "program_id": "fsa-beginning-farmer-classification"
+        }
+      },
+      "started_at_utc": "2026-11-21T16:17:12.583957+00:00",
+      "duration_ms": 5526,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "7a90d1a9-4e2d-4136-9b72-9765414210dc",
+      "package_ids": [
+        "criteria-445741ec47c8a4125eae21c367c4ff97"
+      ],
+      "ids": {
+        "profile_id": [
+          "synthetic-farmer-mo-boundary-10"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "fsa-beginning-farmer-classification"
+        ],
+        "source_id": [
+          "usda.fsa.beginning-farmers",
+          "public-domain.gov"
+        ],
+        "source_record_id": [
+          "fsa-beginning-farmer-classification-criteria"
+        ],
+        "criteria_package_id": [
+          "criteria-445741ec47c8a4125eae21c367c4ff97"
+        ]
+      },
+      "trace_id": "09eed2c3d2687b243def4b4b1b4a9aad",
+      "span_id": "21acdc7ad17e427b"
+    },
+    {
+      "suite": "S11",
+      "test": "S11-P08",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.discover",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.discover",
+        "arguments": {
+          "profile_payload": {
+            "profile_id": "synthetic-farmer-mo-boundary-11",
+            "navigator": "general",
+            "schema_version": "general-profile-v1",
+            "attributes": {
+              "core.geography.state_code": "MO",
+              "core.geography.county_name": "Cole",
+              "core.farm_business.years_farming": 11,
+              "core.farm_business.operation_type": "row_crops"
+            }
+          },
+          "ambiguous_attributes": [],
+          "selected_program_id": "fsa-beginning-farmer-classification"
+        }
+      },
+      "started_at_utc": "2026-11-21T16:17:18.428550+00:00",
+      "duration_ms": 5376,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "26a0dbba-2bd1-4cd9-a127-8d886545f83d",
+      "package_ids": [],
+      "ids": {
+        "profile_id": [
+          "synthetic-farmer-mo-boundary-11"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "fsa-beginning-farmer-classification"
+        ],
+        "listing_id": [
+          "fsa-beginning-farmer-loan-set-aside"
+        ],
+        "source_id": [
+          "maryland.dhs.snap",
+          "us.va.public-benefits",
+          "usda.fsa.beginning-farmers",
+          "usda.fsa.disaster-assistance",
+          "usda.fna.senior-food",
+          "usagov.benefits",
+          "usda.nrcs.eqip",
+          "new-mexico.hca.snap",
+          "missouri.dss.temporary-assistance",
+          "missouri.dss.snap",
+          "missouri.dese.child-care-subsidy",
+          "maryland.ohep",
+          "kansas.dcf.food-assistance-residency",
+          "us.hud.housing-assistance",
+          "us.hud.income-limits",
+          "usda.farmers.gov",
+          "cms.medicare-extra-help",
+          "us.acl.aging-referrals",
+          "public-domain.gov"
+        ],
+        "source_record_id": [
+          "fsa-beginning-farmer-classification-criteria"
+        ]
+      },
+      "trace_id": "8a1c76c5e6c92fc92993c954ae5ef09c",
+      "span_id": "9bc29c25783e8167"
+    },
+    {
+      "suite": "S11",
+      "test": "S11-P08",
+      "tool": "route_operation",
+      "route_id": "eligibility-demo",
+      "operation_id": "program.evaluate",
+      "arguments": {
+        "route_id": "eligibility-demo",
+        "operation_id": "program.evaluate",
+        "arguments": {
+          "profile_payload": {
+            "profile_id": "synthetic-farmer-mo-boundary-11",
+            "navigator": "general",
+            "schema_version": "general-profile-v1",
+            "attributes": {
+              "core.geography.state_code": "MO",
+              "core.geography.county_name": "Cole",
+              "core.farm_business.years_farming": 11,
+              "core.farm_business.operation_type": "row_crops"
+            }
+          },
+          "program_id": "fsa-beginning-farmer-classification"
+        }
+      },
+      "started_at_utc": "2026-11-21T16:17:23.803884+00:00",
+      "duration_ms": 5178,
+      "attempt": 1,
+      "status": "ok",
+      "correlation_id": "6befc6f9-396d-43a0-8c0f-a3417d75b478",
+      "package_ids": [
+        "criteria-445741ec47c8a4125eae21c367c4ff97"
+      ],
+      "ids": {
+        "profile_id": [
+          "synthetic-farmer-mo-boundary-11"
+        ],
+        "tenant_id": [
+          "eligibility-demo"
+        ],
+        "program_id": [
+          "fsa-beginning-farmer-classification"
+        ],
+        "source_id": [
+          "usda.fsa.beginning-farmers",
+          "public-domain.gov"
+        ],
+        "source_record_id": [
+          "fsa-beginning-farmer-classification-criteria"
+        ],
+        "criteria_package_id": [
+          "criteria-445741ec47c8a4125eae21c367c4ff97"
+        ]
+      },
+      "trace_id": "4738d1a37012426aaa6c65e93e51f0d7",
+      "span_id": "0551ca1965984d71"
+    }
+  ],
+  "phoenix_join": {
+    "project": "usda-core-native",
+    "joined_calls": 37,
+    "calls_with_correlation_id": 38,
+    "total_calls": 84,
+    "joined_on": "mcp.correlation.id",
+    "joined_at_utc": "2026-11-21"
+  }
+}

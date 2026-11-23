@@ -1,0 +1,103 @@
+{
+  "manifest_version": "eligibility-public-sources-v1",
+  "pattern_id": "eligibility",
+  "pattern_version": "0.1.4",
+  "catalog_namespace": "programs",
+  "sources": [
+    {
+      "source_id": "usda.fsa.beginning-farmers",
+      "dataset_id": "usda-fsa-beginning-farmers-guidance",
+      "source_dataset_id": "fsa-beginning-farmers-v1",
+      "url": "https://www.fsa.usda.gov/resources/beginning-farmers-and-ranchers-loans",
+      "agency": "USDA Farm Service Agency",
+      "expected_title": "Beginning Farmers and Ranchers Loans",
+      "program_title": "FSA Beginning Farmer classification guidance",
+      "navigator": "farmer_producer",
+      "program_id": "fsa-beginning-farmer-classification",
+      "jurisdiction": {
+        "level": "federal",
+        "country_code": "US"
+      },
+      "required_text": [
+        "first 10 years",
+        "beginning farmer"
+      ],
+      "criterion": {
+        "criterion_id": "beginning-farmer-operation-years",
+        "attribute": "years_farming",
+        "operator": "lte",
+        "value": 10
+      },
+      "description": "FSA describes beginning-farmer classification for producers in their first 10 years of operation. This is a program classification and funding context, not a loan approval or complete loan-eligibility determination.",
+      "source_limitations": [
+        "Loan repayment, collateral, credit review, funding, and local officer review are not established by this source record.",
+        "No publisher effective date is available on the reviewed page."
+      ]
+    },
+    {
+      "source_id": "missouri.dss.snap",
+      "dataset_id": "missouri-dss-snap-guidance",
+      "source_dataset_id": "missouri-snap-guidance",
+      "url": "https://dss.mo.gov/food-assistance/apply-for-snap",
+      "agency": "Missouri Department of Social Services",
+      "expected_title": "Apply for SNAP",
+      "program_title": "Missouri SNAP application guidance",
+      "navigator": "low_income_assistance",
+      "program_id": "missouri-snap",
+      "jurisdiction": {
+        "level": "state",
+        "country_code": "US",
+        "state_code": "MO"
+      },
+      "required_text": [
+        "live in missouri",
+        "current income limit"
+      ],
+      "criterion": {
+        "criterion_id": "missouri-residency",
+        "attribute": "state_code",
+        "operator": "eq",
+        "value": "MO"
+      },
+      "description": "Missouri DSS states that a SNAP applicant must live in Missouri and refers applicants to the current income limit. This record carries the jurisdiction criterion only and is not a complete SNAP screening rule.",
+      "source_limitations": [
+        "Income thresholds are excluded because the current DSS chart has unresolved inconsistent rows recorded in the source review.",
+        "Household resource, citizenship/identity, and case-specific conditions require additional current agency guidance and are not complete here.",
+        "No publisher effective date is available on this page."
+      ]
+    },
+    {
+      "source_id": "kansas.dcf.food-assistance-residency",
+      "dataset_id": "kansas-dcf-snap-residency-guidance",
+      "source_dataset_id": "kansas-snap-residency-v1",
+      "url": "https://content.dcf.ks.gov/ees/KEESM/current/keesm2150.htm",
+      "agency": "Kansas Department for Children and Families",
+      "expected_title": "Kansas Economic and Employment Services Manual",
+      "program_title": "Kansas Food Assistance residency guidance (partial criteria)",
+      "navigator": "low_income_assistance",
+      "program_id": "kansas-snap-residency",
+      "jurisdiction": {
+        "level": "state",
+        "country_code": "US",
+        "state_code": "KS"
+      },
+      "required_text": [
+        "for the food assistance program",
+        "individuals must live in the state"
+      ],
+      "criterion": {
+        "criterion_id": "kansas-snap-residency",
+        "attribute": "state_code",
+        "operator": "eq",
+        "value": "KS"
+      },
+      "description": "Kansas DCF states that Food Assistance applicants must live in Kansas. This catalog record supports jurisdiction routing only; it is not an income, resource, household, or complete SNAP eligibility rule.",
+      "source_limitations": [
+        "Only the Food Assistance residency statement in section 2150 is projected into this record; other manual content, including case and interstate-system procedures, is not ingested.",
+        "Income and resource thresholds are not included and require a separate current-source review.",
+        "The page is a current manual section with a publisher revision marker; recheck its version and content before each operator-triggered ingestion.",
+        "No source-specific reuse license was identified; use only this attributed public fact and do not infer blanket reuse permission."
+      ]
+    }
+  ]
+}

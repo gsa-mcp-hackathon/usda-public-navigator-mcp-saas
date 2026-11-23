@@ -1,0 +1,30 @@
+{
+  "registry_id": "eligibility-requirements-package-read-request-v2-schema",
+  "schema_version": "eligibility-requirements-package-read-request-v2",
+  "namespaces": {
+    "requirements": "Saved package read request"
+  },
+  "dimensions": {
+    "requirements.package": "Saved package identifier",
+    "requirements.profile": "Synthetic profile scope"
+  },
+  "attributes": {
+    "requirements.package_id": {
+      "dimension_id": "requirements.package",
+      "type": "string",
+      "format": "uuid"
+    },
+    "requirements.profile_id": {
+      "dimension_id": "requirements.profile",
+      "type": "string",
+      "pattern": "^(?:demo|synthetic)-"
+    },
+    "requirements.profile_ref": {
+      "dimension_id": "requirements.profile",
+      "type": "string",
+      "min_length": 1,
+      "max_length": 2048
+    }
+  },
+  "description": "List or read saved packages within active tenant and session profile scope."
+}

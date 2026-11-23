@@ -1,0 +1,250 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "us.va.public-benefits",
+    "retrieved_at": "2026-11-09T04:51:31.259814Z",
+    "publisher_version": "VA.gov Aid and Attendance/Housebound page; last updated 2026-05-08.",
+    "source_content_sha256": "6508d089fcf5f5543b15ae2ee78a299791f9191910844f0aa968967b6be2a1aa",
+    "raw_source_documents_committed": false,
+    "access_method": "Exact-policy MCP source read; fetched text remained transient and untrusted."
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "us.va.public-benefits",
+      "source_name": "U.S. Department of Veterans Affairs benefits and caregiver programs",
+      "source_url": "https://www.va.gov/family-and-caregiver-benefits/health-and-disability/comprehensive-assistance-for-family-caregivers/",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "federal",
+          "owner_name": "U.S. Department of Veterans Affairs",
+          "verification_status": "verified",
+          "evidence_url": "https://www.va.gov/pension/aid-attendance-housebound/"
+        },
+        "content_type": "public_program_guidance_and_partial_criteria",
+        "retrieval_mode": "operator_triggered",
+        "scheduled_refresh": false
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "va-aid-attendance-mapped-criteria",
+        "source_dataset_id": "VA Aid and Attendance mapped partial criteria snapshot",
+        "title": "VA Aid and Attendance partial mapped criteria",
+        "landing_page": "https://www.va.gov/pension/aid-attendance-housebound/",
+        "schema_version": "eligibility-program-v4",
+        "namespace_ids": [
+          "core",
+          "eligibility"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "partial",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "eligibility": "eligibility-program-schema"
+          },
+          "schema_versions": {
+            "core": "core-v3",
+            "eligibility": "eligibility-program-v4"
+          },
+          "content_type": "approved_partial_mapped_eligibility_criteria",
+          "published_criteria_available": true,
+          "criteria_mapping_status": "partial",
+          "refresh_mode": "operator_triggered",
+          "maximum_records_total": 1
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "va-aid-attendance-mapped-criteria",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "sha256:6508d089fcf5f5543b15ae2ee78a299791f9191910844f0aa968967b6be2a1aa",
+        "retrieved_at": "2026-11-09T04:51:31.259814Z",
+        "transform_version": "va-aid-attendance-mapped-criteria-v2",
+        "validation_outcome": "valid",
+        "detail": "Two mapped criteria and six source-cited application details from the VA Aid and Attendance page; other VA eligibility conditions remain unresolved.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "va-aid-attendance-housebound",
+            "record_type": "eligibility_program",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "va-aid-attendance-housebound",
+              "eligibility.program.catalog_version": "va-aid-attendance-reviewed-2026-11-03",
+              "eligibility.program.navigator": "senior_caregiver",
+              "eligibility.program.data_origin": "public_source",
+              "eligibility.program.title": "VA Aid and Attendance and Housebound allowance (partial screening criteria)",
+              "eligibility.program.description": "Partial screening of the published VA pension prerequisite and Aid and Attendance daily-assistance condition. Other Aid and Attendance alternatives, Housebound conditions, and VA adjudication are not evaluated.",
+              "eligibility.program.criteria": [
+                {
+                  "criterion_id": "va-pension-prerequisite",
+                  "attribute": "core.person.va_pension_status",
+                  "operator": "eq",
+                  "value": "receiving",
+                  "source_id": "us.va.public-benefits"
+                },
+                {
+                  "criterion_id": "va-aid-attendance-daily-assistance",
+                  "attribute": "core.person.daily_care_need",
+                  "operator": "eq",
+                  "value": true,
+                  "source_id": "us.va.public-benefits"
+                }
+              ],
+              "core.geography.country_code": "US",
+              "core.geography.jurisdiction_level": "federal",
+              "eligibility.program.details": [
+                {
+                  "kind": "application_step",
+                  "text": "You can apply for VA Aid and Attendance or Housebound benefits online, by mail, or in person.",
+                  "source_id": "us.va.public-benefits"
+                },
+                {
+                  "kind": "form",
+                  "text": "If you are in a nursing home, also fill out VA Form 21-0779, Request for Nursing Home Information in Connection with Claim for Aid and Attendance.",
+                  "source_id": "us.va.public-benefits"
+                },
+                {
+                  "kind": "form",
+                  "text": "For a mail application, fill out VA Form 21-2680, Examination for Housebound Status or Permanent Need for Regular Aid and Attendance.",
+                  "source_id": "us.va.public-benefits"
+                },
+                {
+                  "kind": "application_step",
+                  "text": "A medical examiner must fill out the examination information section for an online or mail application.",
+                  "source_id": "us.va.public-benefits"
+                },
+                {
+                  "kind": "application_step",
+                  "text": "Mail the completed form to the Department of Veterans Affairs Pension Intake Center, PO Box 5365, Janesville, WI 53547-5365.",
+                  "source_id": "us.va.public-benefits"
+                },
+                {
+                  "kind": "application_step",
+                  "text": "For an in-person application, bring your information to a nearby VA regional office.",
+                  "source_id": "us.va.public-benefits"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              },
+              "criteria_mapping_review": {
+                "reviewed_at": "2026-11-03T19:49:50Z",
+                "source_content_sha256": "5718b8d7fdebc049383aea336f75c199b9fb75ce829aa56bbafa320f01d9c385",
+                "mapped_requirement_ids": [
+                  "va-pension-prerequisite",
+                  "aid-attendance-alternative-1"
+                ],
+                "unresolved_requirement_ids": [
+                  "aid-attendance-alternative-2",
+                  "aid-attendance-alternative-3",
+                  "aid-attendance-alternative-4",
+                  "housebound-criterion",
+                  "mutually-exclusive-allowances"
+                ]
+              }
+            },
+            "source_metadata": {
+              "source_id": "us.va.public-benefits",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "source_title": "Aid and Attendance benefits and Housebound allowance",
+              "publisher": "U.S. Department of Veterans Affairs",
+              "source_version": "sha256:6508d089fcf5f5543b15ae2ee78a299791f9191910844f0aa968967b6be2a1aa",
+              "source_content_sha256": "6508d089fcf5f5543b15ae2ee78a299791f9191910844f0aa968967b6be2a1aa",
+              "retrieved_at": "2026-11-09T04:51:31.259814Z",
+              "effective_date": null,
+              "transform_version": "va-aid-attendance-mapped-criteria-v2",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://www.va.gov/pension/aid-attendance-housebound/",
+                  "observed_at": "2026-11-03T19:49:50Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://www.va.gov/pension/aid-attendance-housebound/",
+                  "observed_at": "2026-11-03T19:49:50Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.navigator": {
+                  "source_url": "https://www.va.gov/pension/aid-attendance-housebound/",
+                  "observed_at": "2026-11-03T19:49:50Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://www.va.gov/pension/aid-attendance-housebound/",
+                  "observed_at": "2026-11-03T19:49:50Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://www.va.gov/pension/aid-attendance-housebound/",
+                  "observed_at": "2026-11-03T19:49:50Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://www.va.gov/pension/aid-attendance-housebound/",
+                  "observed_at": "2026-11-03T19:49:50Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.criteria": {
+                  "source_url": "https://www.va.gov/pension/aid-attendance-housebound/",
+                  "observed_at": "2026-11-03T19:49:50Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.va.gov/pension/aid-attendance-housebound/",
+                  "observed_at": "2026-11-03T19:49:50Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.va.gov/pension/aid-attendance-housebound/",
+                  "observed_at": "2026-11-03T19:49:50Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.details": {
+                  "source_url": "https://www.va.gov/pension/aid-attendance-housebound/",
+                  "observed_at": "2026-11-09T04:51:31.259814Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false,
+              "criteria_coverage": "partial",
+              "limitations": [
+                "This record compares only VA pension receipt and the daily-assistance condition.",
+                "The other Aid and Attendance alternatives (bed rest, nursing-home status, and eyesight thresholds) are not evaluated.",
+                "Housebound permanence/time-at-home conditions and mutually exclusive allowances are not evaluated.",
+                "VA adjudicates complete eligibility; this screening output is not a determination."
+              ],
+              "content_hash": "d49ba279646e39e4edeb1a2ce7aae4a30276bfee25e880a31773084029ec5efb"
+            },
+            "source_url": "https://www.va.gov/pension/aid-attendance-housebound/",
+            "schema_version": "eligibility-program-v4",
+            "observed_at": "2026-11-09T04:51:31.259814Z",
+            "content_hash": "d49ba279646e39e4edeb1a2ce7aae4a30276bfee25e880a31773084029ec5efb"
+          }
+        ]
+      }
+    }
+  ],
+  "limits": [
+    "This record compares only VA pension receipt and the daily-assistance condition.",
+    "The other Aid and Attendance alternatives (bed rest, nursing-home status, and eyesight thresholds) are not evaluated.",
+    "Housebound permanence/time-at-home conditions and mutually exclusive allowances are not evaluated.",
+    "VA adjudicates complete eligibility; this screening output is not a determination."
+  ]
+}

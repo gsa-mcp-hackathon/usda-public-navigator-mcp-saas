@@ -1,0 +1,62 @@
+{
+  "registry_id": "eligibility-program-normalized-criteria-extraction-request-schema",
+  "schema_version": "program-criteria-normalized-extraction-v3",
+  "namespaces": {
+    "source": "Public source identity, version, and retrieval evidence",
+    "criteria": "Normalized criteria and published-requirement clauses passed as JSON objects for review-only extraction"
+  },
+  "dimensions": {
+    "source.provenance": "Source and record identifiers used to preserve citations",
+    "criteria.clauses": "Bounded normalized source clauses projected as review candidates"
+  },
+  "attributes": {
+    "source.id": {
+      "dimension_id": "source.provenance",
+      "type": "string"
+    },
+    "source.record_id": {
+      "dimension_id": "source.provenance",
+      "type": "string"
+    },
+    "source.version": {
+      "dimension_id": "source.provenance",
+      "type": "string",
+      "max_length": 500
+    },
+    "source.url": {
+      "dimension_id": "source.provenance",
+      "type": "string",
+      "pattern": "^https://"
+    },
+    "source.retrieved_at": {
+      "dimension_id": "source.provenance",
+      "type": "string"
+    },
+    "source.content_sha256": {
+      "dimension_id": "source.provenance",
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    },
+    "source.locator": {
+      "dimension_id": "source.provenance",
+      "type": "string"
+    },
+    "criteria.clauses": {
+      "dimension_id": "criteria.clauses",
+      "type": "array<object>",
+      "max_items": 100
+    },
+    "source.visible_text_sha256": {
+      "dimension_id": "source.provenance",
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    }
+  },
+  "relationships": {
+    "criteria.clauses.cite_source": {
+      "source_dimension": "criteria.clauses",
+      "target_dimension": "source.provenance",
+      "cardinality": "many_to_one"
+    }
+  }
+}

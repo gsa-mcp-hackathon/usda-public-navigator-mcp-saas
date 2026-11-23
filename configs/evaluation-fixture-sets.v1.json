@@ -1,0 +1,15 @@
+{
+  "manifest_version": "1.0.0",
+  "fixture_sets": [
+    {
+      "fixture_set_id": "phase-ab",
+      "fixture_set_version": "1.0.0",
+      "description": "Approved synthetic profile fixtures for repeatable agent tests. Evaluator outcomes are held separately.",
+      "allowed_use_case_ids": [
+        "farmer_producer",
+        "low_income_assistance",
+        "senior_caregiver"
+      ]
+    }
+  ]
+}

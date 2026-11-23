@@ -1,0 +1,278 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "missouri.dese.child-care-subsidy",
+    "reviewed_at": "2026-11-10T02:34:59.916718+00:00",
+    "publisher_version": "sha256:25fc58e541edae1df604c65f4972385b6774d8356b80debe824928c620c49fbc",
+    "source_content_sha256": "25fc58e541edae1df604c65f4972385b6774d8356b80debe824928c620c49fbc",
+    "raw_source_documents_committed": false,
+    "access_method": "Exact-policy MCP source read; fetched text remained transient and untrusted.",
+    "source_record_id": "source-page-37a0c7616c5aaddbbe10",
+    "source_visible_text_sha256": "2c2d61a566cff87d8af847a7bdcd646ec2725fecf64ed2d074d2ae90306978e6",
+    "source_policy_reference": {
+      "policy_id": "eligibility-public-search-domains",
+      "policy_version": "1.2.4",
+      "content_sha256": "a78aff8eff8fd47d04481602684cdcdc6e55bd80e16458e32c270adbb6e22e24"
+    }
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "missouri.dese.child-care-subsidy",
+      "source_name": "Missouri Department of Elementary and Secondary Education Child Care Subsidy",
+      "source_url": "https://dese.mo.gov/childhood/child-care-subsidy/families",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "state",
+          "owner_name": "Missouri Department of Elementary and Secondary Education",
+          "verification_status": "verified",
+          "evidence_url": "https://dese.mo.gov/childhood/child-care-subsidy/families"
+        },
+        "approved_scope": "One partial Missouri Child Care Subsidy mapping limited to the family page's child birth-to-age-13 clause, listed qualifying activities, and need for child care for the activity. Special-needs/protective-services exceptions remain unmapped pending a controlling policy crosswalk; the income condition, local availability, and other case-specific conditions are unresolved.",
+        "refresh_mode": "operator_triggered"
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "missouri-dese-child-care-subsidy-mapped-criteria",
+        "source_dataset_id": "Missouri DESE Child Care Subsidy child, activity, and care-need mapping",
+        "title": "Missouri Child Care Subsidy partial mapped child and qualifying-need criteria",
+        "landing_page": "https://dese.mo.gov/childhood/child-care-subsidy/families",
+        "schema_version": "eligibility-program-v2",
+        "namespace_ids": [
+          "core",
+          "eligibility"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "partial",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "eligibility": "eligibility-program-schema"
+          },
+          "schema_versions": {
+            "core": "core-v4",
+            "eligibility": "eligibility-program-v2"
+          },
+          "content_type": "approved_partial_mapped_eligibility_criteria",
+          "published_criteria_available": true,
+          "criteria_mapping_status": "partial",
+          "effective_period": "No effective date stated on reviewed page",
+          "refresh_mode": "operator_triggered",
+          "maximum_records_total": 1,
+          "criteria_profile_schema_refs": [
+            {
+              "registry_id": "core-schema-registry",
+              "schema_version": "core-v4"
+            },
+            {
+              "registry_id": "eligibility-profile-extension-schema",
+              "schema_version": "eligibility-profile-v1"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "missouri-dese-child-care-subsidy-mapped-criteria",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "sha256:25fc58e541edae1df604c65f4972385b6774d8356b80debe824928c620c49fbc",
+        "retrieved_at": "2026-11-10T02:34:59.916718+00:00",
+        "transform_version": "missouri-child-care-typed-criteria-map-v2",
+        "validation_outcome": "valid",
+        "detail": "Separate one-record partial mapping of the exact family-page age and qualifying-need clauses; preserves the listing record and leaves exception pathways, income, and local availability unresolved.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "missouri-child-care-subsidy",
+            "record_type": "eligibility_program",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "missouri-child-care-subsidy",
+              "eligibility.program.catalog_version": "dese-childcare-mapped-criteria-2026-11-09",
+              "eligibility.program.navigator": "low_income_assistance",
+              "eligibility.program.data_origin": "public_source",
+              "eligibility.program.title": "Missouri Child Care Subsidy partial child qualification and qualifying-need screen",
+              "eligibility.program.description": "Compares only the page-supported child age-through-13 clause, a listed qualifying activity, and whether child care is needed for that activity. Special-needs and protective-services exceptions, income, local availability, and other case-specific conditions remain unresolved.",
+              "eligibility.program.criteria": [
+                {
+                  "criterion_id": "mo-childcare-child-age-at-most-13",
+                  "attribute": "mo.dese.childcare.child_age_years",
+                  "operator": "lte",
+                  "value": 13,
+                  "source_id": "missouri.dese.child-care-subsidy"
+                },
+                {
+                  "criterion_id": "mo-childcare-qualifying-activity",
+                  "attribute": "mo.dese.childcare.qualifying_activity",
+                  "operator": "one_of",
+                  "value": [
+                    "work",
+                    "job_search",
+                    "job_training",
+                    "school"
+                  ],
+                  "source_id": "missouri.dese.child-care-subsidy"
+                },
+                {
+                  "criterion_id": "mo-childcare-care-needed-for-qualifying-activity",
+                  "attribute": "mo.dese.childcare.care_needed_for_qualifying_activity",
+                  "operator": "eq",
+                  "value": true,
+                  "source_id": "missouri.dese.child-care-subsidy"
+                }
+              ],
+              "core.geography.country_code": "US",
+              "core.geography.jurisdiction_level": "state",
+              "core.geography.state_code": "MO"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "state",
+                "country_code": "US",
+                "state_code": "MO"
+              },
+              "criteria_mapping_review": {
+                "reviewed_at": "2026-11-10T02:34:59.916718+00:00",
+                "source_content_sha256": "25fc58e541edae1df604c65f4972385b6774d8356b80debe824928c620c49fbc",
+                "mapped_requirement_ids": [
+                  "mo-childcare-child-age-at-most-13",
+                  "mo-childcare-qualifying-activity",
+                  "mo-childcare-care-needed-for-qualifying-activity"
+                ],
+                "unresolved_requirement_ids": [
+                  "mo-childcare-special-needs-exception",
+                  "mo-childcare-protective-services-exception",
+                  "mo-childcare-income-at-or-below-150-percent-fpl",
+                  "local-enrollment-and-availability",
+                  "additional-application-and-case-specific-conditions"
+                ],
+                "source_record_id": "source-page-37a0c7616c5aaddbbe10",
+                "source_visible_text_sha256": "2c2d61a566cff87d8af847a7bdcd646ec2725fecf64ed2d074d2ae90306978e6",
+                "source_policy_reference": {
+                  "policy_id": "eligibility-public-search-domains",
+                  "policy_version": "1.2.4",
+                  "content_sha256": "a78aff8eff8fd47d04481602684cdcdc6e55bd80e16458e32c270adbb6e22e24"
+                },
+                "citations": [
+                  {
+                    "requirement_id": "mo-childcare-child-age-at-most-13",
+                    "source_id": "missouri.dese.child-care-subsidy",
+                    "source_url": "https://dese.mo.gov/childhood/child-care-subsidy/families",
+                    "excerpt": "Have a child birth to age 13"
+                  },
+                  {
+                    "requirement_id": "mo-childcare-qualifying-activity",
+                    "source_id": "missouri.dese.child-care-subsidy",
+                    "source_url": "https://dese.mo.gov/childhood/child-care-subsidy/families",
+                    "excerpt": "work, search for work, participate in job training, or attend school"
+                  },
+                  {
+                    "requirement_id": "mo-childcare-care-needed-for-qualifying-activity",
+                    "source_id": "missouri.dese.child-care-subsidy",
+                    "source_url": "https://dese.mo.gov/childhood/child-care-subsidy/families",
+                    "excerpt": "Need child care to"
+                  }
+                ]
+              }
+            },
+            "source_metadata": {
+              "source_id": "missouri.dese.child-care-subsidy",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "source_title": "Child Care Subsidy Information for Families",
+              "publisher": "Missouri Department of Elementary and Secondary Education",
+              "source_version": "sha256:25fc58e541edae1df604c65f4972385b6774d8356b80debe824928c620c49fbc",
+              "source_content_sha256": "25fc58e541edae1df604c65f4972385b6774d8356b80debe824928c620c49fbc",
+              "retrieved_at": "2026-11-10T02:34:59.916718+00:00",
+              "effective_at": null,
+              "transform_version": "missouri-child-care-typed-criteria-map-v2",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://dese.mo.gov/childhood/child-care-subsidy/families",
+                  "observed_at": "2026-11-10T02:34:59.916718+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://dese.mo.gov/childhood/child-care-subsidy/families",
+                  "observed_at": "2026-11-10T02:34:59.916718+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.navigator": {
+                  "source_url": "https://dese.mo.gov/childhood/child-care-subsidy/families",
+                  "observed_at": "2026-11-10T02:34:59.916718+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://dese.mo.gov/childhood/child-care-subsidy/families",
+                  "observed_at": "2026-11-10T02:34:59.916718+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://dese.mo.gov/childhood/child-care-subsidy/families",
+                  "observed_at": "2026-11-10T02:34:59.916718+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://dese.mo.gov/childhood/child-care-subsidy/families",
+                  "observed_at": "2026-11-10T02:34:59.916718+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.criteria": {
+                  "source_url": "https://dese.mo.gov/childhood/child-care-subsidy/families",
+                  "observed_at": "2026-11-10T02:34:59.916718+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://dese.mo.gov/childhood/child-care-subsidy/families",
+                  "observed_at": "2026-11-10T02:34:59.916718+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://dese.mo.gov/childhood/child-care-subsidy/families",
+                  "observed_at": "2026-11-10T02:34:59.916718+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.state_code": {
+                  "source_url": "https://dese.mo.gov/childhood/child-care-subsidy/families",
+                  "observed_at": "2026-11-10T02:34:59.916718+00:00",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false,
+              "criteria_coverage": "partial",
+              "limitations": [
+                "Only the family page's child birth-to-age-13 clause is mapped; special-needs and protective-services exception pathways remain unmapped pending a controlling policy crosswalk.",
+                "Listed activities are work, job search, job training, and school; the profile must also state that child care is needed for the activity.",
+                "The 150% FPL income condition is not evaluated because its controlling policy version, income basis, and household-size thresholds are unresolved.",
+                "Local service availability and additional case-specific conditions remain unresolved.",
+                "A mapped outcome is a partial screening comparison, not a Missouri DESE eligibility decision or application result."
+              ],
+              "source_record_id": "source-page-37a0c7616c5aaddbbe10",
+              "source_visible_text_sha256": "2c2d61a566cff87d8af847a7bdcd646ec2725fecf64ed2d074d2ae90306978e6",
+              "source_policy_reference": {
+                "policy_id": "eligibility-public-search-domains",
+                "policy_version": "1.2.4",
+                "content_sha256": "a78aff8eff8fd47d04481602684cdcdc6e55bd80e16458e32c270adbb6e22e24"
+              }
+            },
+            "source_url": "https://dese.mo.gov/childhood/child-care-subsidy/families",
+            "content_hash": "8a32aceb584b273620349f71c1452e175dfda05d8859cdffafca7764cc5ea5d1",
+            "schema_version": "eligibility-program-v2",
+            "observed_at": "2026-11-10T02:34:59.916718+00:00"
+          }
+        ]
+      }
+    }
+  ]
+}

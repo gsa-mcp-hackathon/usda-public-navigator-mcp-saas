@@ -1,0 +1,1512 @@
+{
+  "run_id": "R20261121-161343",
+  "suite_status": {
+    "S01": "PASS",
+    "S02": "PASS",
+    "S03": "PASS",
+    "S04": "PASS",
+    "S05": "PASS",
+    "S08": "PASS",
+    "S11": "PASS"
+  },
+  "records": [
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "current Core tool surface includes the required discovery and profile tools",
+          "passed": true,
+          "observed": "[\"read_core_workflow\", \"route_operation\", \"get_fleet_operations_report\", \"read_profile\", \"create_profile_resume_claim\", \"resume_profile\", \"revoke_profile_resume"
+        }
+      ],
+      "suite": "S01",
+      "test": "S01-T01",
+      "title": "Tool list exposes required Core read and dispatch tools",
+      "defect_ref": null,
+      "latency_ms": 614,
+      "attempts": 1,
+      "gate": true
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "status eq",
+          "passed": true,
+          "observed": "available"
+        },
+        {
+          "check": "bootstrap.first_step eq",
+          "passed": true,
+          "observed": "describe_core_capabilities"
+        }
+      ],
+      "suite": "S01",
+      "test": "S01-T02",
+      "title": "Capability map is available",
+      "defect_ref": null,
+      "latency_ms": 2420,
+      "attempts": 1,
+      "gate": true
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "endpoint_urls_exposed eq",
+          "passed": true,
+          "observed": "false"
+        }
+      ],
+      "suite": "S01",
+      "test": "S01-T03",
+      "title": "Private endpoints are not exposed",
+      "defect_ref": null,
+      "latency_ms": 908,
+      "attempts": 1,
+      "gate": true
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "route_registry.status eq",
+          "passed": true,
+          "observed": "available"
+        },
+        {
+          "check": "cluster_registry.status eq",
+          "passed": true,
+          "observed": "available"
+        },
+        {
+          "check": "tenant_registry.status eq",
+          "passed": true,
+          "observed": "available"
+        }
+      ],
+      "suite": "S01",
+      "test": "S01-T04",
+      "title": "Route, template and tenant registries are available",
+      "defect_ref": null,
+      "latency_ms": 859,
+      "attempts": 1,
+      "gate": true
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "bootstrap.operator_workflows contains_all",
+          "passed": true,
+          "observed": "[\"pattern_template_definition\", \"tenant_onboarding_interview\", \"tenant_lifecycle_governance\", \"source_policy_candidate_review\", \"program_candidate_registration\""
+        },
+        {
+          "check": "bootstrap.client_workflows contains_all",
+          "passed": true,
+          "observed": "[\"profile_capture\", \"profile_resume_and_saved_interests\", \"progressive_program_discovery\", \"source_backed_program_criteria_preparation\", \"navigator_discovery_th"
+        }
+      ],
+      "suite": "S01",
+      "test": "S01-T05",
+      "title": "Operator and client workflows are published",
+      "defect_ref": null,
+      "latency_ms": 856,
+      "attempts": 1,
+      "gate": true
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "workflow.workflow_version exists",
+          "passed": true,
+          "observed": "1.1.0"
+        },
+        {
+          "check": "workflow.starting_inputs.profile_required eq",
+          "passed": true,
+          "observed": "false"
+        },
+        {
+          "check": "workflow.operations.search_shared_inventory.read_only eq",
+          "passed": true,
+          "observed": "true"
+        },
+        {
+          "check": "workflow.operations.search_external_leads.profile_access_required eq",
+          "passed": true,
+          "observed": "false"
+        }
+      ],
+      "suite": "S01",
+      "test": "S01-T06",
+      "title": "Progressive discovery workflow resolves end-user path without required profile",
+      "defect_ref": null,
+      "latency_ms": 522,
+      "attempts": 1,
+      "gate": true
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "status eq",
+          "passed": true,
+          "observed": "operator_authorization_required"
+        }
+      ],
+      "suite": "S02",
+      "test": "S02-T01",
+      "title": "Fleet report without credential is refused",
+      "defect_ref": null,
+      "latency_ms": 448,
+      "attempts": 1,
+      "gate": true
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "status eq",
+          "passed": true,
+          "observed": "operator_authorization_required"
+        }
+      ],
+      "suite": "S02",
+      "test": "S02-T02",
+      "title": "Fleet report with a wrong credential is refused",
+      "defect_ref": null,
+      "latency_ms": 478,
+      "attempts": 1,
+      "gate": true
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "status eq",
+          "passed": true,
+          "observed": "profile_not_found_in_scope"
+        }
+      ],
+      "suite": "S02",
+      "test": "S02-T03",
+      "title": "Profile read without credential returns nothing (not found in scope)",
+      "defect_ref": null,
+      "latency_ms": 489,
+      "attempts": 1,
+      "gate": true
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "status eq",
+          "passed": true,
+          "observed": "operator_authorization_required"
+        }
+      ],
+      "suite": "S02",
+      "test": "S02-T04",
+      "title": "Evaluation fixture inventory without credential is refused",
+      "defect_ref": null,
+      "latency_ms": 457,
+      "attempts": 1,
+      "gate": true
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "status eq",
+          "passed": true,
+          "observed": "operator_authorization_required"
+        }
+      ],
+      "suite": "S02",
+      "test": "S02-T05",
+      "title": "Evaluation fixture read without credential is refused",
+      "defect_ref": null,
+      "latency_ms": 463,
+      "attempts": 1,
+      "gate": true
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "status ne",
+          "passed": true,
+          "observed": "available"
+        }
+      ],
+      "suite": "S02",
+      "test": "S02-T06",
+      "title": "Fleet report with the valid credential passes authorization",
+      "defect_ref": null,
+      "latency_ms": 633,
+      "attempts": 1,
+      "gate": true
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "active_count eq",
+          "passed": true,
+          "observed": "1"
+        },
+        {
+          "check": "template_version exists",
+          "passed": true,
+          "observed": "0.1.48"
+        }
+      ],
+      "suite": "S03",
+      "test": "S03-T00",
+      "title": "Exactly one active eligibility-demo tenant binding; capture its template version",
+      "defect_ref": null,
+      "latency_ms": 1793,
+      "attempts": 1,
+      "gate": true
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "lifecycle_state eq",
+          "passed": true,
+          "observed": "active"
+        },
+        {
+          "check": "descriptor_sha256 exists",
+          "passed": true,
+          "observed": "87bd8b721eee9f1f97922a2383f298b4060c352e341d62492b834a2d8db5c937"
+        }
+      ],
+      "suite": "S03",
+      "test": "S03-T01",
+      "title": "Eligibility template the active tenant version is active",
+      "defect_ref": null,
+      "latency_ms": 2596,
+      "attempts": 1,
+      "gate": true
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "status eq",
+          "passed": true,
+          "observed": "available"
+        },
+        {
+          "check": "tenant.tenant_id eq",
+          "passed": true,
+          "observed": "eligibility-demo"
+        },
+        {
+          "check": "tenant.lifecycle_state eq",
+          "passed": true,
+          "observed": "active"
+        },
+        {
+          "check": "tenant.template_version eq",
+          "passed": true,
+          "observed": "0.1.48"
+        },
+        {
+          "check": "the four approved federal and state sources are bound",
+          "passed": true,
+          "observed": "[\"grants-gov-current-opportunities\", \"kansas-dcf-snap-residency-guidance\", \"missouri-dss-snap-guidance\", \"usda-fsa-beginning-farmers-guidance\"]"
+        }
+      ],
+      "suite": "S03",
+      "test": "S03-T02",
+      "title": "Tenant eligibility-demo is active on the active tenant version with the four bound sources",
+      "defect_ref": null,
+      "latency_ms": 612,
+      "attempts": 1,
+      "gate": true
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "route_id exists",
+          "passed": true,
+          "observed": "eligibility-demo"
+        },
+        {
+          "check": "operations contains_all",
+          "passed": true,
+          "observed": "[\"program.candidate.requirements.enrich\", \"program.candidate.requirements.list\", \"program.candidate.requirements.read\", \"program.candidate.requirements.write\", "
+        }
+      ],
+      "suite": "S03",
+      "test": "S03-T03",
+      "title": "Tenant route found for eligibility-demo",
+      "defect_ref": null,
+      "latency_ms": 1928,
+      "attempts": 1,
+      "gate": true
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "no declared operation without a tenant route",
+          "passed": true,
+          "observed": "[]"
+        }
+      ],
+      "suite": "S03",
+      "test": "S03-T04",
+      "title": "Every operation published by the tenant binding is routed",
+      "defect_ref": null,
+      "latency_ms": 1926,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "no active template without input schemas",
+          "passed": true,
+          "observed": "[]"
+        }
+      ],
+      "suite": "S03",
+      "test": "S03-T05",
+      "title": "Every active template has a declared input schema reference",
+      "defect_ref": null,
+      "latency_ms": 1637,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "no legacy tenantless discover/evaluate route remains",
+          "passed": true,
+          "observed": "[]"
+        }
+      ],
+      "suite": "S03",
+      "test": "S03-T06",
+      "title": "Legacy tenantless discover/evaluate routes are retired",
+      "defect_ref": null,
+      "latency_ms": 1625,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "status eq",
+          "passed": true,
+          "observed": "available"
+        }
+      ],
+      "suite": "S03",
+      "test": "S03-T07",
+      "title": "Active inventory-search schema (V3) resolves through the live schema registry",
+      "defect_ref": null,
+      "latency_ms": 536,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "older shared inventory route versions are not advertised",
+          "passed": true,
+          "observed": "len=1"
+        },
+        {
+          "check": "the current inventory route remains selectable",
+          "passed": true,
+          "observed": "[\"eligibility\"]"
+        }
+      ],
+      "suite": "S03",
+      "test": "S03-T08",
+      "title": "Only the current inventory-search route version is active",
+      "defect_ref": null,
+      "latency_ms": 1669,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "status eq",
+          "passed": true,
+          "observed": "available"
+        },
+        {
+          "check": "metadata_status eq",
+          "passed": true,
+          "observed": "available"
+        },
+        {
+          "check": "source_health eq",
+          "passed": true,
+          "observed": "not_assessed"
+        }
+      ],
+      "suite": "S03",
+      "test": "S03-T09",
+      "title": "Bound source metadata is readable: grants.gov.opportunities",
+      "defect_ref": null,
+      "latency_ms": 576,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "status eq",
+          "passed": true,
+          "observed": "available"
+        },
+        {
+          "check": "metadata_status eq",
+          "passed": true,
+          "observed": "available"
+        },
+        {
+          "check": "source_health eq",
+          "passed": true,
+          "observed": "not_assessed"
+        }
+      ],
+      "suite": "S03",
+      "test": "S03-T10",
+      "title": "Bound source metadata is readable: kansas.dcf.food-assistance-residency",
+      "defect_ref": null,
+      "latency_ms": 559,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "status eq",
+          "passed": true,
+          "observed": "available"
+        },
+        {
+          "check": "metadata_status eq",
+          "passed": true,
+          "observed": "available"
+        },
+        {
+          "check": "source_health eq",
+          "passed": true,
+          "observed": "not_assessed"
+        }
+      ],
+      "suite": "S03",
+      "test": "S03-T11",
+      "title": "Bound source metadata is readable: missouri.dss.snap",
+      "defect_ref": null,
+      "latency_ms": 525,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "status eq",
+          "passed": true,
+          "observed": "available"
+        },
+        {
+          "check": "metadata_status eq",
+          "passed": true,
+          "observed": "available"
+        },
+        {
+          "check": "source_health eq",
+          "passed": true,
+          "observed": "not_assessed"
+        }
+      ],
+      "suite": "S03",
+      "test": "S03-T12",
+      "title": "Bound source metadata is readable: usda.fsa.beginning-farmers",
+      "defect_ref": null,
+      "latency_ms": 560,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "status eq",
+          "passed": true,
+          "observed": "ok"
+        },
+        {
+          "check": "result.status eq",
+          "passed": true,
+          "observed": "preview"
+        },
+        {
+          "check": "result.written eq",
+          "passed": true,
+          "observed": "false"
+        },
+        {
+          "check": "result.package exists",
+          "passed": true,
+          "observed": "{\"contract_version\": \"eligibility-requirements-package-v2\", \"package_id\": \"5649e540-c022-5b05-897c-6963f75250db\", \"tenant_id\": \"eligibility-demo\", \"cluster_id\":"
+        }
+      ],
+      "suite": "S03",
+      "test": "S03-T13",
+      "title": "Source-grounded requirements preview returns without writing",
+      "defect_ref": null,
+      "latency_ms": 6412,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "status eq",
+          "passed": true,
+          "observed": "available"
+        },
+        {
+          "check": "template.operations[*].operation_id contains_all",
+          "passed": true,
+          "observed": "[\"program.inventory.search\", \"program.discover\", \"program.evaluate\", \"program.results\", \"program.requirements.preview\", \"program.requirements.write\", \"program.d"
+        }
+      ],
+      "suite": "S03",
+      "test": "S03-T14",
+      "title": "Exact Eligibility cluster capability publishes the five tenant operations",
+      "defect_ref": null,
+      "latency_ms": 695,
+      "attempts": 1,
+      "gate": true
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "status eq",
+          "passed": true,
+          "observed": "not_found"
+        }
+      ],
+      "suite": "S03",
+      "test": "S03-T15",
+      "title": "Unknown cluster template version fails closed",
+      "defect_ref": null,
+      "latency_ms": 625,
+      "attempts": 1,
+      "gate": true
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "status eq",
+          "passed": true,
+          "observed": "active"
+        },
+        {
+          "check": "active_reference exists",
+          "passed": true,
+          "observed": "{\"manifest_id\": \"eligibility-public-search-domains\", \"manifest_version\": \"1.2.5\", \"content_sha256\": \"425d114f41c6668a5273e4f70ede52c29035e5c1410eac5bda2411ab50a"
+        }
+      ],
+      "suite": "S03",
+      "test": "S03-T16",
+      "title": "Approved public-search source policy is active",
+      "defect_ref": null,
+      "latency_ms": 627,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "status eq",
+          "passed": true,
+          "observed": "unknown_route"
+        },
+        {
+          "check": "reason eq",
+          "passed": true,
+          "observed": "active_route_not_found"
+        },
+        {
+          "check": "recovery_hint.tool eq",
+          "passed": true,
+          "observed": "list_core_routes"
+        },
+        {
+          "check": "recovery_hint.match_field eq",
+          "passed": true,
+          "observed": "operation_id"
+        },
+        {
+          "check": "recovery_hint.use_field eq",
+          "passed": true,
+          "observed": "route_id"
+        }
+      ],
+      "suite": "S04",
+      "test": "S04-T01",
+      "title": "Unknown route returns unknown_route",
+      "defect_ref": null,
+      "latency_ms": 658,
+      "attempts": 1,
+      "gate": true
+    },
+    {
+      "status": "SKIP",
+      "detail": "input file not found: eligibility.v1.json",
+      "suite": "S04",
+      "test": "S04-T02",
+      "title": "Unpackaged descriptor (no immutable artifact reference) is rejected without persisting",
+      "defect_ref": null,
+      "latency_ms": 316,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "status ne",
+          "passed": true,
+          "observed": "invalid_specification"
+        },
+        {
+          "check": "status ne",
+          "passed": true,
+          "observed": "invalid_specification"
+        }
+      ],
+      "suite": "S04",
+      "test": "S04-T03",
+      "title": "Empty tenant draft is rejected without persisting",
+      "defect_ref": null,
+      "latency_ms": 588,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "SKIP",
+      "detail": "input file not found: eligibility.v1.json",
+      "suite": "S04",
+      "test": "S04-T04",
+      "title": "Validation rejection explains why (findings returned)",
+      "defect_ref": null,
+      "latency_ms": 307,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "discover status ok",
+          "passed": true,
+          "observed": "ok"
+        },
+        {
+          "check": "expected candidates discovered",
+          "passed": true,
+          "observed": "found=['fsa-beginning-farmer-classification']; status=ok"
+        },
+        {
+          "check": "farm-operation-years == met",
+          "passed": true,
+          "observed": "met"
+        },
+        {
+          "check": "farm-operation-years cites source evidence",
+          "passed": true,
+          "observed": "source_count=1"
+        },
+        {
+          "check": "evaluation is informational only",
+          "passed": true,
+          "observed": "False"
+        }
+      ],
+      "title": "synthetic-farmer-mo-beginning (positive)",
+      "suite": "S05",
+      "test": "S05-P01",
+      "defect_ref": null,
+      "latency_ms": 12235,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "discover status ok",
+          "passed": true,
+          "observed": "ok"
+        },
+        {
+          "check": "expected candidates discovered",
+          "passed": true,
+          "observed": "found=['fsa-beginning-farmer-classification']; status=ok"
+        },
+        {
+          "check": "farm-operation-years == met",
+          "passed": true,
+          "observed": "met"
+        },
+        {
+          "check": "farm-operation-years cites source evidence",
+          "passed": true,
+          "observed": "source_count=1"
+        },
+        {
+          "check": "evaluation is informational only",
+          "passed": true,
+          "observed": "False"
+        }
+      ],
+      "title": "synthetic-farmer-mo-veteran-new (positive)",
+      "suite": "S05",
+      "test": "S05-P02",
+      "defect_ref": null,
+      "latency_ms": 11419,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "discover status ok",
+          "passed": true,
+          "observed": "ok"
+        },
+        {
+          "check": "expected candidates discovered",
+          "passed": true,
+          "observed": "found=['missouri-snap']; status=ok"
+        },
+        {
+          "check": "mo-snap-lives-in-missouri == met",
+          "passed": true,
+          "observed": "met"
+        },
+        {
+          "check": "mo-snap-lives-in-missouri cites source evidence",
+          "passed": true,
+          "observed": "source_count=1"
+        },
+        {
+          "check": "evaluation is informational only",
+          "passed": true,
+          "observed": "False"
+        }
+      ],
+      "title": "synthetic-household-mo-kc-family (positive)",
+      "suite": "S05",
+      "test": "S05-P03",
+      "defect_ref": null,
+      "latency_ms": 10918,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "discover status ok",
+          "passed": true,
+          "observed": "ok"
+        },
+        {
+          "check": "farm-operation-years == unmet",
+          "passed": true,
+          "observed": "unmet"
+        },
+        {
+          "check": "farm-operation-years cites source evidence",
+          "passed": true,
+          "observed": "source_count=1"
+        },
+        {
+          "check": "evaluation is informational only",
+          "passed": true,
+          "observed": "False"
+        }
+      ],
+      "title": "synthetic-farmer-mo-established (negative)",
+      "suite": "S05",
+      "test": "S05-P04",
+      "defect_ref": null,
+      "latency_ms": 11981,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "discover status ok",
+          "passed": true,
+          "observed": "ok"
+        },
+        {
+          "check": "mo-snap-lives-in-missouri == not_applicable",
+          "passed": true,
+          "observed": "not_applicable"
+        },
+        {
+          "check": "mo-snap-lives-in-missouri cites source evidence",
+          "passed": true,
+          "observed": "source_count=1"
+        },
+        {
+          "check": "evaluation is informational only",
+          "passed": true,
+          "observed": "False"
+        }
+      ],
+      "title": "synthetic-household-ks-kc-family (negative)",
+      "suite": "S05",
+      "test": "S05-P05",
+      "defect_ref": null,
+      "latency_ms": 11067,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "discover status ok",
+          "passed": true,
+          "observed": "ok"
+        },
+        {
+          "check": "farm-operation-years == unknown",
+          "passed": true,
+          "observed": "unknown"
+        },
+        {
+          "check": "farm-operation-years cites source evidence",
+          "passed": true,
+          "observed": "source_count=1"
+        },
+        {
+          "check": "evaluation is informational only",
+          "passed": true,
+          "observed": "False"
+        }
+      ],
+      "title": "synthetic-farmer-mo-unknown-years (edge)",
+      "suite": "S05",
+      "test": "S05-P06",
+      "defect_ref": null,
+      "latency_ms": 9973,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "discover status ok",
+          "passed": true,
+          "observed": "ok"
+        },
+        {
+          "check": "farm-operation-years == met",
+          "passed": true,
+          "observed": "met"
+        },
+        {
+          "check": "farm-operation-years cites source evidence",
+          "passed": true,
+          "observed": "source_count=1"
+        },
+        {
+          "check": "evaluation is informational only",
+          "passed": true,
+          "observed": "False"
+        }
+      ],
+      "title": "synthetic-farmer-mo-boundary-10 (edge)",
+      "suite": "S05",
+      "test": "S05-P07",
+      "defect_ref": null,
+      "latency_ms": 12474,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "discover status ok",
+          "passed": true,
+          "observed": "ok"
+        },
+        {
+          "check": "farm-operation-years == unmet",
+          "passed": true,
+          "observed": "unmet"
+        },
+        {
+          "check": "farm-operation-years cites source evidence",
+          "passed": true,
+          "observed": "source_count=1"
+        },
+        {
+          "check": "evaluation is informational only",
+          "passed": true,
+          "observed": "False"
+        }
+      ],
+      "title": "synthetic-farmer-mo-boundary-11 (edge)",
+      "suite": "S05",
+      "test": "S05-P08",
+      "defect_ref": null,
+      "latency_ms": 10727,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "versions len_eq",
+          "passed": true,
+          "observed": "len=1"
+        }
+      ],
+      "suite": "S08",
+      "test": "S08-T01",
+      "title": "Exactly one active eligibility template (no stale versions advertised)",
+      "defect_ref": null,
+      "latency_ms": 1497,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "status eq",
+          "passed": true,
+          "observed": "available"
+        }
+      ],
+      "suite": "S08",
+      "test": "S08-T02",
+      "title": "General profile schema is published on the active template",
+      "defect_ref": null,
+      "latency_ms": 644,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "status eq",
+          "passed": true,
+          "observed": "ok"
+        },
+        {
+          "check": "result.candidates len_gte",
+          "passed": true,
+          "observed": "len=5"
+        }
+      ],
+      "suite": "S08",
+      "test": "S08-T03",
+      "title": "Inventory search browses with no need phrase (schema and runtime agree)",
+      "defect_ref": null,
+      "latency_ms": 7603,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "invalid input is distinguishable from an outage",
+          "passed": true,
+          "observed": "ok"
+        }
+      ],
+      "suite": "S08",
+      "test": "S08-T04",
+      "title": "Out-of-range argument returns a structured validation result, not bare unavailable",
+      "defect_ref": null,
+      "latency_ms": 992,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "result.status eq",
+          "passed": true,
+          "observed": "candidate_ready_for_review"
+        }
+      ],
+      "suite": "S08",
+      "test": "S08-T05",
+      "title": "Candidate normalize accepts arguments shaped like its published schema",
+      "defect_ref": null,
+      "latency_ms": 1032,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "discover status ok",
+          "passed": true,
+          "observed": "ok"
+        },
+        {
+          "check": "expected candidates discovered",
+          "passed": true,
+          "observed": "found=['fsa-beginning-farmer-classification']; status=ok"
+        },
+        {
+          "check": "farm-operation-years == met",
+          "passed": true,
+          "observed": "met"
+        },
+        {
+          "check": "farm-operation-years cites source evidence",
+          "passed": true,
+          "observed": "source_count=1"
+        },
+        {
+          "check": "evaluation is informational only",
+          "passed": true,
+          "observed": "False"
+        }
+      ],
+      "title": "synthetic-farmer-mo-beginning (positive)",
+      "suite": "S11",
+      "test": "S11-P01",
+      "defect_ref": null,
+      "latency_ms": 11257,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "discover status ok",
+          "passed": true,
+          "observed": "ok"
+        },
+        {
+          "check": "expected candidates discovered",
+          "passed": true,
+          "observed": "found=['fsa-beginning-farmer-classification']; status=ok"
+        },
+        {
+          "check": "farm-operation-years == met",
+          "passed": true,
+          "observed": "met"
+        },
+        {
+          "check": "farm-operation-years cites source evidence",
+          "passed": true,
+          "observed": "source_count=1"
+        },
+        {
+          "check": "evaluation is informational only",
+          "passed": true,
+          "observed": "False"
+        }
+      ],
+      "title": "synthetic-farmer-mo-veteran-new (positive)",
+      "suite": "S11",
+      "test": "S11-P02",
+      "defect_ref": null,
+      "latency_ms": 12090,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "discover status ok",
+          "passed": true,
+          "observed": "ok"
+        },
+        {
+          "check": "expected candidates discovered",
+          "passed": true,
+          "observed": "found=['missouri-snap']; status=ok"
+        },
+        {
+          "check": "mo-snap-lives-in-missouri == met",
+          "passed": true,
+          "observed": "met"
+        },
+        {
+          "check": "mo-snap-lives-in-missouri cites source evidence",
+          "passed": true,
+          "observed": "source_count=1"
+        },
+        {
+          "check": "evaluation is informational only",
+          "passed": true,
+          "observed": "False"
+        }
+      ],
+      "title": "synthetic-household-mo-kc-family (positive)",
+      "suite": "S11",
+      "test": "S11-P03",
+      "defect_ref": null,
+      "latency_ms": 10579,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "discover status ok",
+          "passed": true,
+          "observed": "ok"
+        },
+        {
+          "check": "farm-operation-years == unmet",
+          "passed": true,
+          "observed": "unmet"
+        },
+        {
+          "check": "farm-operation-years cites source evidence",
+          "passed": true,
+          "observed": "source_count=1"
+        },
+        {
+          "check": "evaluation is informational only",
+          "passed": true,
+          "observed": "False"
+        }
+      ],
+      "title": "synthetic-farmer-mo-established (negative)",
+      "suite": "S11",
+      "test": "S11-P04",
+      "defect_ref": null,
+      "latency_ms": 10316,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "discover status ok",
+          "passed": true,
+          "observed": "ok"
+        },
+        {
+          "check": "mo-snap-lives-in-missouri == not_applicable",
+          "passed": true,
+          "observed": "not_applicable"
+        },
+        {
+          "check": "mo-snap-lives-in-missouri cites source evidence",
+          "passed": true,
+          "observed": "source_count=1"
+        },
+        {
+          "check": "evaluation is informational only",
+          "passed": true,
+          "observed": "False"
+        }
+      ],
+      "title": "synthetic-household-ks-kc-family (negative)",
+      "suite": "S11",
+      "test": "S11-P05",
+      "defect_ref": null,
+      "latency_ms": 11062,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "discover status ok",
+          "passed": true,
+          "observed": "ok"
+        },
+        {
+          "check": "farm-operation-years == unknown",
+          "passed": true,
+          "observed": "unknown"
+        },
+        {
+          "check": "farm-operation-years cites source evidence",
+          "passed": true,
+          "observed": "source_count=1"
+        },
+        {
+          "check": "evaluation is informational only",
+          "passed": true,
+          "observed": "False"
+        }
+      ],
+      "title": "synthetic-farmer-mo-unknown-years (edge)",
+      "suite": "S11",
+      "test": "S11-P06",
+      "defect_ref": null,
+      "latency_ms": 10150,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "discover status ok",
+          "passed": true,
+          "observed": "ok"
+        },
+        {
+          "check": "farm-operation-years == met",
+          "passed": true,
+          "observed": "met"
+        },
+        {
+          "check": "farm-operation-years cites source evidence",
+          "passed": true,
+          "observed": "source_count=1"
+        },
+        {
+          "check": "evaluation is informational only",
+          "passed": true,
+          "observed": "False"
+        }
+      ],
+      "title": "synthetic-farmer-mo-boundary-10 (edge)",
+      "suite": "S11",
+      "test": "S11-P07",
+      "defect_ref": null,
+      "latency_ms": 10960,
+      "attempts": 1,
+      "gate": false
+    },
+    {
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "discover status ok",
+          "passed": true,
+          "observed": "ok"
+        },
+        {
+          "check": "farm-operation-years == unmet",
+          "passed": true,
+          "observed": "unmet"
+        },
+        {
+          "check": "farm-operation-years cites source evidence",
+          "passed": true,
+          "observed": "source_count=1"
+        },
+        {
+          "check": "evaluation is informational only",
+          "passed": true,
+          "observed": "False"
+        }
+      ],
+      "title": "synthetic-farmer-mo-boundary-11 (edge)",
+      "suite": "S11",
+      "test": "S11-P08",
+      "defect_ref": null,
+      "latency_ms": 10879,
+      "attempts": 1,
+      "gate": false
+    }
+  ],
+  "deferred": [
+    {
+      "id": "S05-P09",
+      "scenario": "UC1-S1 \u00b7 safety",
+      "reason": "edge fixture has no approved deterministic outcome in the current source/rule scope"
+    },
+    {
+      "id": "S05-P10",
+      "scenario": "UC1-S2 \u00b7 disaster criteria not mapped",
+      "reason": "edge fixture has no approved deterministic outcome in the current source/rule scope"
+    },
+    {
+      "id": "S05-P11",
+      "scenario": "UC1-S3 \u00b7 conservation criteria not mapped",
+      "reason": "edge fixture has no approved deterministic outcome in the current source/rule scope"
+    },
+    {
+      "id": "S05-P12",
+      "scenario": "UC2-S1 \u00b7 criteria not mapped",
+      "reason": "edge fixture has no approved deterministic outcome in the current source/rule scope"
+    },
+    {
+      "id": "S05-P13",
+      "scenario": "UC2-S2 \u00b7 VA criteria not mapped",
+      "reason": "edge fixture has no approved deterministic outcome in the current source/rule scope"
+    },
+    {
+      "id": "S05-P14",
+      "scenario": "UC2-S3 \u00b7 caregiver is chatting",
+      "reason": "edge fixture has no approved deterministic outcome in the current source/rule scope"
+    },
+    {
+      "id": "S05-P15",
+      "scenario": "UC2-S1 \u00b7 Maryland heating need",
+      "reason": "edge fixture has no approved deterministic outcome in the current source/rule scope"
+    },
+    {
+      "id": "S05-P16",
+      "scenario": "UC3-S2 \u00b7 housing criteria not mapped",
+      "reason": "edge fixture has no approved deterministic outcome in the current source/rule scope"
+    },
+    {
+      "id": "S05-P17",
+      "scenario": "UC3-S3 \u00b7 family-stability criteria not mapped",
+      "reason": "edge fixture has no approved deterministic outcome in the current source/rule scope"
+    },
+    {
+      "id": "S05-P18",
+      "scenario": "UC3-S1 \u00b7 question burden",
+      "reason": "edge fixture has no approved deterministic outcome in the current source/rule scope"
+    },
+    {
+      "id": "S05-P19",
+      "scenario": "UC3-S1 \u00b7 rule not in catalog",
+      "reason": "edge fixture has no approved deterministic outcome in the current source/rule scope"
+    },
+    {
+      "id": "S05-P20",
+      "scenario": "UC3-S1 \u00b7 correction",
+      "reason": "edge fixture has no approved deterministic outcome in the current source/rule scope"
+    },
+    {
+      "id": "S05-P21",
+      "scenario": "UC3-S1 \u00b7 declines to answer",
+      "reason": "edge fixture has no approved deterministic outcome in the current source/rule scope"
+    },
+    {
+      "id": "S05-P22",
+      "scenario": "UC3-S1 \u00b7 Maryland",
+      "reason": "edge fixture has no approved deterministic outcome in the current source/rule scope"
+    },
+    {
+      "id": "S05-P23",
+      "scenario": "UC3-S1 \u00b7 New Mexico tribal (schema gap)",
+      "reason": "edge fixture has no approved deterministic outcome in the current source/rule scope"
+    },
+    {
+      "id": "S11-P09",
+      "scenario": "UC1-S1 \u00b7 safety",
+      "reason": "edge fixture has no approved deterministic outcome in the current source/rule scope"
+    },
+    {
+      "id": "S11-P10",
+      "scenario": "UC1-S2 \u00b7 disaster criteria not mapped",
+      "reason": "edge fixture has no approved deterministic outcome in the current source/rule scope"
+    },
+    {
+      "id": "S11-P11",
+      "scenario": "UC1-S3 \u00b7 conservation criteria not mapped",
+      "reason": "edge fixture has no approved deterministic outcome in the current source/rule scope"
+    },
+    {
+      "id": "S11-P12",
+      "scenario": "UC2-S1 \u00b7 criteria not mapped",
+      "reason": "edge fixture has no approved deterministic outcome in the current source/rule scope"
+    },
+    {
+      "id": "S11-P13",
+      "scenario": "UC2-S2 \u00b7 VA criteria not mapped",
+      "reason": "edge fixture has no approved deterministic outcome in the current source/rule scope"
+    },
+    {
+      "id": "S11-P14",
+      "scenario": "UC2-S3 \u00b7 caregiver is chatting",
+      "reason": "edge fixture has no approved deterministic outcome in the current source/rule scope"
+    },
+    {
+      "id": "S11-P15",
+      "scenario": "UC2-S1 \u00b7 Maryland heating need",
+      "reason": "edge fixture has no approved deterministic outcome in the current source/rule scope"
+    },
+    {
+      "id": "S11-P16",
+      "scenario": "UC3-S2 \u00b7 housing criteria not mapped",
+      "reason": "edge fixture has no approved deterministic outcome in the current source/rule scope"
+    },
+    {
+      "id": "S11-P17",
+      "scenario": "UC3-S3 \u00b7 family-stability criteria not mapped",
+      "reason": "edge fixture has no approved deterministic outcome in the current source/rule scope"
+    },
+    {
+      "id": "S11-P18",
+      "scenario": "UC3-S1 \u00b7 question burden",
+      "reason": "edge fixture has no approved deterministic outcome in the current source/rule scope"
+    },
+    {
+      "id": "S11-P19",
+      "scenario": "UC3-S1 \u00b7 rule not in catalog",
+      "reason": "edge fixture has no approved deterministic outcome in the current source/rule scope"
+    },
+    {
+      "id": "S11-P20",
+      "scenario": "UC3-S1 \u00b7 correction",
+      "reason": "edge fixture has no approved deterministic outcome in the current source/rule scope"
+    },
+    {
+      "id": "S11-P21",
+      "scenario": "UC3-S1 \u00b7 declines to answer",
+      "reason": "edge fixture has no approved deterministic outcome in the current source/rule scope"
+    },
+    {
+      "id": "S11-P22",
+      "scenario": "UC3-S1 \u00b7 Maryland",
+      "reason": "edge fixture has no approved deterministic outcome in the current source/rule scope"
+    },
+    {
+      "id": "S11-P23",
+      "scenario": "UC3-S1 \u00b7 New Mexico tribal (schema gap)",
+      "reason": "edge fixture has no approved deterministic outcome in the current source/rule scope"
+    }
+  ]
+}

@@ -1,0 +1,328 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "us.hud.housing-assistance",
+    "reviewed_at": "2026-11-22T21:19:05Z",
+    "publisher_version": "Official HUD HCV applicant page reviewed 2026-11-22; source content sha256 2cf8ea55aaddeb196ea3091912c00aa017660a66484cfc75e74f680a785b5831; visible text sha256 1137e22e1ca1d8f709bc1fcf7a4659fe54ff7bc012946a8a541610c2f4e198d3.",
+    "raw_source_documents_committed": false,
+    "access_method": "Current official HUD HCV Applicant and Tenant Resources page reviewed directly in browser and through the Core source reader; this seed updates only the HUD HCV listing record.",
+    "pages": [
+      {
+        "url": "https://www.hud.gov/helping-americans/housing-choice-vouchers-tenants",
+        "title": "Housing Choice Voucher Tenants | HUD.gov",
+        "source_content_sha256": "2cf8ea55aaddeb196ea3091912c00aa017660a66484cfc75e74f680a785b5831",
+        "source_visible_text_sha256": "1137e22e1ca1d8f709bc1fcf7a4659fe54ff7bc012946a8a541610c2f4e198d3"
+      },
+      {
+        "url": "https://www.hud.gov/topics",
+        "title": "Helping Americans | HUD.gov",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.hud.gov/helping-americans/public-housing-programs",
+        "title": "Public Housing Programs | HUD.gov",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.hud.gov/program_offices/public_indian_housing/pha/contacts",
+        "title": "PHA Contact Information | HUD.gov",
+        "source_content_sha256": null
+      }
+    ]
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "us.hud.housing-assistance",
+      "source_name": "HUD public housing assistance and local PHA referrals",
+      "source_url": "https://www.hud.gov/helping-americans/housing-choice-vouchers-tenants",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "federal",
+          "owner_name": "U.S. Department of Housing and Urban Development",
+          "verification_status": "verified",
+          "evidence_url": "https://www.hud.gov/helping-americans/housing-choice-vouchers-tenants"
+        },
+        "approved_scope": "Shared federal discovery listing for HUD's Housing Choice Voucher program plus public housing and the PHA directory. HCV source says applications go through local PHAs; local criteria, income limits, waitlists, funding, and decisions must be checked with the relevant PHA. No executable criteria or eligibility outcome is represented.",
+        "refresh_mode": "operator_triggered"
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "hud-housing-assistance-referrals",
+        "source_dataset_id": "HUD Housing Choice Voucher, Public Housing, and PHA directory pages reviewed 2026-10-30",
+        "title": "HUD federal housing assistance listings and local PHA referral",
+        "landing_page": "https://www.hud.gov/helping-americans/housing-choice-vouchers-tenants",
+        "schema_version": "public-listing-v1",
+        "namespace_ids": [
+          "core",
+          "listing"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "not_assessed",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "refresh_mode": "operator_triggered",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "listing": "eligibility-public-listing-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "listing": "public-listing-v1"
+          },
+          "content_type": "federal_housing_program_listings_and_referrals",
+          "maximum_records_total": 10
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "hud-housing-assistance-referrals",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "Official HUD HCV Applicant and Tenant Resources reviewed 2026-11-22T21:19:05Z; source sha256 2cf8ea55aaddeb196ea3091912c00aa017660a66484cfc75e74f680a785b5831",
+        "retrieved_at": "2026-11-22T21:19:05Z",
+        "transform_version": "hud-housing-reference-review-v2",
+        "validation_outcome": "valid",
+        "detail": "Refreshes only the HUD HCV listing source URL and source-backed applicant types from the current HUD HCV Applicant and Tenant Resources page.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "hud-housing-choice-voucher",
+            "record_type": "federal-benefit-program-listing",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Housing Choice Voucher (HCV) Program",
+              "listing.summary": "HUD's Housing Choice Voucher program helps eligible households rent privately owned housing. HUD directs applicants to apply through local Public Housing Agencies (PHAs). Published HUD information identifies income, family size, citizenship or eligible non-citizen status, and other program conditions; income limits, waitlists, application availability, and local administration must be checked with the relevant PHA. This listing is discovery information only, not an eligibility result.",
+              "listing.agency": "U.S. Department of Housing and Urban Development",
+              "listing.applicant_types": [
+                "low-income households",
+                "families",
+                "older adults",
+                "people with disabilities",
+                "veterans"
+              ],
+              "listing.opportunity_url": "https://www.hud.gov/helping-americans/housing-choice-vouchers-tenants"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "us.hud.housing-assistance",
+              "source_version": "Official HUD HCV Applicant and Tenant Resources reviewed 2026-11-22T21:19:05Z; source sha256 2cf8ea55aaddeb196ea3091912c00aa017660a66484cfc75e74f680a785b5831",
+              "retrieved_at": "2026-11-22T21:19:05Z",
+              "effective_at": null,
+              "transform_version": "hud-housing-reference-review-v2",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.hud.gov/helping-americans/housing-choice-vouchers-tenants",
+                  "observed_at": "2026-11-22T21:19:05Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.hud.gov/helping-americans/housing-choice-vouchers-tenants",
+                  "observed_at": "2026-11-22T21:19:05Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.hud.gov/helping-americans/housing-choice-vouchers-tenants",
+                  "observed_at": "2026-11-22T21:19:05Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.hud.gov/helping-americans/housing-choice-vouchers-tenants",
+                  "observed_at": "2026-11-22T21:19:05Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.hud.gov/helping-americans/housing-choice-vouchers-tenants",
+                  "observed_at": "2026-11-22T21:19:05Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.hud.gov/helping-americans/housing-choice-vouchers-tenants",
+                  "observed_at": "2026-11-22T21:19:05Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.hud.gov/helping-americans/housing-choice-vouchers-tenants",
+                  "observed_at": "2026-11-22T21:19:05Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false,
+              "source_content_sha256": "2cf8ea55aaddeb196ea3091912c00aa017660a66484cfc75e74f680a785b5831",
+              "source_visible_text_sha256": "1137e22e1ca1d8f709bc1fcf7a4659fe54ff7bc012946a8a541610c2f4e198d3"
+            },
+            "source_url": "https://www.hud.gov/helping-americans/housing-choice-vouchers-tenants",
+            "content_hash": "4aa96364825f930496fe19e1f7975ba09abb77bac0a425481030066cfe08b8ce",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-11-22T21:19:05Z"
+          },
+          {
+            "source_record_id": "hud-public-housing",
+            "record_type": "federal-benefit-program-listing",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Public Housing",
+              "listing.summary": "HUD funds local Public Housing Agencies to provide and manage public housing. HUD describes public housing as serving low-income individuals and families, including older adults and people with disabilities. A local PHA determines eligibility and administers applications; local availability and waiting lists must be checked with that agency. This listing is discovery information only, not an eligibility result.",
+              "listing.agency": "U.S. Department of Housing and Urban Development",
+              "listing.applicant_types": [
+                "low-income households",
+                "families",
+                "older adults",
+                "people with disabilities"
+              ],
+              "listing.opportunity_url": "https://www.hud.gov/topics"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "us.hud.housing-assistance",
+              "source_version": "Official HUD Housing Choice Voucher, public housing, and PHA contact pages reviewed 2026-10-30; no publisher revision date recorded.",
+              "retrieved_at": "2026-10-30T01:21:12Z",
+              "effective_at": null,
+              "transform_version": "hud-housing-reference-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.hud.gov/topics",
+                  "observed_at": "2026-10-30T01:21:12Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.hud.gov/topics",
+                  "observed_at": "2026-10-30T01:21:12Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.hud.gov/topics",
+                  "observed_at": "2026-10-30T01:21:12Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.hud.gov/topics",
+                  "observed_at": "2026-10-30T01:21:12Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.hud.gov/topics",
+                  "observed_at": "2026-10-30T01:21:12Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.hud.gov/topics",
+                  "observed_at": "2026-10-30T01:21:12Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.hud.gov/topics",
+                  "observed_at": "2026-10-30T01:21:12Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.hud.gov/topics",
+            "content_hash": "8c0fca84a5409ab6fcf2f88116df227492c5ca78f38700f8523188a67c83d859",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-30T01:21:12Z"
+          },
+          {
+            "source_record_id": "hud-pha-contact-directory",
+            "record_type": "federal-program-referral",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "HUD Public Housing Agency (PHA) Contact Directory",
+              "listing.summary": "HUD's PHA directory provides contact information by state for finding a local agency to ask about public housing and Housing Choice Voucher assistance. HUD states the contact information is updated weekly and PHAs maintain their own records. Use the selected PHA to verify local program availability, current application windows, and requirements.",
+              "listing.agency": "U.S. Department of Housing and Urban Development",
+              "listing.applicant_types": [
+                "people seeking public housing or rental assistance"
+              ],
+              "listing.opportunity_url": "https://www.hud.gov/program_offices/public_indian_housing/pha/contacts"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "us.hud.housing-assistance",
+              "source_version": "Official HUD Housing Choice Voucher, public housing, and PHA contact pages reviewed 2026-10-30; no publisher revision date recorded.",
+              "retrieved_at": "2026-10-30T01:21:12Z",
+              "effective_at": null,
+              "transform_version": "hud-housing-reference-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.hud.gov/program_offices/public_indian_housing/pha/contacts",
+                  "observed_at": "2026-10-30T01:21:12Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.hud.gov/program_offices/public_indian_housing/pha/contacts",
+                  "observed_at": "2026-10-30T01:21:12Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.hud.gov/program_offices/public_indian_housing/pha/contacts",
+                  "observed_at": "2026-10-30T01:21:12Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.hud.gov/program_offices/public_indian_housing/pha/contacts",
+                  "observed_at": "2026-10-30T01:21:12Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.hud.gov/program_offices/public_indian_housing/pha/contacts",
+                  "observed_at": "2026-10-30T01:21:12Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.hud.gov/program_offices/public_indian_housing/pha/contacts",
+                  "observed_at": "2026-10-30T01:21:12Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.hud.gov/program_offices/public_indian_housing/pha/contacts",
+                  "observed_at": "2026-10-30T01:21:12Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.hud.gov/program_offices/public_indian_housing/pha/contacts",
+            "content_hash": "0b0edc096e9356f9bb06f15d101b9693533e2aa01bd5122856fdfc549d01c67d",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-30T01:21:12Z"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,340 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "us.hud.income-limits",
+    "reviewed_at": "2026-11-22T21:19:05Z",
+    "publisher_version": "Official HUD FY2026 Section 8 Income Limits, St. Louis MO-IL HMFA, PDF page 52; VLI family-size row verified.",
+    "raw_source_documents_committed": false,
+    "access_method": "The official PDF was downloaded directly via WSL with a browser User-Agent (HTTP 200, application/pdf, 2,584,576 bytes; SHA-256 9ab4e7368299aa61f63fb3cfe566d05f64224a40910c0ed77fd5f50ecb8da3a7). The St. Louis MO-IL HMFA Very Low Income table and family-size 1-8 row were verified on PDF page 52. Core policy reader returned HTTP 202; machine source provenance remains unverified.",
+    "pages": [
+      {
+        "url": "https://www.huduser.gov/portal/datasets/il.html",
+        "title": "Income Limits Data for HUD Housing Assistance Programs",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.huduser.gov/portal/datasets/il/il26/Section8-IncomeLimits-FY26.pdf",
+        "title": "FY2026 Section 8 Income Limits",
+        "source_content_sha256": "9ab4e7368299aa61f63fb3cfe566d05f64224a40910c0ed77fd5f50ecb8da3a7"
+      },
+      {
+        "url": "https://www.slha.org/find-a-home/housing-choice-voucher-program/",
+        "title": "SLHA Housing Choice Voucher Program",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.slha.org/find-a-home/apply-for-housing/",
+        "title": "SLHA Apply for Housing",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.slha.org/contact-us/",
+        "title": "SLHA Contact Us",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.hud.gov/helping-americans/housing-choice-vouchers-tenants",
+        "title": "Housing Choice Voucher Applicant and Tenant Resources",
+        "source_content_sha256": "2cf8ea55aaddeb196ea3091912c00aa017660a66484cfc75e74f680a785b5831",
+        "source_visible_text_sha256": "1137e22e1ca1d8f709bc1fcf7a4659fe54ff7bc012946a8a541610c2f4e198d3"
+      }
+    ]
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "us.hud.income-limits",
+      "source_name": "HUD FY2026 Section 8 Income Limits",
+      "source_url": "https://www.huduser.gov/portal/datasets/il/il26/Section8-IncomeLimits-FY26.pdf",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "federal",
+          "owner_name": "U.S. Department of Housing and Urban Development, Office of Policy Development and Research",
+          "verification_status": "verified",
+          "evidence_url": "https://www.huduser.gov/portal/datasets/il.html"
+        },
+        "approved_scope": "Official FY2026 Section 8 very low income limits for the St. Louis, MO-IL HMFA, sizes 1 through 8. The catalog maps only this partial income screen for the local St. Louis City HCV scenario; it is not a complete HCV eligibility determination.",
+        "refresh_mode": "operator_triggered"
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "hud-hcv-income-screen",
+        "source_dataset_id": "HUD FY2026 Section 8 Income Limits — St. Louis MO-IL HMFA",
+        "title": "HUD Housing Choice Voucher partial income screen for St. Louis City",
+        "landing_page": "https://www.huduser.gov/portal/datasets/il/il26/Section8-IncomeLimits-FY26.pdf",
+        "schema_version": "eligibility-program-v4",
+        "namespace_ids": [
+          "core",
+          "eligibility"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "partial",
+          "criteria_mapping_status": "partial",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "refresh_mode": "operator_triggered",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "eligibility": "eligibility-program-schema"
+          },
+          "schema_versions": {
+            "core": "core-v4",
+            "eligibility": "eligibility-program-v4"
+          },
+          "content_type": "approved_partial_mapped_hcv_income_screen",
+          "published_criteria_available": true,
+          "maximum_records_total": 1
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "hud-hcv-income-screen",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "sha256:9ab4e7368299aa61f63fb3cfe566d05f64224a40910c0ed77fd5f50ecb8da3a7",
+        "retrieved_at": "2026-11-22T21:19:05Z",
+        "transform_version": "hud-hcv-vli-income-screen-v4",
+        "validation_outcome": "valid",
+        "detail": "One source-backed partial HUD FY2026 very-low-income screen for family sizes 1 through 8 in St. Louis, MO-IL HMFA, scoped to St. Louis City; values verified in the official HUD PDF.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "hud-housing-choice-voucher",
+            "record_type": "eligibility_program",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "hud-housing-choice-voucher",
+              "eligibility.program.catalog_version": "hud-hcv-stlouis-income-fy2026",
+              "eligibility.program.navigator": "low_income_assistance",
+              "eligibility.program.data_origin": "public_source",
+              "eligibility.program.title": "Housing Choice Voucher — St. Louis City FY2026 general VLI income screen",
+              "eligibility.program.description": "Partial comparison of HUD FY2026 very-low-income limits for family sizes 1 through 8 in the St. Louis, MO-IL HMFA, scoped to St. Louis City for this local HCV scenario. An above-limit result is above the general VLI screen only; qualifying low-income families may still meet the published 80% AMI pathway. SLHA reported its waitlist closed on 2026-11-22. This is not a complete HCV eligibility decision.",
+              "eligibility.program.criteria": [
+                {
+                  "criterion_id": "hcv-stlouis-vli-income-fy2026",
+                  "attribute": "core.household.annual_income_usd",
+                  "operator": "lte_by",
+                  "value": {
+                    "1": 39750,
+                    "2": 45400,
+                    "3": 51100,
+                    "4": 56750,
+                    "5": 61300,
+                    "6": 65850,
+                    "7": 70400,
+                    "8": 74950
+                  },
+                  "context_attribute": "core.household.size",
+                  "source_id": "us.hud.income-limits"
+                }
+              ],
+              "core.geography.country_code": "US",
+              "core.geography.jurisdiction_level": "local",
+              "core.geography.state_code": "MO",
+              "core.geography.county_name": "St. Louis City",
+              "eligibility.program.details": [
+                {
+                  "kind": "application_step",
+                  "text": "As of 2026-11-22, SLHA reported that the Housing Choice Voucher waiting list was closed and it was not accepting applications. Check SLHA for current status before applying. When the list opens, SLHA says applications are submitted online through RentCafe; applying is free.",
+                  "source_id": "us.slha.housing-choice-voucher"
+                },
+                {
+                  "kind": "application_step",
+                  "text": "For HCV application or waitlist questions, contact SLHA Section 8 at (314) 286-4303. SLHA also lists (314) 531-4770 for application-status questions and TDD (314) 286-4223 for accessibility.",
+                  "source_id": "us.slha.housing-contact"
+                },
+                {
+                  "kind": "required_document",
+                  "text": "HUD says documentation varies by PHA. Common items to prepare may include income paperwork such as pay stubs and bank information; public-assistance paperwork such as SSI or SNAP if applicable; and proof of citizenship plus Social Security cards. Confirm the actual checklist with SLHA; this is preparation guidance, not a verified SLHA mandatory-document list.",
+                  "source_id": "us.hud.hcv-applicant-resources"
+                }
+              ],
+              "eligibility.program.source_references": [
+                {
+                  "contract_version": "source-reference-v1",
+                  "source_id": "us.hud.hcv-applicant-resources",
+                  "source_type": "public_source",
+                  "approval_status": "approved",
+                  "agency": "U.S. Department of Housing and Urban Development",
+                  "title": "Housing Choice Voucher Applicant and Tenant Resources",
+                  "url": "https://www.hud.gov/helping-americans/housing-choice-vouchers-tenants",
+                  "jurisdiction": {
+                    "level": "federal",
+                    "country_code": "US"
+                  },
+                  "retrieved_at": "2026-11-22T21:19:05Z",
+                  "effective_date": null,
+                  "publisher_version": "HUD HCV Applicant and Tenant Resources reviewed 2026-11-22."
+                },
+                {
+                  "contract_version": "source-reference-v1",
+                  "source_id": "us.slha.housing-choice-voucher",
+                  "source_type": "public_source",
+                  "approval_status": "approved",
+                  "agency": "St. Louis Housing Authority",
+                  "title": "Housing Choice Voucher Program",
+                  "url": "https://www.slha.org/find-a-home/housing-choice-voucher-program/",
+                  "jurisdiction": {
+                    "level": "local",
+                    "country_code": "US",
+                    "state_code": "MO",
+                    "county_name": "St. Louis City"
+                  },
+                  "retrieved_at": "2026-11-22T21:19:05Z",
+                  "effective_date": null,
+                  "publisher_version": "SLHA HCV page reviewed 2026-11-22; waitlist currently closed."
+                },
+                {
+                  "contract_version": "source-reference-v1",
+                  "source_id": "us.slha.housing-contact",
+                  "source_type": "public_source",
+                  "approval_status": "approved",
+                  "agency": "St. Louis Housing Authority",
+                  "title": "Contact Us",
+                  "url": "https://www.slha.org/contact-us/",
+                  "jurisdiction": {
+                    "level": "local",
+                    "country_code": "US",
+                    "state_code": "MO",
+                    "county_name": "St. Louis City"
+                  },
+                  "retrieved_at": "2026-11-06T19:13:44Z",
+                  "effective_date": null,
+                  "publisher_version": "SLHA contact page reviewed 2026-11-06"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "local",
+                "country_code": "US",
+                "state_code": "MO",
+                "region_code": "ST-LOUIS-CITY"
+              },
+              "criteria_mapping_review": {
+                "reviewed_at": "2026-11-22T21:19:05Z",
+                "source_content_sha256": "9ab4e7368299aa61f63fb3cfe566d05f64224a40910c0ed77fd5f50ecb8da3a7",
+                "mapped_requirement_ids": [
+                  "hcv-stlouis-vli-income-fy2026"
+                ],
+                "unresolved_requirement_ids": [
+                  "hcv-low-income-exceptions-above-vli",
+                  "hcv-other-admission-requirements",
+                  "slha-current-waitlist-and-application-availability"
+                ]
+              },
+              "criteria_source_links": []
+            },
+            "source_metadata": {
+              "source_id": "us.hud.income-limits",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "source_title": "FY2026 HUD Section 8 Income Limits for St. Louis, MO-IL HMFA (official source)",
+              "publisher": "U.S. Department of Housing and Urban Development, Office of Policy Development and Research",
+              "source_version": "sha256:9ab4e7368299aa61f63fb3cfe566d05f64224a40910c0ed77fd5f50ecb8da3a7",
+              "source_content_sha256": "9ab4e7368299aa61f63fb3cfe566d05f64224a40910c0ed77fd5f50ecb8da3a7",
+              "retrieved_at": "2026-11-22T21:19:05Z",
+              "effective_at": "2026-05-01T00:00:00Z",
+              "effective_date": "2026-05-01",
+              "transform_version": "hud-hcv-vli-income-screen-v4",
+              "raw_payload_stored": false,
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://www.hud.gov/helping-americans/housing-choice-vouchers-tenants",
+                  "observed_at": "2026-11-22T21:19:05Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://www.huduser.gov/portal/datasets/il/il26/Section8-IncomeLimits-FY26.pdf",
+                  "observed_at": "2026-11-22T21:19:05Z",
+                  "extraction_method": "document_location"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://www.huduser.gov/portal/datasets/il/il26/Section8-IncomeLimits-FY26.pdf",
+                  "observed_at": "2026-11-22T21:19:05Z",
+                  "extraction_method": "document_location"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://www.slha.org/find-a-home/housing-choice-voucher-program/",
+                  "observed_at": "2026-11-22T21:19:05Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.criteria": {
+                  "source_url": "https://www.huduser.gov/portal/datasets/il/il26/Section8-IncomeLimits-FY26.pdf",
+                  "observed_at": "2026-11-22T21:19:05Z",
+                  "extraction_method": "document_location"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.huduser.gov/portal/datasets/il/il26/Section8-IncomeLimits-FY26.pdf",
+                  "observed_at": "2026-11-22T21:19:05Z",
+                  "extraction_method": "document_location"
+                },
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.slha.org/find-a-home/housing-choice-voucher-program/",
+                  "observed_at": "2026-11-22T21:19:05Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.state_code": {
+                  "source_url": "https://www.huduser.gov/portal/datasets/il/il26/Section8-IncomeLimits-FY26.pdf",
+                  "observed_at": "2026-11-22T21:19:05Z",
+                  "extraction_method": "document_location"
+                },
+                "core.geography.county_name": {
+                  "source_url": "https://www.slha.org/find-a-home/housing-choice-voucher-program/",
+                  "observed_at": "2026-11-22T21:19:05Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.navigator": {
+                  "source_url": "https://www.hud.gov/helping-americans/housing-choice-vouchers-tenants",
+                  "observed_at": "2026-11-22T21:19:05Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://www.hud.gov/helping-americans/housing-choice-vouchers-tenants",
+                  "observed_at": "2026-11-22T21:19:05Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.details": {
+                  "source_url": "https://www.slha.org/find-a-home/housing-choice-voucher-program/",
+                  "observed_at": "2026-11-22T21:19:05Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.source_references": {
+                  "source_url": "https://www.hud.gov/helping-americans/housing-choice-vouchers-tenants",
+                  "observed_at": "2026-11-22T21:19:05Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "criteria_coverage": "partial",
+              "limitations": [
+                "HUD FY2026 VLI limits for family sizes 1-8 in the St. Louis, MO-IL HUD Metro FMR Area are from the official Section 8 Income Limits PDF, page 52 (SHA-256 9ab4e7368299aa61f63fb3cfe566d05f64224a40910c0ed77fd5f50ecb8da3a7). A direct WSL download returned HTTP 200; Core policy reader returned HTTP 202, so machine provenance remains unverified.",
+                "Above the applicable threshold is above the general very-low-income screen only, not a complete HCV ineligibility result. SLHA describes low-income families up to 80% of area median income as an eligible income category; this record does not map that pathway.",
+                "The record is scoped to St. Louis City for UC-3-S2 and is not generalized to St. Louis County or other PHA jurisdictions.",
+                "SLHA's HCV page reported on 2026-11-22 that its waitlist was closed and not accepting applications. This is time-sensitive application availability, not a criteria outcome; confirm directly with the PHA before action.",
+                "SLHA’s income-limits page does not show an effective year and differs from HUD FY2026 for family sizes 7 and 8. The official HUD FY2026 PDF is the threshold source for this mapping.",
+                "The Core source reader permits SLHA's .org domain class for discovery but reports it as unverified. The operator-reviewed local application details are context and instructions, not executable eligibility rules.",
+                "Citizenship or eligible non-citizen status, household and admission conditions, local preferences, application windows, funding, and housing availability are not evaluated. Check the local PHA before action."
+              ]
+            },
+            "source_url": "https://www.huduser.gov/portal/datasets/il/il26/Section8-IncomeLimits-FY26.pdf",
+            "schema_version": "eligibility-program-v4",
+            "observed_at": "2026-11-22T21:19:05Z",
+            "content_hash": "ddec87283dbc0489108b2090a5b05931e93d55410b81b153cf9ab47b0f3ad267"
+          }
+        ]
+      },
+      "retrieved_at": "2026-11-22T12:33:53.225501Z",
+      "source_version": "sha256:46e0bf374fb351b95320e8742b39abfc66f18e6589b0180abaa033ba17c6da1e",
+      "transform_version": "hud-hcv-vli-income-screen-v3"
+    }
+  ]
+}

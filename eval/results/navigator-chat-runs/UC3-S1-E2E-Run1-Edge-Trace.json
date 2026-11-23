@@ -1,0 +1,39 @@
+{
+  "driver_run_key": "run_3fd7d58e",
+  "identifiers_seen": [
+    "run_3fd7d58e",
+    "3fd7d58e-4118-44b5-9f16-46d5f7cd4a2f",
+    "390d99fa-31f1-43ca-bc57-deb495e5cbca"
+  ],
+  "page_status_text": "2 of 2 hosted agents are configured for the traced Navigator chat path.",
+  "errors_seen": [],
+  "phoenix_join": {
+    "status": "joined",
+    "project": "usda-core-native",
+    "joined_on": "mcp.correlation.id",
+    "spans": [
+      {
+        "correlation_id": "3fd7d58e-4118-44b5-9f16-46d5f7cd4a2f",
+        "trace_id": "d60a30442b829a91557d8b0535fb5b3f",
+        "span_id": "cce2862387fd7d8a",
+        "tool": "route_operation"
+      },
+      {
+        "correlation_id": "390d99fa-31f1-43ca-bc57-deb495e5cbca",
+        "trace_id": "49280712c83328ec7c7a185a31d2bed1",
+        "span_id": "a61d981042bf9fba",
+        "tool": "route_operation"
+      }
+    ],
+    "note": "Only IDs the browser agent read from the page are listed. Other spans from the same chat exist in the project but are not claimed here."
+  },
+  "checks": {
+    "names_missouri_snap": "pass",
+    "respects_refusal_and_continues": "pass",
+    "no_invented_income_limits": "pass",
+    "agency_decides_stated": "not confirmed in the captured text; the browser agent reported it was stated",
+    "no_pii_given": "pass",
+    "no_errors_on_page": "pass"
+  },
+  "observation": "Reply 1 asks for income and household size although the expected outcome says household size is not needed for the approved Missouri criterion. Recorded as a question-burden finding for the UC3-S1 question-burden expectation."
+}

@@ -1,0 +1,632 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "usda.farmers.gov",
+    "source_url": "https://www.farmers.gov/",
+    "retrieved_at": "2026-10-28T19:21:11Z",
+    "raw_source_documents_committed": false,
+    "access_method": "Official Farmers.gov pages reviewed through web retrieval; page bodies not retained.",
+    "pages": [
+      {
+        "url": "https://www.farmers.gov/your-business/beginning-farmers",
+        "title": "USDA beginning farmer and rancher overview",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.farmers.gov/your-business/beginning-farmers/coordinators",
+        "title": "USDA Beginning Farmer and Rancher Coordinator directory",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.farmers.gov/working-with-us/USDA-service-centers",
+        "title": "USDA Service Center guidance and finder",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.farmers.gov/working-with-us/crop-acreage-reports",
+        "title": "Farmers.gov crop acreage reporting guidance",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.farmers.gov/working-with-us/heirs-property-eligibility",
+        "title": "Farmers.gov heirs-property and farm-number guidance",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.farmers.gov/working-with-us/program-deadlines",
+        "title": "Farmers.gov USDA dates and deadline finder",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.farmers.gov/working-with-us/common-forms",
+        "title": "Farmers.gov common USDA program forms",
+        "source_content_sha256": null
+      }
+    ]
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "usda.farmers.gov",
+      "source_name": "USDA Farmers.gov",
+      "source_url": "https://www.farmers.gov/",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "federal",
+          "owner_name": "United States Department of Agriculture",
+          "verification_status": "verified",
+          "evidence_url": "https://www.farmers.gov/"
+        },
+        "approved_scope": "Shared cluster public discovery listings, criteria references, and referral/context records from official Farmers.gov pages. Program-level criteria are stored separately with explicit source and mapping status; cross-program guidance is not a universal rule. No profile data, personal coordinator contact details, raw page bodies, eligibility determination, or current application-status guarantee.",
+        "refresh_mode": "operator_triggered"
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "farmers-gov-beginning-farmer-resources",
+        "source_dataset_id": "Farmers.gov beginning-farmer and cross-program onboarding pages",
+        "title": "USDA Farmers.gov beginning-farmer navigation and cross-program referrals",
+        "landing_page": "https://www.farmers.gov/your-business/beginning-farmers",
+        "schema_version": "public-listing-v1",
+        "namespace_ids": [
+          "core",
+          "listing"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "not_assessed",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "listing": "eligibility-public-listing-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "listing": "public-listing-v1"
+          },
+          "content_type": "federal_beginning_farmer_navigation_and_cross_program_referrals",
+          "refresh_mode": "operator_triggered",
+          "maximum_records_total": 20
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "farmers-gov-beginning-farmer-resources",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "Official Farmers.gov pages reviewed 2026-10-28; page-specific revision dates vary and raw page bodies were not retained.",
+        "retrieved_at": "2026-10-28T19:21:11Z",
+        "transform_version": "farmers-gov-resource-review-v1",
+        "validation_outcome": "valid",
+        "detail": "Seven official Farmers.gov discovery/referral references. Cross-program guidance is non-universal; no dated events, staff contacts, raw page bodies, eligibility criteria, or application-status guarantees are asserted.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "beginning-farmers-overview",
+            "record_type": "federal-program-referral",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "USDA beginning farmer and rancher overview",
+              "listing.summary": "Farmers.gov provides an overview of USDA support for beginning farmers and ranchers, including planning, service-center access, farm finance, business development, and other resources. It describes USDA's general beginning-farmer framing; it is navigation guidance, not a program-specific eligibility determination.",
+              "listing.agency": "United States Department of Agriculture",
+              "listing.applicant_types": [
+                "farmers",
+                "ranchers"
+              ],
+              "listing.opportunity_url": "https://www.farmers.gov/your-business/beginning-farmers"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Official Farmers.gov pages reviewed 2026-10-28; page-specific revision dates vary and raw page bodies were not retained.",
+              "retrieved_at": "2026-10-28T19:21:11Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-resource-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.farmers.gov/your-business/beginning-farmers",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.farmers.gov/your-business/beginning-farmers",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.farmers.gov/your-business/beginning-farmers",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.farmers.gov/your-business/beginning-farmers",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.farmers.gov/your-business/beginning-farmers",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.farmers.gov/your-business/beginning-farmers",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.farmers.gov/your-business/beginning-farmers",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.farmers.gov/your-business/beginning-farmers",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-28T19:21:11Z",
+            "content_hash": "d42c69694eb1638a28878e567f7aaa5680783abfb36f93746b07d4a857a0d3ef"
+          },
+          {
+            "source_record_id": "beginning-farmer-coordinator-directory",
+            "record_type": "federal-program-referral",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "USDA Beginning Farmer and Rancher Coordinator directory",
+              "listing.summary": "Farmers.gov directs beginning farmers to a state coordinator and says useful context includes operation location, operation type, and whether land is owned, leased, or planned for purchase. This record stores only the public page reference; it excludes names, email addresses, and phone numbers.",
+              "listing.agency": "United States Department of Agriculture",
+              "listing.applicant_types": [
+                "farmers",
+                "ranchers"
+              ],
+              "listing.opportunity_url": "https://www.farmers.gov/your-business/beginning-farmers/coordinators"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Official Farmers.gov pages reviewed 2026-10-28; page-specific revision dates vary and raw page bodies were not retained.",
+              "retrieved_at": "2026-10-28T19:21:11Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-resource-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.farmers.gov/your-business/beginning-farmers/coordinators",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.farmers.gov/your-business/beginning-farmers/coordinators",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.farmers.gov/your-business/beginning-farmers/coordinators",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.farmers.gov/your-business/beginning-farmers/coordinators",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.farmers.gov/your-business/beginning-farmers/coordinators",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.farmers.gov/your-business/beginning-farmers/coordinators",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.farmers.gov/your-business/beginning-farmers/coordinators",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.farmers.gov/your-business/beginning-farmers/coordinators",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-28T19:21:11Z",
+            "content_hash": "773e103d441904914a5243c9631e5cac1374499452398c88703e0dcd7ee8d25a"
+          },
+          {
+            "source_record_id": "usda-service-center-finder",
+            "record_type": "federal-program-referral",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "USDA Service Center guidance and finder",
+              "listing.summary": "Farmers.gov describes USDA Service Centers as places to connect with FSA and NRCS staff and provides a locator. Staff can help identify programs and application steps. This is a referral, not a requirement or eligibility result.",
+              "listing.agency": "United States Department of Agriculture",
+              "listing.applicant_types": [
+                "farmers",
+                "ranchers"
+              ],
+              "listing.opportunity_url": "https://www.farmers.gov/working-with-us/USDA-service-centers"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Official Farmers.gov pages reviewed 2026-10-28; page-specific revision dates vary and raw page bodies were not retained.",
+              "retrieved_at": "2026-10-28T19:21:11Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-resource-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.farmers.gov/working-with-us/USDA-service-centers",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.farmers.gov/working-with-us/USDA-service-centers",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.farmers.gov/working-with-us/USDA-service-centers",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.farmers.gov/working-with-us/USDA-service-centers",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.farmers.gov/working-with-us/USDA-service-centers",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.farmers.gov/working-with-us/USDA-service-centers",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.farmers.gov/working-with-us/USDA-service-centers",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.farmers.gov/working-with-us/USDA-service-centers",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-28T19:21:11Z",
+            "content_hash": "b1daa8b2e897c5fe49d3e102949beaac86f6473453141a8d17fae48201e064c9"
+          },
+          {
+            "source_record_id": "crop-acreage-reporting-guidance",
+            "record_type": "federal-program-referral",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Farmers.gov crop acreage reporting guidance",
+              "listing.summary": "Farmers.gov states timely acreage reporting is required for many USDA programs, including some crop-insurance, safety-net, and disaster-assistance programs. Deadlines vary by crop and state or county. Applicability must be confirmed against the named program and locality; this broad statement is not mapped as a universal criterion.",
+              "listing.agency": "United States Department of Agriculture",
+              "listing.applicant_types": [
+                "farmers",
+                "ranchers"
+              ],
+              "listing.opportunity_url": "https://www.farmers.gov/working-with-us/crop-acreage-reports"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Official Farmers.gov pages reviewed 2026-10-28; page-specific revision dates vary and raw page bodies were not retained.",
+              "retrieved_at": "2026-10-28T19:21:11Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-resource-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.farmers.gov/working-with-us/crop-acreage-reports",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.farmers.gov/working-with-us/crop-acreage-reports",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.farmers.gov/working-with-us/crop-acreage-reports",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.farmers.gov/working-with-us/crop-acreage-reports",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.farmers.gov/working-with-us/crop-acreage-reports",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.farmers.gov/working-with-us/crop-acreage-reports",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.farmers.gov/working-with-us/crop-acreage-reports",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.farmers.gov/working-with-us/crop-acreage-reports",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-28T19:21:11Z",
+            "content_hash": "a66233587e63eb4f11a2ed78f6e981210ee9ab88b9629fc154137b72f4761bee"
+          },
+          {
+            "source_record_id": "heirs-property-farm-number-guidance",
+            "record_type": "federal-program-referral",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Farmers.gov heirs-property and farm-number guidance",
+              "listing.summary": "Farmers.gov explains that heirs-property operators may use alternative documentation to establish a farm number, and that a farm number is required for many USDA programs. The page does not make this a universal requirement for every program; evaluate applicability against the named program and situation.",
+              "listing.agency": "United States Department of Agriculture",
+              "listing.applicant_types": [
+                "farmers",
+                "ranchers"
+              ],
+              "listing.opportunity_url": "https://www.farmers.gov/working-with-us/heirs-property-eligibility"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Official Farmers.gov pages reviewed 2026-10-28; page-specific revision dates vary and raw page bodies were not retained.",
+              "retrieved_at": "2026-10-28T19:21:11Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-resource-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.farmers.gov/working-with-us/heirs-property-eligibility",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.farmers.gov/working-with-us/heirs-property-eligibility",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.farmers.gov/working-with-us/heirs-property-eligibility",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.farmers.gov/working-with-us/heirs-property-eligibility",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.farmers.gov/working-with-us/heirs-property-eligibility",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.farmers.gov/working-with-us/heirs-property-eligibility",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.farmers.gov/working-with-us/heirs-property-eligibility",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.farmers.gov/working-with-us/heirs-property-eligibility",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-28T19:21:11Z",
+            "content_hash": "72be87f0ddca5c916fd5a9dd8b7fb887a704c248d8596929e9b5545f4ea7e53a"
+          },
+          {
+            "source_record_id": "usda-program-deadlines-referral",
+            "record_type": "federal-program-referral",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Farmers.gov USDA dates and deadline finder",
+              "listing.summary": "Farmers.gov provides a changing calendar of important dates, but explicitly says it does not include every deadline and covers only federal deadlines; local or state deadlines require checking with the relevant Service Center. This record stores the link only, not dated deadline events.",
+              "listing.agency": "United States Department of Agriculture",
+              "listing.applicant_types": [
+                "farmers",
+                "ranchers"
+              ],
+              "listing.opportunity_url": "https://www.farmers.gov/working-with-us/program-deadlines"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Official Farmers.gov pages reviewed 2026-10-28; page-specific revision dates vary and raw page bodies were not retained.",
+              "retrieved_at": "2026-10-28T19:21:11Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-resource-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.farmers.gov/working-with-us/program-deadlines",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.farmers.gov/working-with-us/program-deadlines",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.farmers.gov/working-with-us/program-deadlines",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.farmers.gov/working-with-us/program-deadlines",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.farmers.gov/working-with-us/program-deadlines",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.farmers.gov/working-with-us/program-deadlines",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.farmers.gov/working-with-us/program-deadlines",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.farmers.gov/working-with-us/program-deadlines",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-28T19:21:11Z",
+            "content_hash": "d1506b769f29369c58d1425db3b54e496fc3ccc2337bde651d1f0fb3c4058cb2"
+          },
+          {
+            "source_record_id": "common-farm-program-forms-referral",
+            "record_type": "federal-program-referral",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Farmers.gov common USDA program forms",
+              "listing.summary": "Farmers.gov links common FSA, NRCS, and RMA forms and says programs may require additional program-specific applications and forms. This catalog record stores the public reference only; it does not copy form contents, personal data, or imply every form applies to every applicant.",
+              "listing.agency": "United States Department of Agriculture",
+              "listing.applicant_types": [
+                "farmers",
+                "ranchers"
+              ],
+              "listing.opportunity_url": "https://www.farmers.gov/working-with-us/common-forms"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Official Farmers.gov pages reviewed 2026-10-28; page-specific revision dates vary and raw page bodies were not retained.",
+              "retrieved_at": "2026-10-28T19:21:11Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-resource-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.farmers.gov/working-with-us/common-forms",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.farmers.gov/working-with-us/common-forms",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.farmers.gov/working-with-us/common-forms",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.farmers.gov/working-with-us/common-forms",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.farmers.gov/working-with-us/common-forms",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.farmers.gov/working-with-us/common-forms",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.farmers.gov/working-with-us/common-forms",
+                  "observed_at": "2026-10-28T19:21:11Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.farmers.gov/working-with-us/common-forms",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-28T19:21:11Z",
+            "content_hash": "10b51605938f5a1690170153a70d4654bb6fdffc823df1730ca3ba9cdbd4f7e9"
+          }
+        ]
+      }
+    }
+  ]
+}

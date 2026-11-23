@@ -1,0 +1,29 @@
+{
+  "contract_version": "criteria-mapping-manifest-v1",
+  "mapping_id": "missouri-snap-residency-2026",
+  "program_id": "missouri-snap",
+  "source": {
+    "source_id": "missouri.dss.snap",
+    "source_record_id": "missouri-snap-eligibility",
+    "source_content_sha256": "a13028d644624e68098548e3855c3e9a7a6b98d88a4b32adb29538e8397c4456",
+    "source_version": "Missouri DSS Apply for SNAP page retrieved 2026-10-29; publisher revision date not stated",
+    "source_url": "https://dss.mo.gov/food-assistance/apply-for-snap",
+    "retrieved_at": "2026-10-29T19:10:00Z",
+    "criteria_path": "Who is eligible?"
+  },
+  "source_completeness": "partial",
+  "mappings": [
+    {
+      "requirement_id": "missouri-residency",
+      "statement": "The applicant must live in Missouri.",
+      "requirement_type": "eligibility",
+      "mapping_status": "mapped",
+      "concept_id": "snap.residency",
+      "attribute": "core.geography.state_code",
+      "operator": "eq",
+      "value": "MO",
+      "unit": null
+    }
+  ],
+  "evaluation_boundary": "This evaluates Missouri SNAP's published state-residency condition only. Income, household resources, household composition, and other eligibility conditions remain unmapped; the result is not a SNAP determination."
+}

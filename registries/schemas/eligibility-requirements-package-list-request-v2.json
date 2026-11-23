@@ -1,0 +1,33 @@
+{
+  "registry_id": "eligibility-requirements-package-list-request-v2-schema",
+  "schema_version": "eligibility-requirements-package-list-request-v2",
+  "namespaces": {
+    "requirements": "Saved package list request"
+  },
+  "dimensions": {
+    "requirements.profile": "Synthetic profile scope",
+    "requirements.page": "Bounded list page"
+  },
+  "attributes": {
+    "requirements.profile_id": {
+      "dimension_id": "requirements.profile",
+      "type": "string",
+      "pattern": "^(?:demo|synthetic)-"
+    },
+    "requirements.limit": {
+      "dimension_id": "requirements.page",
+      "type": "integer"
+    },
+    "requirements.cursor": {
+      "dimension_id": "requirements.page",
+      "type": "string"
+    },
+    "requirements.profile_ref": {
+      "dimension_id": "requirements.profile",
+      "type": "string",
+      "min_length": 1,
+      "max_length": 2048
+    }
+  },
+  "description": "List or read saved packages within active tenant and session profile scope."
+}

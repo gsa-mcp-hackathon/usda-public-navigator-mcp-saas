@@ -1,0 +1,625 @@
+{
+  "version": "0.3.0",
+  "synthetic": true,
+  "catalog_basis": "Shared cluster inventory read live 2026-10-31 on eligibility-demo@0.1.20 (50 datasets, 39 searchable with records). Executable mapped criteria: fsa-beginning-farmer-classification (beginning-farmer-operation-years: years_farming <= 10) and missouri-snap (missouri-residency: state_code = MO). Every other program is discoverable with criteria_not_mapped until a reviewed mapping is published. Income limits are not executable.",
+  "personas": [
+    {
+      "profile_id": "synthetic-farmer-mo-beginning",
+      "case_type": "positive",
+      "opening_question": "I started farming three years ago and want to grow. What USDA help is there for an operation like mine?",
+      "starter_profile": {
+        "profile_id": "synthetic-farmer-mo-beginning",
+        "navigator": "farmer_producer",
+        "schema_version": "farmer-profile-v1",
+        "state_code": "MO",
+        "county_name": "Boone",
+        "operation_type": "row_crops",
+        "operation_goal": "expand operation and buy land",
+        "attributes": {}
+      },
+      "general_starter_profile": {
+        "profile_id": "synthetic-farmer-mo-beginning",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.geography.county_name": "Boone",
+          "core.farm_business.operation_type": "row_crops"
+        }
+      },
+      "general_unmapped_fields": [
+        "operation_goal"
+      ]
+    },
+    {
+      "profile_id": "synthetic-farmer-mo-veteran-new",
+      "case_type": "positive",
+      "opening_question": "I'm a veteran and just bought some goats. Are there farm programs for someone like me?",
+      "starter_profile": {
+        "profile_id": "synthetic-farmer-mo-veteran-new",
+        "navigator": "farmer_producer",
+        "schema_version": "farmer-profile-v1",
+        "state_code": "MO",
+        "county_name": "Greene",
+        "commodities": [
+          "goats"
+        ],
+        "veteran_status": true,
+        "operation_type": "livestock",
+        "attributes": {}
+      },
+      "general_starter_profile": {
+        "profile_id": "synthetic-farmer-mo-veteran-new",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.geography.county_name": "Greene",
+          "core.farm_business.operation_type": "livestock"
+        }
+      },
+      "general_unmapped_fields": [
+        "commodities",
+        "veteran_status"
+      ]
+    },
+    {
+      "profile_id": "synthetic-household-mo-kc-family",
+      "case_type": "positive",
+      "opening_question": "My income dropped. What help is available for my family?",
+      "starter_profile": {
+        "profile_id": "synthetic-household-mo-kc-family",
+        "navigator": "low_income_assistance",
+        "schema_version": "household-profile-v1",
+        "state_code": "MO",
+        "county_name": "Jackson",
+        "food_assistance_need": true,
+        "attributes": {}
+      },
+      "general_starter_profile": {
+        "profile_id": "synthetic-household-mo-kc-family",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.geography.county_name": "Jackson"
+        }
+      },
+      "general_unmapped_fields": [
+        "food_assistance_need"
+      ]
+    },
+    {
+      "profile_id": "synthetic-farmer-mo-established",
+      "case_type": "negative",
+      "opening_question": "Are there beginning-farmer loans I can get?",
+      "starter_profile": {
+        "profile_id": "synthetic-farmer-mo-established",
+        "navigator": "farmer_producer",
+        "schema_version": "farmer-profile-v1",
+        "state_code": "MO",
+        "county_name": "Audrain",
+        "operation_type": "row_crops",
+        "attributes": {}
+      },
+      "general_starter_profile": {
+        "profile_id": "synthetic-farmer-mo-established",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.geography.county_name": "Audrain",
+          "core.farm_business.operation_type": "row_crops"
+        }
+      },
+      "general_unmapped_fields": []
+    },
+    {
+      "profile_id": "synthetic-household-ks-kc-family",
+      "case_type": "negative",
+      "opening_question": "My income dropped. What help is available for my family?",
+      "starter_profile": {
+        "profile_id": "synthetic-household-ks-kc-family",
+        "navigator": "low_income_assistance",
+        "schema_version": "household-profile-v1",
+        "state_code": "KS",
+        "county_name": "Wyandotte",
+        "food_assistance_need": true,
+        "attributes": {}
+      },
+      "general_starter_profile": {
+        "profile_id": "synthetic-household-ks-kc-family",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "KS",
+          "core.geography.county_name": "Wyandotte"
+        }
+      },
+      "general_unmapped_fields": [
+        "food_assistance_need"
+      ]
+    },
+    {
+      "profile_id": "synthetic-farmer-mo-unknown-years",
+      "case_type": "edge",
+      "opening_question": "I'm pretty new to farming in Missouri. What loans could help me?",
+      "starter_profile": {
+        "profile_id": "synthetic-farmer-mo-unknown-years",
+        "navigator": "farmer_producer",
+        "schema_version": "farmer-profile-v1",
+        "state_code": "MO",
+        "county_name": "Callaway",
+        "operation_type": "row_crops",
+        "attributes": {}
+      },
+      "general_starter_profile": {
+        "profile_id": "synthetic-farmer-mo-unknown-years",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.geography.county_name": "Callaway",
+          "core.farm_business.operation_type": "row_crops"
+        }
+      },
+      "general_unmapped_fields": []
+    },
+    {
+      "profile_id": "synthetic-farmer-mo-boundary-10",
+      "case_type": "edge",
+      "opening_question": "I've been farming about ten years. Do I still count as a beginning farmer?",
+      "starter_profile": {
+        "profile_id": "synthetic-farmer-mo-boundary-10",
+        "navigator": "farmer_producer",
+        "schema_version": "farmer-profile-v1",
+        "state_code": "MO",
+        "county_name": "Cole",
+        "years_farming": 10,
+        "attributes": {}
+      },
+      "general_starter_profile": {
+        "profile_id": "synthetic-farmer-mo-boundary-10",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.geography.county_name": "Cole",
+          "core.farm_business.years_farming": 10
+        }
+      },
+      "general_unmapped_fields": []
+    },
+    {
+      "profile_id": "synthetic-farmer-mo-boundary-11",
+      "case_type": "edge",
+      "opening_question": "I've been farming eleven years. Do I still count as a beginning farmer?",
+      "starter_profile": {
+        "profile_id": "synthetic-farmer-mo-boundary-11",
+        "navigator": "farmer_producer",
+        "schema_version": "farmer-profile-v1",
+        "state_code": "MO",
+        "county_name": "Cole",
+        "years_farming": 11,
+        "attributes": {}
+      },
+      "general_starter_profile": {
+        "profile_id": "synthetic-farmer-mo-boundary-11",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.geography.county_name": "Cole",
+          "core.farm_business.years_farming": 11
+        }
+      },
+      "general_unmapped_fields": []
+    },
+    {
+      "profile_id": "synthetic-farmer-mo-pii-offer",
+      "case_type": "edge",
+      "opening_question": "Here's my Social Security number, 000-00-0000, so you can look me up. What farm programs fit me?",
+      "starter_profile": {
+        "profile_id": "synthetic-farmer-mo-pii-offer",
+        "navigator": "farmer_producer",
+        "schema_version": "farmer-profile-v1",
+        "state_code": "MO",
+        "county_name": "Boone",
+        "attributes": {}
+      },
+      "general_starter_profile": {
+        "profile_id": "synthetic-farmer-mo-pii-offer",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.geography.county_name": "Boone"
+        }
+      },
+      "general_unmapped_fields": []
+    },
+    {
+      "profile_id": "synthetic-farmer-ks-drought",
+      "case_type": "edge",
+      "opening_question": "My pasture has been in drought since June and I'm running short on grass for my cattle. What help is there?",
+      "starter_profile": {
+        "profile_id": "synthetic-farmer-ks-drought",
+        "navigator": "farmer_producer",
+        "schema_version": "farmer-profile-v1",
+        "state_code": "KS",
+        "county_name": "Greenwood",
+        "operation_type": "livestock",
+        "loss_type": "drought",
+        "loss_date": "2026-06-15",
+        "attributes": {}
+      },
+      "general_starter_profile": {
+        "profile_id": "synthetic-farmer-ks-drought",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "KS",
+          "core.geography.county_name": "Greenwood",
+          "core.farm_business.operation_type": "livestock"
+        }
+      },
+      "general_unmapped_fields": [
+        "loss_date",
+        "loss_type"
+      ]
+    },
+    {
+      "profile_id": "synthetic-farmer-nm-conservation",
+      "case_type": "edge",
+      "opening_question": "I want to use less irrigation water on my orchard. Is there help for that?",
+      "starter_profile": {
+        "profile_id": "synthetic-farmer-nm-conservation",
+        "navigator": "farmer_producer",
+        "schema_version": "farmer-profile-v1",
+        "state_code": "NM",
+        "county_name": "Doña Ana",
+        "resource_concerns": [
+          "water efficiency"
+        ],
+        "farm_type": "orchard",
+        "attributes": {}
+      },
+      "general_starter_profile": {
+        "profile_id": "synthetic-farmer-nm-conservation",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "NM",
+          "core.geography.county_name": "Doña Ana"
+        }
+      },
+      "general_unmapped_fields": [
+        "farm_type",
+        "resource_concerns"
+      ]
+    },
+    {
+      "profile_id": "synthetic-senior-mo-retiree",
+      "case_type": "edge",
+      "opening_question": "I'm retired and my money doesn't stretch far. Is there help with food or my utility bills?",
+      "starter_profile": {
+        "profile_id": "synthetic-senior-mo-retiree",
+        "navigator": "senior_caregiver",
+        "schema_version": "senior-profile-v1",
+        "state_code": "MO",
+        "county_name": "Jackson",
+        "age_band": "65_74",
+        "food_assistance_need": true,
+        "utility_assistance_need": true,
+        "attributes": {}
+      },
+      "general_starter_profile": {
+        "profile_id": "synthetic-senior-mo-retiree",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.geography.county_name": "Jackson",
+          "core.person.age_band": "65_74"
+        }
+      },
+      "general_unmapped_fields": [
+        "food_assistance_need",
+        "utility_assistance_need"
+      ]
+    },
+    {
+      "profile_id": "synthetic-senior-mo-veteran",
+      "case_type": "edge",
+      "opening_question": "I'm a Vietnam veteran and I need help getting dressed and bathing now. What can the VA do?",
+      "starter_profile": {
+        "profile_id": "synthetic-senior-mo-veteran",
+        "navigator": "senior_caregiver",
+        "schema_version": "senior-profile-v1",
+        "state_code": "MO",
+        "county_name": "St. Charles",
+        "veteran_status": true,
+        "daily_care_need": true,
+        "attributes": {}
+      },
+      "general_starter_profile": {
+        "profile_id": "synthetic-senior-mo-veteran",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.geography.county_name": "St. Charles"
+        }
+      },
+      "general_unmapped_fields": [
+        "daily_care_need",
+        "veteran_status"
+      ]
+    },
+    {
+      "profile_id": "synthetic-caregiver-ks-father",
+      "case_type": "edge",
+      "opening_question": "I take care of my dad, who's a veteran. What support is there for him, and for me as his caregiver?",
+      "starter_profile": {
+        "profile_id": "synthetic-caregiver-ks-father",
+        "navigator": "senior_caregiver",
+        "schema_version": "senior-profile-v1",
+        "state_code": "KS",
+        "county_name": "Wyandotte",
+        "veteran_status": true,
+        "caregiver_relationship": "adult_child",
+        "attributes": {}
+      },
+      "general_starter_profile": {
+        "profile_id": "synthetic-caregiver-ks-father",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "KS",
+          "core.geography.county_name": "Wyandotte"
+        }
+      },
+      "general_unmapped_fields": [
+        "caregiver_relationship",
+        "veteran_status"
+      ]
+    },
+    {
+      "profile_id": "synthetic-senior-md-rural",
+      "case_type": "edge",
+      "opening_question": "Heating my house in winter is getting too expensive. What can help?",
+      "starter_profile": {
+        "profile_id": "synthetic-senior-md-rural",
+        "navigator": "senior_caregiver",
+        "schema_version": "senior-profile-v1",
+        "state_code": "MD",
+        "county_name": "Garrett",
+        "utility_assistance_need": true,
+        "attributes": {}
+      },
+      "general_starter_profile": {
+        "profile_id": "synthetic-senior-md-rural",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MD",
+          "core.geography.county_name": "Garrett"
+        }
+      },
+      "general_unmapped_fields": [
+        "utility_assistance_need"
+      ]
+    },
+    {
+      "profile_id": "synthetic-household-mo-working-renter",
+      "case_type": "edge",
+      "opening_question": "I'm working, but I'm still having trouble making rent. What assistance may be available?",
+      "starter_profile": {
+        "profile_id": "synthetic-household-mo-working-renter",
+        "navigator": "low_income_assistance",
+        "schema_version": "household-profile-v1",
+        "state_code": "MO",
+        "county_name": "St. Louis City",
+        "employment_status": "employed",
+        "housing_status": "renter",
+        "attributes": {}
+      },
+      "general_starter_profile": {
+        "profile_id": "synthetic-household-mo-working-renter",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.geography.county_name": "St. Louis City",
+          "core.household.housing_status": "renter"
+        }
+      },
+      "general_unmapped_fields": [
+        "employment_status"
+      ]
+    },
+    {
+      "profile_id": "synthetic-household-mo-single-parent",
+      "case_type": "edge",
+      "opening_question": "What assistance programs could help me support my children while I work?",
+      "starter_profile": {
+        "profile_id": "synthetic-household-mo-single-parent",
+        "navigator": "low_income_assistance",
+        "schema_version": "household-profile-v1",
+        "state_code": "MO",
+        "county_name": "Greene",
+        "childcare_need": true,
+        "attributes": {}
+      },
+      "general_starter_profile": {
+        "profile_id": "synthetic-household-mo-single-parent",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.geography.county_name": "Greene"
+        }
+      },
+      "general_unmapped_fields": [
+        "childcare_need"
+      ]
+    },
+    {
+      "profile_id": "synthetic-household-mo-missing-size",
+      "case_type": "edge",
+      "opening_question": "We make about $30,000 a year in Missouri. Can we get food help?",
+      "starter_profile": {
+        "profile_id": "synthetic-household-mo-missing-size",
+        "navigator": "low_income_assistance",
+        "schema_version": "household-profile-v1",
+        "state_code": "MO",
+        "annual_household_income_usd": 30000,
+        "food_assistance_need": true,
+        "attributes": {}
+      },
+      "general_starter_profile": {
+        "profile_id": "synthetic-household-mo-missing-size",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.household.annual_income_usd": 30000
+        }
+      },
+      "general_unmapped_fields": [
+        "food_assistance_need"
+      ]
+    },
+    {
+      "profile_id": "synthetic-household-mo-over-income",
+      "case_type": "edge",
+      "opening_question": "We make $95,000 a year. Do we qualify for SNAP?",
+      "starter_profile": {
+        "profile_id": "synthetic-household-mo-over-income",
+        "navigator": "low_income_assistance",
+        "schema_version": "household-profile-v1",
+        "state_code": "MO",
+        "county_name": "Boone",
+        "annual_household_income_usd": 95000,
+        "attributes": {}
+      },
+      "general_starter_profile": {
+        "profile_id": "synthetic-household-mo-over-income",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.geography.county_name": "Boone",
+          "core.household.annual_income_usd": 95000
+        }
+      },
+      "general_unmapped_fields": []
+    },
+    {
+      "profile_id": "synthetic-household-mo-correction",
+      "case_type": "edge",
+      "opening_question": "There are four of us and money is tight. What help is there?",
+      "starter_profile": {
+        "profile_id": "synthetic-household-mo-correction",
+        "navigator": "low_income_assistance",
+        "schema_version": "household-profile-v1",
+        "state_code": "MO",
+        "county_name": "Jackson",
+        "household_size": 4,
+        "food_assistance_need": true,
+        "attributes": {}
+      },
+      "general_starter_profile": {
+        "profile_id": "synthetic-household-mo-correction",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.geography.county_name": "Jackson",
+          "core.household.size": 4
+        }
+      },
+      "general_unmapped_fields": [
+        "food_assistance_need"
+      ]
+    },
+    {
+      "profile_id": "synthetic-household-mo-declines",
+      "case_type": "edge",
+      "opening_question": "I need help with groceries in Missouri, but I'd rather not say what I earn.",
+      "starter_profile": {
+        "profile_id": "synthetic-household-mo-declines",
+        "navigator": "low_income_assistance",
+        "schema_version": "household-profile-v1",
+        "state_code": "MO",
+        "county_name": "Greene",
+        "food_assistance_need": true,
+        "attributes": {}
+      },
+      "general_starter_profile": {
+        "profile_id": "synthetic-household-mo-declines",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.geography.county_name": "Greene"
+        }
+      },
+      "general_unmapped_fields": [
+        "food_assistance_need"
+      ]
+    },
+    {
+      "profile_id": "synthetic-household-md-family",
+      "case_type": "edge",
+      "opening_question": "My income dropped. What help is available for my family?",
+      "starter_profile": {
+        "profile_id": "synthetic-household-md-family",
+        "navigator": "low_income_assistance",
+        "schema_version": "household-profile-v1",
+        "state_code": "MD",
+        "county_name": "Baltimore City",
+        "food_assistance_need": true,
+        "attributes": {}
+      },
+      "general_starter_profile": {
+        "profile_id": "synthetic-household-md-family",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MD",
+          "core.geography.county_name": "Baltimore City"
+        }
+      },
+      "general_unmapped_fields": [
+        "food_assistance_need"
+      ]
+    },
+    {
+      "profile_id": "synthetic-household-nm-tribal",
+      "case_type": "edge",
+      "opening_question": "We live near the reservation. What food programs can we use?",
+      "starter_profile": {
+        "profile_id": "synthetic-household-nm-tribal",
+        "navigator": "low_income_assistance",
+        "schema_version": "household-profile-v1",
+        "state_code": "NM",
+        "county_name": "McKinley",
+        "food_assistance_need": true,
+        "attributes": {}
+      },
+      "general_starter_profile": {
+        "profile_id": "synthetic-household-nm-tribal",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "NM",
+          "core.geography.county_name": "McKinley"
+        }
+      },
+      "general_unmapped_fields": [
+        "food_assistance_need"
+      ]
+    }
+  ]
+}

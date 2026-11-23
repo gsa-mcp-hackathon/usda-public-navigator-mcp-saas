@@ -1,0 +1,17 @@
+{
+  "active": "none",
+  "providers": {
+    "none": { "type": "none" },
+    "event-platform": {
+      "type": "ibm_orchestrate",
+      "endpoint_env": "MAPPER_ENDPOINT",
+      "key_env": "MAPPER_KEY"
+    },
+    "hosted-llm": {
+      "type": "openai_compatible",
+      "endpoint_env": "MAPPER_ENDPOINT",
+      "key_env": "MAPPER_KEY",
+      "model": "set-per-deployment"
+    }
+  }
+}

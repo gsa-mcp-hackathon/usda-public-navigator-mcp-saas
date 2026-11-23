@@ -1,0 +1,516 @@
+{
+  "schema_version": "1.0",
+  "provenance": "recorded",
+  "run": {
+    "run_id": "R20261121T151327Z-direct-mcp",
+    "mode": "direct_mcp",
+    "started_at_utc": "2026-11-21T15:11:49.875671+00:00",
+    "ended_at_utc": "2026-11-21T15:13:27.859792+00:00",
+    "model_calls": 0,
+    "core_version": "0.2.0",
+    "git_sha": "unavailable",
+    "dataset_versions": {
+      "platform": "usda-platform-capability-eval-1",
+      "eligibility": "usda-eligibility-pattern-eval-3",
+      "coverage": "usda-data-coverage-eval-1"
+    },
+    "note": "Trace and span IDs were joined after capture, by correlation ID, to native Core spans in the Phoenix project usda-core-native. The Navigator's own capture-time join found none."
+  },
+  "cases": [
+    {
+      "id": "N01",
+      "category": "platform",
+      "question": "Read the Core capability map. What Core version does it report? Return the version string only.",
+      "expected": "0.2.0",
+      "observed": "0.2.0",
+      "navigator_status": "pass",
+      "phoenix_status": "not_verified",
+      "failure_owner": null,
+      "calls": [
+        {
+          "tool": "describe_core_capabilities",
+          "operation_id": null,
+          "duration_ms": 743,
+          "inner_status": "available",
+          "correlation_id": null,
+          "trace_id": null,
+          "span_id": null,
+          "started_at_utc": "2026-11-21T15:11:50.461176+00:00"
+        }
+      ]
+    },
+    {
+      "id": "N02",
+      "category": "platform",
+      "question": "Read the Core capability map. It states whether endpoint URLs are exposed to clients. Return that value only: true or false.",
+      "expected": "false",
+      "observed": "false",
+      "navigator_status": "pass",
+      "phoenix_status": "not_verified",
+      "failure_owner": null,
+      "calls": [
+        {
+          "tool": "describe_core_capabilities",
+          "operation_id": null,
+          "duration_ms": 743,
+          "inner_status": "available",
+          "correlation_id": null,
+          "trace_id": null,
+          "span_id": null,
+          "started_at_utc": "2026-11-21T15:11:50.461176+00:00"
+        }
+      ]
+    },
+    {
+      "id": "N03",
+      "category": "platform",
+      "question": "Read the Core capability map. Its bootstrap section has a client_workflows list. How many entries are in that list? Return the number only.",
+      "expected": "6",
+      "observed": "6",
+      "navigator_status": "pass",
+      "phoenix_status": "not_verified",
+      "failure_owner": null,
+      "calls": [
+        {
+          "tool": "describe_core_capabilities",
+          "operation_id": null,
+          "duration_ms": 743,
+          "inner_status": "available",
+          "correlation_id": null,
+          "trace_id": null,
+          "span_id": null,
+          "started_at_utc": "2026-11-21T15:11:50.461176+00:00"
+        }
+      ]
+    },
+    {
+      "id": "N04",
+      "category": "platform",
+      "question": "Read the Core capability map. The route dispatcher accepts one legacy field that it ignores and that never selects a target. Return that field name only.",
+      "expected": "route_version",
+      "observed": "route_version",
+      "navigator_status": "pass",
+      "phoenix_status": "not_verified",
+      "failure_owner": null,
+      "calls": [
+        {
+          "tool": "describe_core_capabilities",
+          "operation_id": null,
+          "duration_ms": 743,
+          "inner_status": "available",
+          "correlation_id": null,
+          "trace_id": null,
+          "span_id": null,
+          "started_at_utc": "2026-11-21T15:11:50.461176+00:00"
+        }
+      ]
+    },
+    {
+      "id": "N05",
+      "category": "platform",
+      "question": "Call the route dispatcher with route_id \"eval-missing-route\" and operation_id \"program.discover\". No such route is registered. Return the exact value of the status field the Core reports (not the reason field), and nothing else.",
+      "expected": "unknown_route",
+      "observed": "unknown_route",
+      "navigator_status": "pass",
+      "phoenix_status": "pass",
+      "failure_owner": null,
+      "calls": [
+        {
+          "tool": "route_operation",
+          "operation_id": "program.discover",
+          "duration_ms": 324,
+          "inner_status": "unknown_route",
+          "correlation_id": "7caa8b1a-0ef3-470d-867c-efadaf22ca4b",
+          "trace_id": "cf5fa66f0c5933f9053b7f7cd9d60be5",
+          "span_id": "328832c1205e3a06",
+          "started_at_utc": "2026-11-21T15:12:32.166830+00:00"
+        }
+      ]
+    },
+    {
+      "id": "N06",
+      "category": "platform",
+      "question": "Call the route dispatcher with route_id \"eval-missing-route\" and operation_id \"program.discover\". The response includes a recovery hint naming one tool. Return that tool name only.",
+      "expected": "list_core_routes",
+      "observed": "list_core_routes",
+      "navigator_status": "pass",
+      "phoenix_status": "pass",
+      "failure_owner": null,
+      "calls": [
+        {
+          "tool": "route_operation",
+          "operation_id": "program.discover",
+          "duration_ms": 324,
+          "inner_status": "unknown_route",
+          "correlation_id": "7caa8b1a-0ef3-470d-867c-efadaf22ca4b",
+          "trace_id": "cf5fa66f0c5933f9053b7f7cd9d60be5",
+          "span_id": "328832c1205e3a06",
+          "started_at_utc": "2026-11-21T15:12:32.166830+00:00"
+        }
+      ]
+    },
+    {
+      "id": "N07",
+      "category": "platform",
+      "question": "Read the active route inventory. Which route_id publishes the operation whose operation_id is exactly program.evaluate? Return the route_id only.",
+      "expected": "eligibility-demo",
+      "observed": "eligibility-demo",
+      "navigator_status": "pass",
+      "phoenix_status": "not_verified",
+      "failure_owner": null,
+      "calls": [
+        {
+          "tool": "list_core_routes",
+          "operation_id": null,
+          "duration_ms": 230,
+          "inner_status": "available",
+          "correlation_id": null,
+          "trace_id": null,
+          "span_id": null,
+          "started_at_utc": "2026-11-21T15:11:51.203733+00:00"
+        }
+      ]
+    },
+    {
+      "id": "N08",
+      "category": "platform",
+      "question": "Read the active route inventory. Is the route that publishes program.inventory.search bound to a tenant, or shared with no tenant? Respond with exactly one of: tenant_bound, shared.",
+      "expected": "shared",
+      "observed": "shared",
+      "navigator_status": "pass",
+      "phoenix_status": "not_verified",
+      "failure_owner": null,
+      "calls": [
+        {
+          "tool": "list_core_routes",
+          "operation_id": null,
+          "duration_ms": 230,
+          "inner_status": "available",
+          "correlation_id": null,
+          "trace_id": null,
+          "span_id": null,
+          "started_at_utc": "2026-11-21T15:11:51.203733+00:00"
+        }
+      ]
+    },
+    {
+      "id": "N09",
+      "category": "platform",
+      "question": "List the registered tenants. Tenant eligibility-demo has several registered template versions. Which template_version is in lifecycle state active? Return the version only.",
+      "expected": "0.1.47",
+      "observed": "0.1.48",
+      "navigator_status": "fail",
+      "phoenix_status": "not_verified",
+      "failure_owner": "wiring/config",
+      "calls": [
+        {
+          "tool": "list_registered_tenants",
+          "operation_id": null,
+          "duration_ms": 313,
+          "inner_status": "available",
+          "correlation_id": null,
+          "trace_id": null,
+          "span_id": null,
+          "started_at_utc": "2026-11-21T15:11:51.948313+00:00"
+        }
+      ]
+    },
+    {
+      "id": "N10",
+      "category": "platform",
+      "question": "Read the active source policy state. Which manifest_version is active? Return the version only.",
+      "expected": "1.2.5",
+      "observed": "1.2.5",
+      "navigator_status": "pass",
+      "phoenix_status": "not_verified",
+      "failure_owner": null,
+      "calls": [
+        {
+          "tool": "read_source_policy_state",
+          "operation_id": null,
+          "duration_ms": 307,
+          "inner_status": "active",
+          "correlation_id": null,
+          "trace_id": null,
+          "span_id": null,
+          "started_at_utc": "2026-11-21T15:12:32.490479+00:00"
+        }
+      ]
+    },
+    {
+      "id": "N11",
+      "category": "eligibility",
+      "question": "A working adult in St. Louis City, Missouri is behind on rent and asks about a housing voucher. Search the platform's program inventory for Missouri. Which HUD program is the top eligibility program returned? Give the program name only.",
+      "expected": "Housing Choice Voucher",
+      "observed": "Housing Choice Voucher (HCV) Program",
+      "navigator_status": "fail",
+      "phoenix_status": "pass",
+      "failure_owner": null,
+      "calls": [
+        {
+          "tool": "route_operation",
+          "operation_id": "program.inventory.search",
+          "duration_ms": 4957,
+          "inner_status": "ok",
+          "correlation_id": "db029053-fe34-4776-8e14-f72a6470a6e1",
+          "trace_id": "454dd2ba2ae052023f1d5221516bbf4f",
+          "span_id": "c262418866852d3c",
+          "started_at_utc": "2026-11-21T15:12:32.797247+00:00"
+        }
+      ]
+    },
+    {
+      "id": "N12",
+      "category": "eligibility",
+      "question": "A one-person household in St. Louis City, Missouri has an annual household income of $34,000. Using the platform's mapped criteria for the HUD Housing Choice Voucher program, what is the outcome of the income criterion? Respond with exactly one of: met, unmet, unknown, not_applicable.",
+      "expected": "met",
+      "observed": "met",
+      "navigator_status": "pass",
+      "phoenix_status": "pass",
+      "failure_owner": null,
+      "calls": [
+        {
+          "tool": "route_operation",
+          "operation_id": "program.evaluate",
+          "duration_ms": 4013,
+          "inner_status": "ok",
+          "correlation_id": "510a23ec-02b0-4936-a3ee-4dc5ca6cbc87",
+          "trace_id": "7b1036b00972e571a5cbc8abd3e2e99b",
+          "span_id": "ace26d81a916bf82",
+          "started_at_utc": "2026-11-21T15:12:42.950681+00:00"
+        }
+      ]
+    },
+    {
+      "id": "N13",
+      "category": "eligibility",
+      "question": "A one-person household in St. Louis City, Missouri has an annual household income of $90,000. Using the platform's mapped criteria for the HUD Housing Choice Voucher program, what is the outcome of the income criterion? Respond with exactly one of: met, unmet, unknown, not_applicable.",
+      "expected": "unmet",
+      "observed": "unmet",
+      "navigator_status": "pass",
+      "phoenix_status": "pass",
+      "failure_owner": null,
+      "calls": [
+        {
+          "tool": "route_operation",
+          "operation_id": "program.evaluate",
+          "duration_ms": 4016,
+          "inner_status": "ok",
+          "correlation_id": "45924933-72ac-48e7-8294-b45965e4b569",
+          "trace_id": "bffdf16d7d01cd9989dbaedf4350e3a8",
+          "span_id": "c12e835035385e21",
+          "started_at_utc": "2026-11-21T15:12:46.963635+00:00"
+        }
+      ]
+    },
+    {
+      "id": "N14",
+      "category": "eligibility",
+      "question": "A one-person household in St. Louis City, Missouri has not said what its income is. Using the platform's mapped criteria for the HUD Housing Choice Voucher program, what is the outcome of the income criterion right now? Respond with exactly one of: met, unmet, unknown, not_applicable.",
+      "expected": "unknown",
+      "observed": "unknown",
+      "navigator_status": "pass",
+      "phoenix_status": "pass",
+      "failure_owner": null,
+      "calls": [
+        {
+          "tool": "route_operation",
+          "operation_id": "program.evaluate",
+          "duration_ms": 4208,
+          "inner_status": "ok",
+          "correlation_id": "b0eff349-0939-4c3e-965f-20cabacd72c8",
+          "trace_id": "50735a73cfb13d8c9f23e1f54095a00c",
+          "span_id": "69026ce84d906cf1",
+          "started_at_utc": "2026-11-21T15:12:50.979603+00:00"
+        }
+      ]
+    },
+    {
+      "id": "N15",
+      "category": "eligibility",
+      "question": "A one-person household in St. Louis City, Missouri has not said what its income is. Evaluate it against the platform's mapped criteria for the HUD Housing Choice Voucher program. Which reason_code does the platform return for the income criterion? Return the reason code only.",
+      "expected": "profile_fact_missing",
+      "observed": "profile_fact_missing",
+      "navigator_status": "pass",
+      "phoenix_status": "pass",
+      "failure_owner": null,
+      "calls": [
+        {
+          "tool": "route_operation",
+          "operation_id": "program.evaluate",
+          "duration_ms": 4208,
+          "inner_status": "ok",
+          "correlation_id": "b0eff349-0939-4c3e-965f-20cabacd72c8",
+          "trace_id": "50735a73cfb13d8c9f23e1f54095a00c",
+          "span_id": "69026ce84d906cf1",
+          "started_at_utc": "2026-11-21T15:12:50.979603+00:00"
+        }
+      ]
+    },
+    {
+      "id": "N16",
+      "category": "eligibility",
+      "question": "A one-person household living in Kansas has an annual household income of $34,000. Using the platform's mapped St. Louis criteria for the HUD Housing Choice Voucher program, what is the outcome of the income criterion? Respond with exactly one of: met, unmet, unknown, not_applicable.",
+      "expected": "not_applicable",
+      "observed": null,
+      "navigator_status": "fail",
+      "phoenix_status": "not_verified",
+      "failure_owner": null,
+      "calls": []
+    },
+    {
+      "id": "N17",
+      "category": "eligibility",
+      "question": "A New Mexico farmer wants help paying for irrigation and water conservation on the farm. Search the platform's program inventory for New Mexico. Which USDA NRCS program is the top eligibility program returned? Give the full program name only, without the acronym.",
+      "expected": "Environmental Quality Incentives Program",
+      "observed": "Environmental Quality Incentives Program (EQIP)",
+      "navigator_status": "fail",
+      "phoenix_status": "pass",
+      "failure_owner": null,
+      "calls": [
+        {
+          "tool": "route_operation",
+          "operation_id": "program.inventory.search",
+          "duration_ms": 5196,
+          "inner_status": "ok",
+          "correlation_id": "8a63bab4-afd1-49aa-bd60-aac969461ea4",
+          "trace_id": "74163c89da696655f512cf711efe6a90",
+          "span_id": "12fcaf60f688529a",
+          "started_at_utc": "2026-11-21T15:12:37.754245+00:00"
+        }
+      ]
+    },
+    {
+      "id": "N18",
+      "category": "eligibility",
+      "question": "A New Mexico farmer's Farm Service Agency records confirm eligible land control. Using the platform's mapped criteria for the NRCS Environmental Quality Incentives Program, what is the outcome of the land-control criterion? If you do not know which profile fact carries this, evaluate once without it: the platform names the fact it needs. Respond with exactly one of: met, unmet, unknown, not_applicable.",
+      "expected": "met",
+      "observed": "met",
+      "navigator_status": "pass",
+      "phoenix_status": "pass",
+      "failure_owner": null,
+      "calls": [
+        {
+          "tool": "route_operation",
+          "operation_id": "program.evaluate",
+          "duration_ms": 4760,
+          "inner_status": "ok",
+          "correlation_id": "ad9c11ad-9fb3-449c-85e9-4b5d2cd74364",
+          "trace_id": "c766bd8e3a37e588b9e19d67ba92db8a",
+          "span_id": "d95dd0cd115bb3a5",
+          "started_at_utc": "2026-11-21T15:12:59.334001+00:00"
+        }
+      ]
+    },
+    {
+      "id": "N19",
+      "category": "eligibility",
+      "question": "A New Mexico farmer has not said whether Farm Service Agency records confirm eligible land control. Using the platform's mapped criteria for the NRCS Environmental Quality Incentives Program, what is the outcome of the land-control criterion right now? Respond with exactly one of: met, unmet, unknown, not_applicable.",
+      "expected": "unknown",
+      "observed": "unknown",
+      "navigator_status": "pass",
+      "phoenix_status": "pass",
+      "failure_owner": null,
+      "calls": [
+        {
+          "tool": "route_operation",
+          "operation_id": "program.evaluate",
+          "duration_ms": 5036,
+          "inner_status": "ok",
+          "correlation_id": "0723143a-1cdc-4cc2-869d-f60aad068677",
+          "trace_id": "a5b66f2563d51d3eebf281bc27f1fbb8",
+          "span_id": "1846d6a051f142e5",
+          "started_at_utc": "2026-11-21T15:13:04.094308+00:00"
+        }
+      ]
+    },
+    {
+      "id": "N20",
+      "category": "eligibility",
+      "question": "Evaluate any household against the platform's mapped criteria for the HUD Housing Choice Voucher program. The result carries a field stating whether it is an official eligibility determination. Return that field's value only: true or false.",
+      "expected": "false",
+      "observed": "false",
+      "navigator_status": "pass",
+      "phoenix_status": "pass",
+      "failure_owner": null,
+      "calls": [
+        {
+          "tool": "route_operation",
+          "operation_id": "program.evaluate",
+          "duration_ms": 4013,
+          "inner_status": "ok",
+          "correlation_id": "510a23ec-02b0-4936-a3ee-4dc5ca6cbc87",
+          "trace_id": "7b1036b00972e571a5cbc8abd3e2e99b",
+          "span_id": "ace26d81a916bf82",
+          "started_at_utc": "2026-11-21T15:12:42.950681+00:00"
+        }
+      ]
+    },
+    {
+      "id": "N21",
+      "category": "coverage",
+      "question": "Search the platform's program inventory for rental housing assistance in Missouri. For the listing titled Public Housing, what is the value of its evaluation_available field? Respond with exactly one of: true, false.",
+      "expected": "false",
+      "observed": "false",
+      "navigator_status": "pass",
+      "phoenix_status": "pass",
+      "failure_owner": null,
+      "calls": [
+        {
+          "tool": "route_operation",
+          "operation_id": "program.inventory.search",
+          "duration_ms": 6148,
+          "inner_status": "ok",
+          "correlation_id": "8aa34b86-71a6-4806-ab87-5756f36c52e9",
+          "trace_id": "ed65a2c298bacc11da1c4b30ee4f0c9e",
+          "span_id": "2819065fe3af06aa",
+          "started_at_utc": "2026-11-21T15:13:09.130218+00:00"
+        }
+      ]
+    },
+    {
+      "id": "N22",
+      "category": "coverage",
+      "question": "Search the platform's program inventory for rental housing assistance in Missouri. For the listing titled HUD Public Housing Agency (PHA) Contact Directory, what is the value of its evaluation_available field? Respond with exactly one of: true, false.",
+      "expected": "false",
+      "observed": "false",
+      "navigator_status": "pass",
+      "phoenix_status": "pass",
+      "failure_owner": null,
+      "calls": [
+        {
+          "tool": "route_operation",
+          "operation_id": "program.inventory.search",
+          "duration_ms": 6148,
+          "inner_status": "ok",
+          "correlation_id": "8aa34b86-71a6-4806-ab87-5756f36c52e9",
+          "trace_id": "ed65a2c298bacc11da1c4b30ee4f0c9e",
+          "span_id": "2819065fe3af06aa",
+          "started_at_utc": "2026-11-21T15:13:09.130218+00:00"
+        }
+      ]
+    },
+    {
+      "id": "N23",
+      "category": "coverage",
+      "question": "Search the platform's program inventory for irrigation and water conservation help for a farm in New Mexico. For the listing titled Emergency Conservation Program (ECP), what is the value of its evaluation_available field? Respond with exactly one of: true, false.",
+      "expected": "false",
+      "observed": "false",
+      "navigator_status": "pass",
+      "phoenix_status": "pass",
+      "failure_owner": null,
+      "calls": [
+        {
+          "tool": "route_operation",
+          "operation_id": "program.inventory.search",
+          "duration_ms": 5715,
+          "inner_status": "ok",
+          "correlation_id": "13d80e5e-afa8-47fd-ad36-80631f99840c",
+          "trace_id": "9aa0568d4dc69157ec098c9259b17b4d",
+          "span_id": "73bfc59b5857aaf0",
+          "started_at_utc": "2026-11-21T15:13:15.277802+00:00"
+        }
+      ]
+    }
+  ]
+}

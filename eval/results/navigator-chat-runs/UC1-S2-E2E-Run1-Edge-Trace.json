@@ -1,0 +1,40 @@
+{
+  "driver_run_key": "run_abf62553",
+  "identifiers_seen": {
+    "run_key": "run_abf62553",
+    "correlation_id": "abf62553-1ed8-48fb-bee9-7928f2445910",
+    "client": "ibm-watsonx-orchestrate",
+    "agent": "usda_mcp_eligibility_agent",
+    "instructions_version": "v7",
+    "run_mode": "deployed chat",
+    "tool_operation": "route_operation program.inventory.search"
+  },
+  "identifier_note": "The browser agent read the correlation ID with one misread character ('led8'). The Phoenix span shows it is 1ed8, and the value above is the corrected, matched one.",
+  "page_status_text": "Running the test (chat only); trace status 'Run mode: deployed chat' and 'ok' in the tool operation log.",
+  "errors_seen": [],
+  "phoenix_join": {
+    "status": "joined",
+    "project": "usda-core-native",
+    "joined_on": "mcp.correlation.id",
+    "spans": [
+      {
+        "correlation_id": "abf62553-1ed8-48fb-bee9-7928f2445910",
+        "trace_id": "3948fa17ce3d7c93b841105a9f0b4643",
+        "span_id": "a9f454b88124a6b3",
+        "tool": "route_operation"
+      }
+    ],
+    "note": "Only IDs the browser agent read from the page are listed. Other spans from the same chat exist in the project but are not claimed here."
+  },
+  "checks": {
+    "surfaces_disaster_listings_with_sources": "pass",
+    "criteria_not_reported_as_unmet": "pass",
+    "no_pii_given": "pass",
+    "no_errors_on_page": "pass",
+    "date_reasoning": "fail"
+  },
+  "findings": [
+    "Date reasoning: the reply gave the deadline for 'a summer 2025 loss' as March 1, 2026, although the person said this summer and the run date is November 2026. The deadline for a 2026 loss would be March 1, 2027. The reply should state the rule and let the agency confirm the date.",
+    "Final turn: the run ended with 'No follow-up received' after the person said 'I am not sure'; the assistant did not answer the third message in the captured window."
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "missouri.dss.temporary-assistance",
+    "retrieved_at": "2026-11-09T17:45:09.542026+00:00",
+    "source_record_id": "source-page-63ef48e56e04eb5ad105",
+    "publisher_version": "sha256:a291c07178c367d0378f2decefbcb590ba609dcb50f09612a3aa20d6c8696ccf",
+    "source_content_sha256": "a291c07178c367d0378f2decefbcb590ba609dcb50f09612a3aa20d6c8696ccf",
+    "visible_text_sha256": "6985487725bf502e4c8b423359419cc600a04a9df6439dec894237a87c73f980",
+    "raw_source_documents_committed": false,
+    "source_observations": [
+      "The current Missouri DSS page describes Temporary Assistance as cash support for low-income families with children and participation in Missouri Work Assistance after approval.",
+      "The page lists age, residency, resource, income, household-identity, drug-related, work/training, and application conditions; none are mapped or executable in this listing."
+    ]
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "missouri.dss.temporary-assistance",
+      "source_name": "Missouri DSS Temporary Assistance",
+      "source_url": "https://dss.mo.gov/temporary-assistance/apply",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "state",
+          "owner_name": "Missouri Department of Social Services",
+          "verification_status": "verified",
+          "evidence_url": "https://dss.mo.gov/temporary-assistance/apply"
+        },
+        "approved_scope": "Official Missouri Temporary Assistance program listing and source reference only; criteria remain review-only until approved mappings are published.",
+        "refresh_mode": "operator_triggered"
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "missouri-dss-temporary-assistance-listings",
+        "source_dataset_id": "Missouri DSS Temporary Assistance application page",
+        "title": "Missouri Temporary Assistance program listing",
+        "landing_page": "https://dss.mo.gov/temporary-assistance/apply",
+        "schema_version": "public-listing-v3",
+        "namespace_ids": ["core", "listing"],
+        "metadata": {
+          "content_type": "state_public_program_listing",
+          "refresh_mode": "operator_triggered",
+          "schema_versions": {"core": "core-v1", "listing": "public-listing-v3"},
+          "visibility_scope": "cluster_public",
+          "catalog_namespace": "programs",
+          "criteria_coverage": "not_mapped",
+          "schema_registry_ids": {"core": "core-schema-registry", "listing": "eligibility-public-listing-schema"},
+          "record_contract_version": "normalized-public-record-v1"
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "missouri-dss-temporary-assistance-listings",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "sha256:a291c07178c367d0378f2decefbcb590ba609dcb50f09612a3aa20d6c8696ccf",
+        "retrieved_at": "2026-11-09T17:45:09.542026+00:00",
+        "transform_version": "missouri-ta-source-refresh-review-v1",
+        "validation_outcome": "valid",
+        "detail": "Fresh Core source read verified the existing Missouri Temporary Assistance listing identity. Published eligibility clauses remain unmapped; no score or eligibility finding is asserted.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "missouri-temporary-assistance",
+            "record_type": "public_listing",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "state",
+              "core.geography.country_code": "US",
+              "core.geography.state_code": "MO",
+              "listing.record_kind": "assistance_program",
+              "listing.title": "Missouri Temporary Assistance",
+              "listing.summary": "Missouri Temporary Assistance is a cash benefit for low-income families to help cover costs for children. Approved participants must take part in Missouri Work Assistance employment and training services. This listing does not map or evaluate the program’s eligibility conditions.",
+              "listing.agency": "Missouri Department of Social Services, Family Support Division",
+              "listing.applicant_types": ["parent", "guardian", "family with children"],
+              "listing.assistance_type": "temporary cash assistance for families",
+              "listing.applicant_description": "Missouri parents or guardians seeking cash assistance for a household with children; consult the state page for current application details.",
+              "listing.beneficiary_description": "Low-income families with children in Missouri",
+              "listing.program_url": "https://dss.mo.gov/temporary-assistance/apply"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "listing_kind": "assistance_program",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {"level": "state", "country_code": "US", "state_code": "MO"},
+              "need_topics": ["temporary_cash_assistance", "family_stability"],
+              "beneficiary_classes": ["Missouri families with children"]
+            },
+            "source_metadata": {
+              "source_id": "missouri.dss.temporary-assistance",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "source_title": "Apply for Temporary Assistance",
+              "publisher": "Missouri Department of Social Services",
+              "source_version": "sha256:a291c07178c367d0378f2decefbcb590ba609dcb50f09612a3aa20d6c8696ccf",
+              "criteria_status": "not_assessed",
+              "retrieved_at": "2026-11-09T17:45:09.542026+00:00",
+              "effective_at": null,
+              "transform_version": "missouri-ta-source-refresh-review-v1",
+              "raw_payload_stored": false,
+              "source_notice": "Published program statements are review evidence only. This listing is not a complete screening rule or an official eligibility decision.",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {"source_url": "https://dss.mo.gov/temporary-assistance/apply", "observed_at": "2026-11-09T17:45:09.542026+00:00", "extraction_method": "operator_review"},
+                "core.geography.country_code": {"source_url": "https://dss.mo.gov/temporary-assistance/apply", "observed_at": "2026-11-09T17:45:09.542026+00:00", "extraction_method": "operator_review"},
+                "core.geography.state_code": {"source_url": "https://dss.mo.gov/temporary-assistance/apply", "observed_at": "2026-11-09T17:45:09.542026+00:00", "extraction_method": "operator_review"},
+                "listing.title": {"source_url": "https://dss.mo.gov/temporary-assistance/apply", "observed_at": "2026-11-09T17:45:09.542026+00:00", "extraction_method": "operator_review"},
+                "listing.summary": {"source_url": "https://dss.mo.gov/temporary-assistance/apply", "observed_at": "2026-11-09T17:45:09.542026+00:00", "extraction_method": "operator_review"},
+                "listing.agency": {"source_url": "https://dss.mo.gov/temporary-assistance/apply", "observed_at": "2026-11-09T17:45:09.542026+00:00", "extraction_method": "operator_review"},
+                "listing.program_url": {"source_url": "https://dss.mo.gov/temporary-assistance/apply", "observed_at": "2026-11-09T17:45:09.542026+00:00", "extraction_method": "operator_review"},
+                "listing.applicant_description": {"source_url": "https://dss.mo.gov/temporary-assistance/apply","observed_at": "2026-11-09T17:45:09.542026+00:00","extraction_method": "operator_review"},
+                "listing.applicant_types": {"source_url": "https://dss.mo.gov/temporary-assistance/apply","observed_at": "2026-11-09T17:45:09.542026+00:00","extraction_method": "operator_review"},
+                "listing.assistance_type": {"source_url": "https://dss.mo.gov/temporary-assistance/apply","observed_at": "2026-11-09T17:45:09.542026+00:00","extraction_method": "operator_review"},
+                "listing.beneficiary_description": {"source_url": "https://dss.mo.gov/temporary-assistance/apply","observed_at": "2026-11-09T17:45:09.542026+00:00","extraction_method": "operator_review"},
+                "listing.record_kind": {"source_url": "https://dss.mo.gov/temporary-assistance/apply","observed_at": "2026-11-09T17:45:09.542026+00:00","extraction_method": "operator_review"}
+              }
+            },
+            "source_url": "https://dss.mo.gov/temporary-assistance/apply",
+            "schema_version": "public-listing-v3",
+            "observed_at": "2026-11-09T17:45:09.542026+00:00",
+            "content_hash": "a291c07178c367d0378f2decefbcb590ba609dcb50f09612a3aa20d6c8696ccf"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "scenario": "UC1-S3",
+  "kind": "Edge",
+  "edge": "conservation criteria not mapped; person gives only the goal",
+  "run": 1,
+  "page": "team web app for demo and testing",
+  "driver": "TinyFish browser agent, run c55a50f7-1828-4b91-a0c5-cf96c1aa808b",
+  "persona": "fictional New Mexico pecan grower who wants to improve irrigation efficiency",
+  "rules": "answer only from stated facts; otherwise 'I am not sure'; no name, address, phone or ID; at most 3 follow-ups",
+  "user_messages": [
+    "I want to cut the water my pecan orchard uses in New Mexico. Is there cost-share help?",
+    "I want to improve irrigation efficiency on my pecan orchard in New Mexico. I'm thinking about drip irrigation or micro-sprinklers.",
+    "I want to improve irrigation efficiency on my pecan orchard in New Mexico."
+  ]
+}

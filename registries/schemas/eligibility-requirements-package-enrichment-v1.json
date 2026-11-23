@@ -1,0 +1,48 @@
+{
+  "registry_id": "eligibility-requirements-package-enrichment-v1-schema",
+  "schema_version": "eligibility-requirements-package-enrichment-v1",
+  "namespaces": {
+    "requirements": "Package enrichment receipt"
+  },
+  "dimensions": {
+    "requirements.receipt": "Append-only enrichment receipt",
+    "requirements.package": "Read-back package and report"
+  },
+  "attributes": {
+    "requirements.status": {
+      "dimension_id": "requirements.receipt",
+      "type": "string"
+    },
+    "requirements.package_id": {
+      "dimension_id": "requirements.receipt",
+      "type": "string",
+      "format": "uuid"
+    },
+    "requirements.revision": {
+      "dimension_id": "requirements.receipt",
+      "type": "integer"
+    },
+    "requirements.current_revision": {
+      "dimension_id": "requirements.receipt",
+      "type": "integer"
+    },
+    "requirements.details_sha256": {
+      "dimension_id": "requirements.receipt",
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "requirements.readback_verified": {
+      "dimension_id": "requirements.receipt",
+      "type": "boolean"
+    },
+    "requirements.package_json": {
+      "dimension_id": "requirements.package",
+      "type": "object"
+    },
+    "requirements.report_markdown": {
+      "dimension_id": "requirements.package",
+      "type": "string"
+    }
+  },
+  "description": "Enrichment returns exact readback; stale expected revisions return revision_conflict and current_revision without mutation."
+}

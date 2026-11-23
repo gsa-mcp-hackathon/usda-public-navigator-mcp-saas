@@ -1,0 +1,51 @@
+{
+  "registry_id": "eligibility-public-listing-schema",
+  "schema_version": "public-listing-v3",
+  "namespaces": {
+    "core": "Shared geographic context",
+    "listing": "Shared, source-backed public listing concepts"
+  },
+  "dimensions": {
+    "listing.public_listing": "A published public program or funding opportunity without inferred eligibility criteria",
+    "core.geography": "Geographic scope of the public listing"
+  },
+  "attributes": {
+    "listing.record_kind": {
+      "dimension_id": "listing.public_listing",
+      "type": "string",
+      "allowed_values": ["funding_opportunity", "assistance_program"]
+    },
+    "listing.program_number": {"dimension_id": "listing.public_listing", "type": "string"},
+    "listing.title": {"dimension_id": "listing.public_listing", "type": "string"},
+    "listing.summary": {"dimension_id": "listing.public_listing", "type": "string"},
+    "listing.agency": {"dimension_id": "listing.public_listing", "type": "string"},
+    "listing.applicant_types": {"dimension_id": "listing.public_listing", "type": "array"},
+    "listing.status": {"dimension_id": "listing.public_listing", "type": "string"},
+    "listing.open_date": {"dimension_id": "listing.public_listing", "type": "string"},
+    "listing.close_date": {"dimension_id": "listing.public_listing", "type": "string"},
+    "listing.opportunity_url": {"dimension_id": "listing.public_listing", "type": "string", "pattern": "^https://"},
+    "listing.program_url": {"dimension_id": "listing.public_listing", "type": "string", "pattern": "^https://"},
+    "listing.website_url": {"dimension_id": "listing.public_listing", "type": "string", "pattern": "^https://"},
+    "listing.assistance_type": {"dimension_id": "listing.public_listing", "type": "string"},
+    "listing.applicant_description": {"dimension_id": "listing.public_listing", "type": "string"},
+    "listing.beneficiary_description": {"dimension_id": "listing.public_listing", "type": "string"},
+    "listing.published_date": {"dimension_id": "listing.public_listing", "type": "string"},
+    "core.geography.jurisdiction_level": {
+      "dimension_id": "core.geography",
+      "type": "string",
+      "allowed_values": ["federal", "state", "local", "tribal"]
+    },
+    "core.geography.country_code": {
+      "dimension_id": "core.geography",
+      "type": "string",
+      "pattern": "^[A-Z]{2}$"
+    },
+    "core.geography.state_code": {
+      "dimension_id": "core.geography",
+      "type": "string",
+      "pattern": "^[A-Z]{2}$"
+    },
+    "core.geography.county_name": {"dimension_id": "core.geography", "type": "string"}
+  },
+  "relationships": {}
+}

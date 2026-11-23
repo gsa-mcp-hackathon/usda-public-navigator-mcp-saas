@@ -1,0 +1,1199 @@
+{
+  "primer_id": "eligibility-source-primer",
+  "primer_version": "0.1.2-batch-1",
+  "generated": "2026-10-26",
+  "batch": {
+    "id": "batch-1",
+    "scope": "MD, MO, KS, NM (tenant/test states) + core USDA",
+    "record_count": 19,
+    "status_legend": {
+      "proposed": "classification only",
+      "search_observed": "URL seen in live search results; not probed",
+      "live": "2xx, no host change",
+      "redirected": "2xx after redirect to a different URL",
+      "blocked": "401/403/429 from site",
+      "server_error": "5xx from site",
+      "unreachable": "DNS/TCP/TLS/timeout failure reaching the site",
+      "probe_env_blocked": "runner egress refused (proxy CONNECT failure) — says nothing about the site",
+      "refused_unsafe_target": "URL or redirect target resolved to private/loopback/link-local/reserved address, or non-http scheme; not fetched"
+    }
+  },
+  "records": [
+    {
+      "source_id": "us-md.state.open-data",
+      "jurisdiction": {
+        "level": "state",
+        "country_code": "US",
+        "state_code": "MD"
+      },
+      "publisher": "State of Maryland",
+      "url_original": "https://data.maryland.gov/",
+      "source_kind": "open_data_catalog",
+      "domain_class": "gov",
+      "topics": [
+        "agriculture",
+        "food_nutrition",
+        "housing",
+        "health",
+        "workforce",
+        "fiscal"
+      ],
+      "program_relevance": "medium",
+      "use_case_fit": [
+        "UC-1",
+        "UC-2",
+        "UC-3"
+      ],
+      "retrieval": {
+        "platform_hint": "socrata",
+        "catalog_url_hint": "https://data.maryland.gov/api/catalog/v1",
+        "search_hint": "site:maryland.gov beginning farmer",
+        "platform": null,
+        "catalog_url": null,
+        "query_template": null,
+        "search_scope": {
+          "type": "host_suffix",
+          "value": "maryland.gov",
+          "path_prefix": null
+        }
+      },
+      "verification": {
+        "status": "proposed",
+        "evidence_urls": [],
+        "final_url": null,
+        "http_status_chain": null,
+        "last_checked": null,
+        "checked_by": null
+      },
+      "replacement_url_hint": null,
+      "notes": "Dataset catalog, not a program directory.",
+      "provenance": {
+        "input_list": "operator state portal list 2026-10-26",
+        "batch_id": "batch-1",
+        "normalized_by": "claude-chat 2026-10-26",
+        "reviewed_by": null,
+        "review_decision": null
+      },
+      "admission": {
+        "basis": "A1-domain-class"
+      },
+      "admission_rule": {
+        "type": "tld",
+        "value": "gov"
+      },
+      "source_role": "catalog"
+    },
+    {
+      "source_id": "us-md.mda.agency",
+      "jurisdiction": {
+        "level": "state",
+        "country_code": "US",
+        "state_code": "MD"
+      },
+      "publisher": "Maryland Department of Agriculture",
+      "url_original": "https://mda.maryland.gov/",
+      "source_kind": "program_directory",
+      "domain_class": "gov",
+      "topics": [
+        "agriculture",
+        "small_business"
+      ],
+      "program_relevance": "high",
+      "use_case_fit": [
+        "UC-1"
+      ],
+      "retrieval": {
+        "platform_hint": "html_only",
+        "catalog_url_hint": null,
+        "search_hint": "site:mda.maryland.gov beginning farmer OR small farm",
+        "platform": null,
+        "catalog_url": null,
+        "query_template": null,
+        "search_scope": {
+          "type": "host_suffix",
+          "value": "maryland.gov",
+          "path_prefix": null
+        }
+      },
+      "verification": {
+        "status": "search_observed",
+        "evidence_urls": [
+          "https://mda.maryland.gov/about_mda/Documents/MAC-Presentation-March2018.pdf",
+          "https://mda.maryland.gov/about_mda/Documents/HB860-MDA-Legislative-Comment.pdf"
+        ],
+        "final_url": null,
+        "http_status_chain": null,
+        "last_checked": null,
+        "checked_by": null
+      },
+      "replacement_url_hint": null,
+      "notes": "Runs Small Farm and Urban Agriculture Program and MALPF (farmland preservation). Legacy host mda.state.md.us also observed — legacy host mda.state.md.us is .us (open registration) — admit via A2, not A1.",
+      "provenance": {
+        "input_list": "batch-1 web search 2026-10-26",
+        "batch_id": "batch-1",
+        "normalized_by": "claude-chat 2026-10-26",
+        "reviewed_by": null,
+        "review_decision": null
+      },
+      "admission": {
+        "basis": "A1-domain-class"
+      },
+      "admission_rule": {
+        "type": "tld",
+        "value": "gov"
+      },
+      "source_role": "program_content"
+    },
+    {
+      "source_id": "us-md.umd.extension",
+      "jurisdiction": {
+        "level": "state",
+        "country_code": "US",
+        "state_code": "MD"
+      },
+      "publisher": "University of Maryland Extension",
+      "url_original": "https://extension.umd.edu/programs/agriculture-food-systems/program-areas/integrated-programs/beginning-farmer-success",
+      "source_kind": "extension_service",
+      "domain_class": "edu",
+      "topics": [
+        "agriculture",
+        "small_business"
+      ],
+      "program_relevance": "high",
+      "use_case_fit": [
+        "UC-1"
+      ],
+      "retrieval": {
+        "platform_hint": "html_only",
+        "catalog_url_hint": null,
+        "search_hint": "site:extension.umd.edu beginning farmer",
+        "platform": null,
+        "catalog_url": null,
+        "query_template": null,
+        "search_scope": {
+          "type": "host_suffix",
+          "value": "umd.edu",
+          "path_prefix": null
+        }
+      },
+      "verification": {
+        "status": "search_observed",
+        "evidence_urls": [
+          "https://extension.umd.edu/programs/agriculture-food-systems/program-areas/integrated-programs/beginning-farmer-success/about",
+          "https://extension.umd.edu/resource/beginning-farmer-resource-guide-frederick-howard-montgomery-counties-maryland-fs-2023-0691"
+        ],
+        "final_url": null,
+        "http_status_chain": null,
+        "last_checked": null,
+        "checked_by": null
+      },
+      "replacement_url_hint": null,
+      "notes": "Beginning Farmer Success Program (USDA NIFA funded): guidebook, 10-week course, county resource guides. Best single Maryland answer for the John scenario. Rule widened to umd.edu under A1.",
+      "provenance": {
+        "input_list": "batch-1 web search 2026-10-26",
+        "batch_id": "batch-1",
+        "normalized_by": "claude-chat 2026-10-26",
+        "reviewed_by": null,
+        "review_decision": null
+      },
+      "admission": {
+        "basis": "A1-domain-class"
+      },
+      "admission_rule": {
+        "type": "tld",
+        "value": "edu"
+      },
+      "source_role": "program_content"
+    },
+    {
+      "source_id": "us-md.marbidco.next-gen",
+      "jurisdiction": {
+        "level": "state",
+        "country_code": "US",
+        "state_code": "MD"
+      },
+      "publisher": "MARBIDCO (Maryland Agricultural and Resource-Based Industry Development Corp.)",
+      "url_original": "https://www.marbidco.org/",
+      "source_kind": "program_directory",
+      "domain_class": "org",
+      "topics": [
+        "agriculture",
+        "small_business"
+      ],
+      "program_relevance": "high",
+      "use_case_fit": [
+        "UC-1"
+      ],
+      "retrieval": {
+        "platform_hint": "html_only",
+        "catalog_url_hint": null,
+        "search_hint": "site:marbidco.org next generation farmland",
+        "platform": null,
+        "catalog_url": null,
+        "query_template": null
+      },
+      "verification": {
+        "status": "search_observed",
+        "evidence_urls": [
+          "https://mda.maryland.gov/about_mda/Documents/MAC-Presentation-March2018.pdf",
+          "https://www.extension.umd.edu/news-events/news/demystifying-agricultural-conservation-two-programs-are-helping-beginning-farmers-purchase-and"
+        ],
+        "final_url": null,
+        "http_status_chain": null,
+        "last_checked": null,
+        "checked_by": null
+      },
+      "replacement_url_hint": null,
+      "notes": "State-created quasi-public corp on a .org host. Runs Next Generation Farmland Acquisition and Small Acreage Next Gen (SANG) for beginning farmers buying land. Evidence case for non-.gov admission: referenced from mda.maryland.gov and extension.umd.edu. Homepage URL itself not search-observed.",
+      "provenance": {
+        "input_list": "batch-1 web search 2026-10-26",
+        "batch_id": "batch-1",
+        "normalized_by": "claude-chat 2026-10-26",
+        "reviewed_by": null,
+        "review_decision": null
+      },
+      "admission": {
+        "basis": "A2-role-evidence",
+        "role": "administers state beginning-farmer land acquisition program (Next Gen, SANG); state-created corporation",
+        "evidence_urls": [
+          "https://mda.maryland.gov/about_mda/Documents/MAC-Presentation-March2018.pdf",
+          "https://www.extension.umd.edu/news-events/news/demystifying-agricultural-conservation-two-programs-are-helping-beginning-farmers-purchase-and"
+        ],
+        "evidence_met": true
+      },
+      "admission_rule": {
+        "type": "host_exact",
+        "value": "www.marbidco.org",
+        "path_prefix": null
+      },
+      "source_role": "program_content"
+    },
+    {
+      "source_id": "us-md.smadc",
+      "jurisdiction": {
+        "level": "state",
+        "country_code": "US",
+        "state_code": "MD"
+      },
+      "publisher": "Southern Maryland Agricultural Development Commission",
+      "url_original": "https://www.smadc.com/",
+      "source_kind": "program_directory",
+      "domain_class": "com",
+      "topics": [
+        "agriculture"
+      ],
+      "program_relevance": "medium",
+      "use_case_fit": [
+        "UC-1"
+      ],
+      "retrieval": {
+        "platform_hint": "html_only",
+        "catalog_url_hint": null,
+        "search_hint": "site:smadc.com beginning farmer",
+        "platform": null,
+        "catalog_url": null,
+        "query_template": null
+      },
+      "verification": {
+        "status": "search_observed",
+        "evidence_urls": [
+          "https://smadc.com/recruiting-new-maryland-farmers-part-2/"
+        ],
+        "final_url": null,
+        "http_status_chain": null,
+        "last_checked": null,
+        "checked_by": null
+      },
+      "replacement_url_hint": null,
+      "notes": "Regional (5 Southern MD counties); co-funds SANG. .com host — needs source evidence.",
+      "provenance": {
+        "input_list": "batch-1 web search 2026-10-26",
+        "batch_id": "batch-1",
+        "normalized_by": "claude-chat 2026-10-26",
+        "reviewed_by": null,
+        "review_decision": null
+      },
+      "admission": {
+        "basis": "A2-role-evidence",
+        "role": "regional commission co-funding SANG land acquisition",
+        "evidence_urls": [
+          "https://conduitstreet.mdcounties.org/2020/09/16/marbidco-launches-new-farmland-acquisition-program/"
+        ],
+        "evidence_met": true,
+        "evidence_note": "Role (SANG co-funding) documented by Maryland Association of Counties post; A2 no longer requires a .gov/.edu citation."
+      },
+      "admission_rule": {
+        "type": "host_exact",
+        "value": "www.smadc.com",
+        "path_prefix": null
+      },
+      "source_role": "program_content"
+    },
+    {
+      "source_id": "us-mo.state.open-data",
+      "jurisdiction": {
+        "level": "state",
+        "country_code": "US",
+        "state_code": "MO"
+      },
+      "publisher": "State of Missouri",
+      "url_original": "http://data.mo.gov/",
+      "source_kind": "open_data_catalog",
+      "domain_class": "gov",
+      "topics": [
+        "food_nutrition",
+        "health",
+        "workforce",
+        "fiscal"
+      ],
+      "program_relevance": "medium",
+      "use_case_fit": [
+        "UC-1",
+        "UC-2",
+        "UC-3"
+      ],
+      "retrieval": {
+        "platform_hint": "socrata",
+        "catalog_url_hint": "https://data.mo.gov/api/catalog/v1",
+        "search_hint": "site:mo.gov program eligibility",
+        "platform": null,
+        "catalog_url": null,
+        "query_template": null,
+        "search_scope": {
+          "type": "host_suffix",
+          "value": "mo.gov",
+          "path_prefix": null
+        }
+      },
+      "verification": {
+        "status": "proposed",
+        "evidence_urls": [],
+        "final_url": null,
+        "http_status_chain": null,
+        "last_checked": null,
+        "checked_by": null
+      },
+      "replacement_url_hint": null,
+      "notes": "Tenant-bound state.",
+      "provenance": {
+        "input_list": "operator state portal list 2026-10-26",
+        "batch_id": "batch-1",
+        "normalized_by": "claude-chat 2026-10-26",
+        "reviewed_by": null,
+        "review_decision": null
+      },
+      "admission": {
+        "basis": "A1-domain-class"
+      },
+      "admission_rule": {
+        "type": "tld",
+        "value": "gov"
+      },
+      "source_role": "catalog"
+    },
+    {
+      "source_id": "us-mo.mda.beginning-farmer-loan",
+      "jurisdiction": {
+        "level": "state",
+        "country_code": "US",
+        "state_code": "MO"
+      },
+      "publisher": "Missouri Department of Agriculture / MASBDA",
+      "url_original": "https://agriculture.mo.gov/abd/financial/begfarm.php",
+      "source_kind": "program_directory",
+      "domain_class": "gov",
+      "topics": [
+        "agriculture",
+        "small_business"
+      ],
+      "program_relevance": "high",
+      "use_case_fit": [
+        "UC-1"
+      ],
+      "retrieval": {
+        "platform_hint": "html_only",
+        "catalog_url_hint": null,
+        "search_hint": "site:agriculture.mo.gov beginning farmer",
+        "platform": null,
+        "catalog_url": null,
+        "query_template": null,
+        "search_scope": {
+          "type": "host_suffix",
+          "value": "mo.gov",
+          "path_prefix": null
+        }
+      },
+      "verification": {
+        "status": "search_observed",
+        "evidence_urls": [
+          "https://agriculture.mo.gov/abd/financial/begfarm.php",
+          "https://agriculture.mo.gov/abd/financial/pdf/begfarmloanguidelines.pdf"
+        ],
+        "final_url": null,
+        "http_status_chain": null,
+        "last_checked": null,
+        "checked_by": null
+      },
+      "replacement_url_hint": null,
+      "notes": "Beginning Farmer Loan Program (tax-exempt 'Aggie Bond'). Rules at 2 CSR 100-2 (sos.mo.gov) — criteria source for tenant mapping.",
+      "provenance": {
+        "input_list": "batch-1 web search 2026-10-26",
+        "batch_id": "batch-1",
+        "normalized_by": "claude-chat 2026-10-26",
+        "reviewed_by": null,
+        "review_decision": null
+      },
+      "admission": {
+        "basis": "A1-domain-class"
+      },
+      "admission_rule": {
+        "type": "tld",
+        "value": "gov"
+      },
+      "source_role": "program_content"
+    },
+    {
+      "source_id": "us-mo.treasurer.linked-deposit",
+      "jurisdiction": {
+        "level": "state",
+        "country_code": "US",
+        "state_code": "MO"
+      },
+      "publisher": "Missouri State Treasurer",
+      "url_original": "https://treasurer.mo.gov/content/low-interest-loans/ldbeginning-farmer",
+      "source_kind": "program_directory",
+      "domain_class": "gov",
+      "topics": [
+        "agriculture",
+        "small_business"
+      ],
+      "program_relevance": "high",
+      "use_case_fit": [
+        "UC-1"
+      ],
+      "retrieval": {
+        "platform_hint": "html_only",
+        "catalog_url_hint": null,
+        "search_hint": null,
+        "platform": null,
+        "catalog_url": null,
+        "query_template": null,
+        "search_scope": {
+          "type": "host_suffix",
+          "value": "mo.gov",
+          "path_prefix": null
+        }
+      },
+      "verification": {
+        "status": "search_observed",
+        "evidence_urls": [
+          "https://treasurer.mo.gov/content/low-interest-loans/ldbeginning-farmer"
+        ],
+        "final_url": null,
+        "http_status_chain": null,
+        "last_checked": null,
+        "checked_by": null
+      },
+      "replacement_url_hint": null,
+      "notes": "MOBUCK$ Beginning Farmer linked-deposit loans. Same mo.gov rule as MDA — one host_suffix covers two agencies.",
+      "provenance": {
+        "input_list": "batch-1 web search 2026-10-26",
+        "batch_id": "batch-1",
+        "normalized_by": "claude-chat 2026-10-26",
+        "reviewed_by": null,
+        "review_decision": null
+      },
+      "admission": {
+        "basis": "A1-domain-class"
+      },
+      "admission_rule": {
+        "type": "tld",
+        "value": "gov"
+      },
+      "source_role": "program_content"
+    },
+    {
+      "source_id": "us-ks.state.kanview",
+      "jurisdiction": {
+        "level": "state",
+        "country_code": "US",
+        "state_code": "KS"
+      },
+      "publisher": "Kansas Department of Administration",
+      "url_original": "http://www.kansas.gov/KanView/",
+      "source_kind": "fiscal_transparency",
+      "domain_class": "gov",
+      "topics": [
+        "fiscal",
+        "program_status"
+      ],
+      "program_relevance": "none",
+      "use_case_fit": [],
+      "retrieval": {
+        "platform_hint": "html_only",
+        "catalog_url_hint": null,
+        "search_hint": null,
+        "platform": null,
+        "catalog_url": null,
+        "query_template": null,
+        "search_scope": {
+          "type": "host_suffix",
+          "value": "kansas.gov",
+          "path_prefix": null
+        }
+      },
+      "verification": {
+        "status": "search_observed",
+        "evidence_urls": [
+          "https://www.da.ks.gov/ar/infocirc/fy2008/IC08a008.htm"
+        ],
+        "final_url": null,
+        "http_status_chain": null,
+        "last_checked": null,
+        "checked_by": null
+      },
+      "replacement_url_hint": null,
+      "notes": "Statutory spending/vendor transparency (STARS ledger). Chat fetch returned client error — URL may have moved. No program content. Kansas also uses ks.gov (da.ks.gov, ksrevenue.gov).",
+      "provenance": {
+        "input_list": "operator state portal list 2026-10-26",
+        "batch_id": "batch-1",
+        "normalized_by": "claude-chat 2026-10-26",
+        "reviewed_by": null,
+        "review_decision": null
+      },
+      "admission": {
+        "basis": "A3-fiscal-conditional",
+        "roles_to_confirm": [
+          "program_lead",
+          "program_status"
+        ],
+        "note": "Reviewer confirms which role(s), if any, the portal actually serves; drop if neither."
+      },
+      "source_role": "unconfirmed",
+      "admission_rule": {
+        "type": "tld",
+        "value": "gov"
+      }
+    },
+    {
+      "source_id": "us-ks.ksre.extension",
+      "jurisdiction": {
+        "level": "state",
+        "country_code": "US",
+        "state_code": "KS"
+      },
+      "publisher": "K-State Research and Extension",
+      "url_original": "https://www.ksre.k-state.edu/",
+      "source_kind": "extension_service",
+      "domain_class": "edu",
+      "topics": [
+        "agriculture",
+        "small_business"
+      ],
+      "program_relevance": "high",
+      "use_case_fit": [
+        "UC-1"
+      ],
+      "retrieval": {
+        "platform_hint": "html_only",
+        "catalog_url_hint": null,
+        "search_hint": "site:k-state.edu beginning farmer OR farm transition",
+        "platform": null,
+        "catalog_url": null,
+        "query_template": null,
+        "search_scope": {
+          "type": "host_suffix",
+          "value": "k-state.edu",
+          "path_prefix": null
+        }
+      },
+      "verification": {
+        "status": "search_observed",
+        "evidence_urls": [
+          "https://www.k-state.edu/today/announcement/?id=78317",
+          "https://www.k-state.edu/articles/2025/11/growing-growers-apprenticeship-bootcamp-prepares-faculty-and-staff-to-support-beginning-farmers.html"
+        ],
+        "final_url": null,
+        "http_status_chain": null,
+        "last_checked": null,
+        "checked_by": null
+      },
+      "replacement_url_hint": null,
+      "notes": "Office for Farm and Ranch Transition (land-link, NIFA BFRDP funded) and Growing Growers apprenticeship. url_original is a hint — confirm landing page.",
+      "provenance": {
+        "input_list": "batch-1 web search 2026-10-26",
+        "batch_id": "batch-1",
+        "normalized_by": "claude-chat 2026-10-26",
+        "reviewed_by": null,
+        "review_decision": null
+      },
+      "admission": {
+        "basis": "A1-domain-class"
+      },
+      "admission_rule": {
+        "type": "tld",
+        "value": "edu"
+      },
+      "source_role": "program_content"
+    },
+    {
+      "source_id": "us-ks.kda.agency",
+      "jurisdiction": {
+        "level": "state",
+        "country_code": "US",
+        "state_code": "KS"
+      },
+      "publisher": "Kansas Department of Agriculture",
+      "url_original": "https://agriculture.ks.gov/",
+      "source_kind": "program_directory",
+      "domain_class": "gov",
+      "topics": [
+        "agriculture"
+      ],
+      "program_relevance": "medium",
+      "use_case_fit": [
+        "UC-1"
+      ],
+      "retrieval": {
+        "platform_hint": "html_only",
+        "catalog_url_hint": null,
+        "search_hint": "site:agriculture.ks.gov beginning farmer",
+        "platform": null,
+        "catalog_url": null,
+        "query_template": null,
+        "search_scope": {
+          "type": "host_suffix",
+          "value": "ks.gov",
+          "path_prefix": null
+        }
+      },
+      "verification": {
+        "status": "proposed",
+        "evidence_urls": [],
+        "final_url": null,
+        "http_status_chain": null,
+        "last_checked": null,
+        "checked_by": null
+      },
+      "replacement_url_hint": null,
+      "notes": "Partner on KSU farm transition office; not search-confirmed in batch 1.",
+      "provenance": {
+        "input_list": "batch-1 web search 2026-10-26",
+        "batch_id": "batch-1",
+        "normalized_by": "claude-chat 2026-10-26",
+        "reviewed_by": null,
+        "review_decision": null
+      },
+      "admission": {
+        "basis": "A1-domain-class"
+      },
+      "admission_rule": {
+        "type": "tld",
+        "value": "gov"
+      },
+      "source_role": "program_content"
+    },
+    {
+      "source_id": "us-nm.state.sunshine-portal",
+      "jurisdiction": {
+        "level": "state",
+        "country_code": "US",
+        "state_code": "NM"
+      },
+      "publisher": "State of New Mexico",
+      "url_original": "http://www.sunshineportalnm.com/",
+      "source_kind": "fiscal_transparency",
+      "domain_class": "com",
+      "topics": [
+        "fiscal",
+        "program_status"
+      ],
+      "program_relevance": "none",
+      "use_case_fit": [],
+      "retrieval": {
+        "platform_hint": "html_only",
+        "catalog_url_hint": null,
+        "search_hint": null,
+        "platform": null,
+        "catalog_url": null,
+        "query_template": null
+      },
+      "verification": {
+        "status": "proposed",
+        "evidence_urls": [],
+        "final_url": null,
+        "http_status_chain": null,
+        "last_checked": null,
+        "checked_by": null
+      },
+      "replacement_url_hint": null,
+      "notes": "Chat fetch blocked by bot detection. Fiscal only; low navigator value.",
+      "provenance": {
+        "input_list": "operator state portal list 2026-10-26",
+        "batch_id": "batch-1",
+        "normalized_by": "claude-chat 2026-10-26",
+        "reviewed_by": null,
+        "review_decision": null
+      },
+      "admission": {
+        "basis": "A3-fiscal-conditional",
+        "roles_to_confirm": [
+          "program_lead",
+          "program_status"
+        ],
+        "note": "Reviewer confirms which role(s), if any, the portal actually serves; drop if neither."
+      },
+      "admission_rule": {
+        "type": "host_exact",
+        "value": "www.sunshineportalnm.com",
+        "path_prefix": null
+      },
+      "source_role": "unconfirmed"
+    },
+    {
+      "source_id": "us-nm.nmda.agency",
+      "jurisdiction": {
+        "level": "state",
+        "country_code": "US",
+        "state_code": "NM"
+      },
+      "publisher": "New Mexico Department of Agriculture",
+      "url_original": "https://nmdeptag.nmsu.edu/",
+      "source_kind": "program_directory",
+      "domain_class": "edu",
+      "topics": [
+        "agriculture",
+        "workforce"
+      ],
+      "program_relevance": "high",
+      "use_case_fit": [
+        "UC-1"
+      ],
+      "retrieval": {
+        "platform_hint": "html_only",
+        "catalog_url_hint": null,
+        "search_hint": "site:nmdeptag.nmsu.edu",
+        "platform": null,
+        "catalog_url": null,
+        "query_template": null,
+        "search_scope": {
+          "type": "host_exact",
+          "value": "nmdeptag.nmsu.edu",
+          "path_prefix": null
+        }
+      },
+      "verification": {
+        "status": "search_observed",
+        "evidence_urls": [
+          "https://nmdeptag.nmsu.edu/new-release/2025/applications-open-for-nmda-ag-workforce-program.html"
+        ],
+        "final_url": null,
+        "http_status_chain": null,
+        "last_checked": null,
+        "checked_by": null
+      },
+      "replacement_url_hint": null,
+      "notes": "KEY POLICY FINDING: New Mexico's state agriculture department is hosted on an .edu domain (NMSU). A .gov-only rule would exclude a state agency. Agricultural Workforce Development program targets young/beginning farmers.",
+      "provenance": {
+        "input_list": "batch-1 web search 2026-10-26",
+        "batch_id": "batch-1",
+        "normalized_by": "claude-chat 2026-10-26",
+        "reviewed_by": null,
+        "review_decision": null
+      },
+      "admission": {
+        "basis": "A1-domain-class"
+      },
+      "admission_rule": {
+        "type": "tld",
+        "value": "edu"
+      },
+      "source_role": "program_content"
+    },
+    {
+      "source_id": "us-nm.nmsu.extension",
+      "jurisdiction": {
+        "level": "state",
+        "country_code": "US",
+        "state_code": "NM"
+      },
+      "publisher": "NMSU College of Agricultural, Consumer and Environmental Sciences",
+      "url_original": "https://aces.nmsu.edu/",
+      "source_kind": "extension_service",
+      "domain_class": "edu",
+      "topics": [
+        "agriculture"
+      ],
+      "program_relevance": "high",
+      "use_case_fit": [
+        "UC-1"
+      ],
+      "retrieval": {
+        "platform_hint": "html_only",
+        "catalog_url_hint": null,
+        "search_hint": "site:nmsu.edu beginning farmer",
+        "platform": null,
+        "catalog_url": null,
+        "query_template": null,
+        "search_scope": {
+          "type": "host_suffix",
+          "value": "nmsu.edu",
+          "path_prefix": null
+        }
+      },
+      "verification": {
+        "status": "proposed",
+        "evidence_urls": [],
+        "final_url": null,
+        "http_status_chain": null,
+        "last_checked": null,
+        "checked_by": null
+      },
+      "replacement_url_hint": null,
+      "notes": "Land-grant extension; NIFA BFRDP grantee (Southern Pueblos BFR project). host_suffix nmsu.edu would also cover nmdeptag.",
+      "provenance": {
+        "input_list": "batch-1 web search 2026-10-26",
+        "batch_id": "batch-1",
+        "normalized_by": "claude-chat 2026-10-26",
+        "reviewed_by": null,
+        "review_decision": null
+      },
+      "admission": {
+        "basis": "A1-domain-class"
+      },
+      "admission_rule": {
+        "type": "tld",
+        "value": "edu"
+      },
+      "source_role": "program_content"
+    },
+    {
+      "source_id": "us.usda.farmers-gov.beginning",
+      "jurisdiction": {
+        "level": "federal",
+        "country_code": "US",
+        "state_code": null
+      },
+      "publisher": "USDA (farmers.gov)",
+      "url_original": "https://www.farmers.gov/your-business/beginning-farmers",
+      "source_kind": "program_directory",
+      "domain_class": "gov",
+      "topics": [
+        "agriculture",
+        "small_business",
+        "disaster"
+      ],
+      "program_relevance": "high",
+      "use_case_fit": [
+        "UC-1"
+      ],
+      "retrieval": {
+        "platform_hint": "html_only",
+        "catalog_url_hint": null,
+        "search_hint": "site:farmers.gov beginning farmer",
+        "platform": null,
+        "catalog_url": null,
+        "query_template": null,
+        "search_scope": {
+          "type": "host_suffix",
+          "value": "farmers.gov",
+          "path_prefix": null
+        }
+      },
+      "verification": {
+        "status": "search_observed",
+        "evidence_urls": [
+          "https://farmers.gov/node/29493",
+          "https://www.nrcs.usda.gov/state-offices/florida/news/new-to-farming-usda-can-help"
+        ],
+        "final_url": null,
+        "http_status_chain": null,
+        "last_checked": null,
+        "checked_by": null
+      },
+      "replacement_url_hint": null,
+      "notes": "USDA one-stop for beginning farmers: loans, crop insurance, conservation, disaster; state BFR coordinators; service-center locator. Aliases observed: farmers.gov/newfarmers, farmers.gov/beginning-farmers. Not in active search policy.",
+      "provenance": {
+        "input_list": "batch-1 web search 2026-10-26",
+        "batch_id": "batch-1",
+        "normalized_by": "claude-chat 2026-10-26",
+        "reviewed_by": null,
+        "review_decision": null
+      },
+      "admission": {
+        "basis": "A1-domain-class"
+      },
+      "admission_rule": {
+        "type": "tld",
+        "value": "gov"
+      },
+      "source_role": "program_content"
+    },
+    {
+      "source_id": "us.usda.fsa.beginning-farmers",
+      "jurisdiction": {
+        "level": "federal",
+        "country_code": "US",
+        "state_code": null
+      },
+      "publisher": "USDA Farm Service Agency",
+      "url_original": "https://www.fsa.usda.gov/resources/beginning-farmers-and-ranchers-loans",
+      "source_kind": "program_directory",
+      "domain_class": "gov",
+      "topics": [
+        "agriculture",
+        "small_business"
+      ],
+      "program_relevance": "high",
+      "use_case_fit": [
+        "UC-1"
+      ],
+      "retrieval": {
+        "platform_hint": "html_only",
+        "catalog_url_hint": null,
+        "search_hint": "site:fsa.usda.gov beginning farmer loans",
+        "platform": null,
+        "catalog_url": null,
+        "query_template": null,
+        "search_scope": {
+          "type": "host_suffix",
+          "value": "usda.gov",
+          "path_prefix": null
+        }
+      },
+      "verification": {
+        "status": "proposed",
+        "evidence_urls": [],
+        "final_url": null,
+        "http_status_chain": null,
+        "last_checked": null,
+        "checked_by": null
+      },
+      "replacement_url_hint": null,
+      "notes": "Already in Core inventory (usda.fsa.beginning-farmers, health current). usda.gov suffix also covers RD, NRCS, AMS, NASS, NIFA.",
+      "provenance": {
+        "input_list": "V2 US Federal Non-auth Resources.pdf",
+        "batch_id": "batch-1",
+        "normalized_by": "claude-chat 2026-10-26",
+        "reviewed_by": null,
+        "review_decision": null
+      },
+      "admission": {
+        "basis": "A1-domain-class"
+      },
+      "admission_rule": {
+        "type": "tld",
+        "value": "gov"
+      },
+      "source_role": "program_content"
+    },
+    {
+      "source_id": "us.usda.nifa.portal",
+      "jurisdiction": {
+        "level": "federal",
+        "country_code": "US",
+        "state_code": null
+      },
+      "publisher": "USDA NIFA (Research, Education & Economics portal)",
+      "url_original": "https://portal.nifa.usda.gov/",
+      "source_kind": "grants_listing",
+      "domain_class": "gov",
+      "topics": [
+        "agriculture"
+      ],
+      "program_relevance": "medium",
+      "use_case_fit": [
+        "UC-1"
+      ],
+      "retrieval": {
+        "platform_hint": "html_only",
+        "catalog_url_hint": null,
+        "search_hint": "site:portal.nifa.usda.gov Beginning Farmer and Rancher Development Program",
+        "platform": null,
+        "catalog_url": null,
+        "query_template": null,
+        "search_scope": {
+          "type": "host_suffix",
+          "value": "usda.gov",
+          "path_prefix": null
+        }
+      },
+      "verification": {
+        "status": "search_observed",
+        "evidence_urls": [
+          "https://portal.nifa.usda.gov/enterprise-search/cris_projects/1033214"
+        ],
+        "final_url": null,
+        "http_status_chain": null,
+        "last_checked": null,
+        "checked_by": null
+      },
+      "replacement_url_hint": null,
+      "notes": "BFRDP grantee records name the local organizations running beginning-farmer programs per state (e.g. NM, KS). Lead generator, not a direct user answer.",
+      "provenance": {
+        "input_list": "batch-1 web search 2026-10-26",
+        "batch_id": "batch-1",
+        "normalized_by": "claude-chat 2026-10-26",
+        "reviewed_by": null,
+        "review_decision": null
+      },
+      "admission": {
+        "basis": "A1-domain-class"
+      },
+      "admission_rule": {
+        "type": "tld",
+        "value": "gov"
+      },
+      "source_role": "lead_generator"
+    },
+    {
+      "source_id": "us.gsa.data-gov",
+      "jurisdiction": {
+        "level": "federal",
+        "country_code": "US",
+        "state_code": null
+      },
+      "publisher": "GSA (Data.gov)",
+      "url_original": "https://data.gov/",
+      "source_kind": "open_data_catalog",
+      "domain_class": "gov",
+      "topics": [
+        "agriculture",
+        "food_nutrition",
+        "housing",
+        "health",
+        "workforce",
+        "energy",
+        "disaster"
+      ],
+      "program_relevance": "medium",
+      "use_case_fit": [
+        "UC-1",
+        "UC-2",
+        "UC-3"
+      ],
+      "retrieval": {
+        "platform_hint": "datagov_v4",
+        "catalog_url_hint": "https://api.gsa.gov/technology/datagov/v4/search",
+        "search_hint": null,
+        "platform": null,
+        "catalog_url": null,
+        "query_template": null,
+        "search_scope": {
+          "type": "host_suffix",
+          "value": "data.gov",
+          "path_prefix": null
+        },
+        "api_access": {
+          "authentication": "api_key_header",
+          "header": "X-Api-Key",
+          "registration_url": "https://api.data.gov/signup/",
+          "documentation_url": "https://resources.data.gov/catalog-api/",
+          "status": "registration_required"
+        }
+      },
+      "verification": {
+        "status": "proposed",
+        "evidence_urls": [],
+        "final_url": null,
+        "http_status_chain": null,
+        "last_checked": null,
+        "checked_by": null
+      },
+      "replacement_url_hint": null,
+      "notes": "GSA Data.gov is a federal dataset metadata catalog, not a program directory or the underlying dataset host. Its current Catalog API is the GSA Data.gov v4 endpoint and requires an api.data.gov key; do not use the legacy CKAN hint. API catalog metadata can identify datasets but does not itself contain their data.",
+      "provenance": {
+        "input_list": "V2 US Federal Non-auth Resources.pdf",
+        "batch_id": "batch-1",
+        "normalized_by": "claude-chat 2026-10-26",
+        "reviewed_by": null,
+        "review_decision": null
+      },
+      "admission": {
+        "basis": "A1-domain-class"
+      },
+      "admission_rule": {
+        "type": "tld",
+        "value": "gov"
+      },
+      "source_role": "catalog"
+    },
+    {
+      "source_id": "us-ks.kda.funding-resource-guide",
+      "jurisdiction": {
+        "level": "state",
+        "country_code": "US",
+        "state_code": "KS"
+      },
+      "publisher": "Kansas Department of Agriculture",
+      "url_original": "https://www.agriculture.ks.gov/Home/Components/FormBuilder/FormBuilder/bb4f2048483843f08cb097b1a815f90f/209",
+      "source_kind": "program_directory",
+      "domain_class": "gov",
+      "source_role": "program_content",
+      "admission": {
+        "basis": "A1-domain-class"
+      },
+      "admission_rule": {
+        "type": "tld",
+        "value": "gov"
+      },
+      "topics": [
+        "agriculture",
+        "small_business"
+      ],
+      "program_relevance": "high",
+      "use_case_fit": [
+        "UC-1"
+      ],
+      "retrieval": {
+        "platform_hint": "html_only",
+        "catalog_url_hint": null,
+        "search_hint": null,
+        "search_scope": {
+          "type": "host_suffix",
+          "value": "ks.gov",
+          "path_prefix": null
+        },
+        "platform": null,
+        "catalog_url": null,
+        "query_template": null
+      },
+      "verification": {
+        "status": "proposed",
+        "evidence_urls": [],
+        "final_url": null,
+        "http_status_chain": null,
+        "last_checked": null,
+        "checked_by": null
+      },
+      "replacement_url_hint": null,
+      "notes": "Added from review on 2026-10-26 as a program-directory lead (contrast: fiscal dashboards are not automatically leads). Query string trimmed.",
+      "provenance": {
+        "input_list": "Review 2026-10-26",
+        "batch_id": "batch-1",
+        "normalized_by": "claude-chat 2026-10-26",
+        "reviewed_by": null,
+        "review_decision": null
+      }
+    }
+  ],
+  "admission_policy": {
+    "decided_by": "operator, 2026-10-26 23:17 ET, confirming positions already on record",
+    "rules": [
+      {
+        "id": "A1-domain-class",
+        "rule": "Any host under the .gov or .edu TLD is admitted by class. Implemented as policy_rule {type: tld, value: gov|edu}; per-record host_suffix values are retrieval/search scoping only, not admission.",
+        "note": ".us is NOT in A1 (open registration). Legacy state hosts such as mda.state.md.us need A2."
+      },
+      {
+        "id": "A2-role-evidence",
+        "rule": "Other hosts are admitted when the organization holds a documented role in a government, institutional, or commercial lending/program-support chain (administers, funds, co-funds, lends, or partners on a program). Record the role and the evidence for it; evidence may come from any credible source that documents the role. A host is never admitted merely for its TLD."
+      },
+      {
+        "id": "A3-fiscal-conditional",
+        "rule": "Fiscal/transparency portals are admitted in one of two separate roles: (a) program_lead — the portal leads to a program whose requirements applicants must meet; (b) program_status — funding availability, appropriation lapses, or restrictions that pause applications or payments (e.g. SNAP funding lapse). A status signal annotates program results; it is never program coverage or eligibility criteria."
+      }
+    ]
+  },
+  "relationship_to_repo_inventories": "Pilot classification layer only. Full inventories remain docs/use-cases/STATE-OPEN-DATA-PORTAL-LEADS.csv and docs/use-cases/ELIGIBILITY-SOURCE-CROSSWALK.md; primer records reference them, never replace or narrow them. Primer never activates a search policy or starts ingestion by itself; source-domain metadata is separate from MCP application routes."
+}

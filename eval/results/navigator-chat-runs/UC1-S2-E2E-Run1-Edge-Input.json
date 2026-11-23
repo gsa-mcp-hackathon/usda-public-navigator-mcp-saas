@@ -1,0 +1,15 @@
+{
+  "scenario": "UC1-S2",
+  "kind": "Edge",
+  "edge": "disaster criteria not mapped; person unsure of county and farm number",
+  "run": 1,
+  "page": "team web app for demo and testing",
+  "driver": "TinyFish browser agent, run key run_abf62553",
+  "persona": "fictional Kansas beef cattle producer, summer drought loss, unsure of county and FSA farm number",
+  "rules": "answer only from stated facts; otherwise 'I am not sure'; no name, address, phone or ID; at most 3 follow-ups",
+  "user_messages": [
+    "Drought burned up my pasture in Kansas this summer. Is there help for my cattle?",
+    "I am not sure about the county or FSA farm number. I raise beef cattle. The loss was this summer from drought.",
+    "I am not sure"
+  ]
+}

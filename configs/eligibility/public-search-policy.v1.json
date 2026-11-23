@@ -1,0 +1,178 @@
+{
+  "policy_id": "eligibility-public-search-domains",
+  "policy_version": "1.2.2",
+  "reviewed_at": "2026-11-06",
+  "entries": [
+    {
+      "entry_id": "public-domain-gov",
+      "source_id": "public-domain.gov",
+      "host": "gov",
+      "path_prefixes": ["/"],
+      "scope_kind": "domain_suffix",
+      "authority_class": "unverified_domain_class",
+      "owner": "Publisher not verified",
+      "authority_jurisdiction": "unknown",
+      "permitted_uses": ["discovery"],
+      "verification_evidence": "Operator-approved broad .gov domain-class search. A suffix match does not verify the page publisher, agency affiliation, program relevance, jurisdiction, or eligibility criteria.",
+      "review_status": "approved_for_bounded_discovery",
+      "reviewed_at": "2026-10-29"
+    },
+    {
+      "entry_id": "public-domain-org",
+      "source_id": "public-domain.org",
+      "host": "org",
+      "path_prefixes": ["/"],
+      "scope_kind": "domain_suffix",
+      "authority_class": "unverified_domain_class",
+      "owner": "Publisher not verified",
+      "authority_jurisdiction": "unknown",
+      "permitted_uses": ["discovery"],
+      "verification_evidence": "Operator-approved broad .org domain-class search for discovery leads only. A suffix match does not verify the page publisher, government affiliation, program relevance, jurisdiction, or eligibility criteria.",
+      "review_status": "approved_for_bounded_discovery",
+      "reviewed_at": "2026-10-29"
+    },
+    {
+      "entry_id": "public-domain-us",
+      "source_id": "public-domain.us",
+      "host": "us",
+      "path_prefixes": ["/"],
+      "scope_kind": "domain_suffix",
+      "authority_class": "unverified_domain_class",
+      "owner": "Publisher not verified",
+      "authority_jurisdiction": "unknown",
+      "permitted_uses": ["discovery"],
+      "verification_evidence": "Operator-approved broad .us domain-class search for discovery leads only. A suffix match does not verify the page publisher, government affiliation, program relevance, jurisdiction, or eligibility criteria.",
+      "review_status": "approved_for_bounded_discovery",
+      "reviewed_at": "2026-10-29"
+    },
+    {
+      "entry_id": "public-domain-edu",
+      "source_id": "public-domain.edu",
+      "host": "edu",
+      "path_prefixes": ["/"],
+      "scope_kind": "domain_suffix",
+      "authority_class": "unverified_domain_class",
+      "owner": "Publisher not verified",
+      "authority_jurisdiction": "unknown",
+      "permitted_uses": ["discovery"],
+      "verification_evidence": "Operator-approved broad .edu domain-class search, including land-grant and institutional sources, for discovery leads only. A suffix match does not verify the page publisher, agency affiliation, program relevance, jurisdiction, or eligibility criteria.",
+      "review_status": "approved_for_bounded_discovery",
+      "reviewed_at": "2026-10-29"
+    },
+    {
+      "entry_id": "us-md-southern-maryland-agriculture",
+      "source_id": "us-md.smadc",
+      "host": "smadc.com",
+      "path_prefixes": ["/"],
+      "scope_kind": "related_domain",
+      "authority_class": "unverified_related_domain",
+      "owner": "Publisher and page authority not verified",
+      "authority_jurisdiction": "US-MD",
+      "permitted_uses": ["discovery"],
+      "verification_evidence": "Admitted as a Maryland regional program-support discovery domain based on the source-primer evidence: https://conduitstreet.mdcounties.org/2020/09/16/marbidco-launches-new-farmland-acquisition-program/ . This relationship evidence does not verify any returned page or program criteria.",
+      "review_status": "approved_for_bounded_discovery",
+      "reviewed_at": "2026-10-29"
+    },
+    {
+      "entry_id": "usda-nrcs-eqip",
+      "source_id": "usda.nrcs.eqip",
+      "host": "www.nrcs.usda.gov",
+      "path_prefixes": [
+        "/programs-initiatives/environmental-quality-incentives-program"
+      ],
+      "scope_kind": "exact_host_path",
+      "authority_class": "federal",
+      "owner": "USDA Natural Resources Conservation Service",
+      "authority_jurisdiction": "US",
+      "permitted_uses": [
+        "criteria",
+        "application_guidance",
+        "context"
+      ],
+      "verification_evidence": "Official NRCS pages https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program and https://www.nrcs.usda.gov/programs-initiatives/environmental-quality-incentives-program/apply-for-environmental-quality are registered under source usda.nrcs.eqip; catalog metadata identifies NRCS as publisher. Scope is limited to the EQIP page family.",
+      "review_status": "approved_for_bounded_discovery",
+      "reviewed_at": "2026-11-03"
+    },
+    {
+      "entry_id": "us-va-public-benefits",
+      "source_id": "us.va.public-benefits",
+      "host": "www.va.gov",
+      "path_prefixes": [
+        "/pension/aid-attendance-housebound",
+        "/family-and-caregiver-benefits/health-and-disability/comprehensive-assistance-for-family-caregivers"
+      ],
+      "scope_kind": "exact_host_path",
+      "authority_class": "federal",
+      "owner": "U.S. Department of Veterans Affairs",
+      "authority_jurisdiction": "US",
+      "permitted_uses": [
+        "criteria",
+        "application_guidance",
+        "context"
+      ],
+      "verification_evidence": "Official pages https://www.va.gov/pension/aid-attendance-housebound/ and https://www.va.gov/family-and-caregiver-benefits/health-and-disability/comprehensive-assistance-for-family-caregivers/ are registered under source us.va.public-benefits; catalog metadata identifies VA as publisher. Scope is limited to these two page families.",
+      "review_status": "approved_for_bounded_discovery",
+      "reviewed_at": "2026-11-03"
+    },
+    {
+      "entry_id": "missouri-dss-temporary-assistance",
+      "source_id": "missouri.dss.temporary-assistance",
+      "host": "dss.mo.gov",
+      "path_prefixes": [
+        "/temporary-assistance/apply"
+      ],
+      "scope_kind": "exact_host_path",
+      "authority_class": "state",
+      "owner": "Missouri Department of Social Services",
+      "authority_jurisdiction": "US-MO",
+      "permitted_uses": [
+        "criteria",
+        "application_guidance",
+        "context"
+      ],
+      "verification_evidence": "The official page https://dss.mo.gov/temporary-assistance/apply was read and registered on 2026-11-02 under source missouri.dss.temporary-assistance with verified Missouri agency metadata. Scope is limited to this page family.",
+      "review_status": "approved_for_bounded_discovery",
+      "reviewed_at": "2026-11-03"
+    },
+    {
+      "entry_id": "missouri-dese-child-care-subsidy",
+      "source_id": "missouri.dese.child-care-subsidy",
+      "host": "dese.mo.gov",
+      "path_prefixes": [
+        "/childhood/child-care-subsidy/families"
+      ],
+      "scope_kind": "exact_host_path",
+      "authority_class": "state",
+      "owner": "Missouri Department of Elementary and Secondary Education",
+      "authority_jurisdiction": "US-MO",
+      "permitted_uses": [
+        "criteria",
+        "application_guidance",
+        "context"
+      ],
+      "verification_evidence": "The official page https://dese.mo.gov/childhood/child-care-subsidy/families was read and registered on 2026-11-02 under source missouri.dese.child-care-subsidy with verified Missouri agency metadata. Scope is limited to this page family.",
+      "review_status": "approved_for_bounded_discovery",
+      "reviewed_at": "2026-11-03"
+    },
+    {
+      "entry_id": "usda-fsa-elap",
+      "source_id": "usda.fsa.disaster-assistance",
+      "host": "www.fsa.usda.gov",
+      "path_prefixes": [
+        "/resources/disaster-recovery/emergency-assistance-livestock-honeybees-farm-raised-fish-elap"
+      ],
+      "scope_kind": "exact_host_path",
+      "authority_class": "federal",
+      "owner": "USDA Farm Service Agency",
+      "authority_jurisdiction": "US",
+      "permitted_uses": [
+        "criteria",
+        "application_guidance",
+        "context"
+      ],
+      "verification_evidence": "The exact official ELAP page was verified on 2026-11-06 at https://www.fsa.usda.gov/resources/disaster-recovery/emergency-assistance-livestock-honeybees-farm-raised-fish-elap. Shared catalog listing identity is fsa-emergency-assistance-livestock-honeybees-fish and source identity is usda.fsa.disaster-assistance. Scope is limited to this exact host/path; the broader FSA disaster directory is not included.",
+      "review_status": "approved_for_bounded_discovery",
+      "reviewed_at": "2026-11-06"
+    }
+  ]
+}

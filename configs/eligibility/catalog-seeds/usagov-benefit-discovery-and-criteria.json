@@ -1,0 +1,1585 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "usagov.benefits",
+    "source_url": "https://www.usa.gov/benefits",
+    "retrieved_at": "2026-10-28T19:42:37Z",
+    "raw_source_documents_committed": false,
+    "access_method": "Official USA.gov pages reviewed via web retrieval on 2026-10-28; raw page bodies were not retained.",
+    "pages": [
+      {
+        "url": "https://www.usa.gov/benefit-finder",
+        "title": "Find government benefits and financial help",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.usa.gov/benefits",
+        "title": "Government benefits",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.usa.gov/financial-hardship",
+        "title": "Facing financial hardship",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.usa.gov/senior-food-programs",
+        "title": "Food assistance programs for older adults",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.usa.gov/welfare-benefits",
+        "title": "Welfare benefits or Temporary Assistance for Needy Families (TANF)",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.usa.gov/rental-housing-programs",
+        "title": "Rental assistance",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.usa.gov/public-housing",
+        "title": "Public housing",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.usa.gov/state-social-services",
+        "title": "State social service agencies",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.usa.gov/government-grants-and-loans",
+        "title": "Government grants and loans",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.usa.gov/government-loan",
+        "title": "How to get a government loan or grant",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.usa.gov/medicare",
+        "title": "How and when to apply for Medicare",
+        "source_content_sha256": null
+      }
+    ]
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "usagov.benefits",
+      "source_name": "USAGov government benefits and services",
+      "source_url": "https://www.usa.gov/benefits",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "federal",
+          "owner_name": "U.S. General Services Administration (USAGov)",
+          "verification_status": "verified",
+          "evidence_url": "https://www.usa.gov/about"
+        },
+        "approved_scope": "Official federal benefits discovery, referral, and partial non-executable published requirement statements, including benefit finder categories, financial hardship, senior food programs, TANF, housing, state social-service referrals, Medicare, and grants/loans distinctions. State/tribal program terms, current availability, complete rules, and agency decisions must be verified at the linked program authority. No raw page bodies, profile data, or eligibility decisions are stored.",
+        "refresh_mode": "operator_triggered"
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "usagov-benefit-discovery",
+        "source_dataset_id": "USAGov benefit discovery and referral records",
+        "title": "USAGov benefit discovery and referral records",
+        "landing_page": "https://www.usa.gov/benefit-finder",
+        "schema_version": "public-listing-v1",
+        "namespace_ids": [
+          "core",
+          "listing"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "not_assessed",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "listing": "eligibility-public-listing-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "listing": "public-listing-v1"
+          },
+          "content_type": "federal_benefit_discovery_referral",
+          "refresh_mode": "operator_triggered",
+          "maximum_records_total": 20
+        }
+      },
+      {
+        "dataset_id": "usagov-published-program-criteria",
+        "source_dataset_id": "USAGov partial published program requirement statements",
+        "title": "USAGov partial published program requirement statements",
+        "landing_page": "https://www.usa.gov/benefits",
+        "schema_version": "eligibility-program-v2",
+        "namespace_ids": [
+          "core",
+          "eligibility"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "partial",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "eligibility": "eligibility-program-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "eligibility": "eligibility-program-v2"
+          },
+          "content_type": "published_partial_non_executable_requirements",
+          "refresh_mode": "operator_triggered",
+          "maximum_records_total": 20,
+          "published_criteria_available": true,
+          "criteria_mapping_status": "not_mapped"
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "usagov-benefit-discovery",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "Official USA.gov pages reviewed 2026-10-28; visible page revision dates retained where available.",
+        "retrieved_at": "2026-10-28T19:42:37Z",
+        "transform_version": "usagov-benefit-review-v1",
+        "validation_outcome": "valid",
+        "detail": "Twelve USA.gov discovery/referral records. Program-specific criteria are stored separately; state rules and current availability are not inferred.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "usagov-benefit-finder",
+            "record_type": "federal-program-referral",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "USAGov benefit finder",
+              "listing.summary": "USAGov lets people select benefit categories—including children and families, disability, disaster, education, food, health, housing and utilities, jobs, military and veterans, retirement and seniors, and welfare/cash assistance—to find benefit information and application guidance. This is a discovery tool, not a program eligibility result.",
+              "listing.agency": "U.S. General Services Administration (USAGov)",
+              "listing.applicant_types": [
+                "individuals",
+                "families"
+              ],
+              "listing.opportunity_url": "https://www.usa.gov/benefit-finder"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usagov.benefits",
+              "source_version": "Official USA.gov pages reviewed 2026-10-28; visible page revision dates retained where available.",
+              "retrieved_at": "2026-10-28T19:42:37Z",
+              "effective_at": null,
+              "transform_version": "usagov-benefit-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.usa.gov/benefit-finder",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.usa.gov/benefit-finder",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.usa.gov/benefit-finder",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.usa.gov/benefit-finder",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.usa.gov/benefit-finder",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.usa.gov/benefit-finder",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.usa.gov/benefit-finder",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.usa.gov/benefit-finder",
+            "content_hash": "6e66430aa83daa230232414cd557ecda9dd88d28214c0feaa3ade98d48188374",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-28T19:42:37Z"
+          },
+          {
+            "source_record_id": "usagov-government-benefits-hub",
+            "record_type": "federal-program-referral",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "USAGov government benefits directory",
+              "listing.summary": "USAGov routes people to federal and state benefit information for food, health, housing, utilities, welfare, Social Security, death benefits, and grants or loans. Individual program rules and application paths remain with the responsible agencies.",
+              "listing.agency": "U.S. General Services Administration (USAGov)",
+              "listing.applicant_types": [
+                "individuals",
+                "families"
+              ],
+              "listing.opportunity_url": "https://www.usa.gov/benefits"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usagov.benefits",
+              "source_version": "Official USA.gov pages reviewed 2026-10-28; visible page revision dates retained where available.",
+              "retrieved_at": "2026-10-28T19:42:37Z",
+              "effective_at": null,
+              "transform_version": "usagov-benefit-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.usa.gov/benefits",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.usa.gov/benefits",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.usa.gov/benefits",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.usa.gov/benefits",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.usa.gov/benefits",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.usa.gov/benefits",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.usa.gov/benefits",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.usa.gov/benefits",
+            "content_hash": "e4fa2efcca6bda1c6362dae4c437dac353d1d491c7a03a78d14f1991af23fcb8",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-28T19:42:37Z"
+          },
+          {
+            "source_record_id": "usagov-financial-hardship-referral",
+            "record_type": "federal-program-referral",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "USAGov financial hardship assistance guide",
+              "listing.summary": "USAGov points people facing hardship to food, unemployment, TANF, emergency housing, rental assistance, utility help, and home repair programs. The linked programs have distinct rules and jurisdictions.",
+              "listing.agency": "U.S. General Services Administration (USAGov)",
+              "listing.applicant_types": [
+                "individuals",
+                "families"
+              ],
+              "listing.opportunity_url": "https://www.usa.gov/financial-hardship"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usagov.benefits",
+              "source_version": "Official USA.gov pages reviewed 2026-10-28; visible page revision dates retained where available.",
+              "retrieved_at": "2026-10-28T19:42:37Z",
+              "effective_at": null,
+              "transform_version": "usagov-benefit-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.usa.gov/financial-hardship",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.usa.gov/financial-hardship",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.usa.gov/financial-hardship",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.usa.gov/financial-hardship",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.usa.gov/financial-hardship",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.usa.gov/financial-hardship",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.usa.gov/financial-hardship",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.usa.gov/financial-hardship",
+            "content_hash": "7b438b85edf7a02e3ed9b0d7397af989cfa002e11113533debec92c82ed43c64",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-28T19:42:37Z"
+          },
+          {
+            "source_record_id": "usagov-senior-food-programs-overview",
+            "record_type": "federal-program-referral",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "USAGov older-adult food assistance overview",
+              "listing.summary": "USAGov describes USDA food assistance for older adults and links SFMNP and CSFP; both vary by state participation. Separate records preserve each program and the published non-executable criteria statements.",
+              "listing.agency": "U.S. General Services Administration (USAGov)",
+              "listing.applicant_types": [
+                "older adults",
+                "low-income households"
+              ],
+              "listing.opportunity_url": "https://www.usa.gov/senior-food-programs"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usagov.benefits",
+              "source_version": "Official USA.gov pages reviewed 2026-10-28; visible page revision dates retained where available.",
+              "retrieved_at": "2026-10-28T19:42:37Z",
+              "effective_at": null,
+              "transform_version": "usagov-benefit-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.usa.gov/senior-food-programs",
+            "content_hash": "c66e9b51136d39852866f79a4bbeebef85f5c7ac3b023bc2a4776cd92bbf97c7",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-28T19:42:37Z"
+          },
+          {
+            "source_record_id": "usagov-sfmnp-listing",
+            "record_type": "federal-program-referral",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Senior Farmers Market Nutrition Program (SFMNP)",
+              "listing.summary": "USAGov identifies SFMNP as a USDA program providing coupons for eligible older adults to obtain fresh fruits, vegetables, honey, and herbs at farmers markets, roadside stands, and community farms. State participation and local administration vary.",
+              "listing.agency": "U.S. General Services Administration (USAGov)",
+              "listing.applicant_types": [
+                "older adults",
+                "low-income households"
+              ],
+              "listing.opportunity_url": "https://www.usa.gov/senior-food-programs"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usagov.benefits",
+              "source_version": "Official USA.gov pages reviewed 2026-10-28; visible page revision dates retained where available.",
+              "retrieved_at": "2026-10-28T19:42:37Z",
+              "effective_at": null,
+              "transform_version": "usagov-benefit-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.usa.gov/senior-food-programs",
+            "content_hash": "867890c31d5ec136f9981ac0e63cb5218e8cdc8ada57097de2e844d1fd6b8c17",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-28T19:42:37Z"
+          },
+          {
+            "source_record_id": "usagov-csfp-listing",
+            "record_type": "federal-program-referral",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Commodity Supplemental Food Program (CSFP)",
+              "listing.summary": "USAGov identifies CSFP as a USDA program providing a monthly package of healthy food through local agencies; delivery may be available in some states. State participation and local administration vary.",
+              "listing.agency": "U.S. General Services Administration (USAGov)",
+              "listing.applicant_types": [
+                "older adults",
+                "low-income households"
+              ],
+              "listing.opportunity_url": "https://www.usa.gov/senior-food-programs"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              },
+              "criteria_program_ids": [
+                "usda-csfp"
+              ],
+              "criteria_link_evidence": {
+                "policy_version": "scenario-mapped-criteria-links-v1",
+                "reviewed_at": "2026-11-06T08:44:02Z",
+                "links": [
+                  {
+                    "program_id": "usda-csfp",
+                    "criteria_record_id": "usda-csfp",
+                    "relationship": "USAGov names the Commodity Supplemental Food Program (CSFP) as a USDA food assistance program. This identity link points to the separately stored USDA CSFP criteria record; it does not extend the partial age mapping or resolve state, tribal, or local rules.",
+                    "source_urls": [
+                      "https://www.usa.gov/senior-food-programs",
+                      "https://www.fns.usda.gov/csfp/factsheet"
+                    ]
+                  }
+                ]
+              }
+            },
+            "source_metadata": {
+              "source_id": "usagov.benefits",
+              "source_version": "Official USA.gov pages reviewed 2026-10-28; visible page revision dates retained where available.",
+              "retrieved_at": "2026-10-28T19:42:37Z",
+              "effective_at": null,
+              "transform_version": "usagov-benefit-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.usa.gov/senior-food-programs",
+            "content_hash": "eb6f3bcb569e0387a9d7068942a7e988b6d504e91285f02b7bab20980387a65e",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-28T19:42:37Z"
+          },
+          {
+            "source_record_id": "usagov-tanf-listing",
+            "record_type": "federal-program-referral",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Temporary Assistance for Needy Families (TANF)",
+              "listing.summary": "USAGov describes TANF as federally funded and state-run assistance that may help families with food, housing, home energy, and child care. State and tribal governments run different program rules and names.",
+              "listing.agency": "U.S. General Services Administration (USAGov)",
+              "listing.applicant_types": [
+                "families",
+                "low-income households"
+              ],
+              "listing.opportunity_url": "https://www.usa.gov/welfare-benefits"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usagov.benefits",
+              "source_version": "Official USA.gov pages reviewed 2026-10-28; visible page revision dates retained where available.",
+              "retrieved_at": "2026-10-28T19:42:37Z",
+              "effective_at": null,
+              "transform_version": "usagov-benefit-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.usa.gov/welfare-benefits",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.usa.gov/welfare-benefits",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.usa.gov/welfare-benefits",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.usa.gov/welfare-benefits",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.usa.gov/welfare-benefits",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.usa.gov/welfare-benefits",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.usa.gov/welfare-benefits",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.usa.gov/welfare-benefits",
+            "content_hash": "24a2f54bc2bce4bf307da07926efb5620e210e75075d752469796aebff726dab",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-28T19:42:37Z"
+          },
+          {
+            "source_record_id": "usagov-rental-assistance-referral",
+            "record_type": "federal-program-referral",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "USAGov rental assistance guide",
+              "listing.summary": "USAGov routes people to housing choice vouchers, rental assistance for veterans, people with disabilities and seniors, subsidized housing, and public housing. Responsible agencies decide eligibility and explain local applications.",
+              "listing.agency": "U.S. General Services Administration (USAGov)",
+              "listing.applicant_types": [
+                "low-income households",
+                "older adults",
+                "people with disabilities",
+                "veterans",
+                "families"
+              ],
+              "listing.opportunity_url": "https://www.usa.gov/rental-housing-programs"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usagov.benefits",
+              "source_version": "Official USA.gov pages reviewed 2026-10-28; visible page revision dates retained where available.",
+              "retrieved_at": "2026-10-28T19:42:37Z",
+              "effective_at": null,
+              "transform_version": "usagov-benefit-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.usa.gov/rental-housing-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.usa.gov/rental-housing-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.usa.gov/rental-housing-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.usa.gov/rental-housing-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.usa.gov/rental-housing-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.usa.gov/rental-housing-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.usa.gov/rental-housing-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.usa.gov/rental-housing-programs",
+            "content_hash": "4fe82e138f5f546368b9b4bef8ae410db7fd999c7af53473e4487af2b77d437b",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-28T19:42:37Z"
+          },
+          {
+            "source_record_id": "usagov-public-housing-listing",
+            "record_type": "federal-program-referral",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Public housing",
+              "listing.summary": "USAGov describes public housing for people with low income, seniors, and people with disabilities. Local public housing agencies manage properties and determine eligibility.",
+              "listing.agency": "U.S. General Services Administration (USAGov)",
+              "listing.applicant_types": [
+                "low-income households",
+                "older adults",
+                "people with disabilities",
+                "families"
+              ],
+              "listing.opportunity_url": "https://www.usa.gov/public-housing"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usagov.benefits",
+              "source_version": "Official USA.gov pages reviewed 2026-10-28; visible page revision dates retained where available.",
+              "retrieved_at": "2026-10-28T19:42:37Z",
+              "effective_at": null,
+              "transform_version": "usagov-benefit-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.usa.gov/public-housing",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.usa.gov/public-housing",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.usa.gov/public-housing",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.usa.gov/public-housing",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.usa.gov/public-housing",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.usa.gov/public-housing",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.usa.gov/public-housing",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.usa.gov/public-housing",
+            "content_hash": "e29f9fa6f058589a47f7ce7c2c9e2259db84d7602a93031d7cb84897cdf03b28",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-28T19:42:37Z"
+          },
+          {
+            "source_record_id": "usagov-state-social-services-directory",
+            "record_type": "federal-program-referral",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "State and territory social service agency directory",
+              "listing.summary": "USAGov provides links for state and territory social service agencies so people can locate jurisdiction-specific benefit programs. The directory is a referral index; it does not normalize each jurisdiction program.",
+              "listing.agency": "U.S. General Services Administration (USAGov)",
+              "listing.applicant_types": [
+                "individuals",
+                "families"
+              ],
+              "listing.opportunity_url": "https://www.usa.gov/state-social-services"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usagov.benefits",
+              "source_version": "Official USA.gov pages reviewed 2026-10-28; visible page revision dates retained where available.",
+              "retrieved_at": "2026-10-28T19:42:37Z",
+              "effective_at": null,
+              "transform_version": "usagov-benefit-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.usa.gov/state-social-services",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.usa.gov/state-social-services",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.usa.gov/state-social-services",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.usa.gov/state-social-services",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.usa.gov/state-social-services",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.usa.gov/state-social-services",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.usa.gov/state-social-services",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.usa.gov/state-social-services",
+            "content_hash": "63485910e20333e7ec926fad13956c2ed36c22e8c0815cb00a4f072587e85917",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-28T19:42:37Z"
+          },
+          {
+            "source_record_id": "usagov-grants-and-loans-guide",
+            "record_type": "federal-program-referral",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Government grants and loans guide",
+              "listing.summary": "USAGov explains that federal grants generally support states and organizations rather than personal expenses, while federal loans may serve education, housing, business, and other purposes. Program-specific rules and deadlines must be checked at the responsible agency.",
+              "listing.agency": "U.S. General Services Administration (USAGov)",
+              "listing.applicant_types": [
+                "individuals",
+                "organizations",
+                "businesses"
+              ],
+              "listing.opportunity_url": "https://www.usa.gov/government-grants-and-loans"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usagov.benefits",
+              "source_version": "Official USA.gov pages reviewed 2026-10-28; visible page revision dates retained where available.",
+              "retrieved_at": "2026-10-28T19:42:37Z",
+              "effective_at": null,
+              "transform_version": "usagov-benefit-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.usa.gov/government-grants-and-loans",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.usa.gov/government-grants-and-loans",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.usa.gov/government-grants-and-loans",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.usa.gov/government-grants-and-loans",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.usa.gov/government-grants-and-loans",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.usa.gov/government-grants-and-loans",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.usa.gov/government-grants-and-loans",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.usa.gov/government-grants-and-loans",
+            "content_hash": "fe67d59d0494658517df76e354248b528fd7fd2fe15bafee6713a7d90c92caa2",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-28T19:42:37Z"
+          },
+          {
+            "source_record_id": "usagov-government-loan-guide",
+            "record_type": "federal-program-referral",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "How to get a government loan or grant",
+              "listing.summary": "USAGov distinguishes loans, grants, and benefits; it points to farmers and ranchers, small businesses, housing, education, and disaster assistance resources. Each loan or benefit program has its own eligibility requirements, process, and deadlines.",
+              "listing.agency": "U.S. General Services Administration (USAGov)",
+              "listing.applicant_types": [
+                "individuals",
+                "businesses",
+                "organizations"
+              ],
+              "listing.opportunity_url": "https://www.usa.gov/government-loan"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usagov.benefits",
+              "source_version": "Official USA.gov pages reviewed 2026-10-28; visible page revision dates retained where available.",
+              "retrieved_at": "2026-10-28T19:42:37Z",
+              "effective_at": null,
+              "transform_version": "usagov-benefit-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.usa.gov/government-loan",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.usa.gov/government-loan",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.usa.gov/government-loan",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.usa.gov/government-loan",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.usa.gov/government-loan",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.usa.gov/government-loan",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.usa.gov/government-loan",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.usa.gov/government-loan",
+            "content_hash": "3f831099a6eb1470d119098a1995ce1080cbf539750172445b2dbe4f1bcb83a7",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-28T19:42:37Z"
+          }
+        ]
+      }
+    },
+    {
+      "dataset_id": "usagov-published-program-criteria",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "Official USA.gov pages reviewed 2026-10-28; visible page revision dates retained where available.",
+        "retrieved_at": "2026-10-28T19:42:37Z",
+        "transform_version": "usagov-benefit-review-v1",
+        "validation_outcome": "valid",
+        "detail": "Six USA.gov requirement/context records remain partial and non-executable. Mapping is not inferred; local/state rules and full program criteria are not asserted.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "usagov-sfmnp-published-requirements",
+            "record_type": "federal-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "usda-sfmnp",
+              "eligibility.program.catalog_version": "usagov-reviewed-2026-10-28",
+              "eligibility.program.data_origin": "Official USA.gov page reviewed 2026-10-28: https://www.usa.gov/senior-food-programs; source statements are partial and non-executable.",
+              "eligibility.program.title": "Senior Farmers Market Nutrition Program (SFMNP)",
+              "eligibility.program.description": "USA.gov says participating-state SFMNP programs may serve people age 60 or older whose income is at or below 185% of the federal poverty income guidelines. The program is not available in every state; state participation and local administration must be verified.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "minimum_age_statement",
+                  "statement": "Be 60 years of age or older.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usagov.benefits"
+                },
+                {
+                  "requirement_id": "income_limit_statement",
+                  "statement": "Have income at or below 185% of the federal poverty income guidelines.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usagov.benefits"
+                },
+                {
+                  "requirement_id": "state_program_availability",
+                  "statement": "The state must participate in SFMNP; availability is not nationwide. Verify the current state program.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usagov.benefits"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usagov.benefits",
+              "source_version": "Official USA.gov pages reviewed 2026-10-28; visible page revision dates retained where available.",
+              "retrieved_at": "2026-10-28T19:42:37Z",
+              "effective_at": null,
+              "transform_version": "usagov-benefit-review-v1",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.usa.gov/senior-food-programs",
+            "content_hash": "9220ffabbea1c5cbb3d5b81966cbd0103c97df7a086d6a779abf4e6f22795bd4",
+            "schema_version": "eligibility-program-v2",
+            "observed_at": "2026-10-28T19:42:37Z"
+          },
+          {
+            "source_record_id": "usagov-csfp-published-requirements",
+            "record_type": "federal-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "usda-csfp",
+              "eligibility.program.catalog_version": "usagov-reviewed-2026-10-28",
+              "eligibility.program.data_origin": "Official USA.gov page reviewed 2026-10-28: https://www.usa.gov/senior-food-programs; source statements are partial and non-executable.",
+              "eligibility.program.title": "Commodity Supplemental Food Program (CSFP)",
+              "eligibility.program.description": "USA.gov says participating-state CSFP programs may serve people age 60 or older whose income is at or below 185% of the federal poverty income guidelines. The program is not available in every state; state participation and local administration must be verified.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "minimum_age_statement",
+                  "statement": "Be 60 years of age or older.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usagov.benefits"
+                },
+                {
+                  "requirement_id": "income_limit_statement",
+                  "statement": "Have income at or below 185% of the federal poverty income guidelines.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usagov.benefits"
+                },
+                {
+                  "requirement_id": "state_program_availability",
+                  "statement": "The state must participate in CSFP; availability is not nationwide. Verify the current state program.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usagov.benefits"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usagov.benefits",
+              "source_version": "Official USA.gov pages reviewed 2026-10-28; visible page revision dates retained where available.",
+              "retrieved_at": "2026-10-28T19:42:37Z",
+              "effective_at": null,
+              "transform_version": "usagov-benefit-review-v1",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://www.usa.gov/senior-food-programs",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.usa.gov/senior-food-programs",
+            "content_hash": "eb5704b6ff631f3966cbec5b6231878fe19404233a802bf623ba5e21dc7f40d4",
+            "schema_version": "eligibility-program-v2",
+            "observed_at": "2026-10-28T19:42:37Z"
+          },
+          {
+            "source_record_id": "usagov-tanf-published-requirements",
+            "record_type": "federal-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "us-hhs-tanf",
+              "eligibility.program.catalog_version": "usagov-reviewed-2026-10-28",
+              "eligibility.program.data_origin": "Official USA.gov page reviewed 2026-10-28: https://www.usa.gov/welfare-benefits; source statements are partial and non-executable.",
+              "eligibility.program.title": "Temporary Assistance for Needy Families (TANF)",
+              "eligibility.program.description": "USA.gov states TANF is state- or tribal-administered, every state or tribal territory sets its own requirements, and applicants must be residents of the state where they apply. Details must be checked with the responsible local program.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "state_residency_statement",
+                  "statement": "You must be a resident of the state where you are applying.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usagov.benefits"
+                },
+                {
+                  "requirement_id": "state_or_tribal_rule_variation",
+                  "statement": "Each state or tribal territory has its own requirements and program administration.",
+                  "mapping_status": "context_only",
+                  "source_id": "usagov.benefits"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usagov.benefits",
+              "source_version": "Official USA.gov pages reviewed 2026-10-28; visible page revision dates retained where available.",
+              "retrieved_at": "2026-10-28T19:42:37Z",
+              "effective_at": null,
+              "transform_version": "usagov-benefit-review-v1",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://www.usa.gov/welfare-benefits",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://www.usa.gov/welfare-benefits",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://www.usa.gov/welfare-benefits",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://www.usa.gov/welfare-benefits",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://www.usa.gov/welfare-benefits",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://www.usa.gov/welfare-benefits",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.usa.gov/welfare-benefits",
+            "content_hash": "24eeb97992c8a2bb9b31987a55baeafec004a3699c8df71f1c08c35c57de781c",
+            "schema_version": "eligibility-program-v2",
+            "observed_at": "2026-10-28T19:42:37Z"
+          },
+          {
+            "source_record_id": "usagov-public-housing-published-requirements",
+            "record_type": "federal-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "hud-public-housing",
+              "eligibility.program.catalog_version": "usagov-reviewed-2026-10-28",
+              "eligibility.program.data_origin": "Official USA.gov page reviewed 2026-10-28: https://www.usa.gov/public-housing; source statements are partial and non-executable.",
+              "eligibility.program.title": "Public housing",
+              "eligibility.program.description": "USA.gov says local public housing agencies determine eligibility based on annual gross income; whether the applicant qualifies as a senior, person with a disability, or family; and U.S. citizenship or immigration status. Local application processes and documentation vary.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "annual_gross_income_factor",
+                  "statement": "The local public housing agency considers annual gross income.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usagov.benefits"
+                },
+                {
+                  "requirement_id": "household_category_factor",
+                  "statement": "The agency considers whether the applicant qualifies as a senior, a person with a disability, or a family.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usagov.benefits"
+                },
+                {
+                  "requirement_id": "citizenship_or_immigration_factor",
+                  "statement": "The agency considers U.S. citizenship or immigration status.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usagov.benefits"
+                },
+                {
+                  "requirement_id": "local_agency_determination",
+                  "statement": "The local public housing agency determines eligibility and explains local application steps and documents.",
+                  "mapping_status": "context_only",
+                  "source_id": "usagov.benefits"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usagov.benefits",
+              "source_version": "Official USA.gov pages reviewed 2026-10-28; visible page revision dates retained where available.",
+              "retrieved_at": "2026-10-28T19:42:37Z",
+              "effective_at": null,
+              "transform_version": "usagov-benefit-review-v1",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://www.usa.gov/public-housing",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://www.usa.gov/public-housing",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://www.usa.gov/public-housing",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://www.usa.gov/public-housing",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://www.usa.gov/public-housing",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://www.usa.gov/public-housing",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.usa.gov/public-housing",
+            "content_hash": "65875f39f2be9d3e98de5096f31ce154c669c145c1adad452ac90f874fadb591",
+            "schema_version": "eligibility-program-v2",
+            "observed_at": "2026-10-28T19:42:37Z"
+          },
+          {
+            "source_record_id": "usagov-medicare-published-requirements",
+            "record_type": "federal-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "medicare",
+              "eligibility.program.catalog_version": "usagov-reviewed-2026-10-28",
+              "eligibility.program.data_origin": "Official USA.gov page reviewed 2026-10-28: https://www.usa.gov/medicare; source statements are partial and non-executable.",
+              "eligibility.program.title": "Medicare",
+              "eligibility.program.description": "USA.gov describes Medicare as federal health insurance for people age 65 and over, with earlier eligibility possible for people under 65 who have a disability, End-Stage Renal Disease, or ALS. This summary does not represent the full enrollment or coverage rules.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "age_65_statement",
+                  "statement": "Medicare is generally for people who are 65 or older.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usagov.benefits"
+                },
+                {
+                  "requirement_id": "under_65_disability_statement",
+                  "statement": "Some people under 65 may qualify earlier if they have a disability, End-Stage Renal Disease, or ALS.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usagov.benefits"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usagov.benefits",
+              "source_version": "Official USA.gov pages reviewed 2026-10-28; visible page revision dates retained where available.",
+              "retrieved_at": "2026-10-28T19:42:37Z",
+              "effective_at": null,
+              "transform_version": "usagov-benefit-review-v1",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://www.usa.gov/medicare",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://www.usa.gov/medicare",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://www.usa.gov/medicare",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://www.usa.gov/medicare",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://www.usa.gov/medicare",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://www.usa.gov/medicare",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.usa.gov/medicare",
+            "content_hash": "77bc1fc3c2e5b2d8ac5eade0164f99daa64cb5ddc6681a8b0011708f82961cbf",
+            "schema_version": "eligibility-program-v2",
+            "observed_at": "2026-10-28T19:42:37Z"
+          },
+          {
+            "source_record_id": "usagov-grants-and-loans-scope",
+            "record_type": "federal-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "federal-grants-and-loans",
+              "eligibility.program.catalog_version": "usagov-reviewed-2026-10-28",
+              "eligibility.program.data_origin": "Official USA.gov page reviewed 2026-10-28: https://www.usa.gov/government-grants-and-loans; source statements are partial and non-executable.",
+              "eligibility.program.title": "Federal grants and loans — applicant scope context",
+              "eligibility.program.description": "USA.gov says federal grants are typically for states and organizations rather than personal expenses, while federal loans may be available to individuals for education, housing, business, and other purposes. These statements classify program scope; they are not complete program criteria.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "federal_grant_recipient_scope",
+                  "statement": "Federal grants are typically for states and organizations, not personal expenses.",
+                  "mapping_status": "context_only",
+                  "source_id": "usagov.benefits"
+                },
+                {
+                  "requirement_id": "loan_scope_context",
+                  "statement": "Federal loans may support education, housing, business, and other needs; each program has separate eligibility rules.",
+                  "mapping_status": "context_only",
+                  "source_id": "usagov.benefits"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usagov.benefits",
+              "source_version": "Official USA.gov pages reviewed 2026-10-28; visible page revision dates retained where available.",
+              "retrieved_at": "2026-10-28T19:42:37Z",
+              "effective_at": null,
+              "transform_version": "usagov-benefit-review-v1",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://www.usa.gov/government-grants-and-loans",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://www.usa.gov/government-grants-and-loans",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://www.usa.gov/government-grants-and-loans",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://www.usa.gov/government-grants-and-loans",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://www.usa.gov/government-grants-and-loans",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://www.usa.gov/government-grants-and-loans",
+                  "observed_at": "2026-10-28T19:42:37Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.usa.gov/government-grants-and-loans",
+            "content_hash": "8617e537ce4e49d0a4ad0cb8b717e68253630e4eeec4660faf99c4bb8882e01d",
+            "schema_version": "eligibility-program-v2",
+            "observed_at": "2026-10-28T19:42:37Z"
+          }
+        ]
+      }
+    }
+  ]
+}

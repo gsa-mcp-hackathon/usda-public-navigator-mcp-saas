@@ -1,0 +1,107 @@
+{
+  "manifest_id": "mcp-saas-demo",
+  "manifest_version": "1.0.0",
+  "schemas": [
+    {
+      "registry_id": "core-schema-registry",
+      "schema_version": "core-v1",
+      "path": "registries/schemas/core-v1.json"
+    },
+    {
+      "registry_id": "public-data-schema-registry",
+      "schema_version": "public-data-v1",
+      "path": "registries/schemas/public-data-v1.json"
+    },
+    {
+      "registry_id": "eligibility-program-schema",
+      "schema_version": "eligibility-program-v1",
+      "path": "registries/schemas/eligibility-program-v1.json"
+    }
+  ],
+  "patterns": [
+    {
+      "pattern_id": "sample-directory",
+      "pattern_version": "1.0.0",
+      "lifecycle_state": "active",
+      "title": "Generic directory pattern reference",
+      "catalog_names": ["entries"],
+      "capabilities": ["directory.list"],
+      "operations": [
+        {
+          "operation_id": "list_entries",
+          "mcp_tool_name": "list_entries",
+          "request_schema_id": "mcp.no-arguments.v1",
+          "response_schema_id": "mcp.pattern-result.v1",
+          "access_mode": "read_only"
+        }
+      ]
+    },
+    {
+      "pattern_id": "eligibility",
+      "pattern_version": "0.1.0",
+      "lifecycle_state": "active",
+      "title": "Synthetic Eligibility demonstration pattern",
+      "catalog_names": ["programs"],
+      "capabilities": ["program.discover"],
+      "operations": [
+        {
+          "operation_id": "list_programs",
+          "mcp_tool_name": "list_tenant_programs",
+          "request_schema_id": "mcp.no-arguments.v1",
+          "response_schema_id": "eligibility.program-catalog.v1",
+          "access_mode": "read_only"
+        }
+      ]
+    }
+  ],
+  "use_cases": [
+    {
+      "use_case_id": "directory.list",
+      "use_case_version": "1.0.0",
+      "pattern_id": "sample-directory",
+      "pattern_version": "1.0.0",
+      "operation_id": "list_entries",
+      "lifecycle_state": "active",
+      "tenant_ids": ["directory-demo", "directory-partner"]
+    },
+    {
+      "use_case_id": "program.discover",
+      "use_case_version": "1.0.0",
+      "pattern_id": "eligibility",
+      "pattern_version": "0.1.0",
+      "operation_id": "list_programs",
+      "lifecycle_state": "active",
+      "tenant_ids": ["federal-agency", "state-kansas"]
+    }
+  ],
+  "tenants": [
+    {
+      "tenant_id": "directory-demo",
+      "pattern_id": "sample-directory",
+      "pattern_version": "1.0.0",
+      "endpoint_environment_variable": "TENANT_DIRECTORY_ENDPOINT",
+      "lifecycle_state": "active"
+    },
+    {
+      "tenant_id": "directory-partner",
+      "pattern_id": "sample-directory",
+      "pattern_version": "1.0.0",
+      "endpoint_environment_variable": "TENANT_DIRECTORY_PARTNER_ENDPOINT",
+      "lifecycle_state": "active"
+    },
+    {
+      "tenant_id": "federal-agency",
+      "pattern_id": "eligibility",
+      "pattern_version": "0.1.0",
+      "endpoint_environment_variable": "TENANT_FEDERAL_ENDPOINT",
+      "lifecycle_state": "active"
+    },
+    {
+      "tenant_id": "state-kansas",
+      "pattern_id": "eligibility",
+      "pattern_version": "0.1.0",
+      "endpoint_environment_variable": "TENANT_KANSAS_ENDPOINT",
+      "lifecycle_state": "active"
+    }
+  ]
+}

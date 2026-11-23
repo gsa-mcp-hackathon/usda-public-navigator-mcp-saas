@@ -1,0 +1,1055 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "us.ssa.benefits",
+    "reviewed_at": "2026-10-28T18:30:00Z",
+    "publisher_version": "Official SSA Benefit Types directory and linked benefit pages reviewed 2026-10-28; publisher revision dates were not displayed in the retrieved pages.",
+    "raw_source_documents_committed": false,
+    "access_method": "Official SSA web pages reviewed; only limited eligibility statements visible on the directory and detail pages are transcribed. Raw page bodies are not stored.",
+    "pages": [
+      {
+        "url": "https://www.ssa.gov/benefits",
+        "title": "Benefit types | SSA",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.ssa.gov/retirement",
+        "title": "Retirement benefits | SSA",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.ssa.gov/disability",
+        "title": "Disability | SSA",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.ssa.gov/survivor",
+        "title": "Survivor benefits | SSA",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.ssa.gov/family",
+        "title": "Family benefits | SSA",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.ssa.gov/ssi",
+        "title": "Supplemental Security Income (SSI) | SSA",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.ssa.gov/medicare",
+        "title": "Plan for Medicare | SSA",
+        "source_content_sha256": null
+      }
+    ]
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "us.ssa.benefits",
+      "source_name": "Social Security Administration Benefit Types and Program Pages",
+      "source_url": "https://www.ssa.gov/benefits",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "federal",
+          "owner_name": "Social Security Administration",
+          "verification_status": "verified",
+          "evidence_url": "https://www.ssa.gov/benefits"
+        },
+        "content_type": "public_program_directory_and_partial_published_criteria",
+        "approved_scope": "Primary SSA references for six federal benefits. The directory/detail pages expose high-level eligibility statements only; these are partial, non-executable references. Full program rules, exceptions, and individual determinations are not represented.",
+        "refresh_mode": "operator_triggered"
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "ssa-benefits-published-criteria",
+        "source_dataset_id": "SSA Benefit Types directory and linked official benefit pages",
+        "title": "SSA federal benefit listings with partial published criteria",
+        "landing_page": "https://www.ssa.gov/benefits",
+        "schema_version": "eligibility-program-v2",
+        "namespace_ids": [
+          "core",
+          "eligibility"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "partial",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "eligibility": "eligibility-program-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "eligibility": "eligibility-program-v2"
+          },
+          "content_type": "published_partial_non_executable_eligibility_reference",
+          "published_criteria_available": true,
+          "criteria_mapping_status": "not_mapped",
+          "refresh_mode": "operator_triggered",
+          "maximum_records_total": 10
+        }
+      },
+      {
+        "dataset_id": "ssa-benefit-listings",
+        "source_dataset_id": "SSA Benefit Types directory and linked official benefit program pages",
+        "title": "SSA federal benefit program listings",
+        "landing_page": "https://www.ssa.gov/benefits",
+        "schema_version": "public-listing-v3",
+        "namespace_ids": [
+          "core",
+          "listing"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "not_assessed",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "listing": "eligibility-public-listing-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "listing": "public-listing-v3"
+          },
+          "content_type": "federal_social_security_benefit_program_listings",
+          "refresh_mode": "operator_triggered",
+          "maximum_records_total": 10
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "ssa-benefits-published-criteria",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "Official SSA Benefit Types directory and linked benefit pages reviewed 2026-10-28; publisher revision dates were not displayed.",
+        "retrieved_at": "2026-10-28T18:30:00Z",
+        "transform_version": "ssa-benefit-types-partial-criteria-v1",
+        "validation_outcome": "valid",
+        "detail": "Six SSA records preserve partial, unmapped, non-executable statements. Raw pages were not stored; record hashes fingerprint normalized attributes. DisasterAssistance.gov entries remain separate and are not attributed to SSA.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "ssa-retirement-benefits",
+            "record_type": "federal-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "us-ssa-retirement",
+              "eligibility.program.catalog_version": "ssa-benefits-reviewed-2026-10-28",
+              "eligibility.program.data_origin": "SSA Benefit Types directory and Retirement benefits page; high-level eligibility text only.",
+              "eligibility.program.title": "Social Security Retirement benefits",
+              "eligibility.program.description": "SSA states that monthly Retirement benefits are typically available starting at age 62 for people who worked and paid Social Security taxes for 10 years or more. Other factors and exceptions are not captured here.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "minimum_age_statement",
+                  "statement": "Be age 62 or older.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "us.ssa.benefits"
+                },
+                {
+                  "requirement_id": "covered_work_statement",
+                  "statement": "Have worked and paid Social Security taxes for 10 years or more.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "us.ssa.benefits"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "national",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "us.ssa.benefits",
+              "source_version": "Official SSA Benefit Types directory and linked benefit pages reviewed 2026-10-28; publisher revision dates were not displayed.",
+              "retrieved_at": "2026-10-28T18:30:00Z",
+              "effective_at": null,
+              "transform_version": "ssa-benefit-types-partial-criteria-v1",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://www.ssa.gov/retirement",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://www.ssa.gov/retirement",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://www.ssa.gov/retirement",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://www.ssa.gov/retirement",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://www.ssa.gov/retirement",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://www.ssa.gov/benefits",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.ssa.gov/retirement",
+            "schema_version": "eligibility-program-v2",
+            "observed_at": "2026-10-28T18:30:00Z",
+            "content_hash": "d7a6e017e4d983e3e7058317668c8586bc2b91c4df89fad840b6b687661ecc39"
+          },
+          {
+            "source_record_id": "ssa-disability-benefits",
+            "record_type": "federal-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "us-ssa-disability-insurance",
+              "eligibility.program.catalog_version": "ssa-benefits-reviewed-2026-10-28",
+              "eligibility.program.data_origin": "SSA Disability page; high-level eligibility text only.",
+              "eligibility.program.title": "Social Security Disability Insurance (SSDI)",
+              "eligibility.program.description": "SSA describes Disability as monthly payments for people with a disability that stops or limits their ability to work. The page lists disability or blindness and enough work history as high-level conditions; detailed rules are not captured here.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "disability_or_blindness",
+                  "statement": "A disability or blindness.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "us.ssa.benefits"
+                },
+                {
+                  "requirement_id": "work_history",
+                  "statement": "Enough work history.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "us.ssa.benefits"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "national",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "us.ssa.benefits",
+              "source_version": "Official SSA Benefit Types directory and linked benefit pages reviewed 2026-10-28; publisher revision dates were not displayed.",
+              "retrieved_at": "2026-10-28T18:30:00Z",
+              "effective_at": null,
+              "transform_version": "ssa-benefit-types-partial-criteria-v1",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://www.ssa.gov/disability",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://www.ssa.gov/disability",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://www.ssa.gov/disability",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://www.ssa.gov/disability",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://www.ssa.gov/disability",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://www.ssa.gov/disability",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.ssa.gov/disability",
+            "schema_version": "eligibility-program-v2",
+            "observed_at": "2026-10-28T18:30:00Z",
+            "content_hash": "5c234e065ab2e9afe7df67c0a7551faaa0f90471f0ee4203e2bb1b172db37886"
+          },
+          {
+            "source_record_id": "ssa-survivor-benefits",
+            "record_type": "federal-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "us-ssa-survivor-benefits",
+              "eligibility.program.catalog_version": "ssa-benefits-reviewed-2026-10-28",
+              "eligibility.program.data_origin": "SSA Survivor benefits page; high-level eligibility text only.",
+              "eligibility.program.title": "Social Security Survivor benefits",
+              "eligibility.program.description": "SSA describes monthly benefits for certain eligible family members of a deceased person who worked and paid Social Security taxes. Relationship and work-history details require further review.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "qualifying_relationship_and_worker_record",
+                  "statement": "You may qualify if you’re the spouse, divorced spouse, child, or dependent parent of someone who worked and paid Social Security taxes before they died.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "us.ssa.benefits"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "national",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "us.ssa.benefits",
+              "source_version": "Official SSA Benefit Types directory and linked benefit pages reviewed 2026-10-28; publisher revision dates were not displayed.",
+              "retrieved_at": "2026-10-28T18:30:00Z",
+              "effective_at": null,
+              "transform_version": "ssa-benefit-types-partial-criteria-v1",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://www.ssa.gov/survivor",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://www.ssa.gov/survivor",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://www.ssa.gov/survivor",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://www.ssa.gov/survivor",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://www.ssa.gov/survivor",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://www.ssa.gov/survivor",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.ssa.gov/survivor",
+            "schema_version": "eligibility-program-v2",
+            "observed_at": "2026-10-28T18:30:00Z",
+            "content_hash": "94facc3dac5a6c9af8b8238ca7fea267efec0ecc3f5ac4cf3d1721d2428d9d0a"
+          },
+          {
+            "source_record_id": "ssa-family-benefits",
+            "record_type": "federal-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "us-ssa-family-benefits",
+              "eligibility.program.catalog_version": "ssa-benefits-reviewed-2026-10-28",
+              "eligibility.program.data_origin": "SSA Family benefits page; high-level eligibility text only.",
+              "eligibility.program.title": "Social Security Family benefits",
+              "eligibility.program.description": "SSA states that Family benefits may be available to certain family members of people eligible for Retirement or Disability. It lists broad relationship categories but says age, marital status, and other factors also matter.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "relationship_and_underlying_benefit",
+                  "statement": "Family benefits provide monthly payments to certain family members of people who are eligible for Retirement or Disability.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "us.ssa.benefits"
+                },
+                {
+                  "requirement_id": "relationship_age_marital_factors",
+                  "statement": "Spouses, ex-spouses, children, and some grandchildren may be eligible for Family benefits. We consider age, marital status, and other factors when we determine eligibility.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "us.ssa.benefits"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "national",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "us.ssa.benefits",
+              "source_version": "Official SSA Benefit Types directory and linked benefit pages reviewed 2026-10-28; publisher revision dates were not displayed.",
+              "retrieved_at": "2026-10-28T18:30:00Z",
+              "effective_at": null,
+              "transform_version": "ssa-benefit-types-partial-criteria-v1",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://www.ssa.gov/family",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://www.ssa.gov/family",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://www.ssa.gov/family",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://www.ssa.gov/family",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://www.ssa.gov/family",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://www.ssa.gov/family",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.ssa.gov/family",
+            "schema_version": "eligibility-program-v2",
+            "observed_at": "2026-10-28T18:30:00Z",
+            "content_hash": "b00255eb9c0375cec224d365fc15e0482593fff15cbfea4f9733cbc70267b72d"
+          },
+          {
+            "source_record_id": "ssa-ssi",
+            "record_type": "federal-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "us-ssa-ssi",
+              "eligibility.program.catalog_version": "ssa-benefits-reviewed-2026-10-28",
+              "eligibility.program.data_origin": "SSA Supplemental Security Income page; high-level eligibility text only.",
+              "eligibility.program.title": "Supplemental Security Income (SSI)",
+              "eligibility.program.description": "SSA states that adults and children might be eligible with little or no income and resources plus disability, blindness, or age 65 or older. The payment amount depends on income, living situation, resources, and other factors; the full rules are not captured here.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "income",
+                  "statement": "Little or no income.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "us.ssa.benefits"
+                },
+                {
+                  "requirement_id": "resources",
+                  "statement": "Little or no resources.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "us.ssa.benefits"
+                },
+                {
+                  "requirement_id": "age_disability_or_blindness",
+                  "statement": "A disability, blindness, or are age 65 or older.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "us.ssa.benefits"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "national",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "us.ssa.benefits",
+              "source_version": "Official SSA Benefit Types directory and linked benefit pages reviewed 2026-10-28; publisher revision dates were not displayed.",
+              "retrieved_at": "2026-10-28T18:30:00Z",
+              "effective_at": null,
+              "transform_version": "ssa-benefit-types-partial-criteria-v1",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://www.ssa.gov/ssi",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://www.ssa.gov/ssi",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://www.ssa.gov/ssi",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://www.ssa.gov/ssi",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://www.ssa.gov/ssi",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://www.ssa.gov/ssi",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.ssa.gov/ssi",
+            "schema_version": "eligibility-program-v2",
+            "observed_at": "2026-10-28T18:30:00Z",
+            "content_hash": "7d00e64caac0beaef6788256431dfe0e0cb7ae19ccb08e39952028c8c9931c7c"
+          },
+          {
+            "source_record_id": "ssa-medicare",
+            "record_type": "federal-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "us-medicare",
+              "eligibility.program.catalog_version": "ssa-benefits-reviewed-2026-10-28",
+              "eligibility.program.data_origin": "SSA Plan for Medicare page; high-level access conditions only.",
+              "eligibility.program.title": "Medicare",
+              "eligibility.program.description": "SSA identifies Medicare as health insurance for people age 65 or older and says a person may also qualify with permanent kidney failure or by receiving Disability benefits. Enrollment timing and coverage rules are not captured here.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "age_or_health_condition",
+                  "statement": "You may also qualify if you have permanent kidney failure or receive Disability benefits.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "us.ssa.benefits"
+                },
+                {
+                  "requirement_id": "age_65",
+                  "statement": "Medicare is our country's health insurance program for people age 65 or older.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "us.ssa.benefits"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "national",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "us.ssa.benefits",
+              "source_version": "Official SSA Benefit Types directory and linked benefit pages reviewed 2026-10-28; publisher revision dates were not displayed.",
+              "retrieved_at": "2026-10-28T18:30:00Z",
+              "effective_at": null,
+              "transform_version": "ssa-benefit-types-partial-criteria-v1",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://www.ssa.gov/medicare",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://www.ssa.gov/medicare",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://www.ssa.gov/medicare",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://www.ssa.gov/medicare",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://www.ssa.gov/medicare",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://www.ssa.gov/medicare",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.ssa.gov/medicare",
+            "schema_version": "eligibility-program-v2",
+            "observed_at": "2026-10-28T18:30:00Z",
+            "content_hash": "cc7f8214ca7e06f086345aa55ce893a31f907fa5a369cfab62bf38d6abc93d35"
+          }
+        ]
+      }
+    },
+    {
+      "dataset_id": "ssa-benefit-listings",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "Official SSA Benefit Types directory and linked benefit pages reviewed 2026-10-28; publisher revision dates were not displayed.",
+        "retrieved_at": "2026-10-28T18:30:00Z",
+        "transform_version": "ssa-benefit-listing-v1",
+        "validation_outcome": "valid",
+        "detail": "Six source-backed SSA benefit listings; partial criteria remain in a separate criteria dataset.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "ssa-retirement-benefits",
+            "record_type": "federal-program-directory-listing",
+            "canonical_attributes": {
+              "core.geography.country_code": "US",
+              "listing.record_kind": "assistance_program",
+              "listing.title": "Social Security Retirement benefits",
+              "listing.summary": "Monthly retirement benefits; consult SSA for detailed eligibility requirements and current application steps.",
+              "listing.agency": "U.S. Social Security Administration",
+              "listing.program_url": "https://www.ssa.gov/retirement"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "listing_kind": "assistance_program",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "national",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "us.ssa.benefits",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "source_title": "SSA official benefit program page",
+              "publisher": "U.S. Social Security Administration",
+              "source_version": "Official SSA Benefit Types directory and linked benefit pages reviewed 2026-10-28; publisher revision dates were not displayed.",
+              "criteria_status": "not_assessed",
+              "retrieved_at": "2026-10-28T18:30:00Z",
+              "effective_at": null,
+              "transform_version": "ssa-benefit-listing-v1",
+              "field_provenance": {
+                "core.geography.country_code": {
+                  "source_url": "https://www.ssa.gov/retirement",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.record_kind": {
+                  "source_url": "https://www.ssa.gov/retirement",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.ssa.gov/retirement",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.ssa.gov/retirement",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.ssa.gov/retirement",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.program_url": {
+                  "source_url": "https://www.ssa.gov/retirement",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.ssa.gov/retirement",
+            "schema_version": "public-listing-v3",
+            "observed_at": "2026-10-28T18:30:00Z",
+            "content_hash": "94b3290dcb3b7a23cfd504d63590ba1b9196f7ae3c1a82a6565995dfd92ee4c5"
+          },
+          {
+            "source_record_id": "ssa-disability-benefits",
+            "record_type": "federal-program-directory-listing",
+            "canonical_attributes": {
+              "core.geography.country_code": "US",
+              "listing.record_kind": "assistance_program",
+              "listing.title": "Social Security Disability Insurance (SSDI)",
+              "listing.summary": "Social Security disability benefit program; consult SSA for detailed eligibility requirements and current application steps.",
+              "listing.agency": "U.S. Social Security Administration",
+              "listing.program_url": "https://www.ssa.gov/disability"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "listing_kind": "assistance_program",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "national",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "us.ssa.benefits",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "source_title": "SSA official benefit program page",
+              "publisher": "U.S. Social Security Administration",
+              "source_version": "Official SSA Benefit Types directory and linked benefit pages reviewed 2026-10-28; publisher revision dates were not displayed.",
+              "criteria_status": "not_assessed",
+              "retrieved_at": "2026-10-28T18:30:00Z",
+              "effective_at": null,
+              "transform_version": "ssa-benefit-listing-v1",
+              "field_provenance": {
+                "core.geography.country_code": {
+                  "source_url": "https://www.ssa.gov/disability",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.record_kind": {
+                  "source_url": "https://www.ssa.gov/disability",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.ssa.gov/disability",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.ssa.gov/disability",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.ssa.gov/disability",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.program_url": {
+                  "source_url": "https://www.ssa.gov/disability",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.ssa.gov/disability",
+            "schema_version": "public-listing-v3",
+            "observed_at": "2026-10-28T18:30:00Z",
+            "content_hash": "ac8cb90bdecc8b168fdf110ecf10d54a3d08517a682ace33f7bba986ab48514f"
+          },
+          {
+            "source_record_id": "ssa-survivor-benefits",
+            "record_type": "federal-program-directory-listing",
+            "canonical_attributes": {
+              "core.geography.country_code": "US",
+              "listing.record_kind": "assistance_program",
+              "listing.title": "Social Security Survivor benefits",
+              "listing.summary": "Social Security survivor benefit program; consult SSA for detailed eligibility requirements and current application steps.",
+              "listing.agency": "U.S. Social Security Administration",
+              "listing.program_url": "https://www.ssa.gov/survivor"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "listing_kind": "assistance_program",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "national",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "us.ssa.benefits",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "source_title": "SSA official benefit program page",
+              "publisher": "U.S. Social Security Administration",
+              "source_version": "Official SSA Benefit Types directory and linked benefit pages reviewed 2026-10-28; publisher revision dates were not displayed.",
+              "criteria_status": "not_assessed",
+              "retrieved_at": "2026-10-28T18:30:00Z",
+              "effective_at": null,
+              "transform_version": "ssa-benefit-listing-v1",
+              "field_provenance": {
+                "core.geography.country_code": {
+                  "source_url": "https://www.ssa.gov/survivor",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.record_kind": {
+                  "source_url": "https://www.ssa.gov/survivor",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.ssa.gov/survivor",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.ssa.gov/survivor",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.ssa.gov/survivor",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.program_url": {
+                  "source_url": "https://www.ssa.gov/survivor",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.ssa.gov/survivor",
+            "schema_version": "public-listing-v3",
+            "observed_at": "2026-10-28T18:30:00Z",
+            "content_hash": "79eeeb7415b714a90fc82e157d1a696447488862e54e580dc451d0b5175ca075"
+          },
+          {
+            "source_record_id": "ssa-family-benefits",
+            "record_type": "federal-program-directory-listing",
+            "canonical_attributes": {
+              "core.geography.country_code": "US",
+              "listing.record_kind": "assistance_program",
+              "listing.title": "Social Security Family benefits",
+              "listing.summary": "Social Security benefits for eligible family members; consult SSA for detailed eligibility requirements and current application steps.",
+              "listing.agency": "U.S. Social Security Administration",
+              "listing.program_url": "https://www.ssa.gov/family"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "listing_kind": "assistance_program",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "national",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "us.ssa.benefits",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "source_title": "SSA official benefit program page",
+              "publisher": "U.S. Social Security Administration",
+              "source_version": "Official SSA Benefit Types directory and linked benefit pages reviewed 2026-10-28; publisher revision dates were not displayed.",
+              "criteria_status": "not_assessed",
+              "retrieved_at": "2026-10-28T18:30:00Z",
+              "effective_at": null,
+              "transform_version": "ssa-benefit-listing-v1",
+              "field_provenance": {
+                "core.geography.country_code": {
+                  "source_url": "https://www.ssa.gov/family",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.record_kind": {
+                  "source_url": "https://www.ssa.gov/family",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.ssa.gov/family",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.ssa.gov/family",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.ssa.gov/family",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.program_url": {
+                  "source_url": "https://www.ssa.gov/family",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.ssa.gov/family",
+            "schema_version": "public-listing-v3",
+            "observed_at": "2026-10-28T18:30:00Z",
+            "content_hash": "ef77c6c7eae2cd002c9974ee73cd8b4b539b1e58cb9de380430a3d73d7e605a1"
+          },
+          {
+            "source_record_id": "ssa-ssi",
+            "record_type": "federal-program-directory-listing",
+            "canonical_attributes": {
+              "core.geography.country_code": "US",
+              "listing.record_kind": "assistance_program",
+              "listing.title": "Supplemental Security Income (SSI)",
+              "listing.summary": "Needs-based federal benefit program administered by SSA; consult SSA for detailed eligibility requirements and current application steps.",
+              "listing.agency": "U.S. Social Security Administration",
+              "listing.program_url": "https://www.ssa.gov/ssi"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "listing_kind": "assistance_program",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "national",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "us.ssa.benefits",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "source_title": "SSA official benefit program page",
+              "publisher": "U.S. Social Security Administration",
+              "source_version": "Official SSA Benefit Types directory and linked benefit pages reviewed 2026-10-28; publisher revision dates were not displayed.",
+              "criteria_status": "not_assessed",
+              "retrieved_at": "2026-10-28T18:30:00Z",
+              "effective_at": null,
+              "transform_version": "ssa-benefit-listing-v1",
+              "field_provenance": {
+                "core.geography.country_code": {
+                  "source_url": "https://www.ssa.gov/ssi",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.record_kind": {
+                  "source_url": "https://www.ssa.gov/ssi",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.ssa.gov/ssi",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.ssa.gov/ssi",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.ssa.gov/ssi",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.program_url": {
+                  "source_url": "https://www.ssa.gov/ssi",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.ssa.gov/ssi",
+            "schema_version": "public-listing-v3",
+            "observed_at": "2026-10-28T18:30:00Z",
+            "content_hash": "4c8d535c3694d0771115466538f2be6ab3018a66e2de6b7d5508202474a39118"
+          },
+          {
+            "source_record_id": "ssa-medicare",
+            "record_type": "federal-program-directory-listing",
+            "canonical_attributes": {
+              "core.geography.country_code": "US",
+              "listing.record_kind": "assistance_program",
+              "listing.title": "Medicare",
+              "listing.summary": "Federal health insurance program information provided by SSA; consult SSA for enrollment and program details.",
+              "listing.agency": "U.S. Social Security Administration",
+              "listing.program_url": "https://www.ssa.gov/medicare"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "listing_kind": "assistance_program",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "national",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "us.ssa.benefits",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "source_title": "SSA official benefit program page",
+              "publisher": "U.S. Social Security Administration",
+              "source_version": "Official SSA Benefit Types directory and linked benefit pages reviewed 2026-10-28; publisher revision dates were not displayed.",
+              "criteria_status": "not_assessed",
+              "retrieved_at": "2026-10-28T18:30:00Z",
+              "effective_at": null,
+              "transform_version": "ssa-benefit-listing-v1",
+              "field_provenance": {
+                "core.geography.country_code": {
+                  "source_url": "https://www.ssa.gov/medicare",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.record_kind": {
+                  "source_url": "https://www.ssa.gov/medicare",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.ssa.gov/medicare",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.ssa.gov/medicare",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.ssa.gov/medicare",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.program_url": {
+                  "source_url": "https://www.ssa.gov/medicare",
+                  "observed_at": "2026-10-28T18:30:00Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.ssa.gov/medicare",
+            "schema_version": "public-listing-v3",
+            "observed_at": "2026-10-28T18:30:00Z",
+            "content_hash": "7ca21bef2aa6203699eb99f4fc18197167f11252f172795d898ad55f8e1cd78d"
+          }
+        ]
+      }
+    }
+  ]
+}

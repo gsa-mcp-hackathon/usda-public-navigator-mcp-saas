@@ -1,0 +1,14 @@
+{
+  "scenario": "UC1-S1",
+  "kind": "Positive",
+  "run": 1,
+  "page": "team web app for demo and testing",
+  "driver": "TinyFish browser agent, run 129f465a-53a7-4e11-bcf0-0bd0c2ba28b1",
+  "persona": "fictional beginning farmer, Boone County MO, 3 years, 120 acres corn and soybeans, leased, not a veteran",
+  "rules": "answer follow-ups only from stated facts; no name, address, phone or ID; at most 4 follow-ups",
+  "user_messages": [
+    "Hi, I'm a farmer in Boone County, Missouri. I've been farming for 3 years, 120 acres of corn and soybeans on leased land. I'd like to know if there is a USDA program for beginning farmers.",
+    "I'm mainly looking for operating money right now for seed, equipment, and inputs. I may consider buying land in the future. I don't have an FSA farm number yet.",
+    "Yes, I have a farm lease agreement in writing. I do have records of my corn and soybean operation including planted acres and sales. I am looking for a smaller amount, under $50,000 for now. Also, I am not a veteran."
+  ]
+}

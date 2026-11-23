@@ -1,0 +1,9 @@
+{
+  "note": "Each reply is summarized from the browser agent's capture, not quoted word for word.",
+  "assistant_replies": [
+    "(reply 1) Names two VA options, the Program of Comprehensive Assistance for Family Caregivers and VA Aid and Attendance or Housebound allowance, each labelled 'USDA catalog'; says a Missouri in-home care program exists but it wants to read the official VA pages first; asks about disability rating, whether someone already helps, and VA pension or disability pay.",
+    "(reply 2) Reads the official VA page for the caregiver program; applies it to the spouse as caregiver; lists requirements with status (caregiver is family: yes; 6 months of care: likely; caregiver age, discharge, healthcare enrollment: need to ask; 70% rating: unknown); lists the benefits 'if approved'; mentions the General Caregiver Support fallback; asks two follow-ups.",
+    "(reply 3) Respects the refusal: says two gates cannot be checked without the rating and enrollment and that it will not guess; says the VA can check them; gives one next step, the VA Caregiver Support Line with its hours; mentions the fallback program and the application form; lists what it checked and did not check."
+  ],
+  "final_outcome_summary": "Listings named with sources. Eligibility reported as unknown for the gates the person declined to answer, not guessed. No approval or denial. Referred to the VA support line."
+}

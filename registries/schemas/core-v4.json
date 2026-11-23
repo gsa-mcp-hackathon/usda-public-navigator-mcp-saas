@@ -1,0 +1,181 @@
+{
+  "registry_id": "core-schema-registry",
+  "schema_version": "core-v4",
+  "namespaces": {
+    "core": "Shared platform concepts, including reusable dataset metadata and time dimensions",
+    "gsa": "GSA source-specific semantics with explicit rate context"
+  },
+  "dimensions": {
+    "core.person": "Attributes about one person",
+    "core.household": "Attributes and relationships for a household",
+    "core.farm_business": "Attributes about a farm or business",
+    "core.geography": "Jurisdiction and location concepts",
+    "core.program": "Shared program catalog concepts",
+    "core.dataset": "Reusable source dataset metadata",
+    "core.time": "Temporal context"
+  },
+  "attributes": {
+    "core.person.age_band": {
+      "dimension_id": "core.person",
+      "type": "string",
+      "allowed_values": [
+        "under_60",
+        "60_64",
+        "65_74",
+        "75_plus",
+        "65_plus",
+        "adult",
+        "unknown"
+      ]
+    },
+    "core.household.size_band": {
+      "dimension_id": "core.household",
+      "type": "string",
+      "allowed_values": [
+        "single",
+        "small",
+        "large"
+      ]
+    },
+    "core.household.housing_status": {
+      "dimension_id": "core.household",
+      "type": "string",
+      "allowed_values": [
+        "owner",
+        "renter",
+        "other"
+      ]
+    },
+    "core.farm_business.operation_type": {
+      "dimension_id": "core.farm_business",
+      "type": "string",
+      "allowed_values": [
+        "row_crop",
+        "small_farm"
+      ]
+    },
+    "core.geography.state_code": {
+      "dimension_id": "core.geography",
+      "type": "string",
+      "pattern": "^[A-Z]{2}$"
+    },
+    "core.geography.country_code": {
+      "dimension_id": "core.geography",
+      "type": "string",
+      "pattern": "^[A-Z]{2}$"
+    },
+    "core.geography.jurisdiction_level": {
+      "dimension_id": "core.geography",
+      "type": "string",
+      "allowed_values": [
+        "federal",
+        "state",
+        "local",
+        "tribal",
+        "territory"
+      ]
+    },
+    "core.farm_business.years_farming": {
+      "dimension_id": "core.farm_business",
+      "type": "integer",
+      "minimum": 0
+    },
+    "core.program.category": {
+      "dimension_id": "core.program",
+      "type": "string"
+    },
+    "core.dataset.title": {
+      "dimension_id": "core.dataset",
+      "type": "string"
+    },
+    "core.dataset.publisher": {
+      "dimension_id": "core.dataset",
+      "type": "string"
+    },
+    "core.dataset.description": {
+      "dimension_id": "core.dataset",
+      "type": "string"
+    },
+    "core.dataset.keywords": {
+      "dimension_id": "core.dataset",
+      "type": "array"
+    },
+    "core.dataset.source_identifier": {
+      "dimension_id": "core.dataset",
+      "type": "string"
+    },
+    "core.dataset.content_type": {
+      "dimension_id": "core.dataset",
+      "type": "string"
+    },
+    "core.time.fiscal_year": {
+      "dimension_id": "core.time",
+      "type": "integer"
+    },
+    "core.time.month": {
+      "dimension_id": "core.time",
+      "type": "string"
+    },
+    "gsa.per_diem.daily_rate": {
+      "dimension_id": "core.program",
+      "type": "number"
+    },
+    "core.geography.county_name": {
+      "dimension_id": "core.geography",
+      "type": "string"
+    },
+    "core.farm_business.acreage": {
+      "dimension_id": "core.farm_business",
+      "type": "number",
+      "minimum": 0
+    },
+    "core.household.size": {
+      "dimension_id": "core.household",
+      "type": "integer",
+      "minimum": 1
+    },
+    "core.household.adults": {
+      "dimension_id": "core.household",
+      "type": "integer",
+      "minimum": 0
+    },
+    "core.household.children": {
+      "dimension_id": "core.household",
+      "type": "integer",
+      "minimum": 0
+    },
+    "core.household.annual_income_usd": {
+      "dimension_id": "core.household",
+      "type": "integer",
+      "minimum": 0
+    },
+    "core.household.monthly_gross_income_usd": {
+      "dimension_id": "core.household",
+      "type": "integer",
+      "minimum": 0
+    },
+    "core.household.monthly_net_income_usd": {
+      "dimension_id": "core.household",
+      "type": "integer",
+      "minimum": 0
+    },
+    "core.person.va_pension_status": {
+      "dimension_id": "core.person",
+      "type": "string",
+      "allowed_values": [
+        "receiving",
+        "not_receiving"
+      ]
+    },
+    "core.person.daily_care_need": {
+      "dimension_id": "core.person",
+      "type": "boolean"
+    }
+  },
+  "relationships": {
+    "core.relationship.member_of_household": {
+      "subject_kind": "person",
+      "object_kind": "household"
+    }
+  }
+}

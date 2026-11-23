@@ -1,0 +1,40 @@
+{
+  "driver_run_id": "e1c3a99f-d649-4a24-99c8-c934f4e4cec8",
+  "started": "2026-11-21T18:19:39Z",
+  "finished": "2026-11-21T18:24:09Z",
+  "steps": 25,
+  "identifiers_seen": {
+    "run_key": "run_b7b0939c",
+    "correlation_id": "b7b0939c-de6d-4c21-b553-23b4fdd0f9f4"
+  },
+  "page_status_text": "2 of 2 hosted agents are configured for the traced Navigator chat path.",
+  "errors_seen": [
+    "Third user message received no reply; the page showed '11s, 0 model tokens' for that turn."
+  ],
+  "phoenix_join": {
+    "status": "joined",
+    "project": "usda-core-native",
+    "joined_on": "mcp.correlation.id",
+    "spans": [
+      {
+        "correlation_id": "b7b0939c-de6d-4c21-b553-23b4fdd0f9f4",
+        "trace_id": "4b3053fafacfd8c318e8311afd52eb9e",
+        "span_id": "aa7cb769c435d619",
+        "tool": "route_operation"
+      }
+    ],
+    "note": "Only IDs the browser agent read from the page are listed. The span is from the first turn; the failed third turn made no Core call that this run captured."
+  },
+  "checks": {
+    "surfaces_housing_listings_with_sources": "pass",
+    "criteria_reported_not_checked": "pass",
+    "states_source_limits_of_211_number": "pass",
+    "respects_withheld_details": "pass",
+    "no_pii_given": "pass",
+    "every_turn_gets_a_reply": "fail"
+  },
+  "findings": [
+    "Empty reply: the third turn returned no text and reported 0 model tokens, with no error shown to the person. Record as a defect in the chat adapter or the model call: a failed turn should show a plain retry message.",
+    "Same pattern as the final turn of UC1-S2, where the last message also went unanswered in the captured window. Two of six runs ended on an unanswered turn."
+  ]
+}

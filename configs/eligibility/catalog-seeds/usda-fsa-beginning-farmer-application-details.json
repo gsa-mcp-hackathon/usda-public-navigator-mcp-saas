@@ -1,0 +1,260 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "usda.fsa.beginning-farmers",
+    "reviewed_at": "2026-11-22T23:59:00Z",
+    "publisher_version": "Official FSA pages reviewed 2026-11-22; publisher revision dates not stated on the reviewed pages.",
+    "raw_source_documents_committed": false,
+    "access_method": "Official FSA pages reviewed through web retrieval; raw page bodies were not retained.",
+    "pages": [
+      {
+        "url": "https://www.fsa.usda.gov/resources/beginning-farmers-and-ranchers-loans",
+        "title": "Beginning Farmers and Ranchers Loans | Farm Service Agency",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.fsa.usda.gov/resources/loans/farm-ownership-loans",
+        "title": "Farm Ownership Loans | Farm Service Agency",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.fsa.usda.gov/sites/default/files/2026-01/FSA-Loan%20Beginning%20Farmers%20and%20Ranchers.pdf",
+        "title": "Loans for Beginning Farmers and Ranchers (FSA fact sheet, January 2026)",
+        "source_content_sha256": null
+      }
+    ]
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "usda.fsa.beginning-farmers",
+      "source_name": "USDA FSA Beginning Farmers and Ranchers Loans",
+      "source_url": "https://www.fsa.usda.gov/resources/beginning-farmers-and-ranchers-loans",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "federal",
+          "owner_name": "USDA Farm Service Agency",
+          "verification_status": "verified",
+          "evidence_url": "https://www.fsa.usda.gov/resources/beginning-farmers-and-ranchers-loans"
+        },
+        "content_type": "public_program_guidance",
+        "retrieval_mode": "operator_triggered",
+        "scheduled_refresh": false
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "fsa-beginning-farmer-application-details",
+        "source_dataset_id": "FSA beginning-farmer application guidance (details)",
+        "title": "USDA FSA beginning-farmer application details",
+        "landing_page": "https://www.fsa.usda.gov/resources/beginning-farmers-and-ranchers-loans",
+        "schema_version": "eligibility-program-v4",
+        "namespace_ids": [
+          "core",
+          "eligibility"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "partial",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "eligibility": "eligibility-program-schema"
+          },
+          "schema_versions": {
+            "core": "core-v4",
+            "eligibility": "eligibility-program-v4"
+          },
+          "content_type": "published_beginning_farmer_application_details",
+          "published_criteria_available": true,
+          "criteria_mapping_status": "partial",
+          "refresh_mode": "operator_triggered",
+          "maximum_records_total": 1
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "fsa-beginning-farmer-application-details",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "Official FSA beginning-farmer and farm-ownership pages and January 2026 fact sheet reviewed 2026-11-22; publisher revision dates not stated on the pages.",
+        "retrieved_at": "2026-11-22T23:59:00Z",
+        "transform_version": "fsa-beginning-farmer-application-details-v1",
+        "validation_outcome": "valid",
+        "detail": "Source-backed application steps, required documents and deadline guidance for the existing beginning-farmer criteria reference; no new eligibility claims.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "fsa-beginning-farmer-application-details",
+            "record_type": "federal-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "fsa-beginning-farmer-classification",
+              "eligibility.program.catalog_version": "fsa-beginning-farmer-application-details-2026-11-22",
+              "eligibility.program.navigator": "farm_business",
+              "eligibility.program.data_origin": "USDA FSA Beginning Farmers and Ranchers Loans page",
+              "eligibility.program.title": "FSA Beginning Farmer classification requirements",
+              "eligibility.program.description": "Application guidance for FSA beginning-farmer loans from the official FSA pages: where to apply, what to bring, the Down Payment Loan cash requirement, entity rules, and where deadlines are published. The eligibility statements are the same partial transcription as the farm-loan criteria record; only the years-operated clause is mapped. Published application forms, phone numbers and deadlines are not stated on the reviewed pages.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "farm-operation-years",
+                  "statement": "A beginning farmer has not operated a farm or ranch for more than 10 years.",
+                  "mapping_status": "mapped",
+                  "requirement_type": "eligibility",
+                  "concept_id": "eligibility.fsa.beginning_farmer.years_operated",
+                  "attribute": "core.farm_business.years_farming",
+                  "operator": "lte",
+                  "value": 10,
+                  "unit": "years",
+                  "source_id": "usda.fsa.beginning-farmers"
+                },
+                {
+                  "requirement_id": "county-farm-ownership-limit",
+                  "statement": "A beginning farmer does not own a farm or ranch greater than 30 percent of the average size farm in the county, using the most current Census of Agriculture when the loan application is submitted.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.beginning-farmers"
+                },
+                {
+                  "requirement_id": "substantial-participation",
+                  "statement": "A beginning farmer substantially participates in the operation.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.beginning-farmers"
+                },
+                {
+                  "requirement_id": "loan-specific-requirements",
+                  "statement": "A beginning farmer must also meet the eligibility requirements of the specific Farm Operating Loan, Farm Ownership Loan, or Microloan being requested.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.beginning-farmers"
+                },
+                {
+                  "requirement_id": "county-selection-rule",
+                  "statement": "When a farm crosses county lines, FSA uses the applicant's residence county; if the residence is not on the farm, it uses the county containing the largest portion of the farm.",
+                  "mapping_status": "context_only",
+                  "source_id": "usda.fsa.beginning-farmers"
+                },
+                {
+                  "requirement_id": "acreage-exception",
+                  "statement": "FSA says the farm-acreage limitation does not apply to a member of a historically underserved group or a woman farmer.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.beginning-farmers"
+                }
+              ],
+              "eligibility.program.details": [
+                {
+                  "kind": "application_step",
+                  "text": "Submit a loan application to your local FSA office. The FSA Farm Ownership Loans page says detailed enrollment instructions and deadlines are available through the local FSA office; the reviewed pages list no phone number or email, so find your office through FSA.",
+                  "source_id": "usda.fsa.beginning-farmers"
+                },
+                {
+                  "kind": "application_step",
+                  "text": "Before applying, FSA's Farm Ownership Loans page points to its Loan Assistance Tool and Farm Loan Quiz for a fuller eligibility check. Applicants must be U.S. citizens or permanent residents, have enough education, training or experience managing a farm, and show they can repay.",
+                  "source_id": "usda.fsa.beginning-farmers"
+                },
+                {
+                  "kind": "application_step",
+                  "text": "For the Direct Farm Ownership Down Payment Loan, the applicant makes a cash down payment of at least 5 percent of the purchase price. The loan only partly finances the purchase of a family-size farm (FSA Beginning Farmers and Ranchers page and January 2026 fact sheet).",
+                  "source_id": "usda.fsa.beginning-farmers"
+                },
+                {
+                  "kind": "application_step",
+                  "text": "If the applicant is an entity, all members must be related by blood or marriage and all members must be eligible beginning farmers (FSA January 2026 beginning-farmer fact sheet). Beginning farmers must also meet the requirements of the specific loan program they apply for.",
+                  "source_id": "usda.fsa.beginning-farmers"
+                },
+                {
+                  "kind": "required_document",
+                  "text": "The Farm Ownership Loans page says the application includes documentation of financial history, a farm business plan and other required information. It does not list form numbers.",
+                  "source_id": "usda.fsa.beginning-farmers"
+                },
+                {
+                  "kind": "deadline",
+                  "text": "The reviewed FSA pages state no application deadline for beginning-farmer loans; each year FSA sets aside a portion of loan funds for beginning farmers. Confirm dates with the local FSA office.",
+                  "source_id": "usda.fsa.beginning-farmers"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              },
+              "assistance_listing_ids": [
+                "10.407"
+              ],
+              "assistance_listing_crosswalk": {
+                "basis": "curated_source_crosswalk",
+                "reviewed_at": "2026-10-29",
+                "evidence_urls": [
+                  "https://www.fsa.usda.gov/resources/beginning-farmers-and-ranchers-loans",
+                  "https://sam.gov/fal/114c57552fdc4821a849fcf0003fe089/view"
+                ]
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.fsa.beginning-farmers",
+              "source_version": "Official FSA beginning-farmer and farm-ownership pages and January 2026 fact sheet reviewed 2026-11-22; publisher revision dates not stated on the pages.",
+              "retrieved_at": "2026-11-22T23:59:00Z",
+              "effective_at": null,
+              "transform_version": "fsa-beginning-farmer-application-details-v1",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://www.fsa.usda.gov/resources/beginning-farmers-and-ranchers-loans",
+                  "observed_at": "2026-10-28T17:38:02Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://www.fsa.usda.gov/resources/beginning-farmers-and-ranchers-loans",
+                  "observed_at": "2026-11-22T23:59:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.navigator": {
+                  "source_url": "https://www.fsa.usda.gov/resources/beginning-farmers-and-ranchers-loans",
+                  "observed_at": "2026-10-28T17:38:02Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://www.fsa.usda.gov/resources/beginning-farmers-and-ranchers-loans",
+                  "observed_at": "2026-10-28T17:38:02Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://www.fsa.usda.gov/resources/beginning-farmers-and-ranchers-loans",
+                  "observed_at": "2026-10-28T17:38:02Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://www.fsa.usda.gov/resources/beginning-farmers-and-ranchers-loans",
+                  "observed_at": "2026-11-22T23:59:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://www.fsa.usda.gov/resources/beginning-farmers-and-ranchers-loans",
+                  "observed_at": "2026-10-28T17:38:02Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.details": {
+                  "source_url": "https://www.fsa.usda.gov/resources/loans/farm-ownership-loans",
+                  "observed_at": "2026-11-22T23:59:00Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false,
+              "approval_status": "approved"
+            },
+            "source_url": "https://www.fsa.usda.gov/resources/beginning-farmers-and-ranchers-loans",
+            "schema_version": "eligibility-program-v4",
+            "observed_at": "2026-11-22T23:59:00Z",
+            "content_hash": "553bc313db53ce7abd3803daa3db170449c148f7f68ba4fe2370d8a5777a4329"
+          }
+        ]
+      }
+    }
+  ]
+}

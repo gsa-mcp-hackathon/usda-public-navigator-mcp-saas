@@ -1,0 +1,127 @@
+{
+  "suite_id": "S04",
+  "name": "routing-and-validation-contract",
+  "objective": "Core rejects unknown routes and validates without persisting",
+  "depends_on": [
+    "S01",
+    "S03"
+  ],
+  "requires_operator": false,
+  "stop_on_fail": false,
+  "start_conditions": [
+    "S01 and S03 passed",
+    "Repo checkout available for the template descriptor"
+  ],
+  "stop_conditions": [
+    "A validation call that persists anything is a defect: report immediately"
+  ],
+  "maps_to": [
+    "O-3b",
+    "R-5"
+  ],
+  "tests": [
+    {
+      "id": "S04-T01",
+      "title": "Unknown route returns unknown_route",
+      "action": {
+        "type": "call",
+        "tool": "route_operation",
+        "args": {
+          "route_id": "suite-unknown-route",
+          "operation_id": "program.discover",
+          "arguments": {}
+        }
+      },
+      "assertions": [
+        {
+          "path": "status",
+          "op": "eq",
+          "value": "unknown_route"
+        },
+        {
+          "path": "reason",
+          "op": "eq",
+          "value": "active_route_not_found"
+        },
+        {
+          "path": "recovery_hint.tool",
+          "op": "eq",
+          "value": "list_core_routes"
+        },
+        {
+          "path": "recovery_hint.match_field",
+          "op": "eq",
+          "value": "operation_id"
+        },
+        {
+          "path": "recovery_hint.use_field",
+          "op": "eq",
+          "value": "route_id"
+        }
+      ],
+      "gate": true
+    },
+    {
+      "id": "S04-T02",
+      "title": "Unpackaged descriptor (no immutable artifact reference) is rejected without persisting",
+      "action": {
+        "type": "call_with_file",
+        "tool": "validate_cluster_template",
+        "arg_name": "descriptor",
+        "file": "${repo_root}/configs/templates/eligibility.v1.json"
+      },
+      "assertions": [
+        {
+          "path": "status",
+          "op": "eq",
+          "value": "invalid_descriptor",
+          "label": "raw Git definition rejected"
+        }
+      ],
+      "gate": false
+    },
+    {
+      "id": "S04-T03",
+      "title": "Empty tenant draft is rejected without persisting",
+      "action": {
+        "type": "call",
+        "tool": "validate_tenant_onboarding",
+        "args": {
+          "specification": {}
+        }
+      },
+      "assertions": [
+        {
+          "path": "status",
+          "op": "ne",
+          "value": "registered"
+        },
+        {
+          "path": "status",
+          "op": "ne",
+          "value": "active"
+        }
+      ],
+      "gate": false
+    },
+    {
+      "id": "S04-T04",
+      "title": "Validation rejection explains why (findings returned)",
+      "gate": false,
+      "action": {
+        "type": "call_with_file",
+        "tool": "validate_cluster_template",
+        "arg_name": "descriptor",
+        "file": "${repo_root}/configs/templates/eligibility.v1.json"
+      },
+      "assertions": [
+        {
+          "path": "findings",
+          "op": "exists",
+          "label": "rejection includes findings the operator can act on"
+        }
+      ]
+    }
+  ],
+  "pass_rule": "Suite PASS = all tests pass. PASS_WITH_DEFECTS = only non-gate tests failed (dependent suites still run). FAIL = a gate test failed (dependent suites are BLOCKED)."
+}

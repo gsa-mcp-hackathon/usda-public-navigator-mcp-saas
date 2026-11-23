@@ -1,0 +1,9 @@
+{
+  "note": "Each reply is summarized from the browser agent's capture, not quoted word for word.",
+  "assistant_replies": [
+    "(reply 1) Searched the catalog for St. Louis housing help; names the Housing Choice Voucher, Missouri Temporary Assistance and 211 Missouri; makes calling or texting 211 the first step and says it cannot verify a St. Louis office number; asks three questions (children, behind on rent, written notice).",
+    "(reply 2) Respects the refusal; repeats the 211 step and says the text number is from its own knowledge, not checked against a source; says the voucher program showed up in the catalog but the official page is not read, so waitlist and rules are unknown; offers two next lookups.",
+    "(reply 3) No reply. The page showed '11s, 0 model tokens' for this turn and no error message."
+  ],
+  "final_outcome_summary": "Housing listings named; rules for the voucher program reported as not checked; 211 offered as the safe first step with its source limits stated. The third turn produced no reply."
+}

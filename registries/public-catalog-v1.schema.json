@@ -1,0 +1,256 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:mcp-saas:public-catalog-v1",
+  "title": "Shared public catalog contracts",
+  "description": "Versioned registration, ingestion, inventory-page, and normalized-record envelopes for the shared public catalog.",
+  "$defs": {
+    "HttpsUrl": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://",
+      "maxLength": 2048
+    },
+    "SourceRegistrationRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contract_version", "source", "datasets"],
+      "properties": {
+        "contract_version": {"const": "public-source-registration-v1"},
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["source_id", "source_name", "source_url", "access_status", "source_context"],
+          "properties": {
+            "source_id": {"type": "string", "pattern": "^[a-z][a-z0-9.-]{0,127}$"},
+            "source_name": {"type": "string", "minLength": 1, "maxLength": 200},
+            "source_url": {"$ref": "#/$defs/HttpsUrl"},
+            "access_status": {"enum": ["available", "blocked", "metadata_only"]},
+            "source_context": {
+              "type": "object",
+              "required": ["authority"],
+              "properties": {
+                "authority": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["level", "owner_name", "verification_status", "evidence_url"],
+                  "properties": {
+                    "level": {"enum": ["federal", "state", "local", "tribal", "institutional"]},
+                    "owner_name": {"type": "string", "minLength": 1, "maxLength": 200},
+                    "verification_status": {"const": "verified"},
+                    "evidence_url": {"$ref": "#/$defs/HttpsUrl"}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "datasets": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 100,
+          "items": {"$ref": "#/$defs/DatasetRegistration"}
+        }
+      }
+    },
+    "DatasetRegistration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dataset_id", "source_dataset_id", "title", "landing_page", "schema_version", "namespace_ids", "metadata"],
+      "properties": {
+        "dataset_id": {"type": "string", "pattern": "^[a-z][a-z0-9-]{0,63}$"},
+        "source_dataset_id": {"type": "string", "minLength": 1, "maxLength": 200},
+        "title": {"type": "string", "minLength": 1, "maxLength": 300},
+        "landing_page": {"anyOf": [{"$ref": "#/$defs/HttpsUrl"}, {"type": "null"}]},
+        "schema_version": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{0,63}$"},
+        "namespace_ids": {
+          "type": "array",
+          "description": "Schema namespace IDs used to validate canonical attributes; independent of metadata.catalog_namespace.",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^[a-z][a-z0-9.-]{0,127}$"}
+        },
+        "metadata": {
+          "type": "object",
+          "required": ["catalog_namespace", "schema_registry_ids", "schema_versions", "criteria_coverage", "record_contract_version", "visibility_scope"],
+          "properties": {
+            "catalog_namespace": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Logical catalog grouping used for discovery; independent of the schema namespace IDs below."
+            },
+            "schema_registry_ids": {"type": "object"},
+            "schema_versions": {"type": "object"},
+            "criteria_profile_schema_refs": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["registry_id", "schema_version"],
+                "properties": {
+                  "registry_id": {"type": "string", "pattern": "^[a-z][a-z0-9.-]{0,127}$"},
+                  "schema_version": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{0,63}$"}
+                }
+              }
+            },
+            "criteria_coverage": {"enum": ["mapped", "partial", "not_mapped", "not_assessed"]},
+            "record_contract_version": {"const": "normalized-public-record-v1"},
+            "visibility_scope": {"const": "cluster_public"}
+          }
+        }
+      }
+    },
+    "IngestionRunRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outcome", "source_version", "retrieved_at", "transform_version", "validation_outcome", "detail", "record_contract_version", "rejected_count", "rejection_reasons", "records"],
+      "properties": {
+        "outcome": {"enum": ["succeeded", "failed", "blocked"]},
+        "source_version": {"type": ["string", "null"], "maxLength": 200},
+        "retrieved_at": {"type": ["string", "null"], "format": "date-time"},
+        "transform_version": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{0,63}$"},
+        "validation_outcome": {"enum": ["valid", "invalid", "unavailable", "partial"]},
+        "detail": {"type": "string", "maxLength": 240},
+        "record_contract_version": {"const": "normalized-public-record-v1"},
+        "rejected_count": {"type": "integer", "minimum": 0, "maximum": 100},
+        "rejection_reasons": {
+          "type": "array",
+          "maxItems": 20,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["code", "count"],
+            "properties": {
+              "code": {"type": "string", "pattern": "^[a-z][a-z0-9._-]{0,63}$"},
+              "count": {"type": "integer", "minimum": 1, "maximum": 100}
+            }
+          }
+        },
+        "records": {"type": "array", "maxItems": 100, "items": {"$ref": "#/$defs/NormalizedPublicRecord"}}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"outcome": {"const": "succeeded"}}, "required": ["outcome"]},
+          "then": {
+            "properties": {
+              "validation_outcome": {"enum": ["valid", "partial"]}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"validation_outcome": {"const": "valid"}}, "required": ["validation_outcome"]},
+          "then": {"properties": {"records": {"minItems": 1}}}
+        },
+        {
+          "if": {"properties": {"validation_outcome": {"const": "valid"}}, "required": ["validation_outcome"]},
+          "then": {"properties": {"rejected_count": {"const": 0}, "rejection_reasons": {"maxItems": 0}}}
+        },
+        {
+          "if": {"properties": {"validation_outcome": {"const": "partial"}}, "required": ["validation_outcome"]},
+          "then": {"properties": {"rejected_count": {"minimum": 1}, "rejection_reasons": {"minItems": 1}}}
+        },
+        {
+          "if": {"properties": {"outcome": {"const": "failed"}}, "required": ["outcome"]},
+          "then": {"properties": {"validation_outcome": {"const": "invalid"}, "records": {"maxItems": 0}}}
+        },
+        {
+          "if": {"properties": {"outcome": {"const": "blocked"}}, "required": ["outcome"]},
+          "then": {"properties": {"validation_outcome": {"const": "unavailable"}, "records": {"maxItems": 0}, "rejected_count": {"const": 0}, "rejection_reasons": {"maxItems": 0}}}
+        }
+      ]
+    },
+    "NormalizedPublicRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_record_id", "record_type", "canonical_attributes", "semantic_context", "source_metadata", "source_url", "content_hash", "schema_version", "observed_at"],
+      "properties": {
+        "source_record_id": {"type": "string", "minLength": 2, "maxLength": 128},
+        "record_type": {"type": "string", "pattern": "^[a-z][a-z0-9._-]{0,63}$"},
+        "canonical_attributes": {"type": "object"},
+        "semantic_context": {
+          "type": "object",
+          "required": ["catalog_namespace", "record_role", "criteria_coverage", "jurisdiction"],
+          "properties": {
+            "catalog_namespace": {"type": "string"},
+            "record_role": {"enum": ["program_listing", "criteria", "referral", "context", "history"]},
+            "criteria_coverage": {"enum": ["mapped", "partial", "not_mapped", "not_assessed"]},
+            "jurisdiction": {"$ref": "#/$defs/Jurisdiction"}
+          }
+        },
+        "source_metadata": {
+          "type": "object",
+          "required": ["source_id", "source_version", "retrieved_at", "effective_at", "transform_version", "field_provenance", "raw_payload_stored"],
+          "properties": {
+            "source_id": {"type": "string", "pattern": "^[a-z][a-z0-9.-]{0,127}$"},
+            "source_version": {"type": ["string", "null"], "maxLength": 200},
+            "retrieved_at": {"type": "string", "format": "date-time"},
+            "effective_at": {"type": ["string", "null"], "format": "date-time"},
+            "transform_version": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{0,63}$"},
+            "raw_payload_stored": {"const": false},
+            "field_provenance": {
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["source_url", "observed_at", "extraction_method"],
+                "properties": {
+                  "source_url": {"$ref": "#/$defs/HttpsUrl"},
+                  "observed_at": {"type": "string", "format": "date-time"},
+                  "extraction_method": {"enum": ["api_field", "json_pointer", "html_selector", "document_location", "operator_review"]}
+                }
+              }
+            }
+          }
+        },
+        "source_url": {"$ref": "#/$defs/HttpsUrl"},
+        "content_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "schema_version": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{0,63}$"},
+        "observed_at": {"type": "string", "format": "date-time"}
+      }
+    },
+    "Jurisdiction": {
+      "type": "object",
+      "description": "Source-declared coverage. State and territory codes are syntactic two-letter values; the contract does not constrain results to demo jurisdictions.",
+      "required": ["level", "country_code"],
+      "properties": {
+        "level": {"enum": ["federal", "national", "state", "territory", "local", "tribal", "institutional"]},
+        "country_code": {"type": "string", "pattern": "^[A-Z]{2}$"},
+        "state_code": {"type": "string", "pattern": "^[A-Z]{2}$"},
+        "region_code": {"type": "string", "pattern": "^[A-Z0-9-]{1,16}$"}
+      },
+      "allOf": [
+        {"if": {"properties": {"level": {"enum": ["state", "territory"]}}, "required": ["level"]}, "then": {"required": ["state_code"]}}
+      ],
+      "additionalProperties": false
+    },
+    "InventoryPage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "items", "truncated", "next_cursor"],
+      "properties": {
+        "status": {"const": "ok"},
+        "items": {"type": "array", "items": {"$ref": "#/$defs/InventoryItem"}},
+        "truncated": {"type": "boolean"},
+        "next_cursor": {"type": ["string", "null"]}
+      }
+    },
+    "InventoryItem": {
+      "type": "object",
+      "required": ["source", "dataset", "registration_status", "data_status", "record_count", "searchable", "criteria_coverage", "latest_ingestion", "freshness", "coverage_status"],
+      "properties": {
+        "source": {"type": "object"},
+        "dataset": {"type": "object"},
+        "registration_status": {"const": "registered"},
+        "data_status": {"enum": ["loaded", "partial", "stale", "unavailable", "registered_no_records"]},
+        "record_count": {"type": "integer", "minimum": 0},
+        "searchable": {"type": "boolean"},
+        "criteria_coverage": {"enum": ["mapped", "partial", "not_mapped", "not_assessed"]},
+        "latest_ingestion": {"type": ["object", "null"]},
+        "freshness": {"type": "object"},
+        "coverage_status": {"enum": ["unknown", "partial", "fresh_as_of_last_check", "stale", "unavailable", "refreshing"]}
+      }
+    }
+  }
+}

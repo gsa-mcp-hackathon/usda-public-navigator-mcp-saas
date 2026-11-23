@@ -1,0 +1,173 @@
+{
+  "manifest_version": "eligibility-criteria-ruleset-seed-v1",
+  "cluster_id": "eligibility",
+  "target": {
+    "program_id": "hud-housing-choice-voucher",
+    "source_id": "us.hud.income-limits"
+  },
+  "catalog_preflight": {
+    "seed_path": "configs/eligibility/catalog-seeds/hud-hcv-income-screen.json",
+    "dataset_id": "hud-hcv-income-screen",
+    "source_record_id": "hud-housing-choice-voucher"
+  },
+  "source_snapshot": {
+    "url": "https://www.huduser.gov/portal/datasets/il/il26/Section8-IncomeLimits-FY26.pdf",
+    "source_content_sha256": "9ab4e7368299aa61f63fb3cfe566d05f64224a40910c0ed77fd5f50ecb8da3a7",
+    "source_version": "FY2026 Section 8 Income Limits; SHA-256 9ab4e7368299aa61f63fb3cfe566d05f64224a40910c0ed77fd5f50ecb8da3a7",
+    "retrieved_at": "2026-11-22T21:19:05Z",
+    "effective_date": "2026-05-01",
+    "verification_note": "A direct WSL download with a browser User-Agent returned HTTP 200 application/pdf (2,584,576 bytes) and SHA-256 9ab4e7368299aa61f63fb3cfe566d05f64224a40910c0ed77fd5f50ecb8da3a7. The St. Louis MO-IL HMFA Very Low Income values for family sizes 1-8 were checked on PDF page 52. Core policy reader returned HTTP 202, so machine source provenance remains unverified and carries no policy-entry claim."
+  },
+  "ruleset": {
+    "contract_version": "eligibility-criteria-ruleset-v1",
+    "program_id": "hud-housing-choice-voucher",
+    "criteria_package_id": "criteria-hcv-stlouis-vli-income-fy2026-v1",
+    "navigator": "low_income_assistance",
+    "title": "Housing Choice Voucher — St. Louis City FY2026 general VLI income screen",
+    "criteria_status": "partial",
+    "profile_schema_refs": [
+      {
+        "registry_id": "core-schema-registry",
+        "schema_version": "core-v4"
+      }
+    ],
+    "source_references": [
+      {
+        "source_id": "us.hud.income-limits",
+        "source_type": "public_source",
+        "approval_status": "unverified",
+        "url": "https://www.huduser.gov/portal/datasets/il/il26/Section8-IncomeLimits-FY26.pdf",
+        "retrieved_at": "2026-11-22T21:19:05Z",
+        "source_content_sha256": "9ab4e7368299aa61f63fb3cfe566d05f64224a40910c0ed77fd5f50ecb8da3a7",
+        "source_verification_status": "unverified",
+        "observed_at_utc": "2026-11-22T21:19:05Z"
+      }
+    ],
+    "requirements": [
+      {
+        "requirement_id": "hcv-stlouis-vli-income-fy2026",
+        "criterion_id": "hcv-stlouis-vli-income-fy2026",
+        "statement": "For the partial St. Louis HCV screen, annual household income is at or below HUD's FY2026 very-low-income limit for the household size.",
+        "requirement_type": "eligibility",
+        "mapping_status": "mapped",
+        "concept_id": "income.maximum_by_household_size",
+        "profile_attribute": "core.household.annual_income_usd",
+        "operator": "lte_by",
+        "value": {
+          "1": 39750,
+          "2": 45400,
+          "3": 51100,
+          "4": 56750,
+          "5": 61300,
+          "6": 65850,
+          "7": 70400,
+          "8": 74950
+        },
+        "context_attribute": "core.household.size",
+        "unit": "USD/year",
+        "threshold_basis": "HUD FY2026 Very Low Income (50% AMI); St. Louis, MO-IL HMFA",
+        "citation": {
+          "source_id": "us.hud.income-limits",
+          "source_url": "https://www.huduser.gov/portal/datasets/il/il26/Section8-IncomeLimits-FY26.pdf",
+          "source_record_id": "hud-housing-choice-voucher",
+          "source_version": "FY2026 Section 8 Income Limits; SHA-256 9ab4e7368299aa61f63fb3cfe566d05f64224a40910c0ed77fd5f50ecb8da3a7",
+          "source_content_sha256": "9ab4e7368299aa61f63fb3cfe566d05f64224a40910c0ed77fd5f50ecb8da3a7",
+          "retrieved_at": "2026-11-22T21:19:05Z",
+          "locator": "FY2026 Section 8 Income Limits, PDF page 52, St. Louis MO-IL HMFA, Very Low Income, family sizes 1-8",
+          "excerpt": "Very Low Income limits: family size 1 $39,750; 2 $45,400; 3 $51,100; 4 $56,750; 5 $61,300; 6 $65,850; 7 $70,400; 8 $74,950."
+        }
+      }
+    ],
+    "compiled_rules": [
+      {
+        "requirement_id": "hcv-stlouis-vli-income-fy2026",
+        "criterion": {
+          "criterion_id": "hcv-stlouis-vli-income-fy2026",
+          "attribute": "core.household.annual_income_usd",
+          "operator": "lte_by",
+          "value": {
+            "1": 39750,
+            "2": 45400,
+            "3": 51100,
+            "4": 56750,
+            "5": 61300,
+            "6": 65850,
+            "7": 70400,
+            "8": 74950
+          },
+          "source_id": "us.hud.income-limits",
+          "logic_group_id": null,
+          "logic_group_operator": null,
+          "context_attribute": "core.household.size"
+        },
+        "citation": {
+          "source_id": "us.hud.income-limits",
+          "source_version": "FY2026 Section 8 Income Limits; SHA-256 9ab4e7368299aa61f63fb3cfe566d05f64224a40910c0ed77fd5f50ecb8da3a7",
+          "source_content_sha256": "9ab4e7368299aa61f63fb3cfe566d05f64224a40910c0ed77fd5f50ecb8da3a7",
+          "locator": "FY2026 Section 8 Income Limits, PDF page 52, St. Louis MO-IL HMFA, Very Low Income, family sizes 1-8",
+          "excerpt": "Very Low Income limits: family size 1 $39,750; 2 $45,400; 3 $51,100; 4 $56,750; 5 $61,300; 6 $65,850; 7 $70,400; 8 $74,950."
+        }
+      }
+    ],
+    "program_record": {
+      "contract_version": "eligibility-program-v1",
+      "program_id": "hud-housing-choice-voucher",
+      "catalog_version": "hud-hcv-stlouis-income-fy2026",
+      "navigator": "low_income_assistance",
+      "title": "Housing Choice Voucher — St. Louis City FY2026 general VLI income screen",
+      "description": "Partial comparison of the published HUD FY2026 very-low-income income limit for St. Louis, MO-IL HMFA. This is not a complete HCV eligibility determination.",
+      "jurisdiction": {
+        "level": "local",
+        "country_code": "US",
+        "state_code": "MO",
+        "county_name": "St. Louis City"
+      },
+      "data_origin": "public_source",
+      "sources": [
+        {
+          "contract_version": "source-reference-v1",
+          "source_id": "us.hud.income-limits",
+          "source_type": "public_source",
+          "approval_status": "unverified",
+          "agency": "U.S. Department of Housing and Urban Development, Office of Policy Development and Research",
+          "title": "FY2026 Section 8 Income Limits — St. Louis, MO-IL HMFA",
+          "url": "https://www.huduser.gov/portal/datasets/il/il26/Section8-IncomeLimits-FY26.pdf",
+          "jurisdiction": {
+            "level": "federal",
+            "country_code": "US"
+          },
+          "retrieved_at": "2026-11-22T21:19:05Z",
+          "effective_date": "2026-05-01",
+          "publisher_version": "FY2026 Section 8 Income Limits; SHA-256 9ab4e7368299aa61f63fb3cfe566d05f64224a40910c0ed77fd5f50ecb8da3a7"
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "hcv-stlouis-vli-income-fy2026",
+          "attribute": "core.household.annual_income_usd",
+          "operator": "lte_by",
+          "value": {
+            "1": 39750,
+            "2": 45400,
+            "3": 51100,
+            "4": 56750,
+            "5": 61300,
+            "6": 65850,
+            "7": 70400,
+            "8": 74950
+          },
+          "source_id": "us.hud.income-limits",
+          "logic_group_id": null,
+          "logic_group_operator": null,
+          "context_attribute": "core.household.size"
+        }
+      ],
+      "details": [],
+      "source_limitations": [
+        "This is a partial general very-low-income screen, not a full HCV eligibility determination.",
+        "Above the VLI limit does not establish ineligibility because other low-income pathways, exceptions, PHA admission rules and availability are not evaluated.",
+        "Local applicability is restricted to St. Louis City, Missouri; St. Louis County and other PHAs are out of scope."
+      ]
+    }
+  }
+}

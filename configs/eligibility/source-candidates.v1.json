@@ -1,0 +1,42 @@
+{
+  "candidate_manifest_version": "eligibility-source-candidates-v1",
+  "warning": "Candidate metadata only. This file is not read by the ingestion allowlist or runtime catalog.",
+  "candidates": [
+    {
+      "source_id": "new-mexico.hca.snap",
+      "agency": "New Mexico Health Care Authority",
+      "program": "Supplemental Nutrition Assistance Program",
+      "landing_page": "https://www.hca.nm.gov/lookingforassistance/supplemental_nutrition_assistance_program__snap/",
+      "jurisdiction": {
+        "level": "state",
+        "country_code": "US",
+        "state_code": "NM"
+      },
+      "scenario_role": "state_program_guidance_and_income_guideline_candidate",
+      "status": "approved_for_cluster_public_inventory_snapshot",
+      "reviewed_at": "2026-10-26",
+      "observed_public_facts": [
+        "HCA describes SNAP as support for eligible New Mexicans with low income and limited resources.",
+        "The page says income, household resources, household composition, identification, and work rules may matter.",
+        "The official HCA page links ISD 017, revision date 2026-09-15, with SNAP and cash income guidelines effective 2026-10-01 through 2027-09-30.",
+        "The FY2027 PDF was directly retrieved for normalization; its SHA-256 is recorded in configs/eligibility/catalog-seeds/new-mexico-hca-snap.json."
+      ],
+      "intended_initial_scope": [
+        "New Mexico jurisdiction routing",
+        "Public program listing and YesNM application/referral path",
+        "Published FY2027 income and deduction table as a partial criteria reference, using a versioned extraction"
+      ],
+      "excluded_until_separately_reviewed": [
+        "Native American/Tribal program criteria or service-area claims",
+        "Complete SNAP eligibility determinations",
+        "Automated use of household or identity information from the HCA application system"
+      ],
+      "open_checks": [
+        "Keep the published income/deduction table separate from the complete SNAP rule set; do not make eligibility determinations from this partial record.",
+        "Review source update cadence and any source-specific terms before automated refresh; this seed is operator-triggered only.",
+        "Map residency, household, work, immigration, resource, and other criteria only from their authoritative published rules in a separate scoped change."
+      ],
+      "runtime_activation": "shared_inventory_snapshot_only; no tenant binding or eligibility mapping"
+    }
+  ]
+}

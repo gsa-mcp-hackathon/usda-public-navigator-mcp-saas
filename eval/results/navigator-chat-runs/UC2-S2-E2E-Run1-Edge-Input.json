@@ -1,0 +1,15 @@
+{
+  "scenario": "UC2-S2",
+  "kind": "Edge",
+  "edge": "VA criteria not mapped; person withholds disability rating and healthcare enrollment",
+  "run": 1,
+  "page": "team web app for demo and testing",
+  "driver": "TinyFish browser agent, run 221bb617-e8fe-4b2a-b45d-54a5ac024cf9",
+  "persona": "fictional Missouri veteran needing help with bathing and meals at home; spouse already helps; no VA pension or disability pay; withholds rating and enrollment",
+  "rules": "answer only from stated facts; withhold rating, discharge, income, name and IDs; at most 3 follow-ups",
+  "user_messages": [
+    "I'm a veteran in Missouri and I need help with daily care at home. What help is there?",
+    "I would rather not say. Regarding your other questions: Yes, my spouse is at home already helping me with daily care like bathing and meals. No, I am not currently receiving VA pension or VA disability pay.",
+    "I would rather not say about my VA healthcare enrollment or my disability rating. All I can share is that I am a veteran, I live in Missouri, and I need help with daily tasks like bathing and meals. My spouse is already helping me at home."
+  ]
+}

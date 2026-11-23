@@ -1,0 +1,1173 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "usda.farmers.gov",
+    "source_url": "https://www.farmers.gov/data",
+    "retrieved_at": "2026-10-29T06:49:25Z",
+    "raw_source_documents_committed": false,
+    "access_method": "Farmers.gov directory link text reviewed; each official linked target fetched with redirects enabled; raw page bodies not retained.",
+    "publisher_version": "Farmers.gov Data and Reports portal link set; all 13 linked data resources returned HTTP 200; checked 2026-10-29T06:49:25Z.",
+    "pages": [
+      {
+        "url": "https://www.farmers.gov/data",
+        "title": "Data and Reports for Farmers | Farmers.gov",
+        "http_status": 200,
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.fsa.usda.gov/resources/programs/arc-plc/program-data",
+        "title": "Agriculture Risk Coverage and Price Loss Coverage (ARC/PLC)",
+        "http_status": 200,
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.farmers.gov/data/cfap1",
+        "title": "Coronavirus Food Assistance Program Data (CFAP1)",
+        "http_status": 200,
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.farmers.gov/data/easements-overview",
+        "title": "Conservation Easement Programs Data",
+        "http_status": 200,
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.fsa.usda.gov/resources/programs/emergency-commodity-assistance-program/dashboard",
+        "title": "Emergency Commodity Assistance Program (ECAP)",
+        "http_status": 200,
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.fsa.usda.gov/resources/programs/emergency-livestock-relief-program-elrp/dashboard",
+        "title": "Emergency Livestock Relief Program (ELRP)",
+        "http_status": 200,
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.farmers.gov/data/financial-assistance-overview",
+        "title": "NRCS Financial Assistance Program Data",
+        "http_status": 200,
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.fsa.usda.gov/resources/programs/supplemental-disaster-relief-program-sdrp/dashboard",
+        "title": "Supplemental Disaster Relief Program Dashboard (SDRP)",
+        "http_status": 200,
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.nass.usda.gov/Statistics_by_State/index.php",
+        "title": "Agricultural Statistics by State",
+        "http_status": 200,
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.rma.usda.gov/tools-reports/summary-of-business/cause-loss",
+        "title": "Cause of Loss Historical Files",
+        "http_status": 200,
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.ers.usda.gov/topics/farm-economy/commodity-outlook/ers-outlook-reports-and-data/",
+        "title": "Commodity Outlook",
+        "http_status": 200,
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.fsa.usda.gov/tools/informational/freedom-information-act-foia/electronic-reading-room/frequently-requested/crop-acreage-data",
+        "title": "Crop Acreage",
+        "http_status": 200,
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.ers.usda.gov/data-products/food-environment-atlas/",
+        "title": "Food Environment Atlas",
+        "http_status": 200,
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.nrcs.usda.gov/resources/data-and-reports/rca-data-viewer",
+        "title": "Soil and Water Resources Conservation Act (RCA) Data Viewer",
+        "http_status": 200,
+        "source_content_sha256": null
+      }
+    ]
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "usda.farmers.gov",
+      "source_name": "USDA Farmers.gov",
+      "source_url": "https://www.farmers.gov/",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "federal",
+          "owner_name": "United States Department of Agriculture",
+          "verification_status": "verified",
+          "evidence_url": "https://www.farmers.gov/"
+        },
+        "approved_scope": "Shared cluster public discovery listings, criteria references, and referral/context records from official Farmers.gov pages. Program-level criteria are stored separately with explicit source and mapping status; cross-program guidance is not a universal rule. No profile data, personal coordinator contact details, raw page bodies, eligibility determination, or current application-status guarantee.",
+        "refresh_mode": "operator_triggered"
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "farmers-gov-data-resource-directory",
+        "source_dataset_id": "Farmers.gov Data and Reports directory linked resources",
+        "title": "USDA Farmers.gov public data and reports resource directory",
+        "landing_page": "https://www.farmers.gov/data",
+        "schema_version": "public-data-v1",
+        "namespace_ids": [
+          "core"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "not_assessed",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "schema_registry_ids": {
+            "core": "public-data-schema-registry"
+          },
+          "schema_versions": {
+            "core": "public-data-v1"
+          },
+          "content_type": "public_data_resource_directory",
+          "refresh_mode": "operator_triggered",
+          "maximum_records_total": 20
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "farmers-gov-data-resource-directory",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "Farmers.gov Data and Reports portal link set; all 13 linked data resources returned HTTP 200; checked 2026-10-29T06:49:25Z.",
+        "retrieved_at": "2026-10-29T06:49:25Z",
+        "transform_version": "farmers-gov-data-directory-v1",
+        "validation_outcome": "valid",
+        "detail": "13 official Farmers.gov directory links: 7 program-data and 6 planning/history; all returned HTTP 200. Context-only references; underlying datasets were not downloaded and criteria are not mapped.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "arc-plc-program-data",
+            "record_type": "catalog_metadata",
+            "schema_version": "public-data-v1",
+            "canonical_attributes": {
+              "core.dataset.title": "Agriculture Risk Coverage and Price Loss Coverage (ARC/PLC)",
+              "core.dataset.publisher": "USDA Farm Service Agency",
+              "core.dataset.description": "Official data resource linked from the Farmers.gov Data and Reports directory (program data). This reference identifies a public data/report resource only; it does not provide program eligibility criteria or an eligibility result.",
+              "core.dataset.keywords": [
+                "USDA",
+                "public data",
+                "farmers.gov directory",
+                "agriculture",
+                "risk",
+                "coverage",
+                "and",
+                "price",
+                "loss",
+                "coverage",
+                "arc"
+              ],
+              "core.dataset.source_identifier": "arc-plc-program-data",
+              "core.dataset.content_type": "program_data"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "context",
+              "criteria_coverage": "not_assessed",
+              "interpretation": "dataset_discovery_metadata",
+              "resource_category": "program_data",
+              "directory_url": "https://www.farmers.gov/data",
+              "directory_link_status": "http_200",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Farmers.gov Data and Reports portal link set; all 13 linked data resources returned HTTP 200; checked 2026-10-29T06:49:25Z.",
+              "retrieved_at": "2026-10-29T06:49:25Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-data-directory-v1",
+              "raw_payload_stored": false,
+              "field_provenance": {
+                "core.dataset.title": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.publisher": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/arc-plc/program-data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.description": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.keywords": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.source_identifier": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/arc-plc/program-data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.content_type": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/arc-plc/program-data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                }
+              }
+            },
+            "source_url": "https://www.fsa.usda.gov/resources/programs/arc-plc/program-data",
+            "observed_at": "2026-10-29T06:49:25Z",
+            "content_hash": "9be7d92ed2dc2b20956d944ee128760d7fea1db3a9e1dd110f948bc174850f28"
+          },
+          {
+            "source_record_id": "cfap1-program-data",
+            "record_type": "catalog_metadata",
+            "schema_version": "public-data-v1",
+            "canonical_attributes": {
+              "core.dataset.title": "Coronavirus Food Assistance Program Data (CFAP1)",
+              "core.dataset.publisher": "USDA Farmers.gov",
+              "core.dataset.description": "Official data resource linked from the Farmers.gov Data and Reports directory (program data). This reference identifies a public data/report resource only; it does not provide program eligibility criteria or an eligibility result.",
+              "core.dataset.keywords": [
+                "USDA",
+                "public data",
+                "farmers.gov directory",
+                "coronavirus",
+                "food",
+                "assistance",
+                "program",
+                "data",
+                "cfap1"
+              ],
+              "core.dataset.source_identifier": "cfap1-program-data",
+              "core.dataset.content_type": "program_data"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "context",
+              "criteria_coverage": "not_assessed",
+              "interpretation": "dataset_discovery_metadata",
+              "resource_category": "program_data",
+              "directory_url": "https://www.farmers.gov/data",
+              "directory_link_status": "http_200",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Farmers.gov Data and Reports portal link set; all 13 linked data resources returned HTTP 200; checked 2026-10-29T06:49:25Z.",
+              "retrieved_at": "2026-10-29T06:49:25Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-data-directory-v1",
+              "raw_payload_stored": false,
+              "field_provenance": {
+                "core.dataset.title": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.publisher": {
+                  "source_url": "https://www.farmers.gov/data/cfap1",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.description": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.keywords": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.source_identifier": {
+                  "source_url": "https://www.farmers.gov/data/cfap1",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.content_type": {
+                  "source_url": "https://www.farmers.gov/data/cfap1",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                }
+              }
+            },
+            "source_url": "https://www.farmers.gov/data/cfap1",
+            "observed_at": "2026-10-29T06:49:25Z",
+            "content_hash": "32e7b9c32a3b4175ffccf9155040e696c828912da68c827f67c8dd85fa93d9d2"
+          },
+          {
+            "source_record_id": "conservation-easement-program-data",
+            "record_type": "catalog_metadata",
+            "schema_version": "public-data-v1",
+            "canonical_attributes": {
+              "core.dataset.title": "Conservation Easement Programs Data",
+              "core.dataset.publisher": "USDA Farmers.gov",
+              "core.dataset.description": "Official data resource linked from the Farmers.gov Data and Reports directory (program data). This reference identifies a public data/report resource only; it does not provide program eligibility criteria or an eligibility result.",
+              "core.dataset.keywords": [
+                "USDA",
+                "public data",
+                "farmers.gov directory",
+                "conservation",
+                "easement",
+                "programs",
+                "data"
+              ],
+              "core.dataset.source_identifier": "conservation-easement-program-data",
+              "core.dataset.content_type": "program_data"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "context",
+              "criteria_coverage": "not_assessed",
+              "interpretation": "dataset_discovery_metadata",
+              "resource_category": "program_data",
+              "directory_url": "https://www.farmers.gov/data",
+              "directory_link_status": "http_200",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Farmers.gov Data and Reports portal link set; all 13 linked data resources returned HTTP 200; checked 2026-10-29T06:49:25Z.",
+              "retrieved_at": "2026-10-29T06:49:25Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-data-directory-v1",
+              "raw_payload_stored": false,
+              "field_provenance": {
+                "core.dataset.title": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.publisher": {
+                  "source_url": "https://www.farmers.gov/data/easements-overview",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.description": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.keywords": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.source_identifier": {
+                  "source_url": "https://www.farmers.gov/data/easements-overview",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.content_type": {
+                  "source_url": "https://www.farmers.gov/data/easements-overview",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                }
+              }
+            },
+            "source_url": "https://www.farmers.gov/data/easements-overview",
+            "observed_at": "2026-10-29T06:49:25Z",
+            "content_hash": "a588e1b9997c2f0569f889877290ea710b54c0b3defa1db8cee5f95551ab0481"
+          },
+          {
+            "source_record_id": "ecap-dashboard",
+            "record_type": "catalog_metadata",
+            "schema_version": "public-data-v1",
+            "canonical_attributes": {
+              "core.dataset.title": "Emergency Commodity Assistance Program (ECAP)",
+              "core.dataset.publisher": "USDA Farm Service Agency",
+              "core.dataset.description": "Official data resource linked from the Farmers.gov Data and Reports directory (program data). This reference identifies a public data/report resource only; it does not provide program eligibility criteria or an eligibility result.",
+              "core.dataset.keywords": [
+                "USDA",
+                "public data",
+                "farmers.gov directory",
+                "emergency",
+                "commodity",
+                "assistance",
+                "program",
+                "ecap"
+              ],
+              "core.dataset.source_identifier": "ecap-dashboard",
+              "core.dataset.content_type": "program_data"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "context",
+              "criteria_coverage": "not_assessed",
+              "interpretation": "dataset_discovery_metadata",
+              "resource_category": "program_data",
+              "directory_url": "https://www.farmers.gov/data",
+              "directory_link_status": "http_200",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Farmers.gov Data and Reports portal link set; all 13 linked data resources returned HTTP 200; checked 2026-10-29T06:49:25Z.",
+              "retrieved_at": "2026-10-29T06:49:25Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-data-directory-v1",
+              "raw_payload_stored": false,
+              "field_provenance": {
+                "core.dataset.title": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.publisher": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/emergency-commodity-assistance-program/dashboard",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.description": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.keywords": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.source_identifier": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/emergency-commodity-assistance-program/dashboard",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.content_type": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/emergency-commodity-assistance-program/dashboard",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                }
+              }
+            },
+            "source_url": "https://www.fsa.usda.gov/resources/programs/emergency-commodity-assistance-program/dashboard",
+            "observed_at": "2026-10-29T06:49:25Z",
+            "content_hash": "0a1af5d1ee7dde68305aeebd40a1e7c420daed0753c7675fe56248afefc57e35"
+          },
+          {
+            "source_record_id": "elrp-dashboard",
+            "record_type": "catalog_metadata",
+            "schema_version": "public-data-v1",
+            "canonical_attributes": {
+              "core.dataset.title": "Emergency Livestock Relief Program (ELRP)",
+              "core.dataset.publisher": "USDA Farm Service Agency",
+              "core.dataset.description": "Official data resource linked from the Farmers.gov Data and Reports directory (program data). This reference identifies a public data/report resource only; it does not provide program eligibility criteria or an eligibility result.",
+              "core.dataset.keywords": [
+                "USDA",
+                "public data",
+                "farmers.gov directory",
+                "emergency",
+                "livestock",
+                "relief",
+                "program",
+                "elrp"
+              ],
+              "core.dataset.source_identifier": "elrp-dashboard",
+              "core.dataset.content_type": "program_data"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "context",
+              "criteria_coverage": "not_assessed",
+              "interpretation": "dataset_discovery_metadata",
+              "resource_category": "program_data",
+              "directory_url": "https://www.farmers.gov/data",
+              "directory_link_status": "http_200",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Farmers.gov Data and Reports portal link set; all 13 linked data resources returned HTTP 200; checked 2026-10-29T06:49:25Z.",
+              "retrieved_at": "2026-10-29T06:49:25Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-data-directory-v1",
+              "raw_payload_stored": false,
+              "field_provenance": {
+                "core.dataset.title": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.publisher": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/emergency-livestock-relief-program-elrp/dashboard",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.description": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.keywords": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.source_identifier": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/emergency-livestock-relief-program-elrp/dashboard",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.content_type": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/emergency-livestock-relief-program-elrp/dashboard",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                }
+              }
+            },
+            "source_url": "https://www.fsa.usda.gov/resources/programs/emergency-livestock-relief-program-elrp/dashboard",
+            "observed_at": "2026-10-29T06:49:25Z",
+            "content_hash": "4e82cab811398e7f29018014c141d23cf411a185f640959a2d6288d41541b769"
+          },
+          {
+            "source_record_id": "nrcs-financial-assistance-data",
+            "record_type": "catalog_metadata",
+            "schema_version": "public-data-v1",
+            "canonical_attributes": {
+              "core.dataset.title": "NRCS Financial Assistance Program Data",
+              "core.dataset.publisher": "USDA Natural Resources Conservation Service",
+              "core.dataset.description": "Official data resource linked from the Farmers.gov Data and Reports directory (program data). This reference identifies a public data/report resource only; it does not provide program eligibility criteria or an eligibility result.",
+              "core.dataset.keywords": [
+                "USDA",
+                "public data",
+                "farmers.gov directory",
+                "nrcs",
+                "financial",
+                "assistance",
+                "program",
+                "data"
+              ],
+              "core.dataset.source_identifier": "nrcs-financial-assistance-data",
+              "core.dataset.content_type": "program_data"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "context",
+              "criteria_coverage": "not_assessed",
+              "interpretation": "dataset_discovery_metadata",
+              "resource_category": "program_data",
+              "directory_url": "https://www.farmers.gov/data",
+              "directory_link_status": "http_200",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Farmers.gov Data and Reports portal link set; all 13 linked data resources returned HTTP 200; checked 2026-10-29T06:49:25Z.",
+              "retrieved_at": "2026-10-29T06:49:25Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-data-directory-v1",
+              "raw_payload_stored": false,
+              "field_provenance": {
+                "core.dataset.title": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.publisher": {
+                  "source_url": "https://www.farmers.gov/data/financial-assistance-overview",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.description": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.keywords": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.source_identifier": {
+                  "source_url": "https://www.farmers.gov/data/financial-assistance-overview",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.content_type": {
+                  "source_url": "https://www.farmers.gov/data/financial-assistance-overview",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                }
+              }
+            },
+            "source_url": "https://www.farmers.gov/data/financial-assistance-overview",
+            "observed_at": "2026-10-29T06:49:25Z",
+            "content_hash": "3d6ffa0ee13caa22b7acb4adf88a530846f9c98d1548134ff06f44cefc2fca43"
+          },
+          {
+            "source_record_id": "sdrp-dashboard",
+            "record_type": "catalog_metadata",
+            "schema_version": "public-data-v1",
+            "canonical_attributes": {
+              "core.dataset.title": "Supplemental Disaster Relief Program Dashboard (SDRP)",
+              "core.dataset.publisher": "USDA Farm Service Agency",
+              "core.dataset.description": "Official data resource linked from the Farmers.gov Data and Reports directory (program data). This reference identifies a public data/report resource only; it does not provide program eligibility criteria or an eligibility result.",
+              "core.dataset.keywords": [
+                "USDA",
+                "public data",
+                "farmers.gov directory",
+                "supplemental",
+                "disaster",
+                "relief",
+                "program",
+                "dashboard",
+                "sdrp"
+              ],
+              "core.dataset.source_identifier": "sdrp-dashboard",
+              "core.dataset.content_type": "program_data"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "context",
+              "criteria_coverage": "not_assessed",
+              "interpretation": "dataset_discovery_metadata",
+              "resource_category": "program_data",
+              "directory_url": "https://www.farmers.gov/data",
+              "directory_link_status": "http_200",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Farmers.gov Data and Reports portal link set; all 13 linked data resources returned HTTP 200; checked 2026-10-29T06:49:25Z.",
+              "retrieved_at": "2026-10-29T06:49:25Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-data-directory-v1",
+              "raw_payload_stored": false,
+              "field_provenance": {
+                "core.dataset.title": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.publisher": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/supplemental-disaster-relief-program-sdrp/dashboard",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.description": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.keywords": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.source_identifier": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/supplemental-disaster-relief-program-sdrp/dashboard",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.content_type": {
+                  "source_url": "https://www.fsa.usda.gov/resources/programs/supplemental-disaster-relief-program-sdrp/dashboard",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                }
+              }
+            },
+            "source_url": "https://www.fsa.usda.gov/resources/programs/supplemental-disaster-relief-program-sdrp/dashboard",
+            "observed_at": "2026-10-29T06:49:25Z",
+            "content_hash": "9a259292cb44b1d285e8b9da1eecc8c7e65c6fed78583ce6f4725165895a5129"
+          },
+          {
+            "source_record_id": "nass-statistics-by-state",
+            "record_type": "catalog_metadata",
+            "schema_version": "public-data-v1",
+            "canonical_attributes": {
+              "core.dataset.title": "Agricultural Statistics by State",
+              "core.dataset.publisher": "USDA National Agricultural Statistics Service",
+              "core.dataset.description": "Official data resource linked from the Farmers.gov Data and Reports directory (historical and planning data). This reference identifies a public data/report resource only; it does not provide program eligibility criteria or an eligibility result.",
+              "core.dataset.keywords": [
+                "USDA",
+                "public data",
+                "farmers.gov directory",
+                "agricultural",
+                "statistics",
+                "by",
+                "state"
+              ],
+              "core.dataset.source_identifier": "nass-statistics-by-state",
+              "core.dataset.content_type": "historical_and_planning_data"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "context",
+              "criteria_coverage": "not_assessed",
+              "interpretation": "dataset_discovery_metadata",
+              "resource_category": "historical_and_planning_data",
+              "directory_url": "https://www.farmers.gov/data",
+              "directory_link_status": "http_200",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Farmers.gov Data and Reports portal link set; all 13 linked data resources returned HTTP 200; checked 2026-10-29T06:49:25Z.",
+              "retrieved_at": "2026-10-29T06:49:25Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-data-directory-v1",
+              "raw_payload_stored": false,
+              "field_provenance": {
+                "core.dataset.title": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.publisher": {
+                  "source_url": "https://www.nass.usda.gov/Statistics_by_State/index.php",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.description": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.keywords": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.source_identifier": {
+                  "source_url": "https://www.nass.usda.gov/Statistics_by_State/index.php",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.content_type": {
+                  "source_url": "https://www.nass.usda.gov/Statistics_by_State/index.php",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                }
+              }
+            },
+            "source_url": "https://www.nass.usda.gov/Statistics_by_State/index.php",
+            "observed_at": "2026-10-29T06:49:25Z",
+            "content_hash": "5743bc1be3922bc14e84d795cfb4d74576013deca411ada50c12c63989459b0d"
+          },
+          {
+            "source_record_id": "rma-cause-of-loss",
+            "record_type": "catalog_metadata",
+            "schema_version": "public-data-v1",
+            "canonical_attributes": {
+              "core.dataset.title": "Cause of Loss Historical Files",
+              "core.dataset.publisher": "USDA Risk Management Agency",
+              "core.dataset.description": "Official data resource linked from the Farmers.gov Data and Reports directory (historical and planning data). This reference identifies a public data/report resource only; it does not provide program eligibility criteria or an eligibility result.",
+              "core.dataset.keywords": [
+                "USDA",
+                "public data",
+                "farmers.gov directory",
+                "cause",
+                "of",
+                "loss",
+                "historical",
+                "files"
+              ],
+              "core.dataset.source_identifier": "rma-cause-of-loss",
+              "core.dataset.content_type": "historical_and_planning_data"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "context",
+              "criteria_coverage": "not_assessed",
+              "interpretation": "dataset_discovery_metadata",
+              "resource_category": "historical_and_planning_data",
+              "directory_url": "https://www.farmers.gov/data",
+              "directory_link_status": "http_200",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Farmers.gov Data and Reports portal link set; all 13 linked data resources returned HTTP 200; checked 2026-10-29T06:49:25Z.",
+              "retrieved_at": "2026-10-29T06:49:25Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-data-directory-v1",
+              "raw_payload_stored": false,
+              "field_provenance": {
+                "core.dataset.title": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.publisher": {
+                  "source_url": "https://www.rma.usda.gov/tools-reports/summary-of-business/cause-loss",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.description": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.keywords": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.source_identifier": {
+                  "source_url": "https://www.rma.usda.gov/tools-reports/summary-of-business/cause-loss",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.content_type": {
+                  "source_url": "https://www.rma.usda.gov/tools-reports/summary-of-business/cause-loss",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                }
+              }
+            },
+            "source_url": "https://www.rma.usda.gov/tools-reports/summary-of-business/cause-loss",
+            "observed_at": "2026-10-29T06:49:25Z",
+            "content_hash": "e7e860292f8f02d1a296eaa451b63b0be7b70d7e1994cd86f10f71a70c4e799d"
+          },
+          {
+            "source_record_id": "ers-commodity-outlook",
+            "record_type": "catalog_metadata",
+            "schema_version": "public-data-v1",
+            "canonical_attributes": {
+              "core.dataset.title": "Commodity Outlook",
+              "core.dataset.publisher": "USDA Economic Research Service",
+              "core.dataset.description": "Official data resource linked from the Farmers.gov Data and Reports directory (historical and planning data). This reference identifies a public data/report resource only; it does not provide program eligibility criteria or an eligibility result.",
+              "core.dataset.keywords": [
+                "USDA",
+                "public data",
+                "farmers.gov directory",
+                "commodity",
+                "outlook"
+              ],
+              "core.dataset.source_identifier": "ers-commodity-outlook",
+              "core.dataset.content_type": "historical_and_planning_data"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "context",
+              "criteria_coverage": "not_assessed",
+              "interpretation": "dataset_discovery_metadata",
+              "resource_category": "historical_and_planning_data",
+              "directory_url": "https://www.farmers.gov/data",
+              "directory_link_status": "http_200",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Farmers.gov Data and Reports portal link set; all 13 linked data resources returned HTTP 200; checked 2026-10-29T06:49:25Z.",
+              "retrieved_at": "2026-10-29T06:49:25Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-data-directory-v1",
+              "raw_payload_stored": false,
+              "field_provenance": {
+                "core.dataset.title": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.publisher": {
+                  "source_url": "https://www.ers.usda.gov/topics/farm-economy/commodity-outlook/ers-outlook-reports-and-data/",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.description": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.keywords": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.source_identifier": {
+                  "source_url": "https://www.ers.usda.gov/topics/farm-economy/commodity-outlook/ers-outlook-reports-and-data/",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.content_type": {
+                  "source_url": "https://www.ers.usda.gov/topics/farm-economy/commodity-outlook/ers-outlook-reports-and-data/",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                }
+              }
+            },
+            "source_url": "https://www.ers.usda.gov/topics/farm-economy/commodity-outlook/ers-outlook-reports-and-data/",
+            "observed_at": "2026-10-29T06:49:25Z",
+            "content_hash": "b00c4dec699aa2b5f8109357968700e6d22416627341d176de15b8d0a04243ea"
+          },
+          {
+            "source_record_id": "fsa-crop-acreage",
+            "record_type": "catalog_metadata",
+            "schema_version": "public-data-v1",
+            "canonical_attributes": {
+              "core.dataset.title": "Crop Acreage",
+              "core.dataset.publisher": "USDA Farm Service Agency",
+              "core.dataset.description": "Official data resource linked from the Farmers.gov Data and Reports directory (historical and planning data). This reference identifies a public data/report resource only; it does not provide program eligibility criteria or an eligibility result.",
+              "core.dataset.keywords": [
+                "USDA",
+                "public data",
+                "farmers.gov directory",
+                "crop",
+                "acreage"
+              ],
+              "core.dataset.source_identifier": "fsa-crop-acreage",
+              "core.dataset.content_type": "historical_and_planning_data"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "context",
+              "criteria_coverage": "not_assessed",
+              "interpretation": "dataset_discovery_metadata",
+              "resource_category": "historical_and_planning_data",
+              "directory_url": "https://www.farmers.gov/data",
+              "directory_link_status": "http_200",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Farmers.gov Data and Reports portal link set; all 13 linked data resources returned HTTP 200; checked 2026-10-29T06:49:25Z.",
+              "retrieved_at": "2026-10-29T06:49:25Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-data-directory-v1",
+              "raw_payload_stored": false,
+              "field_provenance": {
+                "core.dataset.title": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.publisher": {
+                  "source_url": "https://www.fsa.usda.gov/tools/informational/freedom-information-act-foia/electronic-reading-room/frequently-requested/crop-acreage-data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.description": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.keywords": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.source_identifier": {
+                  "source_url": "https://www.fsa.usda.gov/tools/informational/freedom-information-act-foia/electronic-reading-room/frequently-requested/crop-acreage-data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.content_type": {
+                  "source_url": "https://www.fsa.usda.gov/tools/informational/freedom-information-act-foia/electronic-reading-room/frequently-requested/crop-acreage-data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                }
+              }
+            },
+            "source_url": "https://www.fsa.usda.gov/tools/informational/freedom-information-act-foia/electronic-reading-room/frequently-requested/crop-acreage-data",
+            "observed_at": "2026-10-29T06:49:25Z",
+            "content_hash": "430147c00d0aad43a5e6eeeac224a9bdde0bfe9ead6301f6298186cce43969b5"
+          },
+          {
+            "source_record_id": "ers-food-environment-atlas",
+            "record_type": "catalog_metadata",
+            "schema_version": "public-data-v1",
+            "canonical_attributes": {
+              "core.dataset.title": "Food Environment Atlas",
+              "core.dataset.publisher": "USDA Economic Research Service",
+              "core.dataset.description": "Official data resource linked from the Farmers.gov Data and Reports directory (historical and planning data). This reference identifies a public data/report resource only; it does not provide program eligibility criteria or an eligibility result.",
+              "core.dataset.keywords": [
+                "USDA",
+                "public data",
+                "farmers.gov directory",
+                "food",
+                "environment",
+                "atlas"
+              ],
+              "core.dataset.source_identifier": "ers-food-environment-atlas",
+              "core.dataset.content_type": "historical_and_planning_data"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "context",
+              "criteria_coverage": "not_assessed",
+              "interpretation": "dataset_discovery_metadata",
+              "resource_category": "historical_and_planning_data",
+              "directory_url": "https://www.farmers.gov/data",
+              "directory_link_status": "http_200",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Farmers.gov Data and Reports portal link set; all 13 linked data resources returned HTTP 200; checked 2026-10-29T06:49:25Z.",
+              "retrieved_at": "2026-10-29T06:49:25Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-data-directory-v1",
+              "raw_payload_stored": false,
+              "field_provenance": {
+                "core.dataset.title": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.publisher": {
+                  "source_url": "https://www.ers.usda.gov/data-products/food-environment-atlas/",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.description": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.keywords": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.source_identifier": {
+                  "source_url": "https://www.ers.usda.gov/data-products/food-environment-atlas/",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.content_type": {
+                  "source_url": "https://www.ers.usda.gov/data-products/food-environment-atlas/",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                }
+              }
+            },
+            "source_url": "https://www.ers.usda.gov/data-products/food-environment-atlas/",
+            "observed_at": "2026-10-29T06:49:25Z",
+            "content_hash": "62cc0565ac32b712dc871d0cbc84c7653a1263920ca4b11d34a197c5928b6497"
+          },
+          {
+            "source_record_id": "nrcs-rca-data-viewer",
+            "record_type": "catalog_metadata",
+            "schema_version": "public-data-v1",
+            "canonical_attributes": {
+              "core.dataset.title": "Soil and Water Resources Conservation Act (RCA) Data Viewer",
+              "core.dataset.publisher": "USDA Natural Resources Conservation Service",
+              "core.dataset.description": "Official data resource linked from the Farmers.gov Data and Reports directory (historical and planning data). This reference identifies a public data/report resource only; it does not provide program eligibility criteria or an eligibility result.",
+              "core.dataset.keywords": [
+                "USDA",
+                "public data",
+                "farmers.gov directory",
+                "soil",
+                "and",
+                "water",
+                "resources",
+                "conservation",
+                "act",
+                "rca",
+                "data"
+              ],
+              "core.dataset.source_identifier": "nrcs-rca-data-viewer",
+              "core.dataset.content_type": "historical_and_planning_data"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "context",
+              "criteria_coverage": "not_assessed",
+              "interpretation": "dataset_discovery_metadata",
+              "resource_category": "historical_and_planning_data",
+              "directory_url": "https://www.farmers.gov/data",
+              "directory_link_status": "http_200",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Farmers.gov Data and Reports portal link set; all 13 linked data resources returned HTTP 200; checked 2026-10-29T06:49:25Z.",
+              "retrieved_at": "2026-10-29T06:49:25Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-data-directory-v1",
+              "raw_payload_stored": false,
+              "field_provenance": {
+                "core.dataset.title": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.publisher": {
+                  "source_url": "https://www.nrcs.usda.gov/resources/data-and-reports/rca-data-viewer",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.description": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.keywords": {
+                  "source_url": "https://www.farmers.gov/data",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.source_identifier": {
+                  "source_url": "https://www.nrcs.usda.gov/resources/data-and-reports/rca-data-viewer",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.dataset.content_type": {
+                  "source_url": "https://www.nrcs.usda.gov/resources/data-and-reports/rca-data-viewer",
+                  "observed_at": "2026-10-29T06:49:25Z",
+                  "extraction_method": "operator_review"
+                }
+              }
+            },
+            "source_url": "https://www.nrcs.usda.gov/resources/data-and-reports/rca-data-viewer",
+            "observed_at": "2026-10-29T06:49:25Z",
+            "content_hash": "523205f65dd0f47f39cd34ed12b552bf7409018c6c90d3fc71c6e28db59e35c3"
+          }
+        ]
+      }
+    }
+  ]
+}

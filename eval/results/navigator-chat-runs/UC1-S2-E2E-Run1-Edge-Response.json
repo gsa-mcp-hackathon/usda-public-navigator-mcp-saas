@@ -1,0 +1,9 @@
+{
+  "note": "Each reply is summarized from the browser agent's capture, not quoted word for word.",
+  "assistant_replies": [
+    "(reply 1) Searched the USDA catalog; names three listings: Livestock Forage Disaster Program, Emergency Assistance for Livestock, FSA emergency and guaranteed operating loans; says it has not read the official pages yet so gives no amounts, deadlines or rules; asks three questions: county, FSA farm number, deaths versus no grass.",
+    "(reply 2) Reads the official LFP page; says beef cattle are eligible livestock; lists the rules (own or lease grazing land, county drought rating D2 or worse in the grazing period, paperwork, FSA farm record); gives the application deadline as March 1 after the year of the loss; explains the farm number is a registration, not a benefit; points to the local FSA office.",
+    "(reply 3) No reply to the final 'I am not sure'; the run ended there."
+  ],
+  "final_outcome_summary": "Disaster listings surfaced with sources; eligibility rules reported as things to verify, not as met, unmet or approved. The one-step next action was the local FSA office."
+}

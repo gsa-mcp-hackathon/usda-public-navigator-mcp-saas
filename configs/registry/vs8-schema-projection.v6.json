@@ -1,0 +1,120 @@
+{
+  "manifest_id": "mcp-saas-vs8-schema-projection-v6",
+  "manifest_version": "6.0.0",
+  "schemas": [
+    {
+      "registry_id": "core-schema-registry",
+      "schema_version": "core-v1",
+      "path": "registries/schemas/core-v1.json",
+      "lifecycle_state": "active"
+    },
+    {
+      "registry_id": "eligibility-program-schema",
+      "schema_version": "eligibility-program-v1",
+      "path": "registries/schemas/eligibility-program-v1.json",
+      "lifecycle_state": "active"
+    },
+    {
+      "registry_id": "eligibility-program-schema",
+      "schema_version": "eligibility-program-v2",
+      "path": "registries/schemas/eligibility-program-v2.json",
+      "lifecycle_state": "active"
+    },
+    {
+      "registry_id": "eligibility-program-schema",
+      "schema_version": "eligibility-program-v3",
+      "path": "registries/schemas/eligibility-program-v3.json",
+      "lifecycle_state": "active"
+    },
+    {
+      "registry_id": "eligibility-public-listing-schema",
+      "schema_version": "public-listing-v1",
+      "path": "registries/schemas/public-listing-v1.json",
+      "lifecycle_state": "active"
+    },
+    {
+      "registry_id": "eligibility-public-listing-schema",
+      "schema_version": "public-listing-v2",
+      "path": "registries/schemas/public-listing-v2.json",
+      "lifecycle_state": "active"
+    },
+    {
+      "registry_id": "eligibility-public-listing-schema",
+      "schema_version": "public-listing-v3",
+      "path": "registries/schemas/public-listing-v3.json",
+      "lifecycle_state": "active"
+    },
+    {
+      "registry_id": "eligibility-public-listing-schema",
+      "schema_version": "public-listing-v4",
+      "path": "registries/schemas/public-listing-v4.json",
+      "lifecycle_state": "active"
+    },
+    {
+      "registry_id": "core-tag-registry",
+      "schema_version": "1.0.0",
+      "path": "registries/schemas/core-tags-v1.json",
+      "lifecycle_state": "active"
+    },
+    {
+      "registry_id": "core-schema-registry",
+      "schema_version": "core-v2",
+      "path": "registries/schemas/core-v2.json",
+      "lifecycle_state": "active"
+    },
+    {
+      "registry_id": "core-schema-registry",
+      "schema_version": "core-v3",
+      "path": "registries/schemas/core-v3.json",
+      "lifecycle_state": "active"
+    },
+    {
+      "registry_id": "core-schema-registry",
+      "schema_version": "core-v4",
+      "path": "registries/schemas/core-v4.json",
+      "lifecycle_state": "active"
+    },
+    {
+      "registry_id": "eligibility-profile-extension-schema",
+      "schema_version": "eligibility-profile-v1",
+      "path": "registries/schemas/eligibility-profile-v1.json",
+      "lifecycle_state": "active"
+    },
+    {
+      "registry_id": "core-schema-registry",
+      "schema_version": "core-v5",
+      "path": "registries/schemas/core-v5.json",
+      "lifecycle_state": "active"
+    },
+    {
+      "registry_id": "core-schema-registry",
+      "schema_version": "core-v6",
+      "path": "registries/schemas/core-v6.json",
+      "lifecycle_state": "active"
+    },
+    {
+      "registry_id": "core-schema-registry",
+      "schema_version": "core-v7",
+      "path": "registries/schemas/core-v7.json",
+      "lifecycle_state": "active"
+    },
+    {
+      "registry_id": "eligibility-program-schema",
+      "schema_version": "eligibility-program-v4",
+      "path": "registries/schemas/eligibility-program-v4.json",
+      "lifecycle_state": "active"
+    },
+    {
+      "registry_id": "core-schema-registry",
+      "schema_version": "core-v8",
+      "path": "registries/schemas/core-v8.json",
+      "lifecycle_state": "active"
+    },
+    {
+      "registry_id": "eligibility-profile-extension-schema",
+      "schema_version": "eligibility-profile-v2",
+      "path": "registries/schemas/eligibility-profile-v2.json",
+      "lifecycle_state": "active"
+    }
+  ]
+}

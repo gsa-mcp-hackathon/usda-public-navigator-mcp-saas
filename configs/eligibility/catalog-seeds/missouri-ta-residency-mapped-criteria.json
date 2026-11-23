@@ -1,0 +1,234 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "missouri.dss.temporary-assistance",
+    "retrieved_at": "2026-11-10T02:39:21.464824+00:00",
+    "publisher_version": "sha256:ecdb8e54999c99f4dd79e7e46cfdc33f0e480a408cbd36f27115aee6f25e4af8",
+    "source_content_sha256": "ecdb8e54999c99f4dd79e7e46cfdc33f0e480a408cbd36f27115aee6f25e4af8",
+    "raw_source_documents_committed": false,
+    "access_method": "Exact-policy MCP source read; fetched text remained transient and untrusted.",
+    "source_record_id": "source-page-63ef48e56e04eb5ad105",
+    "reviewed_at": "2026-11-10T02:44:37.912753+00:00",
+    "source_visible_text_sha256": "6985487725bf502e4c8b423359419cc600a04a9df6439dec894237a87c73f980",
+    "source_policy_reference": {
+      "policy_id": "eligibility-public-search-domains",
+      "policy_version": "1.2.4",
+      "content_sha256": "a78aff8eff8fd47d04481602684cdcdc6e55bd80e16458e32c270adbb6e22e24"
+    }
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "missouri.dss.temporary-assistance",
+      "source_name": "Missouri DSS Temporary Assistance",
+      "source_url": "https://dss.mo.gov/temporary-assistance/apply",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "state",
+          "owner_name": "Missouri Department of Social Services",
+          "verification_status": "verified",
+          "evidence_url": "https://dss.mo.gov/temporary-assistance/apply"
+        },
+        "content_type": "approved_partial_mapped_eligibility_criteria",
+        "approved_scope": "One reviewed Missouri Temporary Assistance residence criterion is mapped to the existing state_code profile fact. All other listed conditions remain unresolved; no official eligibility determination is made.",
+        "refresh_mode": "operator_triggered"
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "missouri-ta-residency-mapped-criteria",
+        "source_dataset_id": "Missouri DSS Temporary Assistance residency criterion",
+        "title": "Missouri Temporary Assistance partial mapped criteria",
+        "landing_page": "https://dss.mo.gov/temporary-assistance/apply",
+        "schema_version": "eligibility-program-v1",
+        "namespace_ids": [
+          "core",
+          "eligibility"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "partial",
+          "criteria_mapping_status": "partial",
+          "content_type": "approved_partial_mapped_eligibility_criteria",
+          "published_criteria_available": true,
+          "visibility_scope": "cluster_public",
+          "refresh_mode": "operator_triggered",
+          "maximum_records_total": 1,
+          "record_contract_version": "normalized-public-record-v1",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "eligibility": "eligibility-program-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "eligibility": "eligibility-program-v1"
+          }
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "missouri-ta-residency-mapped-criteria",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "sha256:ecdb8e54999c99f4dd79e7e46cfdc33f0e480a408cbd36f27115aee6f25e4af8",
+        "retrieved_at": "2026-11-10T02:44:37.912753+00:00",
+        "transform_version": "missouri-ta-residency-mapped-criteria-v1",
+        "validation_outcome": "valid",
+        "detail": "One source-backed Missouri residence criterion maps to the existing typed state_code fact. Child age, resources, income, other household conditions, exclusions, and state adjudication remain unresolved.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "missouri-temporary-assistance",
+            "record_type": "eligibility_program",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "missouri-temporary-assistance",
+              "eligibility.program.catalog_version": "missouri-ta-reviewed-2026-11-03",
+              "eligibility.program.navigator": "low_income_assistance",
+              "eligibility.program.data_origin": "public_source",
+              "eligibility.program.title": "Missouri Temporary Assistance (partial screening criteria)",
+              "eligibility.program.description": "Partial screening of the published Missouri residence criterion only. Child age and parent/guardian relationship, current resource and income limits, household Social Security Number conditions, drug-test requirement and case-specific exclusions, post-approval employment and training obligations, and full state adjudication are not evaluated.",
+              "eligibility.program.criteria": [
+                {
+                  "criterion_id": "missouri-ta-residency",
+                  "attribute": "core.geography.state_code",
+                  "operator": "eq",
+                  "value": "MO",
+                  "source_id": "missouri.dss.temporary-assistance"
+                }
+              ],
+              "core.geography.country_code": "US",
+              "core.geography.jurisdiction_level": "state",
+              "core.geography.state_code": "MO"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "state",
+                "country_code": "US",
+                "state_code": "MO"
+              },
+              "criteria_mapping_review": {
+                "reviewed_at": "2026-11-10T02:44:37.912753+00:00",
+                "source_content_sha256": "ecdb8e54999c99f4dd79e7e46cfdc33f0e480a408cbd36f27115aee6f25e4af8",
+                "mapped_requirement_ids": [
+                  "missouri-ta-residency"
+                ],
+                "unresolved_requirement_ids": [
+                  "missouri-ta-child-age-and-relationship",
+                  "missouri-ta-resource-limit",
+                  "missouri-ta-current-income-limit",
+                  "missouri-ta-household-ssn-condition",
+                  "missouri-ta-drug-test-and-case-exclusions",
+                  "missouri-ta-post-approval-work-assistance"
+                ],
+                "source_visible_text_sha256": "6985487725bf502e4c8b423359419cc600a04a9df6439dec894237a87c73f980",
+                "source_record_id": "source-page-63ef48e56e04eb5ad105",
+                "citations": [
+                  {
+                    "requirement_id": "missouri-ta-residency",
+                    "source_id": "missouri.dss.temporary-assistance",
+                    "source_url": "https://dss.mo.gov/temporary-assistance/apply",
+                    "excerpt": "Live in Missouri"
+                  }
+                ]
+              }
+            },
+            "source_metadata": {
+              "source_id": "missouri.dss.temporary-assistance",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "source_title": "Apply for Temporary Assistance",
+              "publisher": "Missouri Department of Social Services",
+              "source_version": "sha256:ecdb8e54999c99f4dd79e7e46cfdc33f0e480a408cbd36f27115aee6f25e4af8",
+              "source_content_sha256": "ecdb8e54999c99f4dd79e7e46cfdc33f0e480a408cbd36f27115aee6f25e4af8",
+              "retrieved_at": "2026-11-10T02:44:37.912753+00:00",
+              "effective_date": null,
+              "transform_version": "missouri-ta-residency-mapped-criteria-v1",
+              "criteria_coverage": "partial",
+              "limitations": [
+                "This record compares Missouri residence only; it does not screen full Temporary Assistance eligibility.",
+                "The parent/guardian and child-under-18 condition, including the high-school exception, is unresolved because child age and relationship are not represented by the active typed family profile.",
+                "The current resource limit and income limit are not mapped or evaluated.",
+                "Household Social Security Number conditions, drug-test requirements, and case-specific exclusions are not evaluated.",
+                "Employment and training participation is a post-approval obligation and is not evaluated here.",
+                "Missouri DSS determines complete eligibility and benefit amount."
+              ],
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://dss.mo.gov/temporary-assistance/apply",
+                  "observed_at": "2026-11-10T02:44:37.912753+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://dss.mo.gov/temporary-assistance/apply",
+                  "observed_at": "2026-11-10T02:44:37.912753+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.navigator": {
+                  "source_url": "https://dss.mo.gov/temporary-assistance/apply",
+                  "observed_at": "2026-11-10T02:44:37.912753+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://dss.mo.gov/temporary-assistance/apply",
+                  "observed_at": "2026-11-10T02:44:37.912753+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://dss.mo.gov/temporary-assistance/apply",
+                  "observed_at": "2026-11-10T02:44:37.912753+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://dss.mo.gov/temporary-assistance/apply",
+                  "observed_at": "2026-11-10T02:44:37.912753+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.criteria": {
+                  "source_url": "https://dss.mo.gov/temporary-assistance/apply",
+                  "observed_at": "2026-11-10T02:44:37.912753+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://dss.mo.gov/temporary-assistance/apply",
+                  "observed_at": "2026-11-10T02:44:37.912753+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://dss.mo.gov/temporary-assistance/apply",
+                  "observed_at": "2026-11-10T02:44:37.912753+00:00",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.state_code": {
+                  "source_url": "https://dss.mo.gov/temporary-assistance/apply",
+                  "observed_at": "2026-11-10T02:44:37.912753+00:00",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false,
+              "content_hash": "a4640f5035140a5ac0c9a1db569ee87406970dcd9cf708eb348b6ffc918c169a",
+              "source_visible_text_sha256": "6985487725bf502e4c8b423359419cc600a04a9df6439dec894237a87c73f980",
+              "source_record_id": "source-page-63ef48e56e04eb5ad105"
+            },
+            "source_url": "https://dss.mo.gov/temporary-assistance/apply",
+            "schema_version": "eligibility-program-v1",
+            "observed_at": "2026-11-10T02:39:21.464824+00:00",
+            "content_hash": "a4640f5035140a5ac0c9a1db569ee87406970dcd9cf708eb348b6ffc918c169a"
+          }
+        ]
+      }
+    }
+  ],
+  "limits": [
+    "Only the published Missouri residence criterion is mapped.",
+    "Other program requirements and current limits remain unresolved.",
+    "No official eligibility result is asserted."
+  ]
+}

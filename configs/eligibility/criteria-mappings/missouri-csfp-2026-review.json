@@ -1,0 +1,112 @@
+{
+  "contract_version": "criteria-mapping-manifest-v1",
+  "mapping_id": "missouri-csfp-2026-review",
+  "program_id": "missouri-csfp",
+  "jurisdiction": "US-MO",
+  "source_registration_status": "source/crosswalk candidate only; not registered in the live Data API or Core inventory",
+  "source": {
+    "source_id": "missouri.dhss.csfp",
+    "source_record_id": "missouri-csfp-state-plan-2026",
+    "source_content_sha256": "16128d5ca39f5b5451150193b408afe347ea350eb5de74e1da4450072fbf6bc7",
+    "source_version": "Missouri State Plan Amendment for Federal Fiscal Year 2026; amended November 2025; reviewed 2026-10-30",
+    "source_url": "https://health.mo.gov/sites/health/files/media/pdf/2026/06/missouri-state-plan-ada.pdf",
+    "retrieved_at": "2026-10-30T12:12:09Z",
+    "criteria_path": "Income Eligibility; Residency Requirement; Nutritional Risk Criteria; Individuals Applying to CSFP"
+  },
+  "supporting_sources": [
+    {
+      "source_id": "missouri.dhss.csfp",
+      "source_record_id": "missouri-csfp-public-page-2026",
+      "source_url": "https://health.mo.gov/food-nutrition/food-programs/commodity-supplemental-food-program",
+      "source_version": "Missouri DHSS CSFP public page; HTTP Last-Modified 2026-10-29; reviewed 2026-10-30",
+      "retrieved_at": "2026-10-30T12:12:09Z",
+      "digest_note": "No stable page-body digest recorded: repeated raw HTTP fetches returned different body hashes despite the same Last-Modified header."
+    },
+    {
+      "source_id": "usda.fna.senior-food",
+      "source_record_id": "fna-csfp-2026-income-1",
+      "source_url": "https://fns-prod.azureedge.us/csfp/income-guidelines",
+      "source_content_sha256": "f35402682582905361186652f59c4349c6308643d4b281f809b692e2b57628f8",
+      "source_version": "USDA FNA 2026 CSFP income guidelines; 48 contiguous states, Puerto Rico, and DC table; page updated 2026-02-17; reviewed 2026-10-30",
+      "retrieved_at": "2026-10-30T12:12:09Z",
+      "criteria_path": "2026 Income Guidelines / 48 Contiguous States, Puerto Rico, and District of Columbia"
+    },
+    {
+      "source_id": "usda.fna.senior-food",
+      "source_record_id": "fna-csfp-2026-income-guidelines-memo",
+      "source_url": "https://fns-prod.azureedge.us/sites/default/files/resource-files/csfp-income-guidelines-2026.pdf",
+      "source_version": "USDA FNS memorandum dated 2026-02-10; reviewed 2026-10-30"
+    }
+  ],
+  "source_completeness": "partial",
+  "mappings": [
+    {
+      "requirement_id": "missouri-csfp-minimum-age-60",
+      "statement": "Missouri DHSS states older participants must be at least 60 years of age.",
+      "requirement_type": "eligibility",
+      "mapping_status": "mapped",
+      "concept_id": "csfp.minimum_age",
+      "attribute": "core.person.age_band",
+      "operator": "one_of",
+      "value": ["60_64", "65_74", "75_plus", "65_plus"],
+      "unit": null
+    },
+    {
+      "requirement_id": "missouri-csfp-residency-and-local-service-area",
+      "statement": "Participants must reside in Missouri and within the applicable local agency service area. Missouri sets no minimum residency duration; its plan treats migrant and seasonal farm workers as meeting the residency requirement and describes limited cross-county service where agency areas do not overlap.",
+      "requirement_type": "eligibility",
+      "mapping_status": "partial",
+      "concept_id": "csfp.residency_and_service_area",
+      "candidate_profile_attributes": ["core.geography.state_code", "core.geography.county_name"],
+      "unresolved_reason": "The profile and source inventory do not currently provide a verified local-agency service-area lookup or the exception facts needed to evaluate all cases. A Missouri state-code match alone is not a complete residency/service-availability result."
+    },
+    {
+      "requirement_id": "missouri-csfp-150-percent-income-limit",
+      "statement": "Missouri's FY2026 state plan says it selected the 150% Federal Poverty Guidelines maximum. FNS publishes the 2026 table for the contiguous states, but the Missouri public page's table conflicts with FNS for the one-person monthly amount and the annual additional-member increment.",
+      "requirement_type": "eligibility",
+      "mapping_status": "partial",
+      "concept_id": "csfp.household_income_limit",
+      "candidate_profile_attributes": [
+        "core.household.size",
+        "core.household.annual_income_usd",
+        "core.household.monthly_gross_income_usd"
+      ],
+      "reference_dataset_id": "usda-fna-csfp-published-criteria",
+      "reference_source_record_id": "fna-csfp-2026-income-1",
+      "unresolved_reason": "Do not evaluate or copy the table yet. The Missouri page lists $1,955 monthly for one person while FNS lists $1,995; Missouri lists an $8,250 annual increment per additional household member while FNS lists $8,520. Missouri's state plan also requires income exclusions and, when warranted, comparison of current income with the previous 12-month average to determine which better reflects household status. The profile has household size and annual/monthly gross-income fields but no income-window selection, source-specific exclusions, or structured table lookup."
+    },
+    {
+      "requirement_id": "missouri-csfp-income-declaration-and-proof",
+      "statement": "Missouri describes income as self-declared and says income proof is not required at application; its application gathers household income and size.",
+      "requirement_type": "context",
+      "mapping_status": "context_only",
+      "concept_id": "csfp.application_income_evidence",
+      "unresolved_reason": "This describes the application evidence process, not a separate eligibility predicate. Missing or declined profile income must remain unknown, never be interpreted as zero."
+    },
+    {
+      "requirement_id": "missouri-csfp-nutritional-risk",
+      "statement": "Missouri's FY2026 state plan states that nutritional risk criteria are not evaluated in Missouri CSFP.",
+      "requirement_type": "context",
+      "mapping_status": "context_only",
+      "concept_id": "csfp.nutritional_risk",
+      "unresolved_reason": "The state plan explicitly says this condition is not evaluated in Missouri; do not ask for or infer a nutritional-risk fact for this state mapping."
+    },
+    {
+      "requirement_id": "missouri-csfp-nursing-home-exclusion",
+      "statement": "Missouri's FY2026 state plan says participants living in nursing homes are not eligible for CSFP benefits.",
+      "requirement_type": "program_condition",
+      "mapping_status": "partial",
+      "concept_id": "csfp.residential_setting",
+      "unresolved_reason": "The profile schema has no supported residential-setting fact or verified nursing-home predicate. Keep this condition unresolved rather than infer it from age, address, or household data."
+    },
+    {
+      "requirement_id": "missouri-csfp-local-distribution-availability",
+      "statement": "CSFP distribution depends on local agency service areas and available caseload; Missouri directs applicants to a site map and local distribution sites.",
+      "requirement_type": "context",
+      "mapping_status": "context_only",
+      "concept_id": "csfp.local_availability",
+      "unresolved_reason": "A program match does not establish that a local site currently serves the applicant or has an available caseload."
+    }
+  ],
+  "evaluation_boundary": "Review-only, jurisdiction-specific mapping candidate. Do not publish or activate this mapping as an eligibility rule. The minimum-age clause is represented; Missouri residency is only partial; the income threshold is not executable until the published table discrepancy, income calculation basis, and structured household-size lookup are reconciled. Local agency service area, nursing-home status, application evidence, and current caseload remain separate. This is not a CSFP eligibility determination."
+}

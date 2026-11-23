@@ -1,0 +1,51 @@
+{
+  "contract_version": "criteria-mapping-manifest-v1",
+  "mapping_id": "usda-fsa-beginning-farmer-years-2026",
+  "program_id": "fsa-beginning-farmer-classification",
+  "source": {
+    "source_id": "usda.fsa.beginning-farmers",
+    "source_record_id": "fsa-beginning-farmer-classification-criteria",
+    "source_content_sha256": "9eda5579d2eebbdefc28d2a9469befa5c681cad215e48b034f1a18d2ae8f0929",
+    "source_version": "Official FSA Beginning Farmers and Ranchers Loans page retrieved 2026-10-29; publisher revision date not stated",
+    "source_url": "https://www.fsa.usda.gov/resources/beginning-farmers-and-ranchers-loans",
+    "retrieved_at": "2026-10-29T19:10:00Z",
+    "criteria_path": "eligibility.program.published_requirements"
+  },
+  "source_completeness": "partial",
+  "mappings": [
+    {
+      "requirement_id": "farm-operation-years",
+      "criterion_id": "beginning-farmer-operation-years",
+      "statement": "A beginning farmer has not operated a farm or ranch for more than 10 years.",
+      "requirement_type": "eligibility",
+      "mapping_status": "mapped",
+      "concept_id": "eligibility.fsa.beginning_farmer.years_operated",
+      "attribute": "core.farm_business.years_farming",
+      "operator": "lte",
+      "value": 10,
+      "unit": "years"
+    },
+    {
+      "requirement_id": "county-farm-ownership-limit",
+      "statement": "A beginning farmer does not own a farm or ranch greater than 30 percent of the average size farm in the county, using the most current Census of Agriculture when the loan application is submitted.",
+      "requirement_type": "eligibility",
+      "mapping_status": "partial",
+      "unresolved_reason": "The profile and catalog do not yet provide the county-specific current Census farm-size comparison needed to evaluate this limit."
+    },
+    {
+      "requirement_id": "substantial-participation",
+      "statement": "A beginning farmer substantially participates in the operation.",
+      "requirement_type": "eligibility",
+      "mapping_status": "partial",
+      "unresolved_reason": "The phrase requires a source-backed operational definition and additional profile facts."
+    },
+    {
+      "requirement_id": "loan-specific-requirements",
+      "statement": "A beginning farmer must also meet the eligibility requirements of the specific Farm Operating Loan, Farm Ownership Loan, or Microloan being requested.",
+      "requirement_type": "eligibility",
+      "mapping_status": "partial",
+      "unresolved_reason": "The loan product has not been selected and its product-specific criteria are not mapped in this slice."
+    }
+  ],
+  "evaluation_boundary": "This evaluates only the source-published beginning-farmer operation-years criterion. It does not establish qualification for any FSA loan; all other mapped and unmapped requirements remain in the result as partial or unknown."
+}

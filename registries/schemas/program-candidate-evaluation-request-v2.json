@@ -1,0 +1,34 @@
+{
+  "registry_id": "eligibility-program-candidate-evaluation-request-v2-schema",
+  "schema_version": "program-candidate-evaluation-request-v2",
+  "namespaces": {
+    "candidate": "Request-scoped source-backed program candidate",
+    "profile": "Synthetic profile supplied for this comparison"
+  },
+  "dimensions": {
+    "candidate.criteria": "Typed cited criteria package with mapped and unresolved clauses",
+    "profile.facts": "Typed synthetic profile values and explicit ambiguities"
+  },
+  "attributes": {
+    "candidate.criteria_package": {
+      "dimension_id": "candidate.criteria",
+      "type": "object"
+    },
+    "profile_submission.profile": {
+      "dimension_id": "profile.facts",
+      "type": "object"
+    },
+    "profile_submission.ambiguous_attributes": {
+      "dimension_id": "profile.facts",
+      "type": "array"
+    }
+  },
+  "relationships": {
+    "candidate.criteria.cite_profile_schema": {
+      "source_dimension": "candidate.criteria",
+      "target_dimension": "profile.facts",
+      "cardinality": "many_to_many"
+    }
+  },
+  "description": "Selected-source candidate evaluation request. Unverified publisher status remains visible in the evaluation."
+}

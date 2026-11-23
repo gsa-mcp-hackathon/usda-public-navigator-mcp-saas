@@ -1,0 +1,15 @@
+{
+  "scenario": "UC3-S1",
+  "kind": "Edge",
+  "edge": "person declines to give income and household size",
+  "run": 1,
+  "page": "team web app for demo and testing",
+  "driver": "TinyFish browser agent, run_key run_3fd7d58e",
+  "persona": "fictional Missouri resident, Jackson County, wants help with groceries, declines to share income or household size",
+  "rules": "answer only from stated facts; decline income and household size; no name, address, phone or ID; at most 4 follow-ups",
+  "user_messages": [
+    "Hi, I live in Missouri and my family is having a hard time buying groceries. Is there a food assistance program I should look at?",
+    "I would rather not say right now.",
+    "I would rather not say right now. Just groceries for now, thank you."
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "fema.individual-assistance-policy-guide",
+    "reviewed_at": "2026-10-27T15:34:41Z",
+    "publisher_version": "FEMA IAPPG v1.1 amended July 2025",
+    "raw_source_documents_committed": false,
+    "access_method": "Official FEMA PDF retrieved via authorized hosted-environment egress and copied to temporary local review storage; no raw PDF is committed to Git or catalog. Page-scoped transcription only.",
+    "pages": [
+      {
+        "url": "https://www.fema.gov/sites/default/files/documents/fema_iappg-1.1_amended_july2025.pdf",
+        "title": "Individual Assistance Program and Policy Guide v1.1 amended July 2025",
+        "source_content_sha256": "bd2f2eb0c894883b4bd4285e56d0b73b779e4b6852fc92408ce5f4b2fd43702e",
+        "page_references": "Chapter 3, section II.A, printed p.47; identity verification details, printed p.49"
+      }
+    ]
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "fema.individual-assistance-policy-guide",
+      "source_name": "FEMA Individual Assistance Program and Policy Guide (IAPPG)",
+      "source_url": "https://www.fema.gov/sites/default/files/documents/fema_iappg-1.1_amended_july2025.pdf",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "federal",
+          "owner_name": "Federal Emergency Management Agency (FEMA)",
+          "verification_status": "verified",
+          "evidence_url": "https://www.fema.gov/sites/default/files/documents/fema_iappg-1.1_amended_july2025.pdf"
+        },
+        "approved_scope": "Partial source-backed IHP general published requirements from IAPPG v1.1 amended July 2025. The foreword says it does not replace FEMA internal NEMIS business rules and states the guide is effective for declarations on/after 2021-04-27. These statements are unmapped and non-executable.",
+        "refresh_mode": "operator_triggered"
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "fema-ihp-published-criteria",
+        "source_dataset_id": "FEMA IAPPG 1.1 amended July 2025, Chapter 3, section II.A",
+        "title": "FEMA IHP partial published requirements",
+        "landing_page": "https://www.fema.gov/sites/default/files/documents/fema_iappg-1.1_amended_july2025.pdf",
+        "schema_version": "eligibility-program-v2",
+        "namespace_ids": [
+          "core",
+          "eligibility"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "partial",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "refresh_mode": "operator_triggered",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "eligibility": "eligibility-program-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "eligibility": "eligibility-program-v2"
+          },
+          "content_type": "published_partial_non_executable_eligibility_reference",
+          "published_criteria_available": true,
+          "criteria_mapping_status": "not_mapped",
+          "maximum_records_total": 10
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "fema-ihp-published-criteria",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "FEMA IAPPG v1.1 amended July 2025; Chapter 3, section II.A; effective for declarations on or after 2021-04-27.",
+        "retrieved_at": "2026-10-27T15:34:41Z",
+        "transform_version": "fema-iappg-criteria-normalize-v1",
+        "validation_outcome": "valid",
+        "detail": "Six partial general IHP requirements statements from printed p.47; identity-verification requirement cross-checked against printed p.49. Unmapped and non-executable; assistance-type-specific conditions remain outside this record.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "fema-ihp-iappg-1-1-amended-general-requirements",
+            "record_type": "published-assistance-requirements-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "fema-ihp",
+              "eligibility.program.catalog_version": "IAPPG-1.1-amended-2025-07",
+              "eligibility.program.data_origin": "FEMA Individual Assistance Program and Policy Guide version 1.1 amended July 2025, Chapter 3, section II.A, printed page 47; identity verification also referenced at printed page 49.",
+              "eligibility.program.title": "FEMA Individuals and Households Program (IHP) general published eligibility conditions",
+              "eligibility.program.description": "Partial transcription of the IAPPG basic IHP conditions. The guide says each assistance type has additional specific conditions and documentation. Effective for declarations on or after 2021-04-27 per the foreword; not mapped to profile attributes or executable rules. No individual eligibility result is asserted.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "citizenship_status",
+                  "statement": "Applicant must be a U.S. citizen, non-citizen national, or qualified alien.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "fema.individual-assistance-policy-guide"
+                },
+                {
+                  "requirement_id": "identity_verification",
+                  "statement": "FEMA must be able to verify the applicant’s identity; the guide states that FEMA must verify identity with a valid Social Security Number before considering eligibility.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "fema.individual-assistance-policy-guide"
+                },
+                {
+                  "requirement_id": "unmet_disaster_needs",
+                  "statement": "The applicant’s insurance or other forms of disaster assistance received cannot meet the applicant’s disaster-caused needs.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "fema.individual-assistance-policy-guide"
+                },
+                {
+                  "requirement_id": "declared_disaster_causation",
+                  "statement": "The applicant’s necessary expenses and serious needs must be directly caused by a declared disaster.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "fema.individual-assistance-policy-guide"
+                },
+                {
+                  "requirement_id": "some_housing_and_ona_occupancy",
+                  "statement": "Some forms of Housing Assistance and Other Needs Assistance also require occupancy and ownership conditions; requirements vary by assistance type.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "fema.individual-assistance-policy-guide"
+                },
+                {
+                  "requirement_id": "assistance_type_specific_rules",
+                  "statement": "Each type of IHP assistance has specific eligibility conditions and documentation requirements; this guide section states basic conditions only.",
+                  "mapping_status": "context_only",
+                  "source_id": "fema.individual-assistance-policy-guide"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "national",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "fema.individual-assistance-policy-guide",
+              "source_version": "FEMA IAPPG v1.1 amended July 2025; Chapter 3, section II.A; effective for declarations on or after 2021-04-27.",
+              "retrieved_at": "2026-10-27T15:34:41Z",
+              "effective_at": null,
+              "transform_version": "fema-iappg-criteria-normalize-v1",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://www.fema.gov/sites/default/files/documents/fema_iappg-1.1_amended_july2025.pdf",
+                  "observed_at": "2026-10-27T15:34:41Z",
+                  "extraction_method": "document_location"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://www.fema.gov/sites/default/files/documents/fema_iappg-1.1_amended_july2025.pdf",
+                  "observed_at": "2026-10-27T15:34:41Z",
+                  "extraction_method": "document_location"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://www.fema.gov/sites/default/files/documents/fema_iappg-1.1_amended_july2025.pdf",
+                  "observed_at": "2026-10-27T15:34:41Z",
+                  "extraction_method": "document_location"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://www.fema.gov/sites/default/files/documents/fema_iappg-1.1_amended_july2025.pdf",
+                  "observed_at": "2026-10-27T15:34:41Z",
+                  "extraction_method": "document_location"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://www.fema.gov/sites/default/files/documents/fema_iappg-1.1_amended_july2025.pdf",
+                  "observed_at": "2026-10-27T15:34:41Z",
+                  "extraction_method": "document_location"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://www.fema.gov/sites/default/files/documents/fema_iappg-1.1_amended_july2025.pdf",
+                  "observed_at": "2026-10-27T15:34:41Z",
+                  "extraction_method": "document_location"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.fema.gov/sites/default/files/documents/fema_iappg-1.1_amended_july2025.pdf",
+            "schema_version": "eligibility-program-v2",
+            "observed_at": "2026-10-27T15:34:41Z",
+            "content_hash": "a77d6f42d13b1c3f9242c3c13ffcc04b54d6c498153fcf09bf261d6c8b514042"
+          }
+        ]
+      }
+    }
+  ]
+}

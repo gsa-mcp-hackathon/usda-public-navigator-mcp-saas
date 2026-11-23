@@ -1,0 +1,149 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "usda.fsa.disaster-assistance",
+    "reviewed_at": "2026-11-09T19:47:19Z",
+    "publisher_version": "Last-Modified 2026-11-09 19:37:48 GMT; publisher revision not stated",
+    "raw_source_documents_committed": false,
+    "access_method": "Official FSA HTML retrieved by HTTPS; raw response SHA-256 recorded, page body not retained.",
+    "pages": [
+      {
+        "url": "https://www.fsa.usda.gov/resources/disaster-recovery/livestock-forage-disaster-program-lfp",
+        "title": "Livestock Forage Disaster Program (LFP) | Farm Service Agency",
+        "source_content_sha256": "94754299e019a0ac496a1a2844eda0e94a9bf9570f2e3f8c7554f39463000ead"
+      }
+    ]
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "usda.fsa.disaster-assistance",
+      "source_name": "USDA Farm Service Agency Disaster Assistance Programs",
+      "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "federal",
+          "owner_name": "United States Department of Agriculture Farm Service Agency",
+          "verification_status": "verified",
+          "evidence_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs"
+        },
+        "approved_scope": "Shared federal disaster-program discovery listings from the official FSA disaster assistance page. Program descriptions are not complete criteria, individual eligibility determinations, current application status, or benefit estimates.",
+        "refresh_mode": "operator_triggered"
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "usda-fsa-disaster-assistance-programs",
+        "source_dataset_id": "FSA Disaster Assistance Programs page",
+        "title": "USDA FSA disaster assistance program listings",
+        "landing_page": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+        "schema_version": "public-listing-v1",
+        "namespace_ids": [
+          "core",
+          "listing"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "not_assessed",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "refresh_mode": "operator_triggered",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "listing": "eligibility-public-listing-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "listing": "public-listing-v1"
+          },
+          "content_type": "federal_fsa_disaster_program_listings",
+          "maximum_records_total": 100
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "usda-fsa-disaster-assistance-programs",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "FSA LFP page; Last-Modified 2026-11-09 19:37:48 GMT; publisher revision not stated.",
+        "retrieved_at": "2026-11-09T19:47:19Z",
+        "transform_version": "fsa-lfp-listing-source-review-v1",
+        "validation_outcome": "valid",
+        "detail": "One exact LFP discovery listing refreshed from its official program page. No eligibility rules or thresholds asserted; criteria coverage remains not_assessed pending mapping.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "fsa-livestock-forage-disaster-program",
+            "record_type": "federal-fsa-disaster-program-listing",
+            "canonical_attributes": {
+              "core.geography.country_code": "US",
+              "core.geography.jurisdiction_level": "federal",
+              "listing.title": "Livestock Forage Disaster Program (LFP)",
+              "listing.summary": "The Farm Service Agency provides financial support to eligible livestock producers who experience grazing losses from qualifying drought or fire conditions. The page limits qualifying fire-loss coverage to federally managed land.",
+              "listing.agency": "Farm Service Agency (FSA), USDA",
+              "listing.opportunity_url": "https://www.fsa.usda.gov/resources/disaster-recovery/livestock-forage-disaster-program-lfp"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.fsa.disaster-assistance",
+              "source_version": "FSA LFP page; Last-Modified 2026-11-09 19:37:48 GMT; publisher revision not stated.",
+              "retrieved_at": "2026-11-09T19:47:19Z",
+              "effective_at": null,
+              "transform_version": "fsa-lfp-listing-source-review-v1",
+              "field_provenance": {
+                "core.geography.country_code": {
+                  "source_url": "https://www.fsa.usda.gov/resources/disaster-recovery/livestock-forage-disaster-program-lfp",
+                  "observed_at": "2026-11-09T19:47:19Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.fsa.usda.gov/resources/disaster-recovery/livestock-forage-disaster-program-lfp",
+                  "observed_at": "2026-11-09T19:47:19Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.fsa.usda.gov/resources/disaster-recovery/livestock-forage-disaster-program-lfp",
+                  "observed_at": "2026-11-09T19:47:19Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.fsa.usda.gov/resources/disaster-recovery/livestock-forage-disaster-program-lfp",
+                  "observed_at": "2026-11-09T19:47:19Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.fsa.usda.gov/resources/disaster-recovery/livestock-forage-disaster-program-lfp",
+                  "observed_at": "2026-11-09T19:47:19Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.fsa.usda.gov/resources/disaster-recovery/livestock-forage-disaster-program-lfp",
+                  "observed_at": "2026-11-09T19:47:19Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.fsa.usda.gov/resources/disaster-recovery/livestock-forage-disaster-program-lfp",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-11-09T19:47:19Z",
+            "content_hash": "f49a827702e1d5afcd303950cc8664b02aac6b65c5997ab03458c885a5860750"
+          }
+        ]
+      }
+    }
+  ]
+}

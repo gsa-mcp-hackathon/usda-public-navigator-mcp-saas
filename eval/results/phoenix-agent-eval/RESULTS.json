@@ -1,0 +1,7 @@
+{"run_id":"20261123-full-b","core":"0.2.0","eligibility_template":"0.1.48","results":[
+{"dataset":"usda-platform-capability-eval-1","agent":"claude-sonnet-5-5","n":10,"exact":10,"correct":9,"scope":10,"tool_path":10,"calls":11,"input_tokens":107929,"output_tokens":549,"median_seconds":4.0,"errors":0},
+{"dataset":"usda-platform-capability-eval-1","agent":"gpt-4.1","n":10,"exact":10,"correct":9,"scope":1,"tool_path":9,"calls":9,"input_tokens":39157,"output_tokens":185,"median_seconds":2.4,"errors":0},
+{"dataset":"usda-eligibility-pattern-eval-3","agent":"claude-sonnet-5-5","n":10,"exact":10,"correct":10,"scope":10,"tool_path":6,"calls":81,"input_tokens":1492419,"output_tokens":9602,"median_seconds":24.7,"errors":0},
+{"dataset":"usda-eligibility-pattern-eval-3","agent":"gpt-4.1","n":10,"exact":4,"correct":4,"scope":9,"tool_path":5,"calls":77,"input_tokens":545576,"output_tokens":1796,"median_seconds":13.5,"errors":1},
+{"dataset":"usda-data-coverage-eval-1","agent":"claude-sonnet-5-5","n":3,"exact":3,"correct":2,"scope":3,"tool_path":3,"calls":16,"input_tokens":200739,"output_tokens":1864,"median_seconds":17.6,"errors":0},
+{"dataset":"usda-data-coverage-eval-1","agent":"gpt-4.1","n":3,"exact":3,"correct":3,"scope":3,"tool_path":3,"calls":17,"input_tokens":134577,"output_tokens":549,"median_seconds":14.9,"errors":0}]}

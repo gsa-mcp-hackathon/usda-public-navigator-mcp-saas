@@ -1,0 +1,56 @@
+{
+  "registry_id": "eligibility-profile-extension-schema",
+  "schema_version": "eligibility-profile-v2",
+  "namespaces": {
+    "nrcs": "NRCS source-specific profile facts used by mapped criteria",
+    "mo": "Missouri program-specific profile facts used by mapped criteria",
+    "snap": "Missouri SNAP household screening facts"
+  },
+  "dimensions": {
+    "nrcs.eqip": "EQIP screening facts",
+    "mo.dese.childcare": "Missouri Child Care Subsidy screening facts",
+    "snap": "Missouri SNAP screening facts"
+  },
+  "attributes": {
+    "nrcs.eqip.fsa_records_confirm_eligible_land_control": {
+      "dimension_id": "nrcs.eqip",
+      "type": "boolean"
+    },
+    "mo.dese.childcare.qualifying_activity": {
+      "dimension_id": "mo.dese.childcare",
+      "type": "string",
+      "allowed_values": [
+        "work",
+        "job_search",
+        "job_training",
+        "school"
+      ]
+    },
+    "mo.dese.childcare.care_needed_for_qualifying_activity": {
+      "dimension_id": "mo.dese.childcare",
+      "type": "boolean"
+    },
+    "mo.dese.childcare.child_age_years": {
+      "dimension_id": "mo.dese.childcare",
+      "type": "integer",
+      "minimum": 0
+    },
+    "mo.dese.childcare.child_has_special_needs": {
+      "dimension_id": "mo.dese.childcare",
+      "type": "boolean"
+    },
+    "mo.dese.childcare.child_receiving_protective_services": {
+      "dimension_id": "mo.dese.childcare",
+      "type": "boolean"
+    },
+    "snap.all_members_have_or_applying_ssn": {
+      "dimension_id": "snap",
+      "type": "boolean"
+    },
+    "snap.any_member_restricted_by_felony_or_drug_conviction": {
+      "dimension_id": "snap",
+      "type": "boolean"
+    }
+  },
+  "relationships": {}
+}

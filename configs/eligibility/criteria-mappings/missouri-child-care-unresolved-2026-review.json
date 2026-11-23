@@ -1,0 +1,157 @@
+{
+  "contract_version": "criteria-mapping-manifest-v1",
+  "mapping_id": "missouri-child-care-unresolved-2026-review",
+  "program_id": "missouri-child-care-subsidy",
+  "jurisdiction": "US-MO",
+  "review_status": "git_only_candidate_not_registered_or_published",
+  "source_registration_status": "Candidate citations only. Confirm source registration, active-policy approval, and source readback before any operator application.",
+  "source": {
+    "source_id": "missouri.dese.child-care-policy-manual",
+    "source_record_id": "missouri-dese-child-care-policy-manual-may-2026",
+    "source_content_sha256": "8b876df91d366d0136c787651adf3cbc8903c8751ddb064fa7fccfd598d53f3d",
+    "source_version": "Missouri DESE Child Care Subsidy Eligibility Policy Manual, May 2026; direct HTTP raw-content retrieval 2026-11-09T22:31:47Z",
+    "source_url": "https://dese.mo.gov/sites/g/files/zuston521/files/media/pdf/2026/05/Child%20Care%20Subsidy%20Eligibility%20Policy%20Manual_May%202026_0.pdf",
+    "retrieved_at": "2026-11-09T22:31:47Z",
+    "criteria_path": "Sections 1.2, 3.1, 4.1-4.8, 6.6-6.7.1"
+  },
+  "supporting_sources": [
+    {
+      "source_id": "missouri.dese.child-care-subsidy",
+      "source_record_id": "source-page-37a0c7616c5aaddbbe10",
+      "source_visible_text_sha256": "2c2d61a566cff87d8af847a7bdcd646ec2725fecf64ed2d074d2ae90306978e6",
+      "source_content_sha256": "a365d56107df07c3b7130be995b0b3408c421e0600d60207c419c42a05fcd21f",
+      "source_version": "sha256:a365d56107df07c3b7130be995b0b3408c421e0600d60207c419c42a05fcd21f",
+      "source_url": "https://dese.mo.gov/childhood/child-care-subsidy/families",
+      "retrieved_at": "2026-11-10T08:08:49.523673+00:00",
+      "registration_note": "Existing source identity verified by exact-policy Core source.read at the recorded retrieval time under active policy v1.2.5. Raw response hash is recorded; visible-text hash remains the stable source evidence. This does not verify the separate manual, income-chart, provider-page, or application candidate identities.",
+      "policy_entry_id": "missouri-dese-child-care-subsidy",
+      "source_policy_reference": {
+        "policy_id": "eligibility-public-search-domains",
+        "policy_version": "1.2.5",
+        "content_sha256": "425d114f41c6668a5273e4f70ede52c29035e5c1410eac5bda2411ab50ac843b"
+      },
+      "authority_class": "state",
+      "authority_jurisdiction": "US-MO",
+      "source_verification_status": "verified"
+    },
+    {
+      "source_id": "missouri.dese.child-care-income-chart",
+      "source_record_id": "missouri-dese-child-care-income-chart-updated-2026-07-01",
+      "source_content_sha256": "efb37b48e38b709a1cdedbe1cfa4be92649c9be8f1715c1e220bd118c32b42f4",
+      "source_version": "DESE Child Care Subsidy income eligibility chart, updated 2026-07-01; direct HTTP raw-content retrieval 2026-11-09T22:31:47Z",
+      "source_url": "https://dese.mo.gov/sites/g/files/zuston521/files/media/pdf/2026/07/Income%20Elig%20_Updated%206.29.26.pdf",
+      "retrieved_at": "2026-11-09T22:31:47Z",
+      "registration_note": "Candidate source identity; not asserted as registered or approved under the active policy."
+    },
+    {
+      "source_id": "missouri.dese.child-care-provider-information",
+      "source_record_id": "missouri-dese-child-care-providers-page",
+      "source_content_sha256": "341185bd011ac408e8ae91b1b5c6e42b733fcf70a8440d06f08ed7df5ac1a936",
+      "source_version": "DESE Child Care Subsidy provider page; direct HTTP raw-content retrieval 2026-11-09T22:31:47Z",
+      "source_url": "https://dese.mo.gov/childhood/child-care-subsidy/providers",
+      "retrieved_at": "2026-11-09T22:31:47Z",
+      "registration_note": "Candidate source identity; not asserted as registered or approved under the active policy."
+    },
+    {
+      "source_id": "missouri.dese.child-care-application",
+      "source_record_id": "missouri-dese-child-care-application-october-2026",
+      "source_content_sha256": "985f6006c5e8d5e89e8231bc7ac0280daa5ad45eff9efaa1ff638aaf97796b0f",
+      "source_version": "DESE MO 500-3469 application, accessible fillable version dated 2026-09; direct HTTP raw-content retrieval 2026-11-09T22:31:47Z",
+      "source_url": "https://dese.mo.gov/sites/g/files/zuston521/files/media/pdf/2026/10/MO_500_3469_Application_for_Child_Care_Subsidy_for_children_and_families_09_26_fillable_Accessible.pdf",
+      "retrieved_at": "2026-11-09T22:31:47Z",
+      "registration_note": "Candidate source identity; not asserted as registered or approved under the active policy."
+    }
+  ],
+  "source_completeness": "partial",
+  "mappings": [
+    {
+      "requirement_id": "mo-childcare-special-needs-path-review",
+      "statement": "The manual defines age-bounded special-needs eligibility paths and qualifying-care conditions, including additional school-status, qualifying-basis, and annual verification facts.",
+      "requirement_type": "eligibility",
+      "mapping_status": "partial",
+      "concept_id": "mo.childcare.special_needs_eligibility_path",
+      "profile_attribute": "mo.dese.childcare.child_has_special_needs",
+      "unresolved_reason": "The typed profile has age and a generic special-needs flag, but not the special-needs basis, school status for ages 18 to under 19, or the annual care-verification facts. A flat boolean rule would overstate the source's age-bounded alternatives.",
+      "citation": {
+        "source_id": "missouri.dese.child-care-policy-manual",
+        "source_record_id": "missouri-dese-child-care-policy-manual-may-2026",
+        "source_url": "https://dese.mo.gov/sites/g/files/zuston521/files/media/pdf/2026/05/Child%20Care%20Subsidy%20Eligibility%20Policy%20Manual_May%202026_0.pdf",
+        "source_version": "May 2026 manual; raw-content SHA-256 8b876df91d366d0136c787651adf3cbc8903c8751ddb064fa7fccfd598d53f3d",
+        "source_content_sha256": "8b876df91d366d0136c787651adf3cbc8903c8751ddb064fa7fccfd598d53f3d",
+        "retrieved_at": "2026-11-09T22:31:47Z",
+        "locator": "Sections 4.5(2)-(3), 6.7-6.7.1"
+      }
+    },
+    {
+      "requirement_id": "mo-childcare-protective-services-path-review",
+      "statement": "For children ages 18 to under 19, the manual specifies a protective-services eligibility path and separately defines qualifying protective-services care circumstances.",
+      "requirement_type": "eligibility",
+      "mapping_status": "partial",
+      "concept_id": "mo.childcare.protective_services_eligibility_path",
+      "profile_attribute": "mo.dese.childcare.child_receiving_protective_services",
+      "unresolved_reason": "The typed profile has child age and a generic protective-services flag, but not the distinct court-ordered custody, current adoption/guardianship subsidy, or active family-centered/intensive in-home service bases. The age-limited child path and qualifying-care path cannot be represented as one boolean criterion.",
+      "citation": {
+        "source_id": "missouri.dese.child-care-policy-manual",
+        "source_record_id": "missouri-dese-child-care-policy-manual-may-2026",
+        "source_url": "https://dese.mo.gov/sites/g/files/zuston521/files/media/pdf/2026/05/Child%20Care%20Subsidy%20Eligibility%20Policy%20Manual_May%202026_0.pdf",
+        "source_version": "May 2026 manual; raw-content SHA-256 8b876df91d366d0136c787651adf3cbc8903c8751ddb064fa7fccfd598d53f3d",
+        "source_content_sha256": "8b876df91d366d0136c787651adf3cbc8903c8751ddb064fa7fccfd598d53f3d",
+        "retrieved_at": "2026-11-09T22:31:47Z",
+        "locator": "Sections 4.5(4), 6.6-6.6.1"
+      }
+    },
+    {
+      "requirement_id": "mo-childcare-income-ceiling-review",
+      "statement": "The current DESE chart applies the chart maximum or 85% of state median income, whichever is lower, using the applicable eligibility-unit size.",
+      "requirement_type": "eligibility",
+      "mapping_status": "partial",
+      "concept_id": "mo.childcare.eligibility_unit_adjusted_gross_income_ceiling",
+      "profile_attribute": "core.household.annual_household_income_usd",
+      "context_attribute": "core.household.size",
+      "unresolved_reason": "The source ceiling and household-size table are documented, but the current profile's annual household income is not the manual's eligibility-unit adjusted gross income; eligibility-unit membership and the applicable reporting period are also not represented. Do not evaluate the chart against those non-equivalent profile facts.",
+      "citation": {
+        "source_id": "missouri.dese.child-care-income-chart",
+        "source_record_id": "missouri-dese-child-care-income-chart-updated-2026-07-01",
+        "source_url": "https://dese.mo.gov/sites/g/files/zuston521/files/media/pdf/2026/07/Income%20Elig%20_Updated%206.29.26.pdf",
+        "source_version": "Chart updated 2026-07-01; raw-content SHA-256 efb37b48e38b709a1cdedbe1cfa4be92649c9be8f1715c1e220bd118c32b42f4",
+        "source_content_sha256": "efb37b48e38b709a1cdedbe1cfa4be92649c9be8f1715c1e220bd118c32b42f4",
+        "retrieved_at": "2026-11-09T22:31:47Z",
+        "locator": "Clarification accompanying the July 1, 2026 chart; read with manual section 4.7"
+      }
+    },
+    {
+      "requirement_id": "mo-childcare-provider-and-funding-availability-review",
+      "statement": "A current DESE provider contract is required for DESE payment, and funding limits may result in a waitlist.",
+      "requirement_type": "availability",
+      "mapping_status": "context_only",
+      "unresolved_reason": "This is operational availability/readiness, not a stable applicant eligibility predicate. The public provider page and applicant county or ZIP do not supply live contract, capacity, funding, or waitlist-position data.",
+      "citation": {
+        "source_id": "missouri.dese.child-care-policy-manual",
+        "source_record_id": "missouri-dese-child-care-policy-manual-may-2026",
+        "source_url": "https://dese.mo.gov/sites/g/files/zuston521/files/media/pdf/2026/05/Child%20Care%20Subsidy%20Eligibility%20Policy%20Manual_May%202026_0.pdf",
+        "source_version": "May 2026 manual; raw-content SHA-256 8b876df91d366d0136c787651adf3cbc8903c8751ddb064fa7fccfd598d53f3d",
+        "source_content_sha256": "8b876df91d366d0136c787651adf3cbc8903c8751ddb064fa7fccfd598d53f3d",
+        "retrieved_at": "2026-11-09T22:31:47Z",
+        "locator": "Sections 1.2 and 3.1; provider information at https://dese.mo.gov/childhood/child-care-subsidy/providers"
+      }
+    },
+    {
+      "requirement_id": "mo-childcare-additional-case-conditions-review",
+      "statement": "Additional published conditions include Missouri residency and intent, child citizenship or qualified-alien status, applicant-child relationship, eligibility-unit composition, net worth subject to a protective-services exception, and overpayment repayment-plan status.",
+      "requirement_type": "eligibility",
+      "mapping_status": "partial",
+      "concept_id": "mo.childcare.additional_case_conditions",
+      "unresolved_reason": "This crosswalk bucket is decomposed into separate sourced facts in manual sections 2.7 and 4.1-4.8 and the October 2026 application. Existing state, county, and household-size facts do not establish residency intent, beneficiary status, applicant relationship, eligibility-unit membership, net worth, or repayment-plan status. Do not treat this combined bucket as evaluated.",
+      "citation": {
+        "source_id": "missouri.dese.child-care-policy-manual",
+        "source_record_id": "missouri-dese-child-care-policy-manual-may-2026",
+        "source_url": "https://dese.mo.gov/sites/g/files/zuston521/files/media/pdf/2026/05/Child%20Care%20Subsidy%20Eligibility%20Policy%20Manual_May%202026_0.pdf",
+        "source_version": "May 2026 manual; raw-content SHA-256 8b876df91d366d0136c787651adf3cbc8903c8751ddb064fa7fccfd598d53f3d",
+        "source_content_sha256": "8b876df91d366d0136c787651adf3cbc8903c8751ddb064fa7fccfd598d53f3d",
+        "retrieved_at": "2026-11-09T22:31:47Z",
+        "locator": "Sections 2.7 and 4.1-4.8; current application linked from DESE family page"
+      }
+    }
+  ],
+  "evaluation_boundary": "Review-only source crosswalk for the five previously unresolved Missouri child-care items. It adds no executable rules, does not change the existing catalog seed or policy, and does not assert that candidate sources are registered or approved. Preserve the S14 UC-3-S3 oracle and the existing partial criteria. The household-size chart is source-resolved, but current profile income facts are not semantically equivalent to eligibility-unit adjusted gross income. The three existing supported criteria remain separate from this candidate. No Missouri DESE eligibility determination is made."
+}

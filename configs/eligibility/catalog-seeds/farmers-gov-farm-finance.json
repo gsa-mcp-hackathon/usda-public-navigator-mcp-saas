@@ -1,0 +1,1243 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "usda.farmers.gov",
+    "source_url": "https://www.farmers.gov/loans",
+    "retrieved_at": "2026-10-27T02:46:38Z",
+    "content_type": "text/html",
+    "content_length_bytes": 157974,
+    "sha256": "9fa6f046735bf89b6998d9942779b16a7da28e29d387f2fda174c03f843f22c7",
+    "etag": null,
+    "last_modified": null,
+    "notice": "The source page says its content is under review and may change."
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "usda.farmers.gov",
+      "source_name": "USDA Farmers.gov farm finance and loan guidance",
+      "source_url": "https://www.farmers.gov/loans",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "federal",
+          "owner_name": "United States Department of Agriculture",
+          "verification_status": "verified",
+          "evidence_url": "https://www.farmers.gov/loans"
+        },
+        "approved_scope": "Source-backed discovery listings and application/referral guidance for farm finance programs described on Farmers.gov. Published eligibility requirements are not fully normalized by this batch; do not treat listing records as eligibility findings.",
+        "refresh_mode": "operator_triggered"
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "farmers-gov-farm-finance-listings",
+        "source_dataset_id": "Farmers.gov Loans page",
+        "title": "USDA farm finance program listings from Farmers.gov",
+        "landing_page": "https://www.farmers.gov/loans",
+        "schema_version": "public-listing-v1",
+        "namespace_ids": [
+          "core",
+          "listing"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "not_assessed",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "listing": "eligibility-public-listing-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "listing": "public-listing-v1"
+          },
+          "content_type": "federal_farm_finance_program_listings_and_referral",
+          "refresh_mode": "operator_triggered",
+          "source_snapshot_sha256": "9fa6f046735bf89b6998d9942779b16a7da28e29d387f2fda174c03f843f22c7",
+          "maximum_records_total": 20
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "farmers-gov-farm-finance-listings",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "Farmers.gov Loans page SHA-256 9fa6f046735bf89b6998d9942779b16a7da28e29d387f2fda174c03f843f22c7",
+        "retrieved_at": "2026-10-27T02:48:30Z",
+        "transform_version": "farmers-gov-loans-review-1",
+        "validation_outcome": "valid",
+        "detail": "Normalized source-backed farm finance listings and one official FSA application referral; criteria remain unassessed.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "farm-ownership-loans",
+            "record_type": "federal-farm-finance-listing",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Farm Ownership Loans",
+              "listing.summary": "FSA says Farm Ownership Loans can purchase or expand a farm or ranch, pay closing costs, construct or improve farm buildings, and conserve soil and water. The page states an amount up to $600,000 for eligible borrowers. Individual eligibility requirements are not normalized in this listing.",
+              "listing.agency": "Farm Service Agency (FSA), USDA",
+              "listing.applicant_types": [
+                "farmers",
+                "ranchers"
+              ],
+              "listing.opportunity_url": "https://www.farmers.gov/loans"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              },
+              "criteria_program_ids": [
+                "usda-fsa-direct-farm-loans",
+                "usda-fsa-guaranteed-farm-loan"
+              ],
+              "criteria_link_evidence": {
+                "policy_version": "fsa-loan-criteria-links-v1",
+                "reviewed_date": "2026-10-29",
+                "links": [
+                  {
+                    "program_id": "usda-fsa-direct-farm-loans",
+                    "relationship": "FSA direct farm-ownership loan listing",
+                    "source_urls": [
+                      "https://www.farmers.gov/loans",
+                      "https://www.fsa.usda.gov/resources/loans/farm-ownership-loans"
+                    ]
+                  },
+                  {
+                    "program_id": "usda-fsa-guaranteed-farm-loan",
+                    "relationship": "FSA guaranteed farm-ownership loan listing",
+                    "source_urls": [
+                      "https://www.farmers.gov/loans",
+                      "https://www.fsa.usda.gov/resources/loans/guaranteed-farm-loans"
+                    ]
+                  }
+                ],
+                "status": "review_only"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Farmers.gov Loans page SHA-256 9fa6f046735bf89b6998d9942779b16a7da28e29d387f2fda174c03f843f22c7",
+              "retrieved_at": "2026-10-27T02:48:30Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-loans-review-1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.farmers.gov/loans",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T02:48:30Z",
+            "content_hash": "ada86235ab9ed5f95e65b6e23f394a6f58a5d3ac1f65d238338b588ff98280ab"
+          },
+          {
+            "source_record_id": "farm-operating-loans",
+            "record_type": "federal-farm-finance-listing",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Farm Operating Loans",
+              "listing.summary": "FSA says Farm Operating Loans can finance livestock, seed, equipment, farm operating costs, and family living expenses while a farm gets started. The page states an amount up to $400,000 for eligible borrowers. Individual eligibility requirements are not normalized in this listing.",
+              "listing.agency": "Farm Service Agency (FSA), USDA",
+              "listing.applicant_types": [
+                "farmers",
+                "ranchers"
+              ],
+              "listing.opportunity_url": "https://www.farmers.gov/loans"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              },
+              "criteria_program_ids": [
+                "usda-fsa-direct-farm-loans",
+                "usda-fsa-guaranteed-farm-loan"
+              ],
+              "criteria_link_evidence": {
+                "policy_version": "fsa-loan-criteria-links-v1",
+                "reviewed_date": "2026-10-29",
+                "links": [
+                  {
+                    "program_id": "usda-fsa-direct-farm-loans",
+                    "relationship": "FSA direct farm-operating loan listing",
+                    "source_urls": [
+                      "https://www.farmers.gov/loans",
+                      "https://www.fsa.usda.gov/programs-and-services/farm-bill/farm-loans/farm-operating-loans-and-microloans"
+                    ]
+                  },
+                  {
+                    "program_id": "usda-fsa-guaranteed-farm-loan",
+                    "relationship": "FSA guaranteed farm-operating loan listing",
+                    "source_urls": [
+                      "https://www.farmers.gov/loans",
+                      "https://www.fsa.usda.gov/resources/loans/guaranteed-farm-loans"
+                    ]
+                  }
+                ],
+                "status": "review_only"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Farmers.gov Loans page SHA-256 9fa6f046735bf89b6998d9942779b16a7da28e29d387f2fda174c03f843f22c7",
+              "retrieved_at": "2026-10-27T02:48:30Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-loans-review-1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.farmers.gov/loans",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T02:48:30Z",
+            "content_hash": "70d1a937338249a64b038c5f15dd49395e96a190076658794d39a659eab39d38"
+          },
+          {
+            "source_record_id": "fsa-microloans",
+            "record_type": "federal-farm-finance-listing",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "FSA Microloans",
+              "listing.summary": "Farmers.gov describes Microloans as a type of FSA Operating or Farm Ownership Loan intended for small and beginning farmers and for nontraditional or specialty operations, with some requirements and paperwork eased. The page does not provide the complete applicable criteria.",
+              "listing.agency": "Farm Service Agency (FSA), USDA",
+              "listing.applicant_types": [
+                "small_farmers",
+                "beginning_farmers",
+                "specialty_operations"
+              ],
+              "listing.opportunity_url": "https://www.farmers.gov/loans"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              },
+              "criteria_program_ids": [
+                "usda-fsa-direct-farm-loans"
+              ],
+              "criteria_link_evidence": {
+                "policy_version": "fsa-loan-criteria-links-v1",
+                "reviewed_date": "2026-10-29",
+                "links": [
+                  {
+                    "program_id": "usda-fsa-direct-farm-loans",
+                    "relationship": "FSA identifies microloans as direct operating or farm-ownership loan products; general direct-loan criteria are only a partial reference for microloans",
+                    "source_urls": [
+                      "https://www.farmers.gov/loans",
+                      "https://www.fsa.usda.gov/programs-and-services/farm-bill/farm-loans/farm-operating-loans-and-microloans"
+                    ]
+                  }
+                ],
+                "status": "review_only"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Farmers.gov Loans page SHA-256 9fa6f046735bf89b6998d9942779b16a7da28e29d387f2fda174c03f843f22c7",
+              "retrieved_at": "2026-10-27T02:48:30Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-loans-review-1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.farmers.gov/loans",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T02:48:30Z",
+            "content_hash": "a95cf82407a77b193f9dba595620ffa004f24011e1f872ff05cbe8dc9b0c8bac"
+          },
+          {
+            "source_record_id": "fsa-emergency-loans",
+            "record_type": "federal-farm-finance-listing",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "FSA Emergency Loans",
+              "listing.summary": "Farmers.gov says FSA Emergency Loans help when a qualifying natural disaster causes loss or damage to a farm or ranch. Disaster designation and complete program criteria are not evaluated by this listing.",
+              "listing.agency": "Farm Service Agency (FSA), USDA",
+              "listing.applicant_types": [
+                "farmers",
+                "ranchers"
+              ],
+              "listing.opportunity_url": "https://www.farmers.gov/loans"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Farmers.gov Loans page SHA-256 9fa6f046735bf89b6998d9942779b16a7da28e29d387f2fda174c03f843f22c7",
+              "retrieved_at": "2026-10-27T02:48:30Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-loans-review-1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.farmers.gov/loans",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T02:48:30Z",
+            "content_hash": "75aed2c4778f3eb42e30d6a9b78c6fafb159d5f5da10029c6d5eb7e1bef41d6d"
+          },
+          {
+            "source_record_id": "fsa-guaranteed-farm-ownership-loans",
+            "record_type": "federal-farm-finance-listing",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "FSA Guaranteed Farm Ownership Loans",
+              "listing.summary": "Farmers.gov says FSA guaranteed Farm Ownership Loans help family farmers and ranchers obtain loans from USDA-approved commercial lenders to buy farmland or finance agricultural production. Lender underwriting and FSA criteria are not normalized here.",
+              "listing.agency": "Farm Service Agency (FSA), USDA",
+              "listing.applicant_types": [
+                "family_farmers",
+                "ranchers",
+                "commercial_lenders"
+              ],
+              "listing.opportunity_url": "https://www.farmers.gov/loans"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              },
+              "criteria_program_ids": [
+                "usda-fsa-guaranteed-farm-loan"
+              ],
+              "criteria_link_evidence": {
+                "policy_version": "fsa-loan-criteria-links-v1",
+                "reviewed_date": "2026-10-29",
+                "links": [
+                  {
+                    "program_id": "usda-fsa-guaranteed-farm-loan",
+                    "relationship": "FSA guaranteed farm-ownership loan listing",
+                    "source_urls": [
+                      "https://www.farmers.gov/loans",
+                      "https://www.fsa.usda.gov/resources/loans/guaranteed-farm-loans"
+                    ]
+                  }
+                ],
+                "status": "review_only"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Farmers.gov Loans page SHA-256 9fa6f046735bf89b6998d9942779b16a7da28e29d387f2fda174c03f843f22c7",
+              "retrieved_at": "2026-10-27T02:48:30Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-loans-review-1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.farmers.gov/loans",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T02:48:30Z",
+            "content_hash": "b0ba118a26004f00e099ac0073b368b7a7b264763a625b071720239d0aac52cc"
+          },
+          {
+            "source_record_id": "fsa-guaranteed-operating-loans",
+            "record_type": "federal-farm-finance-listing",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "FSA Guaranteed Farm Operating Loans",
+              "listing.summary": "Farmers.gov says FSA guaranteed Operating Loans may finance livestock, equipment, feed, seed, fuel, chemicals, insurance, and other operating expenses. Lender underwriting and FSA criteria are not normalized here.",
+              "listing.agency": "Farm Service Agency (FSA), USDA",
+              "listing.applicant_types": [
+                "farmers",
+                "ranchers",
+                "commercial_lenders"
+              ],
+              "listing.opportunity_url": "https://www.farmers.gov/loans"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              },
+              "criteria_program_ids": [
+                "usda-fsa-guaranteed-farm-loan"
+              ],
+              "criteria_link_evidence": {
+                "policy_version": "fsa-loan-criteria-links-v1",
+                "reviewed_date": "2026-10-29",
+                "links": [
+                  {
+                    "program_id": "usda-fsa-guaranteed-farm-loan",
+                    "relationship": "FSA guaranteed farm-operating loan listing",
+                    "source_urls": [
+                      "https://www.farmers.gov/loans",
+                      "https://www.fsa.usda.gov/resources/loans/guaranteed-farm-loans"
+                    ]
+                  }
+                ],
+                "status": "review_only"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Farmers.gov Loans page SHA-256 9fa6f046735bf89b6998d9942779b16a7da28e29d387f2fda174c03f843f22c7",
+              "retrieved_at": "2026-10-27T02:48:30Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-loans-review-1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.farmers.gov/loans",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T02:48:30Z",
+            "content_hash": "020e46a5c89fd8ca0dd06d87fdc45ef7c7421d450064d386a30d539b9f41cc1d"
+          },
+          {
+            "source_record_id": "fsa-youth-loans",
+            "record_type": "federal-farm-finance-listing",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "FSA Youth Loans",
+              "listing.summary": "Farmers.gov describes Youth Loans as Operating Loans for young farmers ages 10–20 seeking support for an educational agricultural project, typically through 4-H, FFA, or a similar organization. The full criteria and application review are not represented here.",
+              "listing.agency": "Farm Service Agency (FSA), USDA",
+              "listing.applicant_types": [
+                "young_farmers",
+                "agricultural_project_participants"
+              ],
+              "listing.opportunity_url": "https://www.farmers.gov/loans"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Farmers.gov Loans page SHA-256 9fa6f046735bf89b6998d9942779b16a7da28e29d387f2fda174c03f843f22c7",
+              "retrieved_at": "2026-10-27T02:48:30Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-loans-review-1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.farmers.gov/loans",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T02:48:30Z",
+            "content_hash": "cd69d6066b62894a68ce6e333b3f71ab66521f98ee98b2292efaba0453a58bfe"
+          },
+          {
+            "source_record_id": "fsa-farm-storage-facility-loans",
+            "record_type": "federal-farm-finance-listing",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Farm Storage Facility Loan Program",
+              "listing.summary": "Farmers.gov says Farm Storage Facility Loans can help producers build or upgrade farm storage and handling facilities. The page states program-specific maximums; this listing does not assess an applicant or project against complete criteria.",
+              "listing.agency": "Farm Service Agency (FSA), USDA",
+              "listing.applicant_types": [
+                "agricultural_producers"
+              ],
+              "listing.opportunity_url": "https://www.farmers.gov/loans"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Farmers.gov Loans page SHA-256 9fa6f046735bf89b6998d9942779b16a7da28e29d387f2fda174c03f843f22c7",
+              "retrieved_at": "2026-10-27T02:48:30Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-loans-review-1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.farmers.gov/loans",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T02:48:30Z",
+            "content_hash": "13080d9cb3961306ab50148dc5fc80b0d331ec742d642a444ffe840dd61a6d1c"
+          },
+          {
+            "source_record_id": "fsa-sugar-storage-facility-loans",
+            "record_type": "federal-farm-finance-listing",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Sugar Storage Facility Loan Program",
+              "listing.summary": "Farmers.gov lists Sugar Storage Facility Loans for storage and handling facilities and describes a program-specific maximum principal amount. Detailed program requirements are not normalized in this listing.",
+              "listing.agency": "Farm Service Agency (FSA), USDA",
+              "listing.applicant_types": [
+                "sugar_producers"
+              ],
+              "listing.opportunity_url": "https://www.farmers.gov/loans"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Farmers.gov Loans page SHA-256 9fa6f046735bf89b6998d9942779b16a7da28e29d387f2fda174c03f843f22c7",
+              "retrieved_at": "2026-10-27T02:48:30Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-loans-review-1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.farmers.gov/loans",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T02:48:30Z",
+            "content_hash": "44e4d143d6c0085fd2f7aeab9ec616247caa777616a7ebd8a4ad0d5abc05ef00"
+          },
+          {
+            "source_record_id": "fsa-marketing-assistance-loans",
+            "record_type": "federal-farm-finance-listing",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "FSA Marketing Assistance Loans",
+              "listing.summary": "Farmers.gov says Marketing Assistance Loans provide producers interim financing at harvest so they may meet cash-flow needs without selling commodities when prices are typically low. Commodity and program rules are not normalized in this listing.",
+              "listing.agency": "Farm Service Agency (FSA), USDA",
+              "listing.applicant_types": [
+                "agricultural_producers"
+              ],
+              "listing.opportunity_url": "https://www.farmers.gov/loans"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Farmers.gov Loans page SHA-256 9fa6f046735bf89b6998d9942779b16a7da28e29d387f2fda174c03f843f22c7",
+              "retrieved_at": "2026-10-27T02:48:30Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-loans-review-1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.farmers.gov/loans",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T02:48:30Z",
+            "content_hash": "7ad39636046c413af6795ac09ace6369983c2d9d183f71e5bd8edf1e45d4be03"
+          },
+          {
+            "source_record_id": "fsa-loan-deficiency-payments",
+            "record_type": "federal-farm-finance-listing",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "FSA Loan Deficiency Payments",
+              "listing.summary": "Farmers.gov says Loan Deficiency Payments may be paid to producers who are eligible to obtain a CCC loan but choose to forgo that loan for a payment on an eligible commodity. Commodity and program rules are not normalized in this listing.",
+              "listing.agency": "Farm Service Agency (FSA), USDA",
+              "listing.applicant_types": [
+                "agricultural_producers"
+              ],
+              "listing.opportunity_url": "https://www.farmers.gov/loans"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Farmers.gov Loans page SHA-256 9fa6f046735bf89b6998d9942779b16a7da28e29d387f2fda174c03f843f22c7",
+              "retrieved_at": "2026-10-27T02:48:30Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-loans-review-1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.farmers.gov/loans",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T02:48:30Z",
+            "content_hash": "34254e4bcb0e28e84f674d6ce6b6e37e0374c84c17285966e181ce034b26796c"
+          },
+          {
+            "source_record_id": "usda-rural-development-single-family-housing-loans",
+            "record_type": "federal-farm-finance-listing",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "USDA Rural Development Single-Family Housing Loans",
+              "listing.summary": "Farmers.gov lists Rural Development single-family housing loans for purchasing or building a home, repairing an existing home, or refinancing a mortgage. The page does not establish that this housing assistance is farm-specific; individual eligibility is not assessed.",
+              "listing.agency": "USDA Rural Development",
+              "listing.applicant_types": [
+                "individuals",
+                "homebuyers"
+              ],
+              "listing.opportunity_url": "https://www.farmers.gov/loans"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Farmers.gov Loans page SHA-256 9fa6f046735bf89b6998d9942779b16a7da28e29d387f2fda174c03f843f22c7",
+              "retrieved_at": "2026-10-27T02:48:30Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-loans-review-1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.farmers.gov/loans",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T02:48:30Z",
+            "content_hash": "eab42e430e84314c1afc9ddedde2581e0c4e72ceb9a78910a9bbaaacb2dcc68a"
+          },
+          {
+            "source_record_id": "fsa-beginning-farmer-loan-set-aside",
+            "record_type": "federal-farm-finance-listing",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "Beginning Farmer and Rancher Loan Resources",
+              "listing.summary": "The Farmers.gov Loans page includes a Beginning Farmer and Rancher Loans section and links to additional loan and resource information for new farmers and ranchers. The section does not supply complete eligibility requirements; underlying program rules are not normalized in this listing.",
+              "listing.agency": "Farm Service Agency (FSA), USDA",
+              "listing.applicant_types": [
+                "beginning_farmers",
+                "beginning_ranchers"
+              ],
+              "listing.opportunity_url": "https://www.farmers.gov/loans"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              },
+              "criteria_program_ids": [
+                "fsa-beginning-farmer-classification"
+              ],
+              "criteria_link_evidence": {
+                "policy_version": "fsa-loan-criteria-links-v1",
+                "reviewed_date": "2026-10-29",
+                "links": [
+                  {
+                    "program_id": "fsa-beginning-farmer-classification",
+                    "relationship": "FSA beginning-farmer targeted funding classification referenced by the listing; it is not a separate loan product",
+                    "source_urls": [
+                      "https://www.farmers.gov/loans",
+                      "https://www.fsa.usda.gov/resources/beginning-farmers-and-ranchers-loans"
+                    ]
+                  }
+                ],
+                "status": "review_only"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Farmers.gov Loans page SHA-256 9fa6f046735bf89b6998d9942779b16a7da28e29d387f2fda174c03f843f22c7",
+              "retrieved_at": "2026-10-27T02:48:30Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-loans-review-1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.farmers.gov/loans",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T02:48:30Z",
+            "content_hash": "4c1b6cf63925635633878204fcaa3ecc78a2a3b370d25375bb914521987d2e39"
+          },
+          {
+            "source_record_id": "fsa-farm-loan-assistance-tool",
+            "record_type": "federal-program-referral",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "federal",
+              "core.geography.country_code": "US",
+              "listing.title": "FSA Farm Loan Assistance Tool",
+              "listing.summary": "Farmers.gov directs users to this USDA tool to explore FSA farm-loan products, check possible eligibility, review documentation needs, and get application instructions. The tool result and its eligibility criteria are not reproduced or evaluated by this referral record.",
+              "listing.agency": "Farm Service Agency (FSA), USDA",
+              "listing.applicant_types": [
+                "farmers",
+                "ranchers"
+              ],
+              "listing.opportunity_url": "https://lat.fpac.usda.gov/"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.farmers.gov",
+              "source_version": "Farmers.gov Loans page SHA-256 9fa6f046735bf89b6998d9942779b16a7da28e29d387f2fda174c03f843f22c7",
+              "retrieved_at": "2026-10-27T02:48:30Z",
+              "effective_at": null,
+              "transform_version": "farmers-gov-loans-review-1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.farmers.gov/loans",
+                  "observed_at": "2026-10-27T02:48:30Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.farmers.gov/loans",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T02:48:30Z",
+            "content_hash": "2ebfee79040a24764cd0c050929c9261d1d653d7c3ee183578cc2c9c619e9134"
+          }
+        ]
+      }
+    }
+  ]
+}

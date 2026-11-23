@@ -1,0 +1,9 @@
+{
+  "note": "Each reply is summarized from the browser agent's capture, not quoted word for word.",
+  "assistant_replies": [
+    "(reply 1) Searched the USDA catalog; names the Environmental Quality Incentives Program (EQIP) and the Emergency Conservation Program, each labelled 'USDA catalog'; says EQIP is the likely fit for planned irrigation work; asks about owning or leasing, the kind of change, and prior contact with the local NRCS office.",
+    "(reply 2) Reads the official EQIP page; says drip and micro-sprinkler work fit the program; lists what to bring (tax ID, deed or lease, farm number); gives the five application steps; says payment rates are set by the state NRCS office and the New Mexico ranking deadline is not on the page; ends with 'Informational only; the agency makes the official decision.'; asks three questions again (own or lease, farm number, county).",
+    "(reply 3) Nearly the same text as reply 2, with the same three questions and the same closing line."
+  ],
+  "final_outcome_summary": "EQIP named as the likely fit from the catalog and the official page. Conservation criteria were not reported as met or approved; the process steps and the agency's decision were stated. The assistant repeated itself on the last two turns."
+}

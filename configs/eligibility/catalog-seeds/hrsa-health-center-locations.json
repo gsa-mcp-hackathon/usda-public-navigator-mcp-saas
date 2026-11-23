@@ -1,0 +1,203 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "us.hrsa.health-centers",
+    "publisher_version": "HRSA Health Center Service Delivery and Look-Alike Sites downloadable CSV; refreshed by HRSA on its published daily cycle.",
+    "raw_source_documents_committed": false,
+    "access_method": "Direct public CSV download; no API key is required for this file. HRSA web services are a separate registered/tokenized access method.",
+    "pages": [
+      {
+        "url": "https://data.hrsa.gov/topics/health-centers/",
+        "title": "HRSA Health Centers and downloadable site data"
+      },
+      {
+        "url": "https://data.hrsa.gov/DataDownload/DD_Files/Health_Center_Service_Delivery_and_LookAlike_Sites.csv",
+        "title": "Health Center Service Delivery and Look-Alike Sites CSV"
+      },
+      {
+        "url": "https://data.hrsa.gov/data/download?titlefilter=Health+Center",
+        "title": "HRSA Data Downloads and usage terms"
+      }
+    ]
+  },
+  "persistence_policy": {
+    "mode": "source_query_only",
+    "bulk_snapshot_import_enabled": false,
+    "reason": "HRSA is the authoritative record source; keep facility rows upstream and normalize bounded query results transiently."
+  },
+  "transform": {
+    "transform_version": "hrsa-hcsd-referrals-v1",
+    "record_role": "referral",
+    "schema_version": "public-listing-v3",
+    "criteria_coverage": "not_assessed",
+    "partition": "HHS Region code as published; records with no HHS Region code are retained in a separate unassigned partition.",
+    "stable_record_id_column": "BPHC Assigned Number",
+    "jurisdiction_classification": {
+      "state_codes": [
+        "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY", "DC"
+      ],
+      "territory_codes": ["AS", "FM", "GU", "MH", "MP", "PR", "PW", "VI"]
+    },
+    "field_mapping": {
+      "listing.title": "Site Name",
+      "listing.agency": "Health Center Name",
+      "listing.summary": [
+        "Health Center Type",
+        "Site Address",
+        "Site City",
+        "Site State Abbreviation",
+        "Site Postal Code",
+        "Site Telephone Number",
+        "Site Web Address",
+        "Operating Hours per Week",
+        "Health Center Service Delivery Site Location Setting Description",
+        "Site Status Description",
+        "Complete County Name or County Equivalent Name"
+      ],
+      "core.geography.state_code": "Site State Abbreviation",
+      "core.geography.county_name": "Complete County Name or County Equivalent Name"
+    },
+    "excluded_source_columns": [
+      "FQHC Site Medicare Billing Number",
+      "FQHC Site NPI Number",
+      "U.S. Congressional Representative Name",
+      "Name of U.S. Senator Number One",
+      "Name of U.S. Senator Number Two"
+    ],
+    "privacy_and_semantics": "Only public facility locator details are normalized. Missing address or postal fields are preserved as missing, including HRSA's documented suppression for domestic-violence shelter locations. HRSA's published XX state code is not converted into a state. These records are referral locations, not programs, criteria, or eligibility findings."
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "us.hrsa.health-centers",
+      "source_name": "HRSA Health Center Service Delivery and Look-Alike Sites",
+      "source_url": "https://data.hrsa.gov/topics/health-centers/",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "federal",
+          "owner_name": "Health Resources and Services Administration, Bureau of Primary Health Care",
+          "verification_status": "verified",
+          "evidence_url": "https://data.hrsa.gov/topics/health-centers/"
+        },
+        "refresh_mode": "operator_triggered",
+        "approved_scope": "Public national locator metadata for active Health Center Program service delivery and Look-Alike sites. Referral only; no health-care eligibility, service availability, or clinical outcome is inferred. HRSA states usage limitations are none for the service delivery sites dataset."
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "hrsa-health-center-sites-region-01",
+        "source_dataset_id": "HRSA Health Center Service Delivery and Look-Alike Sites — HHS Region 01",
+        "title": "HRSA health center locator — HHS Region 01",
+        "landing_page": "https://data.hrsa.gov/topics/health-centers/",
+        "schema_version": "public-listing-v3",
+        "namespace_ids": ["core", "listing"],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "not_assessed",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "refresh_mode": "operator_triggered",
+          "content_type": "primary_health_center_service_delivery_referrals",
+          "hhs_region_code": "01",
+          "maximum_records_total": 5000,
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "listing": "eligibility-public-listing-schema"
+          },
+          "schema_versions": {"core": "core-v2", "listing": "public-listing-v3"}
+        }
+      },
+      {
+        "dataset_id": "hrsa-health-center-sites-region-02",
+        "source_dataset_id": "HRSA Health Center Service Delivery and Look-Alike Sites — HHS Region 02",
+        "title": "HRSA health center locator — HHS Region 02",
+        "landing_page": "https://data.hrsa.gov/topics/health-centers/",
+        "schema_version": "public-listing-v3",
+        "namespace_ids": ["core", "listing"],
+        "metadata": {"catalog_namespace": "programs", "criteria_coverage": "not_assessed", "record_contract_version": "normalized-public-record-v1", "visibility_scope": "cluster_public", "refresh_mode": "operator_triggered", "content_type": "primary_health_center_service_delivery_referrals", "hhs_region_code": "02", "maximum_records_total": 5000, "schema_registry_ids": {"core": "core-schema-registry", "listing": "eligibility-public-listing-schema"}, "schema_versions": {"core": "core-v2", "listing": "public-listing-v3"}}
+      },
+      {
+        "dataset_id": "hrsa-health-center-sites-region-03",
+        "source_dataset_id": "HRSA Health Center Service Delivery and Look-Alike Sites — HHS Region 03",
+        "title": "HRSA health center locator — HHS Region 03",
+        "landing_page": "https://data.hrsa.gov/topics/health-centers/",
+        "schema_version": "public-listing-v3",
+        "namespace_ids": ["core", "listing"],
+        "metadata": {"catalog_namespace": "programs", "criteria_coverage": "not_assessed", "record_contract_version": "normalized-public-record-v1", "visibility_scope": "cluster_public", "refresh_mode": "operator_triggered", "content_type": "primary_health_center_service_delivery_referrals", "hhs_region_code": "03", "maximum_records_total": 5000, "schema_registry_ids": {"core": "core-schema-registry", "listing": "eligibility-public-listing-schema"}, "schema_versions": {"core": "core-v2", "listing": "public-listing-v3"}}
+      },
+      {
+        "dataset_id": "hrsa-health-center-sites-region-04",
+        "source_dataset_id": "HRSA Health Center Service Delivery and Look-Alike Sites — HHS Region 04",
+        "title": "HRSA health center locator — HHS Region 04",
+        "landing_page": "https://data.hrsa.gov/topics/health-centers/",
+        "schema_version": "public-listing-v3",
+        "namespace_ids": ["core", "listing"],
+        "metadata": {"catalog_namespace": "programs", "criteria_coverage": "not_assessed", "record_contract_version": "normalized-public-record-v1", "visibility_scope": "cluster_public", "refresh_mode": "operator_triggered", "content_type": "primary_health_center_service_delivery_referrals", "hhs_region_code": "04", "maximum_records_total": 5000, "schema_registry_ids": {"core": "core-schema-registry", "listing": "eligibility-public-listing-schema"}, "schema_versions": {"core": "core-v2", "listing": "public-listing-v3"}}
+      },
+      {
+        "dataset_id": "hrsa-health-center-sites-region-05",
+        "source_dataset_id": "HRSA Health Center Service Delivery and Look-Alike Sites — HHS Region 05",
+        "title": "HRSA health center locator — HHS Region 05",
+        "landing_page": "https://data.hrsa.gov/topics/health-centers/",
+        "schema_version": "public-listing-v3",
+        "namespace_ids": ["core", "listing"],
+        "metadata": {"catalog_namespace": "programs", "criteria_coverage": "not_assessed", "record_contract_version": "normalized-public-record-v1", "visibility_scope": "cluster_public", "refresh_mode": "operator_triggered", "content_type": "primary_health_center_service_delivery_referrals", "hhs_region_code": "05", "maximum_records_total": 5000, "schema_registry_ids": {"core": "core-schema-registry", "listing": "eligibility-public-listing-schema"}, "schema_versions": {"core": "core-v2", "listing": "public-listing-v3"}}
+      },
+      {
+        "dataset_id": "hrsa-health-center-sites-region-06",
+        "source_dataset_id": "HRSA Health Center Service Delivery and Look-Alike Sites — HHS Region 06",
+        "title": "HRSA health center locator — HHS Region 06",
+        "landing_page": "https://data.hrsa.gov/topics/health-centers/",
+        "schema_version": "public-listing-v3",
+        "namespace_ids": ["core", "listing"],
+        "metadata": {"catalog_namespace": "programs", "criteria_coverage": "not_assessed", "record_contract_version": "normalized-public-record-v1", "visibility_scope": "cluster_public", "refresh_mode": "operator_triggered", "content_type": "primary_health_center_service_delivery_referrals", "hhs_region_code": "06", "maximum_records_total": 5000, "schema_registry_ids": {"core": "core-schema-registry", "listing": "eligibility-public-listing-schema"}, "schema_versions": {"core": "core-v2", "listing": "public-listing-v3"}}
+      },
+      {
+        "dataset_id": "hrsa-health-center-sites-region-07",
+        "source_dataset_id": "HRSA Health Center Service Delivery and Look-Alike Sites — HHS Region 07",
+        "title": "HRSA health center locator — HHS Region 07",
+        "landing_page": "https://data.hrsa.gov/topics/health-centers/",
+        "schema_version": "public-listing-v3",
+        "namespace_ids": ["core", "listing"],
+        "metadata": {"catalog_namespace": "programs", "criteria_coverage": "not_assessed", "record_contract_version": "normalized-public-record-v1", "visibility_scope": "cluster_public", "refresh_mode": "operator_triggered", "content_type": "primary_health_center_service_delivery_referrals", "hhs_region_code": "07", "maximum_records_total": 5000, "schema_registry_ids": {"core": "core-schema-registry", "listing": "eligibility-public-listing-schema"}, "schema_versions": {"core": "core-v2", "listing": "public-listing-v3"}}
+      },
+      {
+        "dataset_id": "hrsa-health-center-sites-region-08",
+        "source_dataset_id": "HRSA Health Center Service Delivery and Look-Alike Sites — HHS Region 08",
+        "title": "HRSA health center locator — HHS Region 08",
+        "landing_page": "https://data.hrsa.gov/topics/health-centers/",
+        "schema_version": "public-listing-v3",
+        "namespace_ids": ["core", "listing"],
+        "metadata": {"catalog_namespace": "programs", "criteria_coverage": "not_assessed", "record_contract_version": "normalized-public-record-v1", "visibility_scope": "cluster_public", "refresh_mode": "operator_triggered", "content_type": "primary_health_center_service_delivery_referrals", "hhs_region_code": "08", "maximum_records_total": 5000, "schema_registry_ids": {"core": "core-schema-registry", "listing": "eligibility-public-listing-schema"}, "schema_versions": {"core": "core-v2", "listing": "public-listing-v3"}}
+      },
+      {
+        "dataset_id": "hrsa-health-center-sites-region-09",
+        "source_dataset_id": "HRSA Health Center Service Delivery and Look-Alike Sites — HHS Region 09",
+        "title": "HRSA health center locator — HHS Region 09",
+        "landing_page": "https://data.hrsa.gov/topics/health-centers/",
+        "schema_version": "public-listing-v3",
+        "namespace_ids": ["core", "listing"],
+        "metadata": {"catalog_namespace": "programs", "criteria_coverage": "not_assessed", "record_contract_version": "normalized-public-record-v1", "visibility_scope": "cluster_public", "refresh_mode": "operator_triggered", "content_type": "primary_health_center_service_delivery_referrals", "hhs_region_code": "09", "maximum_records_total": 5000, "schema_registry_ids": {"core": "core-schema-registry", "listing": "eligibility-public-listing-schema"}, "schema_versions": {"core": "core-v2", "listing": "public-listing-v3"}}
+      },
+      {
+        "dataset_id": "hrsa-health-center-sites-region-10",
+        "source_dataset_id": "HRSA Health Center Service Delivery and Look-Alike Sites — HHS Region 10",
+        "title": "HRSA health center locator — HHS Region 10",
+        "landing_page": "https://data.hrsa.gov/topics/health-centers/",
+        "schema_version": "public-listing-v3",
+        "namespace_ids": ["core", "listing"],
+        "metadata": {"catalog_namespace": "programs", "criteria_coverage": "not_assessed", "record_contract_version": "normalized-public-record-v1", "visibility_scope": "cluster_public", "refresh_mode": "operator_triggered", "content_type": "primary_health_center_service_delivery_referrals", "hhs_region_code": "10", "maximum_records_total": 5000, "schema_registry_ids": {"core": "core-schema-registry", "listing": "eligibility-public-listing-schema"}, "schema_versions": {"core": "core-v2", "listing": "public-listing-v3"}}
+      },
+      {
+        "dataset_id": "hrsa-health-center-sites-region-unreported",
+        "source_dataset_id": "HRSA Health Center Service Delivery and Look-Alike Sites — HHS Region not reported",
+        "title": "HRSA health center locator — HHS Region not reported",
+        "landing_page": "https://data.hrsa.gov/topics/health-centers/",
+        "schema_version": "public-listing-v3",
+        "namespace_ids": ["core", "listing"],
+        "metadata": {"catalog_namespace": "programs", "criteria_coverage": "not_assessed", "record_contract_version": "normalized-public-record-v1", "visibility_scope": "cluster_public", "refresh_mode": "operator_triggered", "content_type": "primary_health_center_service_delivery_referrals", "partition": "hhs_region_not_reported", "maximum_records_total": 5000, "schema_registry_ids": {"core": "core-schema-registry", "listing": "eligibility-public-listing-schema"}, "schema_versions": {"core": "core-v2", "listing": "public-listing-v3"}}
+      }
+    ]
+  }
+}

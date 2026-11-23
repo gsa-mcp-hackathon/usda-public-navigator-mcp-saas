@@ -1,0 +1,493 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "us.va.public-benefits",
+    "reviewed_at": "2026-11-10T09:34:28.795633Z",
+    "publisher_version": "sha256:7f65a6ee891deabc472880dee71013c7aa4db24305eb1609df2b1eaddcbf203b",
+    "source_content_sha256": "7f65a6ee891deabc472880dee71013c7aa4db24305eb1609df2b1eaddcbf203b",
+    "source_visible_text_sha256": "3bc21f81d545f1df03f75bbdcc6dca85da2c2a1be81672e266761dd8131f00a3",
+    "raw_source_documents_committed": false,
+    "access_method": "Exact Core source read; fresh source text sent to the criteria mapper; source body remained transient.",
+    "pages": [
+      {
+        "url": "https://www.va.gov/family-and-caregiver-benefits/health-and-disability/comprehensive-assistance-for-family-caregivers/",
+        "title": "VA Family Caregiver Assistance Program | Veterans Affairs",
+        "source_content_sha256": "7f65a6ee891deabc472880dee71013c7aa4db24305eb1609df2b1eaddcbf203b",
+        "source_visible_text_sha256": "3bc21f81d545f1df03f75bbdcc6dca85da2c2a1be81672e266761dd8131f00a3",
+        "retrieved_at": "2026-11-10T09:34:28.795633Z",
+        "source_record_id": "source-page-3be356e06da8ee188be9"
+      }
+    ],
+    "mapper_evidence": {
+      "agent": "usda_criteria_mapper_agent",
+      "run_id": "c0783802-a4bf-4e57-8b9c-8408f0c74bd1",
+      "input_source_content_sha256": "7e1baaada32911aa8d157065711679834084b39cfd3632478b28ffc1ce801389",
+      "input_source_visible_text_sha256": "3bc21f81d545f1df03f75bbdcc6dca85da2c2a1be81672e266761dd8131f00a3",
+      "reference_rules_matched": 7,
+      "agent_mapped_rows": 8,
+      "excerpt_verbatim_count": 16,
+      "excerpt_total": 16,
+      "decision": "Use the existing six source-backed rule concepts (seven rows due to explicit relationship/co-residence any-of); do not add the extra personal-care-need boolean as a separate eligibility rule; retain joint application/assessment and service definition as context-only."
+    },
+    "latest_revalidation": {
+      "retrieved_at": "2026-11-09T22:08:41.931661+00:00",
+      "source_record_id": "source-page-3be356e06da8ee188be9",
+      "source_content_sha256": "52947b689acd1ae9d05b300ba9348a17b9b286b2fb54dabe258a90e13ee0de9f",
+      "source_visible_text_sha256": "3bc21f81d545f1df03f75bbdcc6dca85da2c2a1be81672e266761dd8131f00a3",
+      "additional_raw_hash_observation": {
+        "retrieved_at": "2026-11-09T22:05:55.260266+00:00",
+        "source_content_sha256": "f9fcb0e278a80453de96ec4f665077467932ed050ca1137ed603aeba578349b3"
+      },
+      "mapper_input_source_content_sha256": "7e1baaada32911aa8d157065711679834084b39cfd3632478b28ffc1ce801389",
+      "visible_text_unchanged_from_mapper_input": true,
+      "citation_excerpt_validation": {
+        "verbatim_count": 9,
+        "total": 9,
+        "source_text_truncated": false
+      },
+      "mapped_requirement_ids": [
+        "caregiver-age",
+        "caregiver-relationship-or-co-residence",
+        "veteran-disability-rating",
+        "veteran-discharge",
+        "personal-care-duration",
+        "va-health-care-enrollment"
+      ],
+      "context_only_requirement_ids": [
+        "joint-application-and-assessment",
+        "personal-care-services-definition"
+      ],
+      "scenario_boundary": "S14 UC-2-S3 remains the ACL elder-care referral for a non-veteran mother; PCAFC is not its substitute and the S14 oracle is unchanged.",
+      "note": "The raw source HTML digest changed between repeated reads, while the visible-text digest remained identical and all nine existing citation excerpts were found verbatim in the latest source text. Preserve mapper lineage at its original input digest; no criteria or rule content was remapped."
+    }
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "us.va.public-benefits",
+      "source_name": "U.S. Department of Veterans Affairs benefits and caregiver programs",
+      "source_url": "https://www.va.gov/family-and-caregiver-benefits/health-and-disability/comprehensive-assistance-for-family-caregivers/",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "federal",
+          "owner_name": "U.S. Department of Veterans Affairs",
+          "verification_status": "verified",
+          "evidence_url": "https://www.va.gov/family-and-caregiver-benefits/health-and-disability/comprehensive-assistance-for-family-caregivers/"
+        },
+        "content_type": "federal_veteran_caregiver_partial_mapped_criteria",
+        "retrieval_mode": "operator_triggered",
+        "scheduled_refresh": false
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "va-caregiver-mapped-criteria",
+        "source_dataset_id": "VA.gov PCAFC exact-source partial mapped criteria",
+        "title": "VA PCAFC partial mapped criteria",
+        "landing_page": "https://www.va.gov/family-and-caregiver-benefits/health-and-disability/comprehensive-assistance-for-family-caregivers/",
+        "schema_version": "eligibility-program-v4",
+        "namespace_ids": [
+          "core",
+          "eligibility"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "partial",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "eligibility": "eligibility-program-schema"
+          },
+          "schema_versions": {
+            "core": "core-v3",
+            "eligibility": "eligibility-program-v4"
+          },
+          "content_type": "approved_partial_mapped_eligibility_criteria",
+          "published_criteria_available": true,
+          "criteria_mapping_status": "partial",
+          "refresh_mode": "operator_triggered",
+          "maximum_records_total": 1
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "va-caregiver-mapped-criteria",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "sha256:7f65a6ee891deabc472880dee71013c7aa4db24305eb1609df2b1eaddcbf203b",
+        "retrieved_at": "2026-11-10T09:34:28.795633Z",
+        "transform_version": "va-pcafc-mapped-criteria-with-details-v2",
+        "validation_outcome": "valid",
+        "detail": "One stable VA PCAFC source record; retains seven existing criterion rows and adds six source-backed normalized process details. No ruleset, policy, or S14 data changed.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "va-pcafc",
+            "record_type": "eligibility_program",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "va-pcafc",
+              "eligibility.program.catalog_version": "va-pcafc-mapped-2026-11-10",
+              "eligibility.program.navigator": "senior_caregiver",
+              "eligibility.program.data_origin": "public_source",
+              "eligibility.program.title": "VA Program of Comprehensive Assistance for Family Caregivers (PCAFC) partial mapped criteria",
+              "eligibility.program.description": "Partial source-backed screening of the published caregiver and Veteran prerequisites. Caregiver relationship or full-time co-residence is an any-of group. VA conducts joint application and assessment; this mapped comparison is not a VA determination.",
+              "eligibility.program.criteria": [
+                {
+                  "criterion_id": "caregiver-age",
+                  "attribute": "core.person.caregiver.age_years",
+                  "operator": "gte",
+                  "value": 18,
+                  "source_id": "us.va.public-benefits"
+                },
+                {
+                  "criterion_id": "caregiver-relationship-or-co-residence",
+                  "attribute": "core.person.caregiver.relationship_to_veteran",
+                  "operator": "one_of",
+                  "value": [
+                    "spouse",
+                    "son",
+                    "daughter",
+                    "parent",
+                    "stepfamily_member",
+                    "extended_family_member"
+                  ],
+                  "logic_group_id": "caregiver-relationship-or-co-residence",
+                  "logic_group_operator": "any_of",
+                  "source_id": "us.va.public-benefits"
+                },
+                {
+                  "criterion_id": "caregiver-relationship-or-co-residence",
+                  "attribute": "core.person.caregiver.lives_or_willing_to_live_full_time_with_veteran",
+                  "operator": "eq",
+                  "value": true,
+                  "logic_group_id": "caregiver-relationship-or-co-residence",
+                  "logic_group_operator": "any_of",
+                  "source_id": "us.va.public-benefits"
+                },
+                {
+                  "criterion_id": "veteran-disability-rating",
+                  "attribute": "core.person.veteran.service_connected_disability_rating_percent",
+                  "operator": "gte",
+                  "value": 70,
+                  "source_id": "us.va.public-benefits"
+                },
+                {
+                  "criterion_id": "veteran-discharge",
+                  "attribute": "core.person.veteran.service_discharge_status",
+                  "operator": "eq",
+                  "value": "qualifying",
+                  "source_id": "us.va.public-benefits"
+                },
+                {
+                  "criterion_id": "personal-care-duration",
+                  "attribute": "core.person.veteran.continuous_in_person_care_months",
+                  "operator": "gte",
+                  "value": 6,
+                  "source_id": "us.va.public-benefits"
+                },
+                {
+                  "criterion_id": "va-health-care-enrollment",
+                  "attribute": "core.person.veteran.va_healthcare_status",
+                  "operator": "eq",
+                  "value": "enrolled",
+                  "source_id": "us.va.public-benefits"
+                }
+              ],
+              "core.geography.country_code": "US",
+              "core.geography.jurisdiction_level": "federal",
+              "eligibility.program.details": [
+                {
+                  "kind": "application_step",
+                  "text": "VA says it will assign the caregiver no later than 90 days after receiving the application. This is an agency processing timeframe, not a filing deadline.",
+                  "source_id": "us.va.public-benefits"
+                },
+                {
+                  "kind": "application_step",
+                  "text": "After application, a caregiver support team member contacts the Veteran and caregivers to discuss the application and eligibility.",
+                  "source_id": "us.va.public-benefits"
+                },
+                {
+                  "kind": "application_step",
+                  "text": "Before caregiver assignment, the caregiver must complete education and training and a home care assessment.",
+                  "source_id": "us.va.public-benefits"
+                },
+                {
+                  "kind": "application_step",
+                  "text": "Do not send medical records with the initial application.",
+                  "source_id": "us.va.public-benefits"
+                },
+                {
+                  "kind": "required_document",
+                  "text": "Only when a representative signs on behalf of the Veteran, submit one source-listed document proving legal authority; alternatives include a valid power of attorney, guardianship order, qualifying state legal document, or the listed VA signer/representative forms.",
+                  "source_id": "us.va.public-benefits"
+                },
+                {
+                  "kind": "application_step",
+                  "text": "After enrollment, participate in wellness contacts at least once every 120 days; VA also conducts one annual visit to the Veteran’s home.",
+                  "source_id": "us.va.public-benefits"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "mapped_criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              },
+              "criteria_mapping_review": {
+                "reviewed_at": "2026-11-09T17:42:54.847866+00:00",
+                "source_content_sha256": "7e1baaada32911aa8d157065711679834084b39cfd3632478b28ffc1ce801389",
+                "source_visible_text_sha256": "3bc21f81d545f1df03f75bbdcc6dca85da2c2a1be81672e266761dd8131f00a3",
+                "mapped_criterion_ids": [
+                  "caregiver-age",
+                  "caregiver-relationship-or-co-residence",
+                  "veteran-disability-rating",
+                  "veteran-discharge",
+                  "personal-care-duration",
+                  "va-health-care-enrollment"
+                ],
+                "context_only_requirement_ids": [
+                  "joint-application-and-assessment",
+                  "personal-care-services-definition"
+                ],
+                "latest_source_revalidation": {
+                  "retrieved_at": "2026-11-10T09:34:28.795633Z",
+                  "source_content_sha256": "7f65a6ee891deabc472880dee71013c7aa4db24305eb1609df2b1eaddcbf203b",
+                  "source_visible_text_sha256": "3bc21f81d545f1df03f75bbdcc6dca85da2c2a1be81672e266761dd8131f00a3",
+                  "mapping_content_changed": false,
+                  "note": "Fresh source read retained the previously validated visible-text hash; mapped criterion IDs and semantics are unchanged. Mapper input digest remains in mapper_evidence."
+                }
+              },
+              "binder_detail_review": {
+                "reviewed_at": "2026-11-10T09:34:28.795633Z",
+                "source_record_id": "source-page-3be356e06da8ee188be9",
+                "source_content_sha256": "7f65a6ee891deabc472880dee71013c7aa4db24305eb1609df2b1eaddcbf203b",
+                "source_visible_text_sha256": "3bc21f81d545f1df03f75bbdcc6dca85da2c2a1be81672e266761dd8131f00a3",
+                "detail_count": 6,
+                "scope": "application and post-enrollment process details only; no medical/eligibility rules",
+                "conditions_preserved": true
+              }
+            },
+            "source_metadata": {
+              "source_id": "us.va.public-benefits",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "source_title": "VA Family Caregiver Assistance Program | Veterans Affairs",
+              "publisher": "U.S. Department of Veterans Affairs",
+              "source_version": "sha256:7f65a6ee891deabc472880dee71013c7aa4db24305eb1609df2b1eaddcbf203b",
+              "source_content_sha256": "7f65a6ee891deabc472880dee71013c7aa4db24305eb1609df2b1eaddcbf203b",
+              "source_visible_text_sha256": "3bc21f81d545f1df03f75bbdcc6dca85da2c2a1be81672e266761dd8131f00a3",
+              "retrieved_at": "2026-11-10T09:34:28.795633Z",
+              "effective_date": null,
+              "transform_version": "va-pcafc-mapped-criteria-with-details-v2",
+              "field_provenance": {
+                "eligibility.program.criteria": {
+                  "source_url": "https://www.va.gov/family-and-caregiver-benefits/health-and-disability/comprehensive-assistance-for-family-caregivers/",
+                  "source_record_id": "source-page-3be356e06da8ee188be9",
+                  "observed_at": "2026-11-09T17:42:54.847866+00:00",
+                  "extraction_method": "Mapper proposal, source-clause checked; unsupported definition-level rule excluded",
+                  "source_content_sha256": "7e1baaada32911aa8d157065711679834084b39cfd3632478b28ffc1ce801389",
+                  "source_visible_text_sha256": "3bc21f81d545f1df03f75bbdcc6dca85da2c2a1be81672e266761dd8131f00a3"
+                },
+                "eligibility.program.details": {
+                  "source_url": "https://www.va.gov/family-and-caregiver-benefits/health-and-disability/comprehensive-assistance-for-family-caregivers/",
+                  "source_record_id": "source-page-3be356e06da8ee188be9",
+                  "observed_at": "2026-11-10T09:34:28.795633Z",
+                  "extraction_method": "source-reviewed normalized detail proposal; no eligibility criteria added",
+                  "source_content_sha256": "7f65a6ee891deabc472880dee71013c7aa4db24305eb1609df2b1eaddcbf203b",
+                  "source_visible_text_sha256": "3bc21f81d545f1df03f75bbdcc6dca85da2c2a1be81672e266761dd8131f00a3",
+                  "detail_citations": [
+                    {
+                      "source_id": "us.va.public-benefits",
+                      "source_version": "sha256:7f65a6ee891deabc472880dee71013c7aa4db24305eb1609df2b1eaddcbf203b",
+                      "source_content_sha256": "7f65a6ee891deabc472880dee71013c7aa4db24305eb1609df2b1eaddcbf203b",
+                      "source_visible_text_sha256": "3bc21f81d545f1df03f75bbdcc6dca85da2c2a1be81672e266761dd8131f00a3",
+                      "locator": "What happens after I apply? > caregiver assignment timeframe",
+                      "excerpt": "no later than 90 days",
+                      "kind": "application_step"
+                    },
+                    {
+                      "source_id": "us.va.public-benefits",
+                      "source_version": "sha256:7f65a6ee891deabc472880dee71013c7aa4db24305eb1609df2b1eaddcbf203b",
+                      "source_content_sha256": "7f65a6ee891deabc472880dee71013c7aa4db24305eb1609df2b1eaddcbf203b",
+                      "source_visible_text_sha256": "3bc21f81d545f1df03f75bbdcc6dca85da2c2a1be81672e266761dd8131f00a3",
+                      "locator": "What happens after I apply? > caregiver support team contact",
+                      "excerpt": "contact the Veteran and any caregivers",
+                      "kind": "application_step"
+                    },
+                    {
+                      "source_id": "us.va.public-benefits",
+                      "source_version": "sha256:7f65a6ee891deabc472880dee71013c7aa4db24305eb1609df2b1eaddcbf203b",
+                      "source_content_sha256": "7f65a6ee891deabc472880dee71013c7aa4db24305eb1609df2b1eaddcbf203b",
+                      "source_visible_text_sha256": "3bc21f81d545f1df03f75bbdcc6dca85da2c2a1be81672e266761dd8131f00a3",
+                      "locator": "What happens after I apply? > before caregiver assignment",
+                      "excerpt": "A home care assessment",
+                      "kind": "application_step"
+                    },
+                    {
+                      "source_id": "us.va.public-benefits",
+                      "source_version": "sha256:7f65a6ee891deabc472880dee71013c7aa4db24305eb1609df2b1eaddcbf203b",
+                      "source_content_sha256": "7f65a6ee891deabc472880dee71013c7aa4db24305eb1609df2b1eaddcbf203b",
+                      "source_visible_text_sha256": "3bc21f81d545f1df03f75bbdcc6dca85da2c2a1be81672e266761dd8131f00a3",
+                      "locator": "How do I apply for this program? > initial application instructions",
+                      "excerpt": "Don’t send medical records",
+                      "kind": "application_step"
+                    },
+                    {
+                      "source_id": "us.va.public-benefits",
+                      "source_version": "sha256:7f65a6ee891deabc472880dee71013c7aa4db24305eb1609df2b1eaddcbf203b",
+                      "source_content_sha256": "7f65a6ee891deabc472880dee71013c7aa4db24305eb1609df2b1eaddcbf203b",
+                      "source_visible_text_sha256": "3bc21f81d545f1df03f75bbdcc6dca85da2c2a1be81672e266761dd8131f00a3",
+                      "locator": "What documents can I submit if I’m signing this application on behalf of a Veteran?",
+                      "excerpt": "legal authority",
+                      "kind": "required_document"
+                    },
+                    {
+                      "source_id": "us.va.public-benefits",
+                      "source_version": "sha256:7f65a6ee891deabc472880dee71013c7aa4db24305eb1609df2b1eaddcbf203b",
+                      "source_content_sha256": "7f65a6ee891deabc472880dee71013c7aa4db24305eb1609df2b1eaddcbf203b",
+                      "source_visible_text_sha256": "3bc21f81d545f1df03f75bbdcc6dca85da2c2a1be81672e266761dd8131f00a3",
+                      "locator": "Wellness contacts > frequency",
+                      "excerpt": "once every 120 days",
+                      "kind": "application_step"
+                    }
+                  ]
+                }
+              },
+              "citation_manifest": [
+                {
+                  "requirement_id": "caregiver-age",
+                  "mapping_status": "mapped",
+                  "source_url": "https://www.va.gov/family-and-caregiver-benefits/health-and-disability/comprehensive-assistance-for-family-caregivers/",
+                  "source_record_id": "source-page-3be356e06da8ee188be9",
+                  "source_content_sha256": "7f65a6ee891deabc472880dee71013c7aa4db24305eb1609df2b1eaddcbf203b",
+                  "source_visible_text_sha256": "3bc21f81d545f1df03f75bbdcc6dca85da2c2a1be81672e266761dd8131f00a3",
+                  "locator": "Eligibility requirements for the family caregiver",
+                  "excerpt": "You must be at least 18 years old."
+                },
+                {
+                  "requirement_id": "caregiver-relationship-or-co-residence",
+                  "mapping_status": "mapped",
+                  "source_url": "https://www.va.gov/family-and-caregiver-benefits/health-and-disability/comprehensive-assistance-for-family-caregivers/",
+                  "source_record_id": "source-page-3be356e06da8ee188be9",
+                  "source_content_sha256": "7f65a6ee891deabc472880dee71013c7aa4db24305eb1609df2b1eaddcbf203b",
+                  "source_visible_text_sha256": "3bc21f81d545f1df03f75bbdcc6dca85da2c2a1be81672e266761dd8131f00a3",
+                  "locator": "Eligibility requirements for the family caregiver",
+                  "excerpt": "You’re a spouse, son, daughter, parent, stepfamily member, or extended family member of the Veteran, or"
+                },
+                {
+                  "requirement_id": "caregiver-relationship-or-co-residence",
+                  "mapping_status": "mapped",
+                  "source_url": "https://www.va.gov/family-and-caregiver-benefits/health-and-disability/comprehensive-assistance-for-family-caregivers/",
+                  "source_record_id": "source-page-3be356e06da8ee188be9",
+                  "source_content_sha256": "7f65a6ee891deabc472880dee71013c7aa4db24305eb1609df2b1eaddcbf203b",
+                  "source_visible_text_sha256": "3bc21f81d545f1df03f75bbdcc6dca85da2c2a1be81672e266761dd8131f00a3",
+                  "locator": "Eligibility requirements for the family caregiver",
+                  "excerpt": "You live full time with the Veteran, or you’re willing to live full time with the Veteran if we designate you as a family caregiver"
+                },
+                {
+                  "requirement_id": "veteran-disability-rating",
+                  "mapping_status": "mapped",
+                  "source_url": "https://www.va.gov/family-and-caregiver-benefits/health-and-disability/comprehensive-assistance-for-family-caregivers/",
+                  "source_record_id": "source-page-3be356e06da8ee188be9",
+                  "source_content_sha256": "7f65a6ee891deabc472880dee71013c7aa4db24305eb1609df2b1eaddcbf203b",
+                  "source_visible_text_sha256": "3bc21f81d545f1df03f75bbdcc6dca85da2c2a1be81672e266761dd8131f00a3",
+                  "locator": "Eligibility requirements for the Veteran",
+                  "excerpt": "The Veteran has a VA disability rating (individual or combined) of 70% or higher, and"
+                },
+                {
+                  "requirement_id": "veteran-discharge",
+                  "mapping_status": "mapped",
+                  "source_url": "https://www.va.gov/family-and-caregiver-benefits/health-and-disability/comprehensive-assistance-for-family-caregivers/",
+                  "source_record_id": "source-page-3be356e06da8ee188be9",
+                  "source_content_sha256": "7f65a6ee891deabc472880dee71013c7aa4db24305eb1609df2b1eaddcbf203b",
+                  "source_visible_text_sha256": "3bc21f81d545f1df03f75bbdcc6dca85da2c2a1be81672e266761dd8131f00a3",
+                  "locator": "Eligibility requirements for the Veteran",
+                  "excerpt": "The Veteran was discharged from the U.S. military or has a date of medical discharge, and"
+                },
+                {
+                  "requirement_id": "personal-care-duration",
+                  "mapping_status": "mapped",
+                  "source_url": "https://www.va.gov/family-and-caregiver-benefits/health-and-disability/comprehensive-assistance-for-family-caregivers/",
+                  "source_record_id": "source-page-3be356e06da8ee188be9",
+                  "source_content_sha256": "7f65a6ee891deabc472880dee71013c7aa4db24305eb1609df2b1eaddcbf203b",
+                  "source_visible_text_sha256": "3bc21f81d545f1df03f75bbdcc6dca85da2c2a1be81672e266761dd8131f00a3",
+                  "locator": "Eligibility requirements for the Veteran",
+                  "excerpt": "The Veteran needs at least 6 months of continuous, in-person personal care services, and"
+                },
+                {
+                  "requirement_id": "va-health-care-enrollment",
+                  "mapping_status": "mapped",
+                  "source_url": "https://www.va.gov/family-and-caregiver-benefits/health-and-disability/comprehensive-assistance-for-family-caregivers/",
+                  "source_record_id": "source-page-3be356e06da8ee188be9",
+                  "source_content_sha256": "7f65a6ee891deabc472880dee71013c7aa4db24305eb1609df2b1eaddcbf203b",
+                  "source_visible_text_sha256": "3bc21f81d545f1df03f75bbdcc6dca85da2c2a1be81672e266761dd8131f00a3",
+                  "locator": "Eligibility requirements for the Veteran",
+                  "excerpt": "The Veteran needs to be enrolled in VA healthcare"
+                },
+                {
+                  "requirement_id": "joint-application-and-assessment",
+                  "mapping_status": "context_only",
+                  "source_url": "https://www.va.gov/family-and-caregiver-benefits/health-and-disability/comprehensive-assistance-for-family-caregivers/",
+                  "source_record_id": "source-page-3be356e06da8ee188be9",
+                  "source_content_sha256": "7f65a6ee891deabc472880dee71013c7aa4db24305eb1609df2b1eaddcbf203b",
+                  "source_visible_text_sha256": "3bc21f81d545f1df03f75bbdcc6dca85da2c2a1be81672e266761dd8131f00a3",
+                  "locator": "How do I apply for this program?",
+                  "excerpt": "You and the Veteran will need to apply together and participate in an application process"
+                },
+                {
+                  "requirement_id": "personal-care-services-definition",
+                  "mapping_status": "context_only",
+                  "source_url": "https://www.va.gov/family-and-caregiver-benefits/health-and-disability/comprehensive-assistance-for-family-caregivers/",
+                  "source_record_id": "source-page-3be356e06da8ee188be9",
+                  "source_content_sha256": "7f65a6ee891deabc472880dee71013c7aa4db24305eb1609df2b1eaddcbf203b",
+                  "source_visible_text_sha256": "3bc21f81d545f1df03f75bbdcc6dca85da2c2a1be81672e266761dd8131f00a3",
+                  "locator": "Eligibility requirements for the Veteran",
+                  "excerpt": "Personal care services are services the Veteran needs from another person."
+                }
+              ],
+              "mapper_evidence": {
+                "agent": "usda_criteria_mapper_agent",
+                "run_id": "c0783802-a4bf-4e57-8b9c-8408f0c74bd1",
+                "input_source_content_sha256": "7e1baaada32911aa8d157065711679834084b39cfd3632478b28ffc1ce801389",
+                "input_source_visible_text_sha256": "3bc21f81d545f1df03f75bbdcc6dca85da2c2a1be81672e266761dd8131f00a3",
+                "reference_rules_matched": 7,
+                "agent_mapped_rows": 8,
+                "excerpt_verbatim_count": 16,
+                "excerpt_total": 16,
+                "decision": "Use the existing six source-backed rule concepts (seven rows due to explicit relationship/co-residence any-of); do not add the extra personal-care-need boolean as a separate eligibility rule; retain joint application/assessment and service definition as context-only."
+              },
+              "criteria_coverage": "partial",
+              "limitations": [
+                "Only the listed published caregiver and Veteran prerequisites are represented; VA conducts a further assessment and determines eligibility.",
+                "The caregiver and Veteran must apply together; joint signatures, the application process, home-care assessment, education/training, and VA assignment are context/application details, not additional machine-evaluated rules in this record.",
+                "The page defines personal care services as services needed from another person; this definition is not added as a separate rule beyond the six-month continuous in-person care criterion.",
+                "Missing or ambiguous typed profile facts evaluate as unknown. A partial comparison is not an eligibility probability or official VA determination."
+              ],
+              "raw_payload_stored": false,
+              "content_hash": "e5dc2f59986dcceb73f6ec237ab8b4d9a7bc3551ed42bfc2049aac5a26b8c2b8"
+            },
+            "source_url": "https://www.va.gov/family-and-caregiver-benefits/health-and-disability/comprehensive-assistance-for-family-caregivers/",
+            "schema_version": "eligibility-program-v4",
+            "observed_at": "2026-11-10T09:34:28.795633Z",
+            "content_hash": "e5dc2f59986dcceb73f6ec237ab8b4d9a7bc3551ed42bfc2049aac5a26b8c2b8"
+          }
+        ]
+      }
+    }
+  ],
+  "limits": [
+    "Only the listed published caregiver and Veteran prerequisites are represented; VA conducts a further assessment and determines eligibility.",
+    "The caregiver and Veteran must apply together; joint signatures, the application process, home-care assessment, education/training, and VA assignment are context/application details, not additional machine-evaluated rules in this record.",
+    "The page defines personal care services as services needed from another person; this definition is not added as a separate rule beyond the six-month continuous in-person care criterion.",
+    "Missing or ambiguous typed profile facts evaluate as unknown. A partial comparison is not an eligibility probability or official VA determination."
+  ]
+}

@@ -1,0 +1,36 @@
+# Explicit one-shot operation for projecting reviewed Git registry definitions.
+services:
+  registry-reconcile:
+    image: mcp-saas-platform:local
+    entrypoint: ["python", "scripts/reconcile_registry.py"]
+    volumes:
+      - ../../configs/registry:/app/configs/registry:ro
+    command:
+      - --manifest
+      - ${MCP_REGISTRY_MANIFEST:-/app/configs/registry/demo-v1.json}
+      - --database-url-file
+      - /run/secrets/mcp_registry_url
+      - --git-revision
+      - ${MCP_REGISTRY_GIT_REVISION:?Set the reviewed Git revision before reconciliation}
+    environment:
+      TENANT_FEDERAL_ENDPOINT: http://tenant-federal:8080/mcp
+      TENANT_KANSAS_ENDPOINT: http://tenant-kansas:8080/mcp
+      TENANT_DIRECTORY_ENDPOINT: http://tenant-directory:8080/mcp
+      TENANT_DIRECTORY_PARTNER_ENDPOINT: http://tenant-directory-partner:8080/mcp
+      TENANT_ELIGIBILITY_DEMO_ENDPOINT: ${TENANT_ELIGIBILITY_DEMO_ENDPOINT:-}
+    networks:
+      - default
+      - database
+    secrets:
+      - mcp_registry_url
+    restart: "no"
+
+networks:
+  default: {}
+  database:
+    name: ${MCP_DATABASE_NETWORK:-mcp-dbtest-net}
+    external: true
+
+secrets:
+  mcp_registry_url:
+    file: ${MCP_REGISTRY_DATABASE_URL_FILE:?Run scripts/provision_vm_postgres.sh first}

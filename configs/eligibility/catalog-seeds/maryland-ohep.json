@@ -1,0 +1,667 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "maryland.ohep",
+    "retrieved_at": "2026-10-31T22:47:17Z",
+    "publisher_version": "Maryland DHS OHEP public pages reviewed 2026-10-31; FY27 guidance where labeled",
+    "source_observations": [
+      {
+        "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+        "http_status": 200,
+        "response_bytes": 94663,
+        "response_sha256": "7b83635caa471ab79320657ea7062584183b6c5e8fdb0f6002e61bb6b7006eab",
+        "etag": null,
+        "last_modified": null
+      },
+      {
+        "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/apply-energy-assistance/",
+        "http_status": 200,
+        "response_bytes": 100290,
+        "response_sha256": "cfac7a21eb9339859c04fbc14516b24b64d4cc900ed598c8850af3890887d347",
+        "etag": null,
+        "last_modified": null
+      },
+      {
+        "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/how-are-grants-determined/",
+        "http_status": 200,
+        "response_bytes": 86077,
+        "response_sha256": "78acfda5e1f8a73d3dd3636bafd886745ea374a87c715dc09148980d46d6001e",
+        "etag": null,
+        "last_modified": null
+      }
+    ],
+    "raw_source_documents_committed": false
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "maryland.ohep",
+      "source_name": "Maryland Office of Home Energy Programs",
+      "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "state",
+          "owner_name": "Maryland Department of Human Services, Office of Home Energy Programs",
+          "verification_status": "verified",
+          "evidence_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/"
+        },
+        "approved_scope": "Maryland MEAP, EUSP, and ARA public program discovery and published requirement references for UC-2/UC-3; no profile data, raw page copy, eligibility decision, or grant calculation.",
+        "refresh_mode": "operator_triggered"
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "maryland-ohep-program-listings",
+        "source_dataset_id": "Maryland DHS OHEP public program pages",
+        "title": "Maryland OHEP MEAP, EUSP, and ARA program listings",
+        "landing_page": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+        "schema_version": "public-listing-v3",
+        "namespace_ids": [
+          "core",
+          "listing"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "listing": "eligibility-public-listing-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "listing": "public-listing-v3"
+          },
+          "content_type": "maryland_ohep_program_listing",
+          "refresh_mode": "operator_triggered",
+          "maximum_records_total": 3,
+          "criteria_coverage": "partial"
+        }
+      },
+      {
+        "dataset_id": "maryland-ohep-published-criteria",
+        "source_dataset_id": "Maryland DHS OHEP FY27 application and grant-determination pages",
+        "title": "Maryland OHEP published criteria and application references",
+        "landing_page": "https://dhs.maryland.gov/office-of-home-energy-programs/apply-energy-assistance/",
+        "schema_version": "eligibility-program-v2",
+        "namespace_ids": [
+          "core",
+          "eligibility"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "eligibility": "eligibility-program-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "eligibility": "eligibility-program-v2"
+          },
+          "content_type": "published_partial_non_executable_eligibility_reference",
+          "published_criteria_available": true,
+          "criteria_mapping_status": "not_mapped",
+          "effective_period": "FY27 as labeled by current OHEP page; exact inclusive date range not asserted",
+          "refresh_mode": "operator_triggered",
+          "maximum_records_total": 2,
+          "criteria_coverage": "partial"
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "maryland-ohep-program-listings",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "Maryland DHS OHEP public pages reviewed 2026-10-31; FY27 guidance where labeled",
+        "retrieved_at": "2026-10-31T22:47:17Z",
+        "transform_version": "md-ohep-source-review-v1",
+        "validation_outcome": "valid",
+        "detail": "Three Maryland OHEP listings (MEAP, EUSP, and ARA); criteria are maintained in a separate review-only dataset.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "md-ohep-meap",
+            "record_type": "maryland-ohep-program-listing",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "state",
+              "core.geography.country_code": "US",
+              "core.geography.state_code": "MD",
+              "listing.record_kind": "assistance_program",
+              "listing.title": "Maryland Energy Assistance Program (MEAP)",
+              "listing.summary": "Financial assistance with home heating bills; payments are made to the heating supplier or utility. Published grant amount varies with fuel type, household income, and area within Maryland; source does not establish a personalized amount.",
+              "listing.agency": "Maryland Department of Human Services, Office of Home Energy Programs",
+              "listing.program_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+              "listing.website_url": "https://dhs.maryland.gov/office-of-home-energy-programs/apply-energy-assistance/"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "listing_kind": "assistance_program",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "state",
+                "country_code": "US",
+                "state_code": "MD"
+              },
+              "need_topics": [
+                "energy_bill_assistance",
+                "heating_assistance",
+                "low_income_support"
+              ],
+              "beneficiary_classes": [
+                "Maryland households seeking home-energy bill assistance"
+              ],
+              "criteria_program_ids": [
+                "md-ohep-meap"
+              ]
+            },
+            "source_metadata": {
+              "source_id": "maryland.ohep",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "source_title": "Maryland Office of Home Energy Programs",
+              "publisher": "Maryland Department of Human Services",
+              "source_version": "Maryland DHS OHEP public pages reviewed 2026-10-31; FY27 guidance where labeled",
+              "criteria_status": "partial_not_mapped",
+              "retrieved_at": "2026-10-31T22:47:17Z",
+              "effective_at": null,
+              "transform_version": "md-ohep-source-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.state_code": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.record_kind": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.program_url": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.website_url": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/apply-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+            "schema_version": "public-listing-v3",
+            "observed_at": "2026-10-31T22:47:17Z",
+            "content_hash": "61b564bc1e7b1c51a4afb9682c2a236d141b3bd6e857f4794a8df139308fe4f1"
+          },
+          {
+            "source_record_id": "md-ohep-eusp",
+            "record_type": "maryland-ohep-program-listing",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "state",
+              "core.geography.country_code": "US",
+              "core.geography.state_code": "MD",
+              "listing.record_kind": "assistance_program",
+              "listing.title": "Electric Universal Service Program (EUSP)",
+              "listing.summary": "Maryland electric bill assistance grant. The state page says it is available once per program year (July through June); amount depends on household income and prior 12-month electric use.",
+              "listing.agency": "Maryland Department of Human Services, Office of Home Energy Programs",
+              "listing.program_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+              "listing.website_url": "https://dhs.maryland.gov/office-of-home-energy-programs/apply-energy-assistance/"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "listing_kind": "assistance_program",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "state",
+                "country_code": "US",
+                "state_code": "MD"
+              },
+              "need_topics": [
+                "energy_bill_assistance",
+                "electricity_assistance",
+                "low_income_support"
+              ],
+              "beneficiary_classes": [
+                "Maryland households seeking home-energy bill assistance"
+              ],
+              "criteria_program_ids": [
+                "md-ohep-eusp"
+              ]
+            },
+            "source_metadata": {
+              "source_id": "maryland.ohep",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "source_title": "Maryland Office of Home Energy Programs",
+              "publisher": "Maryland Department of Human Services",
+              "source_version": "Maryland DHS OHEP public pages reviewed 2026-10-31; FY27 guidance where labeled",
+              "criteria_status": "partial_not_mapped",
+              "retrieved_at": "2026-10-31T22:47:17Z",
+              "effective_at": null,
+              "transform_version": "md-ohep-source-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.state_code": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.record_kind": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.program_url": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.website_url": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/apply-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+            "schema_version": "public-listing-v3",
+            "observed_at": "2026-10-31T22:47:17Z",
+            "content_hash": "8d6a013644eea32985028e599119072665cd4e58b946dd21177e35705c235f8a"
+          },
+          {
+            "source_record_id": "md-ohep-ara",
+            "record_type": "maryland-ohep-program-listing",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "state",
+              "core.geography.country_code": "US",
+              "core.geography.state_code": "MD",
+              "listing.record_kind": "assistance_program",
+              "listing.title": "Arrearage Retirement Assistance (ARA)",
+              "listing.summary": "Maryland assistance for large past-due electric or gas bills. The state page publishes a $300 minimum past-due balance, maximum grants by utility type, and a five-year recurrence limit with exceptions; full eligibility remains unmapped.",
+              "listing.agency": "Maryland Department of Human Services, Office of Home Energy Programs",
+              "listing.program_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+              "listing.website_url": "https://dhs.maryland.gov/office-of-home-energy-programs/apply-energy-assistance/"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "listing_kind": "assistance_program",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "state",
+                "country_code": "US",
+                "state_code": "MD"
+              },
+              "need_topics": [
+                "utility_arrearage",
+                "energy_bill_assistance",
+                "low_income_support"
+              ],
+              "beneficiary_classes": [
+                "Maryland households seeking home-energy bill assistance"
+              ],
+              "criteria_program_ids": [
+                "md-ohep-ara"
+              ]
+            },
+            "source_metadata": {
+              "source_id": "maryland.ohep",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "source_title": "Maryland Office of Home Energy Programs",
+              "publisher": "Maryland Department of Human Services",
+              "source_version": "Maryland DHS OHEP public pages reviewed 2026-10-31; FY27 guidance where labeled",
+              "criteria_status": "partial_not_mapped",
+              "retrieved_at": "2026-10-31T22:47:17Z",
+              "effective_at": null,
+              "transform_version": "md-ohep-source-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.state_code": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.record_kind": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.program_url": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.website_url": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/apply-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/",
+            "schema_version": "public-listing-v3",
+            "observed_at": "2026-10-31T22:47:17Z",
+            "content_hash": "077226406577c99e81e3c1b876df702dfce65bcf247ddf1f68518caa3626bd0b"
+          }
+        ]
+      }
+    },
+    {
+      "dataset_id": "maryland-ohep-published-criteria",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "Maryland DHS OHEP public pages reviewed 2026-10-31; FY27 guidance where labeled",
+        "retrieved_at": "2026-10-31T22:47:17Z",
+        "transform_version": "md-ohep-source-review-v1",
+        "validation_outcome": "valid",
+        "detail": "Two concise published-requirement references; both remain not_mapped/review-only and non-executable.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "md-ohep-meap-eusp-fy27-published-criteria",
+            "record_type": "maryland-ohep-published-criteria-reference",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "state",
+              "core.geography.country_code": "US",
+              "core.geography.state_code": "MD",
+              "eligibility.program.program_id": "md-ohep-meap-eusp",
+              "eligibility.program.catalog_version": "md-ohep-fy27-reviewed-2026-10-31",
+              "eligibility.program.data_origin": "Maryland DHS OHEP official pages reviewed 2026-10-31: https://dhs.maryland.gov/office-of-home-energy-programs/apply-energy-assistance/ and https://dhs.maryland.gov/office-of-home-energy-programs/how-are-grants-determined/. Published statements are review-only and not executable.",
+              "eligibility.program.title": "Maryland OHEP MEAP and EUSP published requirements",
+              "eligibility.program.description": "Current OHEP pages label the displayed monthly household income limits FY27. The pages describe household-size income limits and program-specific grant factors. This record preserves those published facts for later criteria mapping; it does not calculate eligibility or a grant amount.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "ohep-fy27-monthly-income-limits-meap-eusp",
+                  "statement": "Maryland OHEP's current application page labels the following monthly household income limits FY27. Household size 1-10: $2,660; $3,607; $4,553; $5,500; $6,447; $7,393; $8,340; $9,287; $10,233; and $11,180. For household size 11 or more, contact the local OHEP office. The FAQ describes the factor as income earned in the last 30 days; no income-exclusion or categorical-rule detail is mapped here.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "maryland.ohep"
+                },
+                {
+                  "requirement_id": "ohep-application-and-proof-context",
+                  "statement": "The application page lists applicant photo ID, proof of residency, Social Security cards for household members, gross income for the last 30 days, and a utility/heating bill among information needed. OHEP offers online, mail, telephone, drop-box, and in-person application paths. These are documentation/application steps, not profile eligibility rules.",
+                  "mapping_status": "context_only",
+                  "source_id": "maryland.ohep"
+                },
+                {
+                  "requirement_id": "ohep-grant-calculation-factors",
+                  "statement": "MEAP grant amounts depend on fuel type, household income, and area within Maryland. EUSP grant amounts depend on household income and electric use over the prior 12 months. These factors do not specify a complete benefit calculation in this catalog record.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "maryland.ohep"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "state",
+                "country_code": "US",
+                "state_code": "MD"
+              },
+              "criteria_mapping_status": "not_mapped",
+              "criteria_program_ids": [
+                "md-ohep-meap",
+                "md-ohep-eusp"
+              ],
+              "effective_period": "FY27 as labeled by current OHEP page; exact inclusive date range not asserted"
+            },
+            "source_metadata": {
+              "source_id": "maryland.ohep",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "source_title": "Maryland Office of Home Energy Programs",
+              "publisher": "Maryland Department of Human Services",
+              "source_version": "Maryland DHS OHEP public pages reviewed 2026-10-31; FY27 guidance where labeled",
+              "criteria_status": "partial_not_mapped",
+              "retrieved_at": "2026-10-31T22:47:17Z",
+              "effective_at": null,
+              "transform_version": "md-ohep-source-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/apply-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/apply-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.state_code": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/apply-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.program_id": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/apply-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/apply-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/apply-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/apply-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/apply-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/apply-energy-assistance/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/apply-energy-assistance/",
+            "schema_version": "eligibility-program-v2",
+            "observed_at": "2026-10-31T22:47:17Z",
+            "content_hash": "f9263ee721c2af5881dd1b53022f469f8533ae21139618ed188632db79609e70"
+          },
+          {
+            "source_record_id": "md-ohep-ara-published-criteria",
+            "record_type": "maryland-ohep-published-criteria-reference",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "state",
+              "core.geography.country_code": "US",
+              "core.geography.state_code": "MD",
+              "eligibility.program.program_id": "md-ohep-ara",
+              "eligibility.program.catalog_version": "md-ohep-ara-reviewed-2026-10-31",
+              "eligibility.program.data_origin": "Maryland DHS OHEP official program pages reviewed 2026-10-31: https://dhs.maryland.gov/office-of-home-energy-programs/about-energy-assistance/ and https://dhs.maryland.gov/office-of-home-energy-programs/how-are-grants-determined/. Published statements are partial and not executable.",
+              "eligibility.program.title": "Maryland Arrearage Retirement Assistance published requirements",
+              "eligibility.program.description": "OHEP describes a minimum past-due balance and recurrence limits; the grant amount and EUSP prerequisite are published separately. The record is review-only and does not evaluate a household.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "ohep-ara-arrearage-and-frequency",
+                  "statement": "The applicant must have a past-due bill of at least $300 to be considered. The page lists up to $2,000 for electric arrears and up to $1,000 for gas arrears, generally once every five years with stated exceptions. OHEP's grant-determination page says an ARA applicant must be eligible for EUSP. These are published facts; no executable rule or full criteria mapping is supplied.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "maryland.ohep"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "state",
+                "country_code": "US",
+                "state_code": "MD"
+              },
+              "criteria_mapping_status": "not_mapped",
+              "criteria_program_ids": [
+                "md-ohep-ara"
+              ],
+              "effective_period": "Current OHEP page; exact inclusive date range not asserted"
+            },
+            "source_metadata": {
+              "source_id": "maryland.ohep",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "source_title": "Maryland Office of Home Energy Programs",
+              "publisher": "Maryland Department of Human Services",
+              "source_version": "Maryland DHS OHEP public pages reviewed 2026-10-31; FY27 guidance where labeled",
+              "criteria_status": "partial_not_mapped",
+              "retrieved_at": "2026-10-31T22:47:17Z",
+              "effective_at": null,
+              "transform_version": "md-ohep-source-review-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/how-are-grants-determined/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/how-are-grants-determined/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.state_code": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/how-are-grants-determined/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.program_id": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/how-are-grants-determined/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/how-are-grants-determined/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/how-are-grants-determined/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/how-are-grants-determined/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/how-are-grants-determined/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/how-are-grants-determined/",
+                  "observed_at": "2026-10-31T22:47:17Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://dhs.maryland.gov/office-of-home-energy-programs/how-are-grants-determined/",
+            "schema_version": "eligibility-program-v2",
+            "observed_at": "2026-10-31T22:47:17Z",
+            "content_hash": "ab796c3e30ca533ec2f91969229073d38b1fda71b3df404cba9ed35260722d24"
+          }
+        ]
+      }
+    }
+  ]
+}

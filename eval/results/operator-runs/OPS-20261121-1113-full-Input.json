@@ -1,0 +1,1209 @@
+{
+  "run_id": "R20261121-161343",
+  "suites": [
+    {
+      "suite_id": "S01",
+      "name": "core-bootstrap",
+      "objective": "Any client can connect and read the capability map; no private endpoints exposed",
+      "depends_on": [],
+      "requires_operator": false,
+      "stop_on_fail": true,
+      "stop_run_on_fail": true,
+      "start_conditions": [
+        "Core endpoint reachable over HTTPS",
+        "MCP initialize succeeds (retry once on cold start)"
+      ],
+      "stop_conditions": [
+        "Any failure stops the whole run: nothing else is meaningful without a working bootstrap"
+      ],
+      "maps_to": [
+        "O-1",
+        "C-1",
+        "A-4"
+      ],
+      "tests": [
+        {
+          "id": "S01-T01",
+          "title": "Tool list exposes required Core read and dispatch tools",
+          "action": {
+            "type": "tools_list"
+          },
+          "assertions": [
+            {
+              "path": "tools",
+              "op": "contains_all",
+              "value": [
+                "describe_core_capabilities",
+                "read_core_workflow",
+                "route_operation",
+                "list_cluster_templates",
+                "read_cluster_capability",
+                "read_cluster_schema",
+                "validate_cluster_template",
+                "register_cluster_template",
+                "activate_cluster_template",
+                "bind_cluster_template_operation",
+                "register_source_policy_candidate",
+                "decide_source_policy_candidate",
+                "read_source_policy_state",
+                "manage_source_policy_lifecycle",
+                "register_program_candidate_for_review",
+                "decide_program_candidate_review",
+                "publish_program_candidate_to_cluster_inventory",
+                "read_program_candidate_publication",
+                "manage_program_candidate_publication",
+                "list_core_routes",
+                "list_registered_tenants",
+                "read_tenant_binding",
+                "read_source_metadata",
+                "validate_tenant_onboarding",
+                "register_tenant",
+                "activate_tenant",
+                "deactivate_tenant",
+                "read_profile",
+                "preview_profile_refinement",
+                "create_profile_resume_claim",
+                "resume_profile",
+                "revoke_profile_resume_claim",
+                "list_evaluation_fixtures",
+                "read_evaluation_fixture",
+                "write_profile",
+                "set_saved_program_interest",
+                "get_fleet_operations_report"
+              ],
+              "label": "current Core tool surface includes the required discovery and profile tools"
+            }
+          ],
+          "gate": true
+        },
+        {
+          "id": "S01-T02",
+          "title": "Capability map is available",
+          "action": {
+            "type": "call",
+            "tool": "describe_core_capabilities"
+          },
+          "assertions": [
+            {
+              "path": "status",
+              "op": "eq",
+              "value": "available"
+            },
+            {
+              "path": "bootstrap.first_step",
+              "op": "eq",
+              "value": "describe_core_capabilities"
+            }
+          ],
+          "gate": true
+        },
+        {
+          "id": "S01-T03",
+          "title": "Private endpoints are not exposed",
+          "action": {
+            "type": "call",
+            "tool": "describe_core_capabilities"
+          },
+          "assertions": [
+            {
+              "path": "endpoint_urls_exposed",
+              "op": "eq",
+              "value": false
+            }
+          ],
+          "gate": true
+        },
+        {
+          "id": "S01-T04",
+          "title": "Route, template and tenant registries are available",
+          "action": {
+            "type": "call",
+            "tool": "describe_core_capabilities"
+          },
+          "assertions": [
+            {
+              "path": "route_registry.status",
+              "op": "eq",
+              "value": "available"
+            },
+            {
+              "path": "cluster_registry.status",
+              "op": "eq",
+              "value": "available"
+            },
+            {
+              "path": "tenant_registry.status",
+              "op": "eq",
+              "value": "available"
+            }
+          ],
+          "gate": true
+        },
+        {
+          "id": "S01-T05",
+          "title": "Operator and client workflows are published",
+          "action": {
+            "type": "call",
+            "tool": "describe_core_capabilities"
+          },
+          "assertions": [
+            {
+              "path": "bootstrap.operator_workflows",
+              "op": "contains_all",
+              "value": [
+                "pattern_template_definition",
+                "tenant_onboarding_interview",
+                "program_candidate_registration"
+              ]
+            },
+            {
+              "path": "bootstrap.client_workflows",
+              "op": "contains_all",
+              "value": [
+                "profile_capture",
+                "navigator_discovery_then_question",
+                "progressive_program_discovery"
+              ]
+            }
+          ],
+          "gate": true
+        },
+        {
+          "id": "S01-T06",
+          "title": "Progressive discovery workflow resolves end-user path without required profile",
+          "action": {
+            "type": "call",
+            "tool": "read_core_workflow",
+            "args": {
+              "workflow_id": "progressive_program_discovery"
+            }
+          },
+          "assertions": [
+            {
+              "path": "workflow.workflow_version",
+              "op": "exists"
+            },
+            {
+              "path": "workflow.starting_inputs.profile_required",
+              "op": "eq",
+              "value": false
+            },
+            {
+              "path": "workflow.operations.search_shared_inventory.read_only",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "path": "workflow.operations.search_external_leads.profile_access_required",
+              "op": "eq",
+              "value": false
+            }
+          ],
+          "gate": true
+        }
+      ],
+      "all_tests_gate": false,
+      "pass_rule": "Suite PASS = all tests pass. PASS_WITH_DEFECTS = only non-gate tests failed (dependent suites still run). FAIL = a gate test failed (dependent suites are BLOCKED).",
+      "_folder": "suites"
+    },
+    {
+      "suite_id": "S02",
+      "name": "operator-auth-fail-closed",
+      "objective": "Operator tools refuse missing or wrong credentials and accept the valid one",
+      "depends_on": [
+        "S01"
+      ],
+      "requires_operator": true,
+      "stop_on_fail": false,
+      "start_conditions": [
+        "S01 passed",
+        "Operator token supplied via --token-file or CORE_OPERATOR_TOKEN"
+      ],
+      "stop_conditions": [
+        "A missing/wrong credential that is accepted is a security failure: report immediately"
+      ],
+      "maps_to": [
+        "O-2",
+        "S-1",
+        "C-12"
+      ],
+      "tests": [
+        {
+          "id": "S02-T01",
+          "title": "Fleet report without credential is refused",
+          "auth": "none",
+          "action": {
+            "type": "call",
+            "tool": "get_fleet_operations_report",
+            "args": {
+              "from_utc": "${today_start_utc}",
+              "to_utc": "${now_utc}"
+            }
+          },
+          "assertions": [
+            {
+              "path": "status",
+              "op": "eq",
+              "value": "operator_authorization_required"
+            }
+          ]
+        },
+        {
+          "id": "S02-T02",
+          "title": "Fleet report with a wrong credential is refused",
+          "auth": "wrong",
+          "action": {
+            "type": "call",
+            "tool": "get_fleet_operations_report",
+            "args": {
+              "from_utc": "${today_start_utc}",
+              "to_utc": "${now_utc}"
+            }
+          },
+          "assertions": [
+            {
+              "path": "status",
+              "op": "eq",
+              "value": "operator_authorization_required"
+            }
+          ]
+        },
+        {
+          "id": "S02-T03",
+          "title": "Profile read without credential returns nothing (not found in scope)",
+          "auth": "none",
+          "action": {
+            "type": "call",
+            "tool": "read_profile",
+            "args": {
+              "profile_ref": "synthetic-suite-probe"
+            }
+          },
+          "assertions": [
+            {
+              "path": "status",
+              "op": "eq",
+              "value": "profile_not_found_in_scope"
+            }
+          ]
+        },
+        {
+          "id": "S02-T04",
+          "title": "Evaluation fixture inventory without credential is refused",
+          "auth": "none",
+          "action": {
+            "type": "call",
+            "tool": "list_evaluation_fixtures",
+            "args": {
+              "fixture_set_id": "phase-ab",
+              "fixture_set_version": "1.0.0"
+            }
+          },
+          "assertions": [
+            {
+              "path": "status",
+              "op": "eq",
+              "value": "operator_authorization_required"
+            }
+          ]
+        },
+        {
+          "id": "S02-T05",
+          "title": "Evaluation fixture read without credential is refused",
+          "auth": "none",
+          "action": {
+            "type": "call",
+            "tool": "read_evaluation_fixture",
+            "args": {
+              "fixture_set_id": "phase-ab",
+              "fixture_set_version": "1.0.0",
+              "fixture_id": "fixture-ab12"
+            }
+          },
+          "assertions": [
+            {
+              "path": "status",
+              "op": "eq",
+              "value": "operator_authorization_required"
+            }
+          ]
+        },
+        {
+          "id": "S02-T06",
+          "title": "Fleet report with the valid credential passes authorization",
+          "auth": "operator",
+          "action": {
+            "type": "call",
+            "tool": "get_fleet_operations_report",
+            "args": {
+              "from_utc": "${today_start_utc}",
+              "to_utc": "${now_utc}"
+            }
+          },
+          "assertions": [
+            {
+              "path": "status",
+              "op": "ne",
+              "value": "operator_authorization_required"
+            }
+          ]
+        }
+      ],
+      "all_tests_gate": true,
+      "pass_rule": "Suite PASS = all tests pass. PASS_WITH_DEFECTS = only non-gate tests failed (dependent suites still run). FAIL = a gate test failed (dependent suites are BLOCKED).",
+      "_folder": "suites"
+    },
+    {
+      "suite_id": "S03",
+      "name": "registry-and-routes",
+      "objective": "Registered templates, tenants and routes are consistent and complete",
+      "depends_on": [
+        "S01"
+      ],
+      "requires_operator": false,
+      "stop_on_fail": false,
+      "start_conditions": [
+        "S01 passed",
+        "At least one tenant expected active (eligibility-demo)",
+        "No template version is pinned; S03-T00 reads the active tenant binding and later tests use it"
+      ],
+      "stop_conditions": [
+        "None: run all checks and report gaps"
+      ],
+      "maps_to": [
+        "O-3a",
+        "G7",
+        "G8"
+      ],
+      "tests": [
+        {
+          "id": "S03-T00",
+          "title": "Exactly one active eligibility-demo tenant binding; capture its template version",
+          "action": {
+            "type": "derived",
+            "check": "active_tenant",
+            "target": "eligibility-demo"
+          },
+          "capture": {
+            "tenant_template_version": "template_version"
+          },
+          "assertions": [
+            {
+              "path": "active_count",
+              "op": "eq",
+              "value": 1
+            },
+            {
+              "path": "template_version",
+              "op": "exists"
+            }
+          ],
+          "gate": true
+        },
+        {
+          "id": "S03-T01",
+          "title": "Eligibility template the active tenant version is active",
+          "action": {
+            "type": "derived",
+            "check": "template",
+            "target": "eligibility@${tenant_template_version}"
+          },
+          "capture": {
+            "active_template_digest": "descriptor_sha256"
+          },
+          "assertions": [
+            {
+              "path": "lifecycle_state",
+              "op": "eq",
+              "value": "active"
+            },
+            {
+              "path": "descriptor_sha256",
+              "op": "exists"
+            }
+          ],
+          "gate": true
+        },
+        {
+          "id": "S03-T02",
+          "title": "Tenant eligibility-demo is active on the active tenant version with the four bound sources",
+          "action": {
+            "type": "call",
+            "tool": "read_tenant_binding",
+            "args": {
+              "template_id": "eligibility",
+              "template_version": "${tenant_template_version}",
+              "tenant_id": "eligibility-demo"
+            }
+          },
+          "assertions": [
+            {
+              "path": "status",
+              "op": "eq",
+              "value": "available"
+            },
+            {
+              "path": "tenant.tenant_id",
+              "op": "eq",
+              "value": "eligibility-demo"
+            },
+            {
+              "path": "tenant.lifecycle_state",
+              "op": "eq",
+              "value": "active"
+            },
+            {
+              "path": "tenant.template_version",
+              "op": "eq",
+              "value": "${tenant_template_version}"
+            },
+            {
+              "path": "tenant.catalog_bindings[*].dataset_id",
+              "op": "contains_all",
+              "value": [
+                "grants-gov-current-opportunities",
+                "kansas-dcf-snap-residency-guidance",
+                "missouri-dss-snap-guidance",
+                "usda-fsa-beginning-farmers-guidance"
+              ],
+              "label": "the four approved federal and state sources are bound"
+            }
+          ],
+          "gate": true
+        },
+        {
+          "id": "S03-T03",
+          "title": "Tenant route found for eligibility-demo",
+          "action": {
+            "type": "derived",
+            "check": "tenant_route",
+            "target": "eligibility-demo"
+          },
+          "capture": {
+            "tenant_route_id": "route_id"
+          },
+          "assertions": [
+            {
+              "path": "route_id",
+              "op": "exists"
+            },
+            {
+              "path": "operations",
+              "op": "contains_all",
+              "value": [
+                "program.discover",
+                "program.evaluate",
+                "program.requirements.preview",
+                "program.requirements.write",
+                "program.results"
+              ]
+            }
+          ],
+          "gate": true
+        },
+        {
+          "id": "S03-T04",
+          "title": "Every operation published by the tenant binding is routed",
+          "action": {
+            "type": "derived",
+            "check": "tenant_routes_cover_template_operations"
+          },
+          "assertions": [
+            {
+              "path": "gaps",
+              "op": "eq",
+              "value": [],
+              "label": "no declared operation without a tenant route"
+            }
+          ],
+          "gate": false
+        },
+        {
+          "id": "S03-T05",
+          "title": "Every active template has a declared input schema reference",
+          "action": {
+            "type": "derived",
+            "check": "active_templates_publish_input_schemas"
+          },
+          "assertions": [
+            {
+              "path": "missing",
+              "op": "eq",
+              "value": [],
+              "label": "no active template without input schemas"
+            }
+          ],
+          "gate": false
+        },
+        {
+          "id": "S03-T06",
+          "title": "Legacy tenantless discover/evaluate routes are retired",
+          "action": {
+            "type": "derived",
+            "check": "active_routes_are_tenant_scoped"
+          },
+          "assertions": [
+            {
+              "path": "unscoped_legacy",
+              "op": "eq",
+              "value": [],
+              "label": "no legacy tenantless discover/evaluate route remains"
+            }
+          ],
+          "gate": false
+        },
+        {
+          "id": "S03-T07",
+          "title": "Active inventory-search schema (V3) resolves through the live schema registry",
+          "action": {
+            "type": "call",
+            "tool": "read_cluster_schema",
+            "args": {
+              "template_id": "eligibility",
+              "template_version": "${tenant_template_version}",
+              "schema_ref": "#/$defs/ProgramInventorySearchArgumentsV3"
+            }
+          },
+          "assertions": [
+            {
+              "path": "status",
+              "op": "eq",
+              "value": "available"
+            }
+          ],
+          "gate": false
+        },
+        {
+          "id": "S03-T08",
+          "title": "Only the current inventory-search route version is active",
+          "action": {
+            "type": "derived",
+            "check": "duplicate_active_routes_for_operation",
+            "target": "program.inventory.search"
+          },
+          "assertions": [
+            {
+              "path": "routes",
+              "op": "len_eq",
+              "value": 1,
+              "label": "older shared inventory route versions are not advertised"
+            },
+            {
+              "path": "routes",
+              "op": "contains",
+              "value": "eligibility",
+              "label": "the current inventory route remains selectable"
+            }
+          ],
+          "gate": false
+        },
+        {
+          "id": "S03-T09",
+          "title": "Bound source metadata is readable: grants.gov.opportunities",
+          "action": {
+            "type": "call",
+            "tool": "read_source_metadata",
+            "args": {
+              "template_id": "eligibility",
+              "template_version": "${tenant_template_version}",
+              "tenant_id": "eligibility-demo",
+              "catalog_namespace": "programs",
+              "dataset_id": "grants-gov-current-opportunities"
+            }
+          },
+          "assertions": [
+            {
+              "path": "status",
+              "op": "eq",
+              "value": "available"
+            },
+            {
+              "path": "metadata_status",
+              "op": "eq",
+              "value": "available"
+            },
+            {
+              "path": "source_health",
+              "op": "eq",
+              "value": "not_assessed"
+            }
+          ],
+          "gate": false
+        },
+        {
+          "id": "S03-T10",
+          "title": "Bound source metadata is readable: kansas.dcf.food-assistance-residency",
+          "action": {
+            "type": "call",
+            "tool": "read_source_metadata",
+            "args": {
+              "template_id": "eligibility",
+              "template_version": "${tenant_template_version}",
+              "tenant_id": "eligibility-demo",
+              "catalog_namespace": "programs",
+              "dataset_id": "kansas-dcf-snap-residency-guidance"
+            }
+          },
+          "assertions": [
+            {
+              "path": "status",
+              "op": "eq",
+              "value": "available"
+            },
+            {
+              "path": "metadata_status",
+              "op": "eq",
+              "value": "available"
+            },
+            {
+              "path": "source_health",
+              "op": "eq",
+              "value": "not_assessed"
+            }
+          ],
+          "gate": false
+        },
+        {
+          "id": "S03-T11",
+          "title": "Bound source metadata is readable: missouri.dss.snap",
+          "action": {
+            "type": "call",
+            "tool": "read_source_metadata",
+            "args": {
+              "template_id": "eligibility",
+              "template_version": "${tenant_template_version}",
+              "tenant_id": "eligibility-demo",
+              "catalog_namespace": "programs",
+              "dataset_id": "missouri-dss-snap-guidance"
+            }
+          },
+          "assertions": [
+            {
+              "path": "status",
+              "op": "eq",
+              "value": "available"
+            },
+            {
+              "path": "metadata_status",
+              "op": "eq",
+              "value": "available"
+            },
+            {
+              "path": "source_health",
+              "op": "eq",
+              "value": "not_assessed"
+            }
+          ],
+          "gate": false
+        },
+        {
+          "id": "S03-T12",
+          "title": "Bound source metadata is readable: usda.fsa.beginning-farmers",
+          "action": {
+            "type": "call",
+            "tool": "read_source_metadata",
+            "args": {
+              "template_id": "eligibility",
+              "template_version": "${tenant_template_version}",
+              "tenant_id": "eligibility-demo",
+              "catalog_namespace": "programs",
+              "dataset_id": "usda-fsa-beginning-farmers-guidance"
+            }
+          },
+          "assertions": [
+            {
+              "path": "status",
+              "op": "eq",
+              "value": "available"
+            },
+            {
+              "path": "metadata_status",
+              "op": "eq",
+              "value": "available"
+            },
+            {
+              "path": "source_health",
+              "op": "eq",
+              "value": "not_assessed"
+            }
+          ],
+          "gate": false
+        },
+        {
+          "id": "S03-T13",
+          "title": "Source-grounded requirements preview returns without writing",
+          "action": {
+            "type": "call",
+            "tool": "route_operation",
+            "args": {
+              "route_id": "${tenant_route_id}",
+              "operation_id": "program.requirements.preview",
+              "arguments": {
+                "program_id": "fsa-beginning-farmer-classification",
+                "ambiguous_attributes": [],
+                "profile_payload": {
+                  "profile_id": "synthetic-farmer-mo-beginning",
+                  "navigator": "farmer_producer",
+                  "schema_version": "farmer-profile-v1",
+                  "state_code": "MO",
+                  "county_name": "Boone",
+                  "acreage": 120.0,
+                  "commodities": [
+                    "corn",
+                    "soybeans"
+                  ],
+                  "years_farming": 3,
+                  "veteran_status": false,
+                  "beginning_farmer_status": true,
+                  "land_tenure": "leased",
+                  "operation_type": "row_crops",
+                  "operation_goal": "expand operation and buy land"
+                }
+              }
+            }
+          },
+          "assertions": [
+            {
+              "path": "status",
+              "op": "eq",
+              "value": "ok"
+            },
+            {
+              "path": "result.status",
+              "op": "eq",
+              "value": "preview"
+            },
+            {
+              "path": "result.written",
+              "op": "eq",
+              "value": false
+            },
+            {
+              "path": "result.package",
+              "op": "exists"
+            }
+          ],
+          "gate": false
+        },
+        {
+          "id": "S03-T14",
+          "title": "Exact Eligibility cluster capability publishes the five tenant operations",
+          "action": {
+            "type": "call",
+            "tool": "read_cluster_capability",
+            "args": {
+              "template_id": "eligibility",
+              "template_version": "${tenant_template_version}"
+            }
+          },
+          "assertions": [
+            {
+              "path": "status",
+              "op": "eq",
+              "value": "available"
+            },
+            {
+              "path": "template.operations[*].operation_id",
+              "op": "contains_all",
+              "value": [
+                "program.discover",
+                "program.evaluate",
+                "program.requirements.preview",
+                "program.requirements.write",
+                "program.results"
+              ]
+            }
+          ],
+          "gate": true
+        },
+        {
+          "id": "S03-T15",
+          "title": "Unknown cluster template version fails closed",
+          "action": {
+            "type": "call",
+            "tool": "read_cluster_capability",
+            "args": {
+              "template_id": "eligibility",
+              "template_version": "999.0.0"
+            }
+          },
+          "assertions": [
+            {
+              "path": "status",
+              "op": "eq",
+              "value": "not_found"
+            }
+          ],
+          "gate": true
+        },
+        {
+          "id": "S03-T16",
+          "title": "Approved public-search source policy is active",
+          "action": {
+            "type": "call",
+            "tool": "read_source_policy_state"
+          },
+          "assertions": [
+            {
+              "path": "status",
+              "op": "eq",
+              "value": "active"
+            },
+            {
+              "path": "active_reference",
+              "op": "exists"
+            }
+          ],
+          "gate": false
+        }
+      ],
+      "pass_rule": "Suite PASS = all tests pass. PASS_WITH_DEFECTS = only non-gate tests failed (dependent suites still run). FAIL = a gate test failed (dependent suites are BLOCKED).",
+      "_folder": "suites"
+    },
+    {
+      "suite_id": "S04",
+      "name": "routing-and-validation-contract",
+      "objective": "Core rejects unknown routes and validates without persisting",
+      "depends_on": [
+        "S01",
+        "S03"
+      ],
+      "requires_operator": false,
+      "stop_on_fail": false,
+      "start_conditions": [
+        "S01 and S03 passed",
+        "Repo checkout available for the template descriptor"
+      ],
+      "stop_conditions": [
+        "A validation call that persists anything is a defect: report immediately"
+      ],
+      "maps_to": [
+        "O-3b",
+        "R-5"
+      ],
+      "tests": [
+        {
+          "id": "S04-T01",
+          "title": "Unknown route returns unknown_route",
+          "action": {
+            "type": "call",
+            "tool": "route_operation",
+            "args": {
+              "route_id": "suite-unknown-route",
+              "operation_id": "program.discover",
+              "arguments": {}
+            }
+          },
+          "assertions": [
+            {
+              "path": "status",
+              "op": "eq",
+              "value": "unknown_route"
+            },
+            {
+              "path": "reason",
+              "op": "eq",
+              "value": "active_route_not_found"
+            },
+            {
+              "path": "recovery_hint.tool",
+              "op": "eq",
+              "value": "list_core_routes"
+            },
+            {
+              "path": "recovery_hint.match_field",
+              "op": "eq",
+              "value": "operation_id"
+            },
+            {
+              "path": "recovery_hint.use_field",
+              "op": "eq",
+              "value": "route_id"
+            }
+          ],
+          "gate": true
+        },
+        {
+          "id": "S04-T02",
+          "title": "Unpackaged descriptor (no immutable artifact reference) is rejected without persisting",
+          "action": {
+            "type": "call_with_file",
+            "tool": "validate_cluster_template",
+            "arg_name": "descriptor",
+            "file": "${repo_root}/configs/templates/eligibility.v1.json"
+          },
+          "assertions": [
+            {
+              "path": "status",
+              "op": "eq",
+              "value": "invalid_descriptor",
+              "label": "raw Git definition rejected"
+            }
+          ],
+          "gate": false
+        },
+        {
+          "id": "S04-T03",
+          "title": "Empty tenant draft is rejected without persisting",
+          "action": {
+            "type": "call",
+            "tool": "validate_tenant_onboarding",
+            "args": {
+              "specification": {}
+            }
+          },
+          "assertions": [
+            {
+              "path": "status",
+              "op": "ne",
+              "value": "registered"
+            },
+            {
+              "path": "status",
+              "op": "ne",
+              "value": "active"
+            }
+          ],
+          "gate": false
+        },
+        {
+          "id": "S04-T04",
+          "title": "Validation rejection explains why (findings returned)",
+          "gate": false,
+          "action": {
+            "type": "call_with_file",
+            "tool": "validate_cluster_template",
+            "arg_name": "descriptor",
+            "file": "${repo_root}/configs/templates/eligibility.v1.json"
+          },
+          "assertions": [
+            {
+              "path": "findings",
+              "op": "exists",
+              "label": "rejection includes findings the operator can act on"
+            }
+          ]
+        }
+      ],
+      "pass_rule": "Suite PASS = all tests pass. PASS_WITH_DEFECTS = only non-gate tests failed (dependent suites still run). FAIL = a gate test failed (dependent suites are BLOCKED).",
+      "_folder": "suites"
+    },
+    {
+      "suite_id": "S05",
+      "name": "persona-outcomes",
+      "objective": "Core positive, negative, missing-fact and boundary personas produce source-cited criterion results",
+      "depends_on": [
+        "S03"
+      ],
+      "requires_operator": false,
+      "stop_on_fail": false,
+      "start_conditions": [
+        "S03 passed (tenant route captured)",
+        "--personas points to expected-outcomes.json"
+      ],
+      "stop_conditions": [
+        "None: every persona runs; failures are listed per criterion"
+      ],
+      "maps_to": [
+        "O-7",
+        "A-2",
+        "H-R (automatable part)"
+      ],
+      "persona_tests": {
+        "set_prefix": "Core",
+        "case_types": [
+          "positive",
+          "negative"
+        ],
+        "include_tags": [
+          "boundary",
+          "missing fact"
+        ]
+      },
+      "tests": [],
+      "all_tests_gate": false,
+      "pass_rule": "Suite PASS = all tests pass. PASS_WITH_DEFECTS = only non-gate tests failed (dependent suites still run). FAIL = a gate test failed (dependent suites are BLOCKED).",
+      "_folder": "suites"
+    },
+    {
+      "suite_id": "S08",
+      "name": "wiring-and-contract-drift",
+      "objective": "Registry wiring and published contracts match runtime behavior",
+      "depends_on": [
+        "S03"
+      ],
+      "requires_operator": false,
+      "stop_on_fail": false,
+      "all_tests_gate": false,
+      "stop_conditions": [
+        "No writes; each check runs once (P-5 read retry only)"
+      ],
+      "pass_rule": "PASS_WITH_DEFECTS for non-gate failures; failures are consolidated in DEFECTS.md, not looped.",
+      "start_conditions": [
+        "S03 captured tenant_template_version"
+      ],
+      "maps_to": [
+        "#242 wiring"
+      ],
+      "tests": [
+        {
+          "id": "S08-T01",
+          "title": "Exactly one active eligibility template (no stale versions advertised)",
+          "action": {
+            "type": "derived",
+            "check": "active_template_versions",
+            "target": "eligibility"
+          },
+          "assertions": [
+            {
+              "path": "versions",
+              "op": "len_eq",
+              "value": 1
+            }
+          ],
+          "gate": false
+        },
+        {
+          "id": "S08-T02",
+          "title": "General profile schema is published on the active template",
+          "action": {
+            "type": "call",
+            "tool": "read_cluster_schema",
+            "args": {
+              "template_id": "eligibility",
+              "template_version": "${tenant_template_version}",
+              "schema_ref": "#/$defs/EligibilityProfile"
+            }
+          },
+          "assertions": [
+            {
+              "path": "status",
+              "op": "eq",
+              "value": "available"
+            }
+          ],
+          "gate": false
+        },
+        {
+          "id": "S08-T03",
+          "title": "Inventory search browses with no need phrase (schema and runtime agree)",
+          "action": {
+            "type": "call",
+            "tool": "route_operation",
+            "args": {
+              "route_id": "eligibility",
+              "operation_id": "program.inventory.search",
+              "arguments": {
+                "page_size": 5
+              }
+            }
+          },
+          "assertions": [
+            {
+              "path": "status",
+              "op": "eq",
+              "value": "ok"
+            },
+            {
+              "path": "result.candidates",
+              "op": "len_gte",
+              "value": 1
+            }
+          ],
+          "gate": false
+        },
+        {
+          "id": "S08-T04",
+          "title": "Out-of-range argument returns a structured validation result, not bare unavailable",
+          "action": {
+            "type": "call",
+            "tool": "route_operation",
+            "args": {
+              "route_id": "eligibility",
+              "operation_id": "program.inventory.list",
+              "arguments": {
+                "page_size": 26
+              }
+            }
+          },
+          "assertions": [
+            {
+              "path": "status",
+              "op": "ne",
+              "value": "unavailable",
+              "label": "invalid input is distinguishable from an outage"
+            }
+          ],
+          "gate": false
+        },
+        {
+          "id": "S08-T05",
+          "title": "Candidate normalize accepts arguments shaped like its published schema",
+          "action": {
+            "type": "call",
+            "tool": "route_operation",
+            "args": {
+              "route_id": "eligibility",
+              "operation_id": "program.candidate.normalize",
+              "arguments": {
+                "source_id": "usda.farmers.gov",
+                "source_record_id": "s08-schema-shape-check",
+                "source_version": "S08 contract check",
+                "source_url": "https://www.farmers.gov/loans",
+                "retrieved_at": "2026-10-31T00:00:00Z",
+                "listing": {
+                  "title": "S08 schema-shape check"
+                }
+              }
+            }
+          },
+          "assertions": [
+            {
+              "path": "result.status",
+              "op": "eq",
+              "value": "candidate_ready_for_review"
+            }
+          ],
+          "gate": false
+        }
+      ],
+      "_folder": "suites"
+    },
+    {
+      "suite_id": "S11",
+      "name": "general-profile-outcomes",
+      "objective": "The Core persona oracle holds when each persona is sent as a sparse general profile instead of a demo Navigator profile",
+      "depends_on": [
+        "S03"
+      ],
+      "requires_operator": false,
+      "stop_on_fail": false,
+      "all_tests_gate": false,
+      "stop_conditions": [
+        "No writes; each check runs once (P-5 read retry only)"
+      ],
+      "pass_rule": "PASS_WITH_DEFECTS for non-gate failures; failures are consolidated in DEFECTS.md, not looped.",
+      "start_conditions": [
+        "S03 passed (tenant route captured)",
+        "--personas points to expected-outcomes.json (v0.3.0+)"
+      ],
+      "maps_to": [
+        "A-2"
+      ],
+      "persona_tests": {
+        "set_prefix": "Core",
+        "case_types": [
+          "positive",
+          "negative"
+        ],
+        "include_tags": [
+          "boundary",
+          "missing fact"
+        ],
+        "profile_mode": "general"
+      },
+      "tests": [],
+      "_folder": "suites"
+    }
+  ]
+}

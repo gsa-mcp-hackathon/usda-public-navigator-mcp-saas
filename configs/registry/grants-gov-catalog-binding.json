@@ -1,0 +1,18 @@
+{
+  "dataset_id": "grants-gov-current-opportunities",
+  "pattern_id": "eligibility",
+  "pattern_version": "0.1.4",
+  "tenant_id": "eligibility-demo",
+  "binding_context": {
+    "catalog_namespace": "programs",
+    "catalog_version": "eligibility-demo-v1",
+    "jurisdiction": {
+      "level": "federal",
+      "country_code": "US"
+    },
+    "source_id": "grants.gov.opportunities",
+    "semantic_mapping": {},
+    "criteria_available": false,
+    "listing_kind": "funding_opportunity"
+  }
+}

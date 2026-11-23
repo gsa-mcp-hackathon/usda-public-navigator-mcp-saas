@@ -1,0 +1,9 @@
+{
+  "component_id": "cluster.eligibility",
+  "target_resource_name": "your-namespace-cluster-eligibility",
+  "runtime_role": "cluster",
+  "cluster_id": "eligibility",
+  "pattern_version": "0.1.48",
+  "catalog_backend": "persistence_api",
+  "cluster_runtime_path": "configs/registry/eligibility-cluster-runtime.json"
+}

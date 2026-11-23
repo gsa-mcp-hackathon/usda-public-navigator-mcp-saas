@@ -1,0 +1,506 @@
+{
+  "suite_id": "S03",
+  "name": "registry-and-routes",
+  "objective": "Registered templates, tenants and routes are consistent and complete",
+  "depends_on": [
+    "S01"
+  ],
+  "requires_operator": false,
+  "stop_on_fail": false,
+  "start_conditions": [
+    "S01 passed",
+    "At least one tenant expected active (eligibility-demo)",
+    "No template version is pinned; S03-T00 reads the active tenant binding and later tests use it"
+  ],
+  "stop_conditions": [
+    "None: run all checks and report gaps"
+  ],
+  "maps_to": [
+    "O-3a",
+    "G7",
+    "G8"
+  ],
+  "tests": [
+    {
+      "id": "S03-T00",
+      "title": "Exactly one active eligibility-demo tenant binding; capture its template version",
+      "action": {
+        "type": "derived",
+        "check": "active_tenant",
+        "target": "eligibility-demo"
+      },
+      "capture": {
+        "tenant_template_version": "template_version"
+      },
+      "assertions": [
+        {
+          "path": "active_count",
+          "op": "eq",
+          "value": 1
+        },
+        {
+          "path": "template_version",
+          "op": "exists"
+        }
+      ],
+      "gate": true
+    },
+    {
+      "id": "S03-T01",
+      "title": "Eligibility template the active tenant version is active",
+      "action": {
+        "type": "derived",
+        "check": "template",
+        "target": "eligibility@${tenant_template_version}"
+      },
+      "capture": {
+        "active_template_digest": "descriptor_sha256"
+      },
+      "assertions": [
+        {
+          "path": "lifecycle_state",
+          "op": "eq",
+          "value": "active"
+        },
+        {
+          "path": "descriptor_sha256",
+          "op": "exists"
+        }
+      ],
+      "gate": true
+    },
+    {
+      "id": "S03-T02",
+      "title": "Tenant eligibility-demo is active on the active tenant version with the four bound sources",
+      "action": {
+        "type": "call",
+        "tool": "read_tenant_binding",
+        "args": {
+          "template_id": "eligibility",
+          "template_version": "${tenant_template_version}",
+          "tenant_id": "eligibility-demo"
+        }
+      },
+      "assertions": [
+        {
+          "path": "status",
+          "op": "eq",
+          "value": "available"
+        },
+        {
+          "path": "tenant.tenant_id",
+          "op": "eq",
+          "value": "eligibility-demo"
+        },
+        {
+          "path": "tenant.lifecycle_state",
+          "op": "eq",
+          "value": "active"
+        },
+        {
+          "path": "tenant.template_version",
+          "op": "eq",
+          "value": "${tenant_template_version}"
+        },
+        {
+          "path": "tenant.catalog_bindings[*].dataset_id",
+          "op": "contains_all",
+          "value": [
+            "grants-gov-current-opportunities",
+            "kansas-dcf-snap-residency-guidance",
+            "missouri-dss-snap-guidance",
+            "usda-fsa-beginning-farmers-guidance"
+          ],
+          "label": "the four approved federal and state sources are bound"
+        }
+      ],
+      "gate": true
+    },
+    {
+      "id": "S03-T03",
+      "title": "Tenant route found for eligibility-demo",
+      "action": {
+        "type": "derived",
+        "check": "tenant_route",
+        "target": "eligibility-demo"
+      },
+      "capture": {
+        "tenant_route_id": "route_id"
+      },
+      "assertions": [
+        {
+          "path": "route_id",
+          "op": "exists"
+        },
+        {
+          "path": "operations",
+          "op": "contains_all",
+          "value": [
+            "program.discover",
+            "program.evaluate",
+            "program.requirements.preview",
+            "program.requirements.write",
+            "program.results"
+          ]
+        }
+      ],
+      "gate": true
+    },
+    {
+      "id": "S03-T04",
+      "title": "Every operation published by the tenant binding is routed",
+      "action": {
+        "type": "derived",
+        "check": "tenant_routes_cover_template_operations"
+      },
+      "assertions": [
+        {
+          "path": "gaps",
+          "op": "eq",
+          "value": [],
+          "label": "no declared operation without a tenant route"
+        }
+      ],
+      "gate": false
+    },
+    {
+      "id": "S03-T05",
+      "title": "Every active template has a declared input schema reference",
+      "action": {
+        "type": "derived",
+        "check": "active_templates_publish_input_schemas"
+      },
+      "assertions": [
+        {
+          "path": "missing",
+          "op": "eq",
+          "value": [],
+          "label": "no active template without input schemas"
+        }
+      ],
+      "gate": false
+    },
+    {
+      "id": "S03-T06",
+      "title": "Legacy tenantless discover/evaluate routes are retired",
+      "action": {
+        "type": "derived",
+        "check": "active_routes_are_tenant_scoped"
+      },
+      "assertions": [
+        {
+          "path": "unscoped_legacy",
+          "op": "eq",
+          "value": [],
+          "label": "no legacy tenantless discover/evaluate route remains"
+        }
+      ],
+      "gate": false
+    },
+    {
+      "id": "S03-T07",
+      "title": "Active inventory-search schema (V3) resolves through the live schema registry",
+      "action": {
+        "type": "call",
+        "tool": "read_cluster_schema",
+        "args": {
+          "template_id": "eligibility",
+          "template_version": "${tenant_template_version}",
+          "schema_ref": "#/$defs/ProgramInventorySearchArgumentsV3"
+        }
+      },
+      "assertions": [
+        {
+          "path": "status",
+          "op": "eq",
+          "value": "available"
+        }
+      ],
+      "gate": false
+    },
+    {
+      "id": "S03-T08",
+      "title": "Only the current inventory-search route version is active",
+      "action": {
+        "type": "derived",
+        "check": "duplicate_active_routes_for_operation",
+        "target": "program.inventory.search"
+      },
+      "assertions": [
+        {
+          "path": "routes",
+          "op": "len_eq",
+          "value": 1,
+          "label": "older shared inventory route versions are not advertised"
+        },
+        {
+          "path": "routes",
+          "op": "contains",
+          "value": "eligibility",
+          "label": "the current inventory route remains selectable"
+        }
+      ],
+      "gate": false
+    },
+    {
+      "id": "S03-T09",
+      "title": "Bound source metadata is readable: grants.gov.opportunities",
+      "action": {
+        "type": "call",
+        "tool": "read_source_metadata",
+        "args": {
+          "template_id": "eligibility",
+          "template_version": "${tenant_template_version}",
+          "tenant_id": "eligibility-demo",
+          "catalog_namespace": "programs",
+          "dataset_id": "grants-gov-current-opportunities"
+        }
+      },
+      "assertions": [
+        {
+          "path": "status",
+          "op": "eq",
+          "value": "available"
+        },
+        {
+          "path": "metadata_status",
+          "op": "eq",
+          "value": "available"
+        },
+        {
+          "path": "source_health",
+          "op": "eq",
+          "value": "not_assessed"
+        }
+      ],
+      "gate": false
+    },
+    {
+      "id": "S03-T10",
+      "title": "Bound source metadata is readable: kansas.dcf.food-assistance-residency",
+      "action": {
+        "type": "call",
+        "tool": "read_source_metadata",
+        "args": {
+          "template_id": "eligibility",
+          "template_version": "${tenant_template_version}",
+          "tenant_id": "eligibility-demo",
+          "catalog_namespace": "programs",
+          "dataset_id": "kansas-dcf-snap-residency-guidance"
+        }
+      },
+      "assertions": [
+        {
+          "path": "status",
+          "op": "eq",
+          "value": "available"
+        },
+        {
+          "path": "metadata_status",
+          "op": "eq",
+          "value": "available"
+        },
+        {
+          "path": "source_health",
+          "op": "eq",
+          "value": "not_assessed"
+        }
+      ],
+      "gate": false
+    },
+    {
+      "id": "S03-T11",
+      "title": "Bound source metadata is readable: missouri.dss.snap",
+      "action": {
+        "type": "call",
+        "tool": "read_source_metadata",
+        "args": {
+          "template_id": "eligibility",
+          "template_version": "${tenant_template_version}",
+          "tenant_id": "eligibility-demo",
+          "catalog_namespace": "programs",
+          "dataset_id": "missouri-dss-snap-guidance"
+        }
+      },
+      "assertions": [
+        {
+          "path": "status",
+          "op": "eq",
+          "value": "available"
+        },
+        {
+          "path": "metadata_status",
+          "op": "eq",
+          "value": "available"
+        },
+        {
+          "path": "source_health",
+          "op": "eq",
+          "value": "not_assessed"
+        }
+      ],
+      "gate": false
+    },
+    {
+      "id": "S03-T12",
+      "title": "Bound source metadata is readable: usda.fsa.beginning-farmers",
+      "action": {
+        "type": "call",
+        "tool": "read_source_metadata",
+        "args": {
+          "template_id": "eligibility",
+          "template_version": "${tenant_template_version}",
+          "tenant_id": "eligibility-demo",
+          "catalog_namespace": "programs",
+          "dataset_id": "usda-fsa-beginning-farmers-guidance"
+        }
+      },
+      "assertions": [
+        {
+          "path": "status",
+          "op": "eq",
+          "value": "available"
+        },
+        {
+          "path": "metadata_status",
+          "op": "eq",
+          "value": "available"
+        },
+        {
+          "path": "source_health",
+          "op": "eq",
+          "value": "not_assessed"
+        }
+      ],
+      "gate": false
+    },
+    {
+      "id": "S03-T13",
+      "title": "Source-grounded requirements preview returns without writing",
+      "action": {
+        "type": "call",
+        "tool": "route_operation",
+        "args": {
+          "route_id": "${tenant_route_id}",
+          "operation_id": "program.requirements.preview",
+          "arguments": {
+            "program_id": "fsa-beginning-farmer-classification",
+            "ambiguous_attributes": [],
+            "profile_payload": {
+              "profile_id": "synthetic-farmer-mo-beginning",
+              "navigator": "farmer_producer",
+              "schema_version": "farmer-profile-v1",
+              "state_code": "MO",
+              "county_name": "Boone",
+              "acreage": 120.0,
+              "commodities": [
+                "corn",
+                "soybeans"
+              ],
+              "years_farming": 3,
+              "veteran_status": false,
+              "beginning_farmer_status": true,
+              "land_tenure": "leased",
+              "operation_type": "row_crops",
+              "operation_goal": "expand operation and buy land"
+            }
+          }
+        }
+      },
+      "assertions": [
+        {
+          "path": "status",
+          "op": "eq",
+          "value": "ok"
+        },
+        {
+          "path": "result.status",
+          "op": "eq",
+          "value": "preview"
+        },
+        {
+          "path": "result.written",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "result.package",
+          "op": "exists"
+        }
+      ],
+      "gate": false
+    },
+    {
+      "id": "S03-T14",
+      "title": "Exact Eligibility cluster capability publishes the five tenant operations",
+      "action": {
+        "type": "call",
+        "tool": "read_cluster_capability",
+        "args": {
+          "template_id": "eligibility",
+          "template_version": "${tenant_template_version}"
+        }
+      },
+      "assertions": [
+        {
+          "path": "status",
+          "op": "eq",
+          "value": "available"
+        },
+        {
+          "path": "template.operations[*].operation_id",
+          "op": "contains_all",
+          "value": [
+            "program.discover",
+            "program.evaluate",
+            "program.requirements.preview",
+            "program.requirements.write",
+            "program.results"
+          ]
+        }
+      ],
+      "gate": true
+    },
+    {
+      "id": "S03-T15",
+      "title": "Unknown cluster template version fails closed",
+      "action": {
+        "type": "call",
+        "tool": "read_cluster_capability",
+        "args": {
+          "template_id": "eligibility",
+          "template_version": "999.0.0"
+        }
+      },
+      "assertions": [
+        {
+          "path": "status",
+          "op": "eq",
+          "value": "not_found"
+        }
+      ],
+      "gate": true
+    },
+    {
+      "id": "S03-T16",
+      "title": "Approved public-search source policy is active",
+      "action": {
+        "type": "call",
+        "tool": "read_source_policy_state"
+      },
+      "assertions": [
+        {
+          "path": "status",
+          "op": "eq",
+          "value": "active"
+        },
+        {
+          "path": "active_reference",
+          "op": "exists"
+        }
+      ],
+      "gate": false
+    }
+  ],
+  "pass_rule": "Suite PASS = all tests pass. PASS_WITH_DEFECTS = only non-gate tests failed (dependent suites still run). FAIL = a gate test failed (dependent suites are BLOCKED)."
+}

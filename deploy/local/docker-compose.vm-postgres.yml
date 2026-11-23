@@ -1,0 +1,40 @@
+# Optional overlay for the IBM VM's existing private PostgreSQL proof network.
+# The database remains unpublished; tenant and registry-job containers join its private network.
+services:
+  core:
+    environment:
+      DATABASE_URL_FILE: /run/secrets/mcp_database_url
+    networks:
+      - default
+      - database
+    secrets:
+      - mcp_database_url
+  tenant-federal:
+    environment:
+      CATALOG_BACKEND: postgres
+      DATABASE_URL_FILE: /run/secrets/mcp_database_url
+    networks:
+      - default
+      - database
+    secrets:
+      - mcp_database_url
+
+  tenant-kansas:
+    environment:
+      CATALOG_BACKEND: postgres
+      DATABASE_URL_FILE: /run/secrets/mcp_database_url
+    networks:
+      - default
+      - database
+    secrets:
+      - mcp_database_url
+
+networks:
+  default: {}
+  database:
+    name: ${MCP_DATABASE_NETWORK:-mcp-dbtest-net}
+    external: true
+
+secrets:
+  mcp_database_url:
+    file: ${MCP_DATABASE_URL_FILE:?Run scripts/provision_vm_postgres.sh first}

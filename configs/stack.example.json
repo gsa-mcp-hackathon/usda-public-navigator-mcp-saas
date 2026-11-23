@@ -1,0 +1,10 @@
+{
+  "manifest_version": "1.0",
+  "naming": {"platform": "mcpsaas", "org": "usda", "env": "test"},
+  "release": {"version": "v7.2", "commit": "ce3e022", "owner": "platform-team"},
+  "parts": [
+    {"role": "core", "image": "mcpsaas-core", "digest": "sha256:REPLACE_WITH_BUILT_DIGEST"},
+    {"role": "elig", "image": "mcpsaas-elig", "digest": "sha256:REPLACE_WITH_BUILT_DIGEST"},
+    {"role": "db", "image": "postgres", "digest": "sha256:REPLACE_WITH_PINNED_DIGEST"}
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "registry_id": "eligibility-program-candidate-requirements-preview-request-v2-schema",
+  "schema_version": "program-candidate-requirements-preview-request-v2",
+  "namespaces": {
+    "candidate": "Selected public program and source-backed criteria metadata",
+    "requirements": "Application details with precise source citations and optional synthetic profile reference"
+  },
+  "dimensions": {
+    "candidate.criteria_package": "Typed criteria package for a selected program lead",
+    "requirements.details": "Source-backed documents, forms, deadlines, and steps"
+  },
+  "attributes": {
+    "candidate.criteria_package": {
+      "dimension_id": "candidate.criteria_package",
+      "type": "object"
+    },
+    "requirements.details": {
+      "dimension_id": "requirements.details",
+      "type": "array",
+      "description": "Each detail carries source URL, retrieval time, version, content hash, locator, and excerpt."
+    },
+    "requirements.profile_id": {
+      "dimension_id": "requirements.details",
+      "type": "string",
+      "pattern": "^synthetic-"
+    }
+  },
+  "relationships": {
+    "requirements.details.cite_source": {
+      "source_dimension": "requirements.details",
+      "target_dimension": "candidate.criteria_package",
+      "cardinality": "many_to_one"
+    }
+  },
+  "description": "Selected-source requirements preview request. Source provenance remains attached to every cited detail."
+}

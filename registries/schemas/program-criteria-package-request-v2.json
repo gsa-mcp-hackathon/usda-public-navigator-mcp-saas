@@ -1,0 +1,59 @@
+{
+  "registry_id": "eligibility-program-criteria-package-request-v2-schema",
+  "schema_version": "program-criteria-package-request-v2",
+  "namespaces": {
+    "criteria": "Source-cited, explicitly mapped program requirements submitted for deterministic compilation",
+    "source": "Selected public source metadata with explicit approved or unverified provenance"
+  },
+  "dimensions": {
+    "criteria.program": "Program identity and jurisdiction for the candidate package",
+    "criteria.requirements": "Typed requirement statements with mapping state and citations",
+    "source.references": "Approved public source metadata used to verify citation lineage"
+  },
+  "attributes": {
+    "criteria.program_id": {
+      "dimension_id": "criteria.program",
+      "type": "string"
+    },
+    "criteria.catalog_version": {
+      "dimension_id": "criteria.program",
+      "type": "string"
+    },
+    "criteria.navigator": {
+      "dimension_id": "criteria.program",
+      "type": "string"
+    },
+    "criteria.title": {
+      "dimension_id": "criteria.program",
+      "type": "string"
+    },
+    "criteria.description": {
+      "dimension_id": "criteria.program",
+      "type": "string"
+    },
+    "criteria.jurisdiction": {
+      "dimension_id": "criteria.program",
+      "type": "object"
+    },
+    "criteria.requirements": {
+      "dimension_id": "criteria.requirements",
+      "type": "array"
+    },
+    "criteria.source_limitations": {
+      "dimension_id": "criteria.program",
+      "type": "array"
+    },
+    "source.references": {
+      "dimension_id": "source.references",
+      "type": "array"
+    }
+  },
+  "relationships": {
+    "criteria.requirements.cite_source": {
+      "source_dimension": "criteria.requirements",
+      "target_dimension": "source.references",
+      "cardinality": "many_to_one"
+    }
+  },
+  "description": "Selected-source criteria package request. Unverified publisher status is retained as provenance and does not prevent request-scoped mapping."
+}

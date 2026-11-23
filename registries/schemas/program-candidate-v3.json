@@ -1,0 +1,135 @@
+{
+  "registry_id": "eligibility-program-candidate-schema",
+  "schema_version": "program-candidate-v3",
+  "namespaces": {
+    "candidate": "Unpublished source-backed program candidate prepared for review",
+    "source": "Claimed public-source identity and retrieval lineage"
+  },
+  "dimensions": {
+    "candidate.listing": "Criteria-free listing assertions and extraction status",
+    "candidate.criteria": "Cited extracted requirements and proposed normalized profile mappings; always review-only until governed publication",
+    "source.provenance": "Source identity, version, and retrieval evidence"
+  },
+  "attributes": {
+    "candidate.id": {
+      "dimension_id": "candidate.listing",
+      "type": "string"
+    },
+    "candidate.ref": {
+      "dimension_id": "candidate.listing",
+      "type": "string"
+    },
+    "candidate.identity_basis": {
+      "dimension_id": "candidate.listing",
+      "type": "string",
+      "allowed_values": [
+        "publisher_program_number",
+        "canonical_url",
+        "source_record_id"
+      ]
+    },
+    "candidate.status": {
+      "dimension_id": "candidate.listing",
+      "type": "string",
+      "allowed_values": [
+        "candidate_ready_for_review"
+      ]
+    },
+    "candidate.review_status": {
+      "dimension_id": "candidate.listing",
+      "type": "string",
+      "allowed_values": [
+        "review_required"
+      ]
+    },
+    "candidate.catalog_status": {
+      "dimension_id": "candidate.listing",
+      "type": "string",
+      "allowed_values": [
+        "not_published"
+      ]
+    },
+    "candidate.listing": {
+      "dimension_id": "candidate.listing",
+      "type": "object"
+    },
+    "candidate.field_lineage": {
+      "dimension_id": "candidate.listing",
+      "type": "object"
+    },
+    "candidate.omitted_fields": {
+      "dimension_id": "candidate.listing",
+      "type": "array"
+    },
+    "candidate.criteria_status": {
+      "dimension_id": "candidate.criteria",
+      "type": "string",
+      "allowed_values": [
+        "not_assessed",
+        "unavailable",
+        "candidate_requires_review"
+      ]
+    },
+    "candidate.criteria_review_status": {
+      "dimension_id": "candidate.criteria",
+      "type": "string",
+      "allowed_values": [
+        "not_reviewed",
+        "reviewed"
+      ]
+    },
+    "candidate.proposed_criteria": {
+      "dimension_id": "candidate.criteria",
+      "type": "array"
+    },
+    "source.id": {
+      "dimension_id": "source.provenance",
+      "type": "string"
+    },
+    "source.record_id": {
+      "dimension_id": "source.provenance",
+      "type": "string"
+    },
+    "source.version": {
+      "dimension_id": "source.provenance",
+      "type": "string"
+    },
+    "source.url": {
+      "dimension_id": "source.provenance",
+      "type": "string",
+      "pattern": "^https://"
+    },
+    "source.retrieved_at": {
+      "dimension_id": "source.provenance",
+      "type": "string"
+    },
+    "source.content_sha256": {
+      "dimension_id": "source.provenance",
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    },
+    "candidate.requirement_candidates": {
+      "dimension_id": "candidate.criteria",
+      "type": "array"
+    },
+    "candidate.criteria_coverage": {
+      "dimension_id": "candidate.criteria",
+      "type": "object"
+    },
+    "candidate.program_id": {
+      "dimension_id": "candidate.listing",
+      "type": "string"
+    },
+    "candidate.program_identity_basis": {
+      "dimension_id": "candidate.listing",
+      "type": "string",
+      "allowed_values": [
+        "selected_catalog_program_id",
+        "publisher_program_number",
+        "canonical_url",
+        "source_record_id"
+      ]
+    }
+  },
+  "relationships": {}
+}

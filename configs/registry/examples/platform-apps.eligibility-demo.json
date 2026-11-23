@@ -1,0 +1,25 @@
+{
+  "manifest_purpose": "platform-routing-proof",
+  "core": {
+    "component_id": "platform.core",
+    "target_resource_name": "your-namespace-core",
+    "runtime_role": "core"
+  },
+  "tenants": [
+    {
+      "component_id": "tenant.eligibility-demo",
+      "target_resource_name": "your-namespace-tenant-eligibility-demo",
+      "tenant_id": "eligibility-demo",
+      "cluster_id": "eligibility",
+      "pattern_version": "0.1.48",
+      "operation_id": "program.discover",
+      "registry_manifest_path": "configs/registry/eligibility-tenant-v24.json",
+      "tenant_runtime_path": "configs/registry/eligibility-demo-runtime.json",
+      "catalog_backend": "persistence_api",
+      "cluster_config": {
+        "catalog_namespace": "programs"
+      },
+      "runtime_role": "tenant"
+    }
+  ]
+}

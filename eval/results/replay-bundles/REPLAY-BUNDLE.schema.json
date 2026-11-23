@@ -1,0 +1,229 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Navigator test drive replay bundle v1.0",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "run",
+    "cases"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "provenance": {
+      "enum": [
+        "recorded",
+        "illustrative",
+        "dataset"
+      ],
+      "default": "recorded"
+    },
+    "run": {
+      "type": "object",
+      "required": [
+        "run_id",
+        "mode",
+        "started_at_utc",
+        "model_calls"
+      ],
+      "properties": {
+        "run_id": {
+          "type": "string"
+        },
+        "mode": {
+          "enum": [
+            "direct_mcp",
+            "agent_e2e",
+            "agent_assisted_mcp",
+            "phoenix_recorded",
+            "dataset"
+          ]
+        },
+        "model_calls": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "started_at_utc": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "ended_at_utc": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "core_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "git_sha": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "dataset_versions": {
+          "type": "object"
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "expected",
+          "observed",
+          "navigator_status",
+          "phoenix_status",
+          "calls"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "category": {
+            "enum": [
+              "platform",
+              "eligibility",
+              "coverage",
+              "recorded"
+            ]
+          },
+          "question": {
+            "type": "string"
+          },
+          "expected": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "observed": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "navigator_status": {
+            "enum": [
+              "pass",
+              "fail",
+              "partial",
+              "not_scored"
+            ]
+          },
+          "phoenix_status": {
+            "enum": [
+              "pass",
+              "fail",
+              "not_verified"
+            ]
+          },
+          "failure_owner": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "calls": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "tool",
+                "duration_ms"
+              ],
+              "properties": {
+                "tool": {
+                  "type": "string"
+                },
+                "operation_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "duration_ms": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 0
+                },
+                "inner_status": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "correlation_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "Core correlation_id; equals Phoenix mcp.correlation.id"
+                },
+                "trace_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "span_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "started_at_utc": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time"
+                }
+              }
+            }
+          },
+          "answer": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Agent or analyst answer shown in the chat pane, if recorded"
+          },
+          "expected_path": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Expected tool path from the dataset, for example tool:describe_core_capabilities"
+          },
+          "binder": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "description": "Requirements package readback (binder) for this case, trimmed for display"
+          }
+        }
+      }
+    }
+  }
+}

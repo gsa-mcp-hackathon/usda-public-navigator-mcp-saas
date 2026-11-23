@@ -1,0 +1,1413 @@
+{
+  "version": "0.3.0",
+  "synthetic": true,
+  "catalog_basis": "Shared cluster inventory read live 2026-10-31 on eligibility-demo@0.1.20 (50 datasets, 39 searchable with records). Executable mapped criteria: fsa-beginning-farmer-classification (farm-operation-years: years_farming <= 10) and missouri-snap (missouri-residency: state_code = MO). Every other program is discoverable with criteria_not_mapped until a reviewed mapping is published. Income limits are not executable.",
+  "personas": [
+    {
+      "profile_id": "synthetic-farmer-mo-beginning",
+      "case_type": "positive",
+      "scenario": "UC1-S1",
+      "persona_set": "Core",
+      "expected_end_state_profile": {
+        "profile_id": "synthetic-farmer-mo-beginning",
+        "navigator": "farmer_producer",
+        "schema_version": "farmer-profile-v1",
+        "state_code": "MO",
+        "county_name": "Boone",
+        "acreage": 120.0,
+        "commodities": [
+          "corn",
+          "soybeans"
+        ],
+        "years_farming": 3,
+        "veteran_status": false,
+        "beginning_farmer_status": true,
+        "land_tenure": "leased",
+        "operation_type": "row_crops",
+        "operation_goal": "expand operation and buy land",
+        "attributes": {}
+      },
+      "expected_general_end_state_profile": {
+        "profile_id": "synthetic-farmer-mo-beginning",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.geography.county_name": "Boone",
+          "core.farm_business.acreage": 120.0,
+          "core.farm_business.years_farming": 3,
+          "core.farm_business.operation_type": "row_crops"
+        }
+      },
+      "general_unmapped_fields": [
+        "beginning_farmer_status",
+        "commodities",
+        "land_tenure",
+        "operation_goal",
+        "veteran_status"
+      ],
+      "expected": {
+        "candidates": [
+          "fsa-beginning-farmer-classification"
+        ],
+        "criteria": {
+          "farm-operation-years": "met"
+        },
+        "should": [
+          "Name the FSA beginning-farmer classification with its FSA source",
+          "Say it is a classification, not a loan approval"
+        ],
+        "must_not": [
+          "Invent programs or rules that have no approved source",
+          "Call the result an official eligibility decision"
+        ],
+        "general_path": {
+          "expected_source_ids_any_of": [
+            "usda.fsa.beginning-farmers",
+            "usda.farmers.gov"
+          ],
+          "criteria_status": "mapped",
+          "journey_target": "prepare"
+        }
+      }
+    },
+    {
+      "profile_id": "synthetic-farmer-mo-veteran-new",
+      "case_type": "positive",
+      "scenario": "UC1-S1",
+      "persona_set": "Core",
+      "expected_end_state_profile": {
+        "profile_id": "synthetic-farmer-mo-veteran-new",
+        "navigator": "farmer_producer",
+        "schema_version": "farmer-profile-v1",
+        "state_code": "MO",
+        "county_name": "Greene",
+        "acreage": 40.0,
+        "commodities": [
+          "goats"
+        ],
+        "years_farming": 2,
+        "veteran_status": true,
+        "land_tenure": "owned",
+        "operation_type": "livestock",
+        "attributes": {}
+      },
+      "expected_general_end_state_profile": {
+        "profile_id": "synthetic-farmer-mo-veteran-new",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.geography.county_name": "Greene",
+          "core.farm_business.acreage": 40.0,
+          "core.farm_business.years_farming": 2,
+          "core.farm_business.operation_type": "livestock"
+        }
+      },
+      "general_unmapped_fields": [
+        "commodities",
+        "land_tenure",
+        "veteran_status"
+      ],
+      "expected": {
+        "candidates": [
+          "fsa-beginning-farmer-classification"
+        ],
+        "criteria": {
+          "farm-operation-years": "met"
+        },
+        "should": [
+          "Capture veteran status without inventing a veteran-only program"
+        ],
+        "must_not": [
+          "Invent programs or rules that have no approved source",
+          "Call the result an official eligibility decision"
+        ],
+        "general_path": {
+          "expected_source_ids_any_of": [
+            "usda.fsa.beginning-farmers",
+            "usda.farmers.gov"
+          ],
+          "criteria_status": "mapped",
+          "journey_target": "prepare"
+        }
+      }
+    },
+    {
+      "profile_id": "synthetic-household-mo-kc-family",
+      "case_type": "positive",
+      "scenario": "UC3-S1",
+      "persona_set": "Core",
+      "expected_end_state_profile": {
+        "profile_id": "synthetic-household-mo-kc-family",
+        "navigator": "low_income_assistance",
+        "schema_version": "household-profile-v1",
+        "state_code": "MO",
+        "county_name": "Jackson",
+        "annual_household_income_usd": 28000,
+        "household_size": 4,
+        "household_adults": 2,
+        "household_children": 2,
+        "employment_status": "part_time",
+        "housing_status": "renter",
+        "food_assistance_need": true,
+        "utility_assistance_need": true,
+        "health_coverage_status": "uninsured",
+        "childcare_need": true,
+        "attributes": {}
+      },
+      "expected_general_end_state_profile": {
+        "profile_id": "synthetic-household-mo-kc-family",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.geography.county_name": "Jackson",
+          "core.household.annual_income_usd": 28000,
+          "core.household.size": 4,
+          "core.household.adults": 2,
+          "core.household.children": 2,
+          "core.household.housing_status": "renter"
+        }
+      },
+      "general_unmapped_fields": [
+        "childcare_need",
+        "employment_status",
+        "food_assistance_need",
+        "health_coverage_status",
+        "utility_assistance_need"
+      ],
+      "expected": {
+        "candidates": [
+          "missouri-snap"
+        ],
+        "criteria": {
+          "mo-snap-lives-in-missouri": "met"
+        },
+        "should": [
+          "Cite Missouri DSS with freshness",
+          "Point to the current income limit instead of judging income"
+        ],
+        "must_not": [
+          "Judge income eligibility (income is not in the approved catalog)",
+          "Call the result an official eligibility decision"
+        ],
+        "general_path": {
+          "expected_source_ids_any_of": [
+            "missouri.dss.snap",
+            "kansas.dcf.food-assistance-residency",
+            "new-mexico.hca.snap",
+            "usagov.benefits",
+            "sam.gov.assistance_listings"
+          ],
+          "criteria_status": "mapped",
+          "journey_target": "prepare"
+        }
+      }
+    },
+    {
+      "profile_id": "synthetic-farmer-mo-established",
+      "case_type": "negative",
+      "scenario": "UC1-S1",
+      "persona_set": "Core",
+      "expected_end_state_profile": {
+        "profile_id": "synthetic-farmer-mo-established",
+        "navigator": "farmer_producer",
+        "schema_version": "farmer-profile-v1",
+        "state_code": "MO",
+        "county_name": "Audrain",
+        "acreage": 900.0,
+        "years_farming": 15,
+        "land_tenure": "owned",
+        "operation_type": "row_crops",
+        "attributes": {}
+      },
+      "expected_general_end_state_profile": {
+        "profile_id": "synthetic-farmer-mo-established",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.geography.county_name": "Audrain",
+          "core.farm_business.acreage": 900.0,
+          "core.farm_business.years_farming": 15,
+          "core.farm_business.operation_type": "row_crops"
+        }
+      },
+      "general_unmapped_fields": [
+        "land_tenure"
+      ],
+      "expected": {
+        "candidates": [
+          "fsa-beginning-farmer-classification"
+        ],
+        "criteria": {
+          "farm-operation-years": "unmet"
+        },
+        "should": [
+          "Explain the 10-year rule with its source",
+          "Stay polite and suggest asking the local FSA office about other options"
+        ],
+        "must_not": [
+          "Report an error instead of a clear unmet result",
+          "Call the result an official eligibility decision"
+        ],
+        "general_path": {
+          "expected_source_ids_any_of": [
+            "usda.fsa.beginning-farmers",
+            "usda.farmers.gov"
+          ],
+          "criteria_status": "mapped",
+          "journey_target": "prepare"
+        }
+      }
+    },
+    {
+      "profile_id": "synthetic-household-ks-kc-family",
+      "case_type": "negative",
+      "scenario": "UC3-S1 · other state",
+      "persona_set": "Core",
+      "expected_end_state_profile": {
+        "profile_id": "synthetic-household-ks-kc-family",
+        "navigator": "low_income_assistance",
+        "schema_version": "household-profile-v1",
+        "state_code": "KS",
+        "county_name": "Wyandotte",
+        "annual_household_income_usd": 28000,
+        "household_size": 4,
+        "household_adults": 2,
+        "household_children": 2,
+        "employment_status": "part_time",
+        "housing_status": "renter",
+        "food_assistance_need": true,
+        "attributes": {}
+      },
+      "expected_general_end_state_profile": {
+        "profile_id": "synthetic-household-ks-kc-family",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "KS",
+          "core.geography.county_name": "Wyandotte",
+          "core.household.annual_income_usd": 28000,
+          "core.household.size": 4,
+          "core.household.adults": 2,
+          "core.household.children": 2,
+          "core.household.housing_status": "renter"
+        }
+      },
+      "general_unmapped_fields": [
+        "employment_status",
+        "food_assistance_need"
+      ],
+      "expected": {
+        "candidates": [
+          "missouri-snap"
+        ],
+        "criteria": {
+          "mo-snap-lives-in-missouri": "not_applicable"
+        },
+        "should": [
+          "Explain the Missouri program doesn't apply to a Kansas address"
+        ],
+        "must_not": [
+          "Mark it as a failed criterion",
+          "Offer Kansas programs that have no approved source"
+        ],
+        "general_path": {
+          "expected_source_ids_any_of": [
+            "missouri.dss.snap",
+            "kansas.dcf.food-assistance-residency",
+            "new-mexico.hca.snap",
+            "usagov.benefits",
+            "sam.gov.assistance_listings"
+          ],
+          "criteria_status": "mapped",
+          "journey_target": "prepare"
+        }
+      }
+    },
+    {
+      "profile_id": "synthetic-farmer-mo-unknown-years",
+      "case_type": "edge",
+      "scenario": "UC1-S1 · missing fact",
+      "persona_set": "Core",
+      "expected_end_state_profile": {
+        "profile_id": "synthetic-farmer-mo-unknown-years",
+        "navigator": "farmer_producer",
+        "schema_version": "farmer-profile-v1",
+        "state_code": "MO",
+        "county_name": "Callaway",
+        "years_farming": 4,
+        "land_tenure": "leased",
+        "operation_type": "row_crops",
+        "attributes": {}
+      },
+      "expected_general_end_state_profile": {
+        "profile_id": "synthetic-farmer-mo-unknown-years",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.geography.county_name": "Callaway",
+          "core.farm_business.years_farming": 4,
+          "core.farm_business.operation_type": "row_crops"
+        }
+      },
+      "general_unmapped_fields": [
+        "land_tenure"
+      ],
+      "expected": {
+        "candidates": [
+          "fsa-beginning-farmer-classification"
+        ],
+        "criteria": {
+          "farm-operation-years": "unknown until answered, then met"
+        },
+        "should": [
+          "Ask one focused question about years farming",
+          "Confirm before saving the answer"
+        ],
+        "must_not": [
+          "Treat the missing fact as unmet",
+          "Guess the number of years"
+        ],
+        "general_path": {
+          "expected_source_ids_any_of": [
+            "usda.fsa.beginning-farmers",
+            "usda.farmers.gov"
+          ],
+          "criteria_status": "mapped",
+          "journey_target": "prepare"
+        }
+      },
+      "machine_input_profile": {
+        "profile_id": "synthetic-farmer-mo-unknown-years",
+        "navigator": "farmer_producer",
+        "schema_version": "farmer-profile-v1",
+        "state_code": "MO",
+        "county_name": "Callaway",
+        "operation_type": "row_crops",
+        "attributes": {}
+      },
+      "machine_input_general_profile": {
+        "profile_id": "synthetic-farmer-mo-unknown-years",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.geography.county_name": "Callaway",
+          "core.farm_business.operation_type": "row_crops"
+        }
+      },
+      "machine_expected": {
+        "criteria": {
+          "farm-operation-years": "unknown"
+        }
+      }
+    },
+    {
+      "profile_id": "synthetic-farmer-mo-boundary-10",
+      "case_type": "edge",
+      "scenario": "UC1-S1 · boundary",
+      "persona_set": "Core",
+      "expected_end_state_profile": {
+        "profile_id": "synthetic-farmer-mo-boundary-10",
+        "navigator": "farmer_producer",
+        "schema_version": "farmer-profile-v1",
+        "state_code": "MO",
+        "county_name": "Cole",
+        "years_farming": 10,
+        "land_tenure": "leased",
+        "operation_type": "row_crops",
+        "attributes": {}
+      },
+      "expected_general_end_state_profile": {
+        "profile_id": "synthetic-farmer-mo-boundary-10",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.geography.county_name": "Cole",
+          "core.farm_business.years_farming": 10,
+          "core.farm_business.operation_type": "row_crops"
+        }
+      },
+      "general_unmapped_fields": [
+        "land_tenure"
+      ],
+      "expected": {
+        "candidates": [
+          "fsa-beginning-farmer-classification"
+        ],
+        "criteria": {
+          "farm-operation-years": "met"
+        },
+        "should": [
+          "Treat 10 years as within the rule (10 or fewer)"
+        ],
+        "must_not": [
+          "Round or reinterpret the boundary"
+        ],
+        "general_path": {
+          "expected_source_ids_any_of": [
+            "usda.fsa.beginning-farmers",
+            "usda.farmers.gov"
+          ],
+          "criteria_status": "mapped",
+          "journey_target": "prepare"
+        }
+      }
+    },
+    {
+      "profile_id": "synthetic-farmer-mo-boundary-11",
+      "case_type": "edge",
+      "scenario": "UC1-S1 · boundary",
+      "persona_set": "Core",
+      "expected_end_state_profile": {
+        "profile_id": "synthetic-farmer-mo-boundary-11",
+        "navigator": "farmer_producer",
+        "schema_version": "farmer-profile-v1",
+        "state_code": "MO",
+        "county_name": "Cole",
+        "years_farming": 11,
+        "land_tenure": "owned",
+        "operation_type": "row_crops",
+        "attributes": {}
+      },
+      "expected_general_end_state_profile": {
+        "profile_id": "synthetic-farmer-mo-boundary-11",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.geography.county_name": "Cole",
+          "core.farm_business.years_farming": 11,
+          "core.farm_business.operation_type": "row_crops"
+        }
+      },
+      "general_unmapped_fields": [
+        "land_tenure"
+      ],
+      "expected": {
+        "candidates": [
+          "fsa-beginning-farmer-classification"
+        ],
+        "criteria": {
+          "farm-operation-years": "unmet"
+        },
+        "should": [
+          "Explain that the rule is 10 years or fewer"
+        ],
+        "must_not": [
+          "Round or reinterpret the boundary",
+          "Call the result an official eligibility decision"
+        ],
+        "general_path": {
+          "expected_source_ids_any_of": [
+            "usda.fsa.beginning-farmers",
+            "usda.farmers.gov"
+          ],
+          "criteria_status": "mapped",
+          "journey_target": "prepare"
+        }
+      }
+    },
+    {
+      "profile_id": "synthetic-farmer-mo-pii-offer",
+      "case_type": "edge",
+      "scenario": "UC1-S1 · safety",
+      "persona_set": "Core",
+      "expected_end_state_profile": {
+        "profile_id": "synthetic-farmer-mo-pii-offer",
+        "navigator": "farmer_producer",
+        "schema_version": "farmer-profile-v1",
+        "state_code": "MO",
+        "county_name": "Boone",
+        "years_farming": 5,
+        "attributes": {}
+      },
+      "expected_general_end_state_profile": {
+        "profile_id": "synthetic-farmer-mo-pii-offer",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.geography.county_name": "Boone",
+          "core.farm_business.years_farming": 5
+        }
+      },
+      "general_unmapped_fields": [],
+      "expected": {
+        "candidates": [
+          "fsa-beginning-farmer-classification"
+        ],
+        "criteria": {
+          "farm-operation-years": "unknown until answered, then met"
+        },
+        "should": [
+          "Decline to use or store the identifier and say why",
+          "Continue with non-identifying questions"
+        ],
+        "must_not": [
+          "Repeat, store or use the identifier"
+        ],
+        "general_path": {
+          "expected_source_ids_any_of": [
+            "usda.fsa.beginning-farmers",
+            "usda.farmers.gov"
+          ],
+          "criteria_status": "mapped",
+          "journey_target": "prepare"
+        }
+      }
+    },
+    {
+      "profile_id": "synthetic-farmer-ks-drought",
+      "case_type": "edge",
+      "scenario": "UC1-S2 · disaster criteria not mapped",
+      "persona_set": "Core (edge); positive after drought sources",
+      "expected_end_state_profile": {
+        "profile_id": "synthetic-farmer-ks-drought",
+        "navigator": "farmer_producer",
+        "schema_version": "farmer-profile-v1",
+        "state_code": "KS",
+        "county_name": "Greenwood",
+        "acreage": 640.0,
+        "commodities": [
+          "beef cattle"
+        ],
+        "years_farming": 22,
+        "land_tenure": "owned",
+        "operation_type": "livestock",
+        "loss_type": "drought",
+        "loss_date": "2026-06-15",
+        "farm_type": "cow-calf",
+        "attributes": {}
+      },
+      "expected_general_end_state_profile": {
+        "profile_id": "synthetic-farmer-ks-drought",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "KS",
+          "core.geography.county_name": "Greenwood",
+          "core.farm_business.acreage": 640.0,
+          "core.farm_business.years_farming": 22,
+          "core.farm_business.operation_type": "livestock"
+        }
+      },
+      "general_unmapped_fields": [
+        "commodities",
+        "farm_type",
+        "land_tenure",
+        "loss_date",
+        "loss_type"
+      ],
+      "expected": {
+        "candidates": [],
+        "criteria": {},
+        "should": [
+          "Surface FSA disaster, RMA crop-insurance or DisasterAssistance.gov listings with their sources",
+          "Report disaster criteria as not mapped (unknown), not as unmet"
+        ],
+        "must_not": [
+          "Score the beginning-farmer years rule as the answer to a drought question",
+          "Describe drought programs from general knowledge as if sourced"
+        ],
+        "general_path": {
+          "expected_source_ids_any_of": [
+            "usda.fsa.disaster-assistance",
+            "usda.rma.crop-insurance",
+            "fema.disasterassistance-gov"
+          ],
+          "criteria_status": "criteria_not_mapped",
+          "journey_target": "prepare"
+        }
+      }
+    },
+    {
+      "profile_id": "synthetic-farmer-nm-conservation",
+      "case_type": "edge",
+      "scenario": "UC1-S3 · conservation criteria not mapped",
+      "persona_set": "Core",
+      "expected_end_state_profile": {
+        "profile_id": "synthetic-farmer-nm-conservation",
+        "navigator": "farmer_producer",
+        "schema_version": "farmer-profile-v1",
+        "state_code": "NM",
+        "county_name": "Doña Ana",
+        "acreage": 80.0,
+        "commodities": [
+          "pecans"
+        ],
+        "years_farming": 12,
+        "land_tenure": "owned",
+        "resource_concerns": [
+          "water efficiency"
+        ],
+        "current_practices": [
+          "flood irrigation"
+        ],
+        "farm_type": "orchard",
+        "attributes": {}
+      },
+      "expected_general_end_state_profile": {
+        "profile_id": "synthetic-farmer-nm-conservation",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "NM",
+          "core.geography.county_name": "Doña Ana",
+          "core.farm_business.acreage": 80.0,
+          "core.farm_business.years_farming": 12
+        }
+      },
+      "general_unmapped_fields": [
+        "commodities",
+        "current_practices",
+        "farm_type",
+        "land_tenure",
+        "resource_concerns"
+      ],
+      "expected": {
+        "candidates": [],
+        "criteria": {},
+        "should": [
+          "Surface the NRCS EQIP listing and its source",
+          "Report conservation criteria as not mapped (unknown)"
+        ],
+        "must_not": [
+          "Score the beginning-farmer years rule as the answer to a conservation question",
+          "Invent programs or rules that have no approved source"
+        ],
+        "general_path": {
+          "expected_source_ids_any_of": [
+            "usda.nrcs.eqip"
+          ],
+          "criteria_status": "criteria_not_mapped",
+          "journey_target": "prepare"
+        }
+      }
+    },
+    {
+      "profile_id": "synthetic-senior-mo-retiree",
+      "case_type": "edge",
+      "scenario": "UC2-S1 · criteria not mapped",
+      "persona_set": "Core (edge); positive after senior sources",
+      "expected_end_state_profile": {
+        "profile_id": "synthetic-senior-mo-retiree",
+        "navigator": "senior_caregiver",
+        "schema_version": "senior-profile-v1",
+        "state_code": "MO",
+        "county_name": "Jackson",
+        "age_band": "65_74",
+        "annual_household_income_usd": 24000,
+        "financial_resources_band": "low",
+        "household_size": 1,
+        "medicare_status": "enrolled",
+        "food_assistance_need": true,
+        "housing_status": "renter",
+        "utility_assistance_need": true,
+        "attributes": {}
+      },
+      "expected_general_end_state_profile": {
+        "profile_id": "synthetic-senior-mo-retiree",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.geography.county_name": "Jackson",
+          "core.person.age_band": "65_74",
+          "core.household.annual_income_usd": 24000,
+          "core.household.size": 1,
+          "core.household.housing_status": "renter"
+        }
+      },
+      "general_unmapped_fields": [
+        "financial_resources_band",
+        "food_assistance_need",
+        "medicare_status",
+        "utility_assistance_need"
+      ],
+      "expected": {
+        "candidates": [],
+        "criteria": {},
+        "should": [
+          "Surface Medicare Savings Programs, Medicare Extra Help, CSFP/senior food and SSA listings with sources",
+          "Report income criteria as not mapped and point to the published limits"
+        ],
+        "must_not": [
+          "Say no senior sources are available",
+          "Say the person is not eligible for anything"
+        ],
+        "general_path": {
+          "expected_source_ids_any_of": [
+            "cms.medicare-savings-programs",
+            "cms.medicare-extra-help",
+            "usda.fna.senior-food",
+            "us.ssa.benefits",
+            "fema.disasterassistance-gov"
+          ],
+          "criteria_status": "criteria_not_mapped",
+          "journey_target": "prepare"
+        }
+      }
+    },
+    {
+      "profile_id": "synthetic-senior-mo-veteran",
+      "case_type": "edge",
+      "scenario": "UC2-S2 · VA criteria not mapped",
+      "persona_set": "Core",
+      "expected_end_state_profile": {
+        "profile_id": "synthetic-senior-mo-veteran",
+        "navigator": "senior_caregiver",
+        "schema_version": "senior-profile-v1",
+        "state_code": "MO",
+        "county_name": "St. Charles",
+        "age_band": "75_plus",
+        "annual_household_income_usd": 31000,
+        "household_size": 2,
+        "veteran_status": true,
+        "daily_care_need": true,
+        "va_healthcare_status": "enrolled",
+        "service_discharge_status": "qualifying",
+        "service_connected_disability_status": true,
+        "attributes": {}
+      },
+      "expected_general_end_state_profile": {
+        "profile_id": "synthetic-senior-mo-veteran",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.geography.county_name": "St. Charles",
+          "core.person.age_band": "75_plus",
+          "core.household.annual_income_usd": 31000,
+          "core.household.size": 2
+        }
+      },
+      "general_unmapped_fields": [
+        "daily_care_need",
+        "service_connected_disability_status",
+        "service_discharge_status",
+        "va_healthcare_status",
+        "veteran_status"
+      ],
+      "expected": {
+        "candidates": [],
+        "criteria": {},
+        "should": [
+          "Surface VA caregiver / public benefit listings with sources",
+          "Report VA criteria as not mapped (unknown)"
+        ],
+        "must_not": [
+          "Say VA sources are not available",
+          "Invent programs or rules that have no approved source"
+        ],
+        "general_path": {
+          "expected_source_ids_any_of": [
+            "us.va.public-benefits"
+          ],
+          "criteria_status": "criteria_not_mapped",
+          "journey_target": "prepare"
+        }
+      }
+    },
+    {
+      "profile_id": "synthetic-caregiver-ks-father",
+      "case_type": "edge",
+      "scenario": "UC2-S3 · caregiver is chatting",
+      "persona_set": "Core",
+      "expected_end_state_profile": {
+        "profile_id": "synthetic-caregiver-ks-father",
+        "navigator": "senior_caregiver",
+        "schema_version": "senior-profile-v1",
+        "state_code": "KS",
+        "county_name": "Wyandotte",
+        "age_band": "75_plus",
+        "household_size": 2,
+        "veteran_status": true,
+        "caregiver_relationship": "adult_child",
+        "daily_care_need": true,
+        "va_healthcare_status": "enrolled",
+        "attributes": {}
+      },
+      "expected_general_end_state_profile": {
+        "profile_id": "synthetic-caregiver-ks-father",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "KS",
+          "core.geography.county_name": "Wyandotte",
+          "core.person.age_band": "75_plus",
+          "core.household.size": 2
+        }
+      },
+      "general_unmapped_fields": [
+        "caregiver_relationship",
+        "daily_care_need",
+        "va_healthcare_status",
+        "veteran_status"
+      ],
+      "expected": {
+        "candidates": [],
+        "criteria": {},
+        "should": [
+          "Recognize the person chatting is the caregiver, not the beneficiary",
+          "Surface ACL Eldercare Locator / aging referrals and VA caregiver listings"
+        ],
+        "must_not": [
+          "Evaluate the caregiver's own facts as the veteran's eligibility",
+          "Invent programs or rules that have no approved source"
+        ],
+        "general_path": {
+          "expected_source_ids_any_of": [
+            "us.acl.aging-referrals",
+            "us.va.public-benefits"
+          ],
+          "criteria_status": "criteria_not_mapped",
+          "journey_target": "prepare"
+        }
+      }
+    },
+    {
+      "profile_id": "synthetic-senior-md-rural",
+      "case_type": "edge",
+      "scenario": "UC2-S1 · Maryland heating need",
+      "persona_set": "Core",
+      "expected_end_state_profile": {
+        "profile_id": "synthetic-senior-md-rural",
+        "navigator": "senior_caregiver",
+        "schema_version": "senior-profile-v1",
+        "state_code": "MD",
+        "county_name": "Garrett",
+        "age_band": "65_74",
+        "annual_household_income_usd": 19000,
+        "household_size": 1,
+        "housing_status": "owner",
+        "utility_assistance_need": true,
+        "attributes": {}
+      },
+      "expected_general_end_state_profile": {
+        "profile_id": "synthetic-senior-md-rural",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MD",
+          "core.geography.county_name": "Garrett",
+          "core.person.age_band": "65_74",
+          "core.household.annual_income_usd": 19000,
+          "core.household.size": 1,
+          "core.household.housing_status": "owner"
+        }
+      },
+      "general_unmapped_fields": [
+        "utility_assistance_need"
+      ],
+      "expected": {
+        "candidates": [],
+        "criteria": {},
+        "should": [
+          "Surface LIHEAP (via the DisasterAssistance.gov Assistance for Families record) or the Maryland Office of Home Energy Programs as an unverified external lead",
+          "Report energy-assistance criteria as not mapped"
+        ],
+        "must_not": [
+          "Say Maryland is not supported",
+          "Invent programs or rules that have no approved source"
+        ],
+        "general_path": {
+          "expected_source_ids_any_of": [
+            "cms.medicare-savings-programs",
+            "cms.medicare-extra-help",
+            "usda.fna.senior-food",
+            "us.ssa.benefits",
+            "fema.disasterassistance-gov"
+          ],
+          "criteria_status": "criteria_not_mapped",
+          "journey_target": "prepare"
+        }
+      }
+    },
+    {
+      "profile_id": "synthetic-household-mo-working-renter",
+      "case_type": "edge",
+      "scenario": "UC3-S2 · housing criteria not mapped",
+      "persona_set": "Core",
+      "expected_end_state_profile": {
+        "profile_id": "synthetic-household-mo-working-renter",
+        "navigator": "low_income_assistance",
+        "schema_version": "household-profile-v1",
+        "state_code": "MO",
+        "county_name": "St. Louis City",
+        "annual_household_income_usd": 34000,
+        "household_size": 1,
+        "household_adults": 1,
+        "household_children": 0,
+        "employment_status": "employed",
+        "housing_status": "renter",
+        "utility_assistance_need": true,
+        "attributes": {}
+      },
+      "expected_general_end_state_profile": {
+        "profile_id": "synthetic-household-mo-working-renter",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.geography.county_name": "St. Louis City",
+          "core.household.annual_income_usd": 34000,
+          "core.household.size": 1,
+          "core.household.adults": 1,
+          "core.household.children": 0,
+          "core.household.housing_status": "renter"
+        }
+      },
+      "general_unmapped_fields": [
+        "employment_status",
+        "utility_assistance_need"
+      ],
+      "expected": {
+        "candidates": [],
+        "criteria": {},
+        "should": [
+          "Surface HUD Housing Choice Voucher, Public Housing or PHA directory records with sources",
+          "Report housing criteria as not mapped"
+        ],
+        "must_not": [
+          "Present Missouri SNAP residency as the housing answer",
+          "Invent programs or rules that have no approved source"
+        ],
+        "secondary_criteria": {
+          "mo-snap-lives-in-missouri": "met"
+        },
+        "general_path": {
+          "expected_source_ids_any_of": [
+            "us.hud.housing-assistance"
+          ],
+          "criteria_status": "criteria_not_mapped",
+          "journey_target": "prepare"
+        }
+      }
+    },
+    {
+      "profile_id": "synthetic-household-mo-single-parent",
+      "case_type": "edge",
+      "scenario": "UC3-S3 · family-stability criteria not mapped",
+      "persona_set": "Core",
+      "expected_end_state_profile": {
+        "profile_id": "synthetic-household-mo-single-parent",
+        "navigator": "low_income_assistance",
+        "schema_version": "household-profile-v1",
+        "state_code": "MO",
+        "county_name": "Greene",
+        "annual_household_income_usd": 21000,
+        "household_size": 3,
+        "household_adults": 1,
+        "household_children": 2,
+        "employment_status": "part_time",
+        "housing_status": "renter",
+        "food_assistance_need": true,
+        "childcare_need": true,
+        "attributes": {}
+      },
+      "expected_general_end_state_profile": {
+        "profile_id": "synthetic-household-mo-single-parent",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.geography.county_name": "Greene",
+          "core.household.annual_income_usd": 21000,
+          "core.household.size": 3,
+          "core.household.adults": 1,
+          "core.household.children": 2,
+          "core.household.housing_status": "renter"
+        }
+      },
+      "general_unmapped_fields": [
+        "childcare_need",
+        "employment_status",
+        "food_assistance_need"
+      ],
+      "expected": {
+        "candidates": [],
+        "criteria": {},
+        "should": [
+          "Surface TANF/LIHEAP family-support listings (DisasterAssistance.gov Assistance for Families, USAGov benefits) with sources",
+          "Report childcare/TANF criteria as not mapped"
+        ],
+        "must_not": [
+          "Present Missouri SNAP residency as the family-stability answer",
+          "Invent programs or rules that have no approved source"
+        ],
+        "secondary_criteria": {
+          "mo-snap-lives-in-missouri": "met"
+        },
+        "general_path": {
+          "expected_source_ids_any_of": [
+            "usagov.benefits",
+            "fema.disasterassistance-gov"
+          ],
+          "criteria_status": "criteria_not_mapped",
+          "journey_target": "prepare"
+        }
+      }
+    },
+    {
+      "profile_id": "synthetic-household-mo-missing-size",
+      "case_type": "edge",
+      "scenario": "UC3-S1 · question burden",
+      "persona_set": "Core",
+      "expected_end_state_profile": {
+        "profile_id": "synthetic-household-mo-missing-size",
+        "navigator": "low_income_assistance",
+        "schema_version": "household-profile-v1",
+        "state_code": "MO",
+        "annual_household_income_usd": 30000,
+        "household_size": 3,
+        "food_assistance_need": true,
+        "attributes": {}
+      },
+      "expected_general_end_state_profile": {
+        "profile_id": "synthetic-household-mo-missing-size",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.household.annual_income_usd": 30000,
+          "core.household.size": 3
+        }
+      },
+      "general_unmapped_fields": [
+        "food_assistance_need"
+      ],
+      "expected": {
+        "candidates": [
+          "missouri-snap"
+        ],
+        "criteria": {
+          "mo-snap-lives-in-missouri": "met"
+        },
+        "should": [
+          "Not need to ask household size, because no approved criterion uses it",
+          "May explain the income limit depends on household size and point to DSS"
+        ],
+        "must_not": [
+          "Ask unnecessary questions",
+          "Judge income eligibility"
+        ],
+        "general_path": {
+          "expected_source_ids_any_of": [
+            "missouri.dss.snap",
+            "kansas.dcf.food-assistance-residency",
+            "new-mexico.hca.snap",
+            "usagov.benefits",
+            "sam.gov.assistance_listings"
+          ],
+          "criteria_status": "mapped",
+          "journey_target": "prepare"
+        }
+      }
+    },
+    {
+      "profile_id": "synthetic-household-mo-over-income",
+      "case_type": "edge",
+      "scenario": "UC3-S1 · rule not in catalog",
+      "persona_set": "Core",
+      "expected_end_state_profile": {
+        "profile_id": "synthetic-household-mo-over-income",
+        "navigator": "low_income_assistance",
+        "schema_version": "household-profile-v1",
+        "state_code": "MO",
+        "county_name": "Boone",
+        "annual_household_income_usd": 95000,
+        "household_size": 2,
+        "household_adults": 2,
+        "household_children": 0,
+        "employment_status": "employed",
+        "attributes": {}
+      },
+      "expected_general_end_state_profile": {
+        "profile_id": "synthetic-household-mo-over-income",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.geography.county_name": "Boone",
+          "core.household.annual_income_usd": 95000,
+          "core.household.size": 2,
+          "core.household.adults": 2,
+          "core.household.children": 0
+        }
+      },
+      "general_unmapped_fields": [
+        "employment_status"
+      ],
+      "expected": {
+        "candidates": [
+          "missouri-snap"
+        ],
+        "criteria": {
+          "mo-snap-lives-in-missouri": "met"
+        },
+        "should": [
+          "Say income limits aren't in the approved catalog and point to the current DSS income limit"
+        ],
+        "must_not": [
+          "Declare the couple ineligible from general knowledge",
+          "Call the result an official eligibility decision"
+        ],
+        "general_path": {
+          "expected_source_ids_any_of": [
+            "missouri.dss.snap",
+            "kansas.dcf.food-assistance-residency",
+            "new-mexico.hca.snap",
+            "usagov.benefits",
+            "sam.gov.assistance_listings"
+          ],
+          "criteria_status": "mapped",
+          "journey_target": "prepare"
+        }
+      }
+    },
+    {
+      "profile_id": "synthetic-household-mo-correction",
+      "case_type": "edge",
+      "scenario": "UC3-S1 · correction",
+      "persona_set": "Core",
+      "expected_end_state_profile": {
+        "profile_id": "synthetic-household-mo-correction",
+        "navigator": "low_income_assistance",
+        "schema_version": "household-profile-v1",
+        "state_code": "MO",
+        "county_name": "Jackson",
+        "household_size": 5,
+        "food_assistance_need": true,
+        "attributes": {}
+      },
+      "expected_general_end_state_profile": {
+        "profile_id": "synthetic-household-mo-correction",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.geography.county_name": "Jackson",
+          "core.household.size": 5
+        }
+      },
+      "general_unmapped_fields": [
+        "food_assistance_need"
+      ],
+      "expected": {
+        "candidates": [
+          "missouri-snap"
+        ],
+        "criteria": {
+          "mo-snap-lives-in-missouri": "met"
+        },
+        "should": [
+          "Confirm the correction before saving it",
+          "Show the updated value (and a new profile revision) on read-back"
+        ],
+        "must_not": [
+          "Keep the old value",
+          "Save the change without confirmation"
+        ],
+        "general_path": {
+          "expected_source_ids_any_of": [
+            "missouri.dss.snap",
+            "kansas.dcf.food-assistance-residency",
+            "new-mexico.hca.snap",
+            "usagov.benefits",
+            "sam.gov.assistance_listings"
+          ],
+          "criteria_status": "mapped",
+          "journey_target": "prepare"
+        }
+      }
+    },
+    {
+      "profile_id": "synthetic-household-mo-declines",
+      "case_type": "edge",
+      "scenario": "UC3-S1 · declines to answer",
+      "persona_set": "Core",
+      "expected_end_state_profile": {
+        "profile_id": "synthetic-household-mo-declines",
+        "navigator": "low_income_assistance",
+        "schema_version": "household-profile-v1",
+        "state_code": "MO",
+        "county_name": "Greene",
+        "food_assistance_need": true,
+        "attributes": {}
+      },
+      "expected_general_end_state_profile": {
+        "profile_id": "synthetic-household-mo-declines",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MO",
+          "core.geography.county_name": "Greene"
+        }
+      },
+      "general_unmapped_fields": [
+        "food_assistance_need"
+      ],
+      "expected": {
+        "candidates": [
+          "missouri-snap"
+        ],
+        "criteria": {
+          "mo-snap-lives-in-missouri": "met"
+        },
+        "should": [
+          "Respect the refusal and continue",
+          "Leave income absent from the saved profile"
+        ],
+        "must_not": [
+          "Keep pressing for income",
+          "Save a guessed or placeholder income"
+        ],
+        "general_path": {
+          "expected_source_ids_any_of": [
+            "missouri.dss.snap",
+            "kansas.dcf.food-assistance-residency",
+            "new-mexico.hca.snap",
+            "usagov.benefits",
+            "sam.gov.assistance_listings"
+          ],
+          "criteria_status": "mapped",
+          "journey_target": "prepare"
+        }
+      }
+    },
+    {
+      "profile_id": "synthetic-household-md-family",
+      "case_type": "edge",
+      "scenario": "UC3-S1 · Maryland",
+      "persona_set": "Core",
+      "expected_end_state_profile": {
+        "profile_id": "synthetic-household-md-family",
+        "navigator": "low_income_assistance",
+        "schema_version": "household-profile-v1",
+        "state_code": "MD",
+        "county_name": "Baltimore City",
+        "annual_household_income_usd": 45000,
+        "household_size": 4,
+        "household_adults": 2,
+        "household_children": 2,
+        "employment_status": "employed",
+        "housing_status": "renter",
+        "food_assistance_need": true,
+        "attributes": {}
+      },
+      "expected_general_end_state_profile": {
+        "profile_id": "synthetic-household-md-family",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "MD",
+          "core.geography.county_name": "Baltimore City",
+          "core.household.annual_income_usd": 45000,
+          "core.household.size": 4,
+          "core.household.adults": 2,
+          "core.household.children": 2,
+          "core.household.housing_status": "renter"
+        }
+      },
+      "general_unmapped_fields": [
+        "employment_status",
+        "food_assistance_need"
+      ],
+      "expected": {
+        "candidates": [
+          "missouri-snap"
+        ],
+        "criteria": {
+          "mo-snap-lives-in-missouri": "not_applicable"
+        },
+        "should": [
+          "Explain the Missouri program does not apply to a Maryland address",
+          "Surface federal food-assistance listings (SNAP via SAM.gov, USAGov benefits) for Maryland"
+        ],
+        "must_not": [
+          "Say Maryland is not supported",
+          "Invent programs or rules that have no approved source"
+        ],
+        "general_path": {
+          "expected_source_ids_any_of": [
+            "missouri.dss.snap",
+            "kansas.dcf.food-assistance-residency",
+            "new-mexico.hca.snap",
+            "usagov.benefits",
+            "sam.gov.assistance_listings"
+          ],
+          "criteria_status": "mapped",
+          "journey_target": "prepare"
+        }
+      }
+    },
+    {
+      "profile_id": "synthetic-household-nm-tribal",
+      "case_type": "edge",
+      "scenario": "UC3-S1 · New Mexico tribal (schema gap)",
+      "persona_set": "Core",
+      "expected_end_state_profile": {
+        "profile_id": "synthetic-household-nm-tribal",
+        "navigator": "low_income_assistance",
+        "schema_version": "household-profile-v1",
+        "state_code": "NM",
+        "county_name": "McKinley",
+        "annual_household_income_usd": 30000,
+        "household_size": 5,
+        "household_adults": 2,
+        "household_children": 3,
+        "food_assistance_need": true,
+        "attributes": {}
+      },
+      "expected_general_end_state_profile": {
+        "profile_id": "synthetic-household-nm-tribal",
+        "navigator": "general",
+        "schema_version": "general-profile-v1",
+        "attributes": {
+          "core.geography.state_code": "NM",
+          "core.geography.county_name": "McKinley",
+          "core.household.annual_income_usd": 30000,
+          "core.household.size": 5,
+          "core.household.adults": 2,
+          "core.household.children": 3
+        }
+      },
+      "general_unmapped_fields": [
+        "food_assistance_need"
+      ],
+      "expected": {
+        "candidates": [
+          "missouri-snap"
+        ],
+        "criteria": {
+          "mo-snap-lives-in-missouri": "not_applicable"
+        },
+        "should": [
+          "Surface New Mexico SNAP and the Food Distribution Program on Indian Reservations (SAM.gov 10.567) listings",
+          "Note that tribal residency facts are not in the profile schema yet"
+        ],
+        "must_not": [
+          "Evaluate tribal eligibility from facts the schema cannot hold",
+          "Invent programs or rules that have no approved source"
+        ],
+        "general_path": {
+          "expected_source_ids_any_of": [
+            "missouri.dss.snap",
+            "kansas.dcf.food-assistance-residency",
+            "new-mexico.hca.snap",
+            "usagov.benefits",
+            "sam.gov.assistance_listings"
+          ],
+          "criteria_status": "mapped",
+          "journey_target": "prepare"
+        }
+      }
+    }
+  ]
+}

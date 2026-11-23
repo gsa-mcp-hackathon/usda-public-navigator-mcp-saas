@@ -1,0 +1,146 @@
+{
+  "suite_id": "S02",
+  "name": "operator-auth-fail-closed",
+  "objective": "Operator tools refuse missing or wrong credentials and accept the valid one",
+  "depends_on": [
+    "S01"
+  ],
+  "requires_operator": true,
+  "stop_on_fail": false,
+  "start_conditions": [
+    "S01 passed",
+    "Operator token supplied via --token-file or CORE_OPERATOR_TOKEN"
+  ],
+  "stop_conditions": [
+    "A missing/wrong credential that is accepted is a security failure: report immediately"
+  ],
+  "maps_to": [
+    "O-2",
+    "S-1",
+    "C-12"
+  ],
+  "tests": [
+    {
+      "id": "S02-T01",
+      "title": "Fleet report without credential is refused",
+      "auth": "none",
+      "action": {
+        "type": "call",
+        "tool": "get_fleet_operations_report",
+        "args": {
+          "from_utc": "${today_start_utc}",
+          "to_utc": "${now_utc}"
+        }
+      },
+      "assertions": [
+        {
+          "path": "status",
+          "op": "eq",
+          "value": "operator_authorization_required"
+        }
+      ]
+    },
+    {
+      "id": "S02-T02",
+      "title": "Fleet report with a wrong credential is refused",
+      "auth": "wrong",
+      "action": {
+        "type": "call",
+        "tool": "get_fleet_operations_report",
+        "args": {
+          "from_utc": "${today_start_utc}",
+          "to_utc": "${now_utc}"
+        }
+      },
+      "assertions": [
+        {
+          "path": "status",
+          "op": "eq",
+          "value": "operator_authorization_required"
+        }
+      ]
+    },
+    {
+      "id": "S02-T03",
+      "title": "Profile read without credential returns nothing (not found in scope)",
+      "auth": "none",
+      "action": {
+        "type": "call",
+        "tool": "read_profile",
+        "args": {
+          "profile_ref": "synthetic-suite-probe"
+        }
+      },
+      "assertions": [
+        {
+          "path": "status",
+          "op": "eq",
+          "value": "profile_not_found_in_scope"
+        }
+      ]
+    },
+    {
+      "id": "S02-T04",
+      "title": "Evaluation fixture inventory without credential is refused",
+      "auth": "none",
+      "action": {
+        "type": "call",
+        "tool": "list_evaluation_fixtures",
+        "args": {
+          "fixture_set_id": "phase-ab",
+          "fixture_set_version": "1.0.0"
+        }
+      },
+      "assertions": [
+        {
+          "path": "status",
+          "op": "eq",
+          "value": "operator_authorization_required"
+        }
+      ]
+    },
+    {
+      "id": "S02-T05",
+      "title": "Evaluation fixture read without credential is refused",
+      "auth": "none",
+      "action": {
+        "type": "call",
+        "tool": "read_evaluation_fixture",
+        "args": {
+          "fixture_set_id": "phase-ab",
+          "fixture_set_version": "1.0.0",
+          "fixture_id": "fixture-ab12"
+        }
+      },
+      "assertions": [
+        {
+          "path": "status",
+          "op": "eq",
+          "value": "operator_authorization_required"
+        }
+      ]
+    },
+    {
+      "id": "S02-T06",
+      "title": "Fleet report with the valid credential passes authorization",
+      "auth": "operator",
+      "action": {
+        "type": "call",
+        "tool": "get_fleet_operations_report",
+        "args": {
+          "from_utc": "${today_start_utc}",
+          "to_utc": "${now_utc}"
+        }
+      },
+      "assertions": [
+        {
+          "path": "status",
+          "op": "ne",
+          "value": "operator_authorization_required"
+        }
+      ]
+    }
+  ],
+  "all_tests_gate": true,
+  "pass_rule": "Suite PASS = all tests pass. PASS_WITH_DEFECTS = only non-gate tests failed (dependent suites still run). FAIL = a gate test failed (dependent suites are BLOCKED)."
+}

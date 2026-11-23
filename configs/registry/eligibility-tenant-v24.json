@@ -1,0 +1,274 @@
+{
+  "manifest_id": "mcp-saas-eligibility-tenant-v24",
+  "manifest_version": "24.0.0",
+  "schemas": [
+    {
+      "registry_id": "core-schema-registry",
+      "schema_version": "core-v1",
+      "path": "registries/schemas/core-v1.json"
+    },
+    {
+      "registry_id": "public-data-schema-registry",
+      "schema_version": "public-data-v1",
+      "path": "registries/schemas/public-data-v1.json"
+    },
+    {
+      "registry_id": "eligibility-program-schema",
+      "schema_version": "eligibility-program-v1",
+      "path": "registries/schemas/eligibility-program-v1.json"
+    },
+    {
+      "registry_id": "core-schema-registry",
+      "schema_version": "core-v2",
+      "path": "registries/schemas/core-v2.json"
+    },
+    {
+      "registry_id": "core-schema-registry",
+      "schema_version": "core-v7",
+      "path": "registries/schemas/core-v7.json",
+      "lifecycle_state": "active"
+    },
+    {
+      "registry_id": "eligibility-requirements-package-list-request-v2-schema",
+      "schema_version": "eligibility-requirements-package-list-request-v2",
+      "path": "registries/schemas/eligibility-requirements-package-list-request-v2.json"
+    },
+    {
+      "registry_id": "eligibility-requirements-package-list-v1-schema",
+      "schema_version": "eligibility-requirements-package-list-v1",
+      "path": "registries/schemas/eligibility-requirements-package-list-v1.json"
+    },
+    {
+      "registry_id": "eligibility-requirements-package-read-request-v2-schema",
+      "schema_version": "eligibility-requirements-package-read-request-v2",
+      "path": "registries/schemas/eligibility-requirements-package-read-request-v2.json"
+    },
+    {
+      "registry_id": "eligibility-requirements-package-read-v1-schema",
+      "schema_version": "eligibility-requirements-package-read-v1",
+      "path": "registries/schemas/eligibility-requirements-package-read-v1.json"
+    },
+    {
+      "registry_id": "eligibility-requirements-package-enrichment-request-v1-schema",
+      "schema_version": "eligibility-requirements-package-enrichment-request-v1",
+      "path": "registries/schemas/eligibility-requirements-package-enrichment-request-v1.json"
+    },
+    {
+      "registry_id": "eligibility-requirements-package-enrichment-v1-schema",
+      "schema_version": "eligibility-requirements-package-enrichment-v1",
+      "path": "registries/schemas/eligibility-requirements-package-enrichment-v1.json"
+    }
+  ],
+  "patterns": [
+    {
+      "pattern_id": "eligibility",
+      "pattern_version": "0.1.48",
+      "lifecycle_state": "active",
+      "title": "Public program discovery",
+      "catalog_names": [
+        "programs"
+      ],
+      "capabilities": [
+        "program.discover",
+        "program.evaluate",
+        "program.results",
+        "program.inventory.search",
+        "program.inventory.list",
+        "program.inventory.read",
+        "program.discovery.external.search",
+        "program.candidate.requirements.write",
+        "program.candidate.requirements.list",
+        "program.candidate.requirements.read",
+        "program.candidate.requirements.enrich"
+      ],
+      "operations": [
+        {
+          "operation_id": "program.discover",
+          "mcp_tool_name": "discover_program_candidates",
+          "request_schema_id": "eligibility-profile-submission-v1",
+          "response_schema_id": "eligibility-discovery-v3",
+          "access_mode": "read_only"
+        },
+        {
+          "operation_id": "program.evaluate",
+          "mcp_tool_name": "evaluate_program_criteria",
+          "request_schema_id": "eligibility-program-evaluation-request-v1",
+          "response_schema_id": "eligibility-evaluation-v2",
+          "access_mode": "read_only"
+        },
+        {
+          "operation_id": "program.results",
+          "mcp_tool_name": "get_program_results",
+          "request_schema_id": "eligibility-profile-submission-v1",
+          "response_schema_id": "eligibility-program-results-v2",
+          "access_mode": "read_only"
+        },
+        {
+          "operation_id": "program.inventory.search",
+          "mcp_tool_name": "search_program_inventory",
+          "request_schema_id": "eligibility-program-inventory-search-v3",
+          "response_schema_id": "program-inventory-search-v6",
+          "access_mode": "read_only"
+        },
+        {
+          "operation_id": "program.discovery.external.search",
+          "mcp_tool_name": "search_external_program_leads",
+          "request_schema_id": "eligibility-public-program-search-v1",
+          "response_schema_id": "public-program-search-v1",
+          "access_mode": "read_only"
+        },
+        {
+          "operation_id": "program.inventory.list",
+          "mcp_tool_name": "list_public_catalog_inventory",
+          "request_schema_id": "public-catalog-inventory-page-v1",
+          "response_schema_id": "public-catalog-inventory-v1",
+          "access_mode": "read_only"
+        },
+        {
+          "operation_id": "program.inventory.read",
+          "mcp_tool_name": "read_public_catalog_dataset",
+          "request_schema_id": "public-catalog-record-page-v1",
+          "response_schema_id": "public-catalog-record-page-v1",
+          "access_mode": "read_only"
+        },
+        {
+          "operation_id": "program.candidate.requirements.write",
+          "mcp_tool_name": "write_program_candidate_requirements",
+          "request_schema_id": "program-candidate-requirements-preview-request-v2",
+          "response_schema_id": "eligibility-requirements-package-receipt-v1",
+          "access_mode": "idempotent_write"
+        },
+        {
+          "operation_id": "program.candidate.requirements.list",
+          "mcp_tool_name": "list_saved_requirements_packages",
+          "request_schema_id": "eligibility-requirements-package-list-request-v2",
+          "response_schema_id": "eligibility-requirements-package-list-v1",
+          "access_mode": "read_only"
+        },
+        {
+          "operation_id": "program.candidate.requirements.read",
+          "mcp_tool_name": "read_saved_requirements_package",
+          "request_schema_id": "eligibility-requirements-package-read-request-v2",
+          "response_schema_id": "eligibility-requirements-package-read-v1",
+          "access_mode": "read_only"
+        },
+        {
+          "operation_id": "program.candidate.requirements.enrich",
+          "mcp_tool_name": "enrich_saved_requirements_package",
+          "request_schema_id": "eligibility-requirements-package-enrichment-request-v1",
+          "response_schema_id": "eligibility-requirements-package-enrichment-v1",
+          "access_mode": "idempotent_write"
+        }
+      ]
+    }
+  ],
+  "use_cases": [
+    {
+      "use_case_id": "program.discover",
+      "use_case_version": "2.0.0",
+      "pattern_id": "eligibility",
+      "pattern_version": "0.1.48",
+      "operation_id": "program.discover",
+      "lifecycle_state": "active",
+      "tenant_ids": [
+        "eligibility-demo"
+      ]
+    }
+  ],
+  "tenants": [
+    {
+      "tenant_id": "eligibility-demo",
+      "pattern_id": "eligibility",
+      "pattern_version": "0.1.48",
+      "endpoint_environment_variable": "TENANT_ELIGIBILITY_DEMO_ENDPOINT",
+      "lifecycle_state": "active",
+      "cluster_config": {
+        "catalog_namespace": "programs",
+        "discovery_scope": "all_active_shared_cluster_datasets"
+      }
+    }
+  ],
+  "catalog_bindings": [
+    {
+      "dataset_id": "grants-gov-current-opportunities",
+      "pattern_id": "eligibility",
+      "pattern_version": "0.1.48",
+      "tenant_id": "eligibility-demo",
+      "binding_context": {
+        "catalog_namespace": "programs",
+        "catalog_version": "eligibility-demo-v1",
+        "jurisdiction": {
+          "level": "federal",
+          "country_code": "US"
+        },
+        "source_id": "grants.gov.opportunities",
+        "listing_kind": "funding_opportunity",
+        "semantic_mapping": {},
+        "criteria_available": false
+      }
+    },
+    {
+      "dataset_id": "usda-fsa-beginning-farmers-guidance",
+      "pattern_id": "eligibility",
+      "pattern_version": "0.1.48",
+      "tenant_id": "eligibility-demo",
+      "binding_context": {
+        "catalog_namespace": "programs",
+        "catalog_version": "eligibility-demo-v1",
+        "jurisdiction": {
+          "level": "federal",
+          "country_code": "US"
+        },
+        "source_id": "usda.fsa.beginning-farmers",
+        "semantic_mapping": {
+          "eligibility.program.criteria": "beginning-farmer-operation-years"
+        }
+      }
+    },
+    {
+      "dataset_id": "missouri-dss-snap-guidance",
+      "pattern_id": "eligibility",
+      "pattern_version": "0.1.48",
+      "tenant_id": "eligibility-demo",
+      "binding_context": {
+        "catalog_namespace": "programs",
+        "catalog_version": "eligibility-demo-v1",
+        "jurisdiction": {
+          "level": "state",
+          "country_code": "US",
+          "state_code": "MO"
+        },
+        "source_id": "missouri.dss.snap",
+        "semantic_mapping": {
+          "eligibility.program.criteria": "missouri-residency"
+        },
+        "excluded_criteria": [
+          "income-thresholds"
+        ]
+      }
+    },
+    {
+      "dataset_id": "kansas-dcf-snap-residency-guidance",
+      "pattern_id": "eligibility",
+      "pattern_version": "0.1.48",
+      "tenant_id": "eligibility-demo",
+      "binding_context": {
+        "catalog_namespace": "programs",
+        "catalog_version": "eligibility-demo-v1",
+        "jurisdiction": {
+          "level": "state",
+          "country_code": "US",
+          "state_code": "KS"
+        },
+        "source_id": "kansas.dcf.food-assistance-residency",
+        "semantic_mapping": {
+          "eligibility.program.criteria": "kansas-snap-residency"
+        },
+        "excluded_criteria": [
+          "income-thresholds",
+          "resource-criteria"
+        ]
+      }
+    }
+  ]
+}

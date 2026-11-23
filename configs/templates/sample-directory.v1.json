@@ -1,0 +1,43 @@
+{
+  "template_id": "sample-directory",
+  "template_version": "1.0.0",
+  "compatible_core_contracts": [
+    "core-route.v1"
+  ],
+  "operations": [
+    {
+      "operation_id": "directory.list",
+      "mcp_tool_name": "list_entries",
+      "request_schema_ref": "mcp.no-arguments.v1",
+      "result_contract_ref": "mcp.pattern-result.v1",
+      "summary": "List the entries configured for this tenant within the generic directory pattern.",
+      "user_goal_examples": [
+        "Show the entries available in this directory.",
+        "List the items configured for this tenant."
+      ],
+      "input_schema_ref": "#/$defs/NoArguments"
+    }
+  ],
+  "input_schema_catalog": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$defs": {
+      "NoArguments": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      }
+    }
+  },
+  "schema_refs": [
+    "mcp.no-arguments.v1"
+  ],
+  "adapter_refs": [],
+  "rule_refs": [],
+  "catalog_namespaces": [
+    "entries"
+  ],
+  "result_contract_refs": [
+    "mcp.pattern-result.v1"
+  ]
+}

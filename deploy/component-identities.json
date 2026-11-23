@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0.0",
+  "release_artifact": {
+    "component_id": "artifact.mcp-saas-platform",
+    "distribution_name": "mcp-saas-platform",
+    "display_name": "MCP SaaS Platform",
+    "image_repository": "mcp-saas-platform",
+    "console_script": "mcp-saas-platform"
+  },
+  "core_release_artifact": {
+    "component_id": "artifact.mcp-saas-platform.core",
+    "distribution_name": "mcp-saas-core",
+    "display_name": "MCP SaaS Core",
+    "image_repository": "mcp-saas-core",
+    "dockerfile": "Dockerfile.core"
+  },
+  "component_targets": {
+    "cluster": {
+      "runtime_role": "cluster",
+      "target_resource_name_template": "your-namespace-cluster-{cluster_id}"
+    },
+    "platform.core": {
+      "runtime_role": "core",
+      "target_resource_name": "your-namespace-core"
+    },
+    "tenant": {
+      "component_id_template": "tenant.{tenant_id}",
+      "runtime_role": "tenant",
+      "target_resource_name_template": "your-namespace-tenant-{tenant_id}"
+    }
+  }
+}

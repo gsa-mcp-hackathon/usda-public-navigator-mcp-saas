@@ -1,0 +1,341 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "usda.fsa.disaster-assistance",
+    "reviewed_at": "2026-10-27T13:58:00Z",
+    "publisher_version": "not stated on the reviewed pages",
+    "raw_source_documents_committed": false,
+    "access_method": "Current official FSA program pages reviewed through web retrieval; page bodies and raw files were not retained.",
+    "pages": [
+      {
+        "url": "https://www.fsa.usda.gov/resources/loans/emergency-farm-loans",
+        "title": "Emergency Farm Loans | Farm Service Agency",
+        "source_content_sha256": null
+      },
+      {
+        "url": "https://www.fsa.usda.gov/resources/disaster-recovery/disaster-set-aside-program-dsa",
+        "title": "Disaster Set-Aside Program (DSA) | Farm Service Agency",
+        "source_content_sha256": null
+      }
+    ]
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "usda.fsa.disaster-assistance",
+      "source_name": "USDA Farm Service Agency Disaster Assistance Programs",
+      "source_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "federal",
+          "owner_name": "United States Department of Agriculture Farm Service Agency",
+          "verification_status": "verified",
+          "evidence_url": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs"
+        },
+        "approved_scope": "Shared federal FSA disaster-program listings and partial references to published Emergency Farm Loan and Disaster Set-Aside requirements. Criteria remain unmapped and non-executable; no individual eligibility decision, application status, or benefit estimate is asserted.",
+        "refresh_mode": "operator_triggered"
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "usda-fsa-disaster-assistance-programs",
+        "source_dataset_id": "FSA Disaster Assistance Programs page",
+        "title": "USDA FSA disaster assistance program listings",
+        "landing_page": "https://www.fsa.usda.gov/resources/programs/disaster-assistance-programs",
+        "schema_version": "public-listing-v1",
+        "namespace_ids": [
+          "core",
+          "listing"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "not_assessed",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "refresh_mode": "operator_triggered",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "listing": "eligibility-public-listing-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "listing": "public-listing-v1"
+          },
+          "content_type": "federal_fsa_disaster_program_listings",
+          "maximum_records_total": 100
+        }
+      },
+      {
+        "dataset_id": "usda-fsa-disaster-published-criteria",
+        "source_dataset_id": "FSA Emergency Farm Loans and Disaster Set-Aside published program pages",
+        "title": "USDA FSA partial published disaster program requirements",
+        "landing_page": "https://www.fsa.usda.gov/resources/loans/emergency-farm-loans",
+        "schema_version": "eligibility-program-v2",
+        "namespace_ids": [
+          "core",
+          "eligibility"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "partial",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "refresh_mode": "operator_triggered",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "eligibility": "eligibility-program-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "eligibility": "eligibility-program-v2"
+          },
+          "content_type": "published_partial_non_executable_eligibility_reference",
+          "published_criteria_available": true,
+          "criteria_mapping_status": "not_mapped",
+          "maximum_records_total": 10
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "usda-fsa-disaster-published-criteria",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "Current official USDA FSA program pages reviewed 2026-10-27; publisher revision/effective date not stated.",
+        "retrieved_at": "2026-10-27T13:58:00Z",
+        "transform_version": "fsa-disaster-criteria-review-v1",
+        "validation_outcome": "valid",
+        "detail": "Partial transcriptions of published FSA requirements; unmapped and non-executable, with no individual eligibility conclusion.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "fsa-emergency-farm-loans-published-criteria",
+            "record_type": "federal-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "usda-fsa-emergency-farm-loan",
+              "eligibility.program.catalog_version": "retrieved-2026-10-27",
+              "eligibility.program.navigator": "farm_business_disaster",
+              "eligibility.program.data_origin": "USDA FSA Emergency Farm Loans page",
+              "eligibility.program.title": "Emergency Farm Loans published requirements",
+              "eligibility.program.description": "Partial structured reference to requirements published by FSA. Statements are not mapped to profile attributes or executable rules; county designations, disaster facts, complete loan criteria, and individual outcomes require separate source review.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "applicant-categories",
+                  "statement": "The page identifies farmers and ranchers as eligible applicant categories.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.disaster-assistance"
+                },
+                {
+                  "requirement_id": "disaster_designated_location",
+                  "statement": "The applicant must operate in a disaster-designated county.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.disaster-assistance"
+                },
+                {
+                  "requirement_id": "substantial_disaster_loss",
+                  "statement": "The applicant must have experienced substantial damage or loss.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.disaster-assistance"
+                },
+                {
+                  "requirement_id": "credit_unavailable_elsewhere",
+                  "statement": "The applicant must demonstrate an inability to obtain sufficient credit from other sources for disaster-related needs.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.disaster-assistance"
+                },
+                {
+                  "requirement_id": "application_window",
+                  "statement": "The application must be submitted within eight months after the disaster designation date.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.disaster-assistance"
+                },
+                {
+                  "requirement_id": "local_fsa_application",
+                  "statement": "Applicants submit an application to their local FSA office and provide documentation of disaster-related losses, a farm operating plan, and other required financial information.",
+                  "mapping_status": "context_only",
+                  "source_id": "usda.fsa.disaster-assistance"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.fsa.disaster-assistance",
+              "source_version": "Current official USDA FSA program pages reviewed 2026-10-27; publisher revision/effective date not stated.",
+              "retrieved_at": "2026-10-27T13:58:00Z",
+              "effective_at": null,
+              "transform_version": "fsa-disaster-criteria-review-v1",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://www.fsa.usda.gov/resources/loans/emergency-farm-loans",
+                  "observed_at": "2026-10-27T13:58:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://www.fsa.usda.gov/resources/loans/emergency-farm-loans",
+                  "observed_at": "2026-10-27T13:58:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.navigator": {
+                  "source_url": "https://www.fsa.usda.gov/resources/loans/emergency-farm-loans",
+                  "observed_at": "2026-10-27T13:58:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://www.fsa.usda.gov/resources/loans/emergency-farm-loans",
+                  "observed_at": "2026-10-27T13:58:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://www.fsa.usda.gov/resources/loans/emergency-farm-loans",
+                  "observed_at": "2026-10-27T13:58:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://www.fsa.usda.gov/resources/loans/emergency-farm-loans",
+                  "observed_at": "2026-10-27T13:58:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://www.fsa.usda.gov/resources/loans/emergency-farm-loans",
+                  "observed_at": "2026-10-27T13:58:00Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.fsa.usda.gov/resources/loans/emergency-farm-loans",
+            "schema_version": "eligibility-program-v2",
+            "observed_at": "2026-10-27T13:58:00Z",
+            "content_hash": "921b7177b5331a21ee33f23f9cc5a4e45d87ed69de0fa99c1d5cf41832fd34a9"
+          },
+          {
+            "source_record_id": "fsa-disaster-set-aside-published-criteria",
+            "record_type": "federal-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "usda-fsa-disaster-set-aside",
+              "eligibility.program.catalog_version": "retrieved-2026-10-27",
+              "eligibility.program.navigator": "farm_business_disaster",
+              "eligibility.program.data_origin": "USDA FSA Disaster Set-Aside Program (DSA) page",
+              "eligibility.program.title": "Disaster Set-Aside Program published requirements",
+              "eligibility.program.description": "Partial structured reference to requirements published by FSA for existing direct-loan borrowers. Statements are not mapped to profile attributes or executable rules; complete loan-servicing requirements and individual outcomes require separate source review.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "applicant-categories",
+                  "statement": "The page identifies farmers and ranchers with an existing FSA direct loan as eligible applicant categories.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.disaster-assistance"
+                },
+                {
+                  "requirement_id": "loan_status_before_disaster",
+                  "statement": "The borrower must have been current or less than 90 days past due on the loan before the disaster.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.disaster-assistance"
+                },
+                {
+                  "requirement_id": "disaster_caused_installment_inability",
+                  "statement": "The borrower must be unable to make the scheduled installment because of the disaster.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.disaster-assistance"
+                },
+                {
+                  "requirement_id": "demonstrated_financial_need",
+                  "statement": "The borrower must demonstrate financial need and the disaster's impact on ability to repay.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.disaster-assistance"
+                },
+                {
+                  "requirement_id": "application_window",
+                  "statement": "The application must be submitted within eight months from the date the disaster designation was declared.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "usda.fsa.disaster-assistance"
+                },
+                {
+                  "requirement_id": "written_local_request",
+                  "statement": "The borrower submits a written request to the local FSA office; the application includes documentation of disaster impact, financial need, and inability to make the scheduled installment.",
+                  "mapping_status": "context_only",
+                  "source_id": "usda.fsa.disaster-assistance"
+                },
+                {
+                  "requirement_id": "set_aside_payment_limit",
+                  "statement": "The program page describes setting aside one annual installment for each loan and moving it to the end of the loan term.",
+                  "mapping_status": "context_only",
+                  "source_id": "usda.fsa.disaster-assistance"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.fsa.disaster-assistance",
+              "source_version": "Current official USDA FSA program pages reviewed 2026-10-27; publisher revision/effective date not stated.",
+              "retrieved_at": "2026-10-27T13:58:00Z",
+              "effective_at": null,
+              "transform_version": "fsa-disaster-criteria-review-v1",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://www.fsa.usda.gov/resources/disaster-recovery/disaster-set-aside-program-dsa",
+                  "observed_at": "2026-10-27T13:58:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://www.fsa.usda.gov/resources/disaster-recovery/disaster-set-aside-program-dsa",
+                  "observed_at": "2026-10-27T13:58:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.navigator": {
+                  "source_url": "https://www.fsa.usda.gov/resources/disaster-recovery/disaster-set-aside-program-dsa",
+                  "observed_at": "2026-10-27T13:58:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://www.fsa.usda.gov/resources/disaster-recovery/disaster-set-aside-program-dsa",
+                  "observed_at": "2026-10-27T13:58:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://www.fsa.usda.gov/resources/disaster-recovery/disaster-set-aside-program-dsa",
+                  "observed_at": "2026-10-27T13:58:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://www.fsa.usda.gov/resources/disaster-recovery/disaster-set-aside-program-dsa",
+                  "observed_at": "2026-10-27T13:58:00Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://www.fsa.usda.gov/resources/disaster-recovery/disaster-set-aside-program-dsa",
+                  "observed_at": "2026-10-27T13:58:00Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.fsa.usda.gov/resources/disaster-recovery/disaster-set-aside-program-dsa",
+            "schema_version": "eligibility-program-v2",
+            "observed_at": "2026-10-27T13:58:00Z",
+            "content_hash": "7b2f6afdc76565990657f7d4441a83377df3f27e8d8793afa7337eab8bc01a9a"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" role="img" aria-labelledby="t d" font-family="system-ui,Segoe UI,Arial,sans-serif">
+<title id="t">The 49 use cases by pattern</title><desc id="d">Documentation and policy retrieval has 15 use cases, geospatial 6, economic and statistical 5, eligibility 3, grants and loans 1, all other patterns combined 19.</desc>
+<rect width="760" height="380" fill="#ffffff"/>
+<text x="20" y="30" font-size="18" font-weight="600" fill="#1f2937">49 use cases, grouped by pattern</text>
+<text x="238" y="76" font-size="14" text-anchor="end" fill="#1f2937">Documentation &amp; policy retrieval</text>
+<rect x="250" y="56" width="339" height="30" rx="3" fill="#64748b"/>
+<text x="597" y="76" font-size="14" fill="#1f2937">15</text>
+<text x="238" y="120" font-size="14" text-anchor="end" fill="#1f2937">Geospatial &amp; environmental data</text>
+<rect x="250" y="100" width="136" height="30" rx="3" fill="#64748b"/>
+<text x="394" y="120" font-size="14" fill="#1f2937">6</text>
+<text x="238" y="164" font-size="14" text-anchor="end" fill="#1f2937">Economic &amp; statistical data</text>
+<rect x="250" y="144" width="113" height="30" rx="3" fill="#64748b"/>
+<text x="371" y="164" font-size="14" fill="#1f2937">5</text>
+<text x="238" y="208" font-size="14" text-anchor="end" fill="#1f2937">Program eligibility &amp; rules</text>
+<rect x="250" y="188" width="68" height="30" rx="3" fill="#2563eb"/>
+<text x="326" y="208" font-size="14" fill="#1f2937">3</text>
+<text x="238" y="252" font-size="14" text-anchor="end" fill="#1f2937">Grants, loans &amp; funding guidance</text>
+<rect x="250" y="232" width="23" height="30" rx="3" fill="#64748b"/>
+<text x="281" y="252" font-size="14" fill="#1f2937">1</text>
+<text x="238" y="296" font-size="14" text-anchor="end" fill="#1f2937">All other patterns (combined)</text>
+<rect x="250" y="276" width="430" height="30" rx="3" fill="#9ca3af"/>
+<text x="688" y="296" font-size="14" fill="#1f2937">19</text>
+<text x="20" y="362" font-size="12" fill="#6b7280">Eligibility (highlighted) was not the largest group. It was chosen for the reasons in this document.</text></svg>

@@ -1,0 +1,417 @@
+{
+  "registry_id": "core-schema-registry",
+  "schema_version": "core-v8",
+  "namespaces": {
+    "core": "Shared platform concepts, including reusable dataset metadata and time dimensions",
+    "gsa": "GSA source-specific semantics with explicit rate context"
+  },
+  "dimensions": {
+    "core.person": "Attributes about one person",
+    "core.household": "Attributes and relationships for a household",
+    "core.farm_business": "Attributes about a farm or business",
+    "core.geography": "Jurisdiction and location concepts",
+    "core.program": "Shared program catalog concepts",
+    "core.dataset": "Reusable source dataset metadata",
+    "core.time": "Temporal context",
+    "core.person.veteran": "Attributes about the Veteran who receives care",
+    "core.person.caregiver": "Attributes about a caregiver for a Veteran",
+    "core.health": "Health coverage and enrollment facts",
+    "core.benefits": "Benefits the person already receives",
+    "core.farm": "Farm program administration facts"
+  },
+  "attributes": {
+    "core.person.age_band": {
+      "dimension_id": "core.person",
+      "type": "string",
+      "allowed_values": [
+        "under_60",
+        "60_64",
+        "65_74",
+        "75_plus",
+        "65_plus",
+        "adult",
+        "unknown"
+      ]
+    },
+    "core.household.size_band": {
+      "dimension_id": "core.household",
+      "type": "string",
+      "allowed_values": [
+        "single",
+        "small",
+        "large"
+      ]
+    },
+    "core.household.housing_status": {
+      "dimension_id": "core.household",
+      "type": "string",
+      "allowed_values": [
+        "owner",
+        "renter",
+        "other"
+      ]
+    },
+    "core.farm_business.operation_type": {
+      "dimension_id": "core.farm_business",
+      "type": "string",
+      "allowed_values": [
+        "row_crop",
+        "small_farm"
+      ]
+    },
+    "core.geography.state_code": {
+      "dimension_id": "core.geography",
+      "type": "string",
+      "pattern": "^[A-Z]{2}$"
+    },
+    "core.geography.country_code": {
+      "dimension_id": "core.geography",
+      "type": "string",
+      "pattern": "^[A-Z]{2}$"
+    },
+    "core.geography.jurisdiction_level": {
+      "dimension_id": "core.geography",
+      "type": "string",
+      "allowed_values": [
+        "federal",
+        "state",
+        "local",
+        "tribal",
+        "territory"
+      ]
+    },
+    "core.farm_business.years_farming": {
+      "dimension_id": "core.farm_business",
+      "type": "integer",
+      "minimum": 0
+    },
+    "core.program.category": {
+      "dimension_id": "core.program",
+      "type": "string"
+    },
+    "core.dataset.title": {
+      "dimension_id": "core.dataset",
+      "type": "string"
+    },
+    "core.dataset.publisher": {
+      "dimension_id": "core.dataset",
+      "type": "string"
+    },
+    "core.dataset.description": {
+      "dimension_id": "core.dataset",
+      "type": "string"
+    },
+    "core.dataset.keywords": {
+      "dimension_id": "core.dataset",
+      "type": "array"
+    },
+    "core.dataset.source_identifier": {
+      "dimension_id": "core.dataset",
+      "type": "string"
+    },
+    "core.dataset.content_type": {
+      "dimension_id": "core.dataset",
+      "type": "string"
+    },
+    "core.time.fiscal_year": {
+      "dimension_id": "core.time",
+      "type": "integer"
+    },
+    "core.time.month": {
+      "dimension_id": "core.time",
+      "type": "string"
+    },
+    "gsa.per_diem.daily_rate": {
+      "dimension_id": "core.program",
+      "type": "number"
+    },
+    "core.geography.county_name": {
+      "dimension_id": "core.geography",
+      "type": "string"
+    },
+    "core.farm_business.acreage": {
+      "dimension_id": "core.farm_business",
+      "type": "number",
+      "minimum": 0
+    },
+    "core.household.size": {
+      "dimension_id": "core.household",
+      "type": "integer",
+      "minimum": 1
+    },
+    "core.household.adults": {
+      "dimension_id": "core.household",
+      "type": "integer",
+      "minimum": 0
+    },
+    "core.household.children": {
+      "dimension_id": "core.household",
+      "type": "integer",
+      "minimum": 0
+    },
+    "core.household.annual_income_usd": {
+      "dimension_id": "core.household",
+      "type": "integer",
+      "minimum": 0
+    },
+    "core.household.monthly_gross_income_usd": {
+      "dimension_id": "core.household",
+      "type": "integer",
+      "minimum": 0
+    },
+    "core.household.monthly_net_income_usd": {
+      "dimension_id": "core.household",
+      "type": "integer",
+      "minimum": 0
+    },
+    "core.person.va_pension_status": {
+      "dimension_id": "core.person",
+      "type": "string",
+      "allowed_values": [
+        "receiving",
+        "not_receiving"
+      ]
+    },
+    "core.person.daily_care_need": {
+      "dimension_id": "core.person",
+      "type": "boolean"
+    },
+    "core.person.va_healthcare_status": {
+      "dimension_id": "core.person",
+      "type": "string",
+      "allowed_values": [
+        "enrolled",
+        "not_enrolled",
+        "unknown"
+      ]
+    },
+    "core.farm_business.commodities": {
+      "dimension_id": "core.farm_business",
+      "type": "array"
+    },
+    "core.person.veteran.va_healthcare_status": {
+      "dimension_id": "core.person.veteran",
+      "type": "string",
+      "allowed_values": [
+        "enrolled",
+        "not_enrolled",
+        "unknown"
+      ]
+    },
+    "core.person.veteran.service_discharge_status": {
+      "dimension_id": "core.person.veteran",
+      "type": "string",
+      "allowed_values": [
+        "qualifying",
+        "non_qualifying",
+        "unknown"
+      ]
+    },
+    "core.person.veteran.service_connected_disability_rating_percent": {
+      "dimension_id": "core.person.veteran",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "core.person.veteran.personal_care_need": {
+      "dimension_id": "core.person.veteran",
+      "type": "boolean"
+    },
+    "core.person.veteran.continuous_in_person_care_months": {
+      "dimension_id": "core.person.veteran",
+      "type": "integer",
+      "minimum": 0
+    },
+    "core.person.caregiver.age_years": {
+      "dimension_id": "core.person.caregiver",
+      "type": "integer",
+      "minimum": 0
+    },
+    "core.person.caregiver.relationship_to_veteran": {
+      "dimension_id": "core.person.caregiver",
+      "type": "string",
+      "allowed_values": [
+        "spouse",
+        "son",
+        "daughter",
+        "parent",
+        "stepfamily_member",
+        "extended_family_member",
+        "other",
+        "unknown"
+      ]
+    },
+    "core.person.caregiver.lives_or_willing_to_live_full_time_with_veteran": {
+      "dimension_id": "core.person.caregiver",
+      "type": "boolean"
+    },
+    "core.geography.postal_code": {
+      "dimension_id": "core.geography",
+      "type": "string"
+    },
+    "core.household.financial_resources_band": {
+      "dimension_id": "core.household",
+      "type": "string",
+      "allowed_values": [
+        "low",
+        "moderate",
+        "high",
+        "unknown"
+      ]
+    },
+    "core.health.medicare_status": {
+      "dimension_id": "core.health",
+      "type": "string",
+      "allowed_values": [
+        "enrolled",
+        "not_enrolled",
+        "unknown"
+      ]
+    },
+    "core.health.coverage_status": {
+      "dimension_id": "core.health",
+      "type": "string",
+      "allowed_values": [
+        "insured",
+        "uninsured",
+        "unknown"
+      ]
+    },
+    "core.household.food_assistance_need": {
+      "dimension_id": "core.household",
+      "type": "boolean"
+    },
+    "core.household.utility_assistance_need": {
+      "dimension_id": "core.household",
+      "type": "boolean"
+    },
+    "core.household.transportation_need": {
+      "dimension_id": "core.household",
+      "type": "boolean"
+    },
+    "core.household.childcare_need": {
+      "dimension_id": "core.household",
+      "type": "boolean"
+    },
+    "core.household.disaster_impact": {
+      "dimension_id": "core.household",
+      "type": "boolean"
+    },
+    "core.person.employment_status": {
+      "dimension_id": "core.person",
+      "type": "string",
+      "allowed_values": [
+        "employed",
+        "unemployed",
+        "part_time",
+        "unknown"
+      ]
+    },
+    "core.person.veteran_status": {
+      "dimension_id": "core.person",
+      "type": "boolean"
+    },
+    "core.person.disability_status": {
+      "dimension_id": "core.person",
+      "type": "boolean"
+    },
+    "core.person.housebound_status": {
+      "dimension_id": "core.person",
+      "type": "boolean"
+    },
+    "core.person.service_discharge_status": {
+      "dimension_id": "core.person",
+      "type": "string",
+      "allowed_values": [
+        "qualifying",
+        "non_qualifying",
+        "unknown"
+      ]
+    },
+    "core.person.service_connected_disability_status": {
+      "dimension_id": "core.person",
+      "type": "boolean"
+    },
+    "core.person.caregiver.relationship": {
+      "dimension_id": "core.person.caregiver",
+      "type": "string"
+    },
+    "core.farm_business.beginning_farmer_status": {
+      "dimension_id": "core.farm_business",
+      "type": "boolean"
+    },
+    "core.farm_business.land_tenure": {
+      "dimension_id": "core.farm_business",
+      "type": "string",
+      "allowed_values": [
+        "owned",
+        "leased",
+        "mixed",
+        "unknown"
+      ]
+    },
+    "core.farm_business.operation_goal": {
+      "dimension_id": "core.farm_business",
+      "type": "string"
+    },
+    "core.farm_business.loss_type": {
+      "dimension_id": "core.farm_business",
+      "type": "string"
+    },
+    "core.farm_business.loss_date": {
+      "dimension_id": "core.farm_business",
+      "type": "string",
+      "format": "date"
+    },
+    "core.farm_business.resource_concerns": {
+      "dimension_id": "core.farm_business",
+      "type": "array"
+    },
+    "core.farm_business.current_practices": {
+      "dimension_id": "core.farm_business",
+      "type": "array"
+    },
+    "core.farm_business.farm_type": {
+      "dimension_id": "core.farm_business",
+      "type": "string"
+    },
+    "core.farm_business.crop_year": {
+      "dimension_id": "core.farm_business",
+      "type": "integer"
+    },
+    "core.farm_business.coverage_type": {
+      "dimension_id": "core.farm_business",
+      "type": "string"
+    },
+    "core.benefits.medicaid_full_benefit": {
+      "dimension_id": "core.benefits",
+      "type": "boolean"
+    },
+    "core.benefits.medicare_savings_program": {
+      "dimension_id": "core.benefits",
+      "type": "boolean"
+    },
+    "core.benefits.ssi_recipient": {
+      "dimension_id": "core.benefits",
+      "type": "boolean"
+    },
+    "core.farm.acreage_report_filed": {
+      "dimension_id": "core.farm",
+      "type": "boolean"
+    },
+    "core.farm.has_fsa_farm_number": {
+      "dimension_id": "core.farm",
+      "type": "boolean"
+    }
+  },
+  "relationships": {
+    "core.relationship.member_of_household": {
+      "subject_kind": "person",
+      "object_kind": "household"
+    },
+    "core.relationship.caregiver_for_veteran": {
+      "subject_kind": "caregiver",
+      "object_kind": "veteran"
+    }
+  }
+}

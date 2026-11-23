@@ -1,0 +1,112 @@
+services:
+  core:
+    image: mcp-saas-platform:local
+    container_name: mcp-core
+    restart: unless-stopped
+    build:
+      context: ../..
+    environment:
+      MCP_ROLE: core
+      MCP_TRANSPORT: streamable-http
+      MCP_HOST: 0.0.0.0
+      MCP_PORT: 8080
+    ports:
+      - "127.0.0.1:8080:8080"
+    depends_on:
+      tenant-federal:
+        condition: service_healthy
+      tenant-kansas:
+        condition: service_healthy
+      tenant-directory:
+        condition: service_healthy
+      tenant-directory-partner:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/health', timeout=2)"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  tenant-federal:
+    image: mcp-saas-platform:local
+    container_name: mcp-tenant-federal
+    restart: unless-stopped
+    environment:
+      MCP_ROLE: tenant
+      MCP_TRANSPORT: streamable-http
+      MCP_HOST: 0.0.0.0
+      MCP_PORT: 8080
+      TENANT_ID: federal-agency
+      CLUSTER_ID: eligibility
+      PATTERN_VERSION: 0.1.0
+      CATALOG_BACKEND: config
+      TENANT_PROGRAMS_JSON: >-
+        [{"program_id":"usda-farm-sample","title":"Synthetic Federal Farm Support","source_id":"synthetic-usda-fixture","jurisdiction":"federal"}]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/health', timeout=2)"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  tenant-kansas:
+    image: mcp-saas-platform:local
+    container_name: mcp-tenant-kansas
+    restart: unless-stopped
+    environment:
+      MCP_ROLE: tenant
+      MCP_TRANSPORT: streamable-http
+      MCP_HOST: 0.0.0.0
+      MCP_PORT: 8080
+      TENANT_ID: state-kansas
+      CLUSTER_ID: eligibility
+      PATTERN_VERSION: 0.1.0
+      CATALOG_BACKEND: config
+      TENANT_PROGRAMS_JSON: >-
+        [{"program_id":"ks-senior-sample","title":"Synthetic Kansas Senior Support","source_id":"synthetic-kansas-fixture","jurisdiction":"state"}]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/health', timeout=2)"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  tenant-directory:
+    image: mcp-saas-platform:local
+    container_name: mcp-tenant-directory
+    restart: unless-stopped
+    environment:
+      MCP_ROLE: tenant
+      MCP_TRANSPORT: streamable-http
+      MCP_HOST: 0.0.0.0
+      MCP_PORT: 8080
+      TENANT_ID: directory-demo
+      CLUSTER_ID: sample-directory
+      PATTERN_VERSION: 1.0.0
+      CATALOG_BACKEND: config
+      CLUSTER_CONFIG_JSON: >-
+        {"entries":[{"id":"sample-a","label":"Synthetic Directory Alpha"},{"id":"sample-b","label":"Synthetic Directory Beta"}]}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/health', timeout=2)"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  tenant-directory-partner:
+    image: mcp-saas-platform:local
+    container_name: mcp-tenant-directory-partner
+    restart: unless-stopped
+    environment:
+      MCP_ROLE: tenant
+      MCP_TRANSPORT: streamable-http
+      MCP_HOST: 0.0.0.0
+      MCP_PORT: 8080
+      TENANT_ID: directory-partner
+      CLUSTER_ID: sample-directory
+      PATTERN_VERSION: 1.0.0
+      CATALOG_BACKEND: config
+      CLUSTER_CONFIG_JSON: >-
+        {"entries":[{"id":"partner-a","label":"Synthetic Partner Directory Alpha"},{"id":"partner-b","label":"Synthetic Partner Directory Beta"}]}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/health', timeout=2)"]
+      interval: 5s
+      timeout: 3s
+      retries: 10

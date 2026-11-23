@@ -1,0 +1,38 @@
+{
+  "registry_id": "eligibility-requirements-package-list-v1-schema",
+  "schema_version": "eligibility-requirements-package-list-v1",
+  "namespaces": {
+    "requirements": "Saved package list result"
+  },
+  "dimensions": {
+    "requirements.package": "Saved package summary",
+    "requirements.page": "Bounded continuation state"
+  },
+  "attributes": {
+    "requirements.package_id": {
+      "dimension_id": "requirements.package",
+      "type": "string"
+    },
+    "requirements.program_id": {
+      "dimension_id": "requirements.package",
+      "type": "string"
+    },
+    "requirements.program_title": {
+      "dimension_id": "requirements.package",
+      "type": "string"
+    },
+    "requirements.created_at": {
+      "dimension_id": "requirements.package",
+      "type": "string"
+    },
+    "requirements.truncated": {
+      "dimension_id": "requirements.page",
+      "type": "boolean"
+    },
+    "requirements.next_cursor": {
+      "dimension_id": "requirements.page",
+      "type": "string"
+    }
+  },
+  "description": "Profile-scoped package summaries; profile values are not returned."
+}

@@ -1,0 +1,4199 @@
+{
+  "template_id": "eligibility",
+  "template_version": "0.1.48",
+  "compatible_core_contracts": [
+    "core-route.v1"
+  ],
+  "operations": [
+    {
+      "operation_id": "program.inventory.search",
+      "mcp_tool_name": "search_program_inventory",
+      "request_schema_ref": "eligibility-program-inventory-search-v2",
+      "result_contract_ref": "program-inventory-search-v7",
+      "summary": "Search shared cluster inventory with bounded pages and continuation. Distinguish relevant matches from weak lexical hits, report source and criteria status separately, and provide an external-discovery next action when inventory coverage is insufficient. Search never evaluates a profile.",
+      "user_goal_examples": [
+        "Find public programs related to farm startup support in Kansas.",
+        "What food assistance programs are listed for Missouri?",
+        "Show me the published criteria source linked to this Assistance Listing."
+      ],
+      "input_schema_ref": "#/$defs/ProgramInventorySearchArgumentsV3"
+    },
+    {
+      "operation_id": "program.discover",
+      "mcp_tool_name": "discover_program_candidates",
+      "request_schema_ref": "eligibility-profile-submission-v1",
+      "result_contract_ref": "eligibility-discovery-v3",
+      "summary": "Return source-backed programs and profile-readiness gaps, optionally scoped to a plain-language need or one explicit selected program. Report active ruleset availability separately; never evaluate eligibility in discovery.",
+      "user_goal_examples": [
+        "For this need, which relevant programs are available and what profile facts are missing?",
+        "For this selected program, which profile facts are known or still needed?",
+        "I selected this listing; show its source and explain what is missing before comparison."
+      ],
+      "input_schema_ref": "#/$defs/EligibilityDiscoveryArguments"
+    },
+    {
+      "operation_id": "program.evaluate",
+      "mcp_tool_name": "evaluate_program_criteria",
+      "request_schema_ref": "eligibility-program-evaluation-request-v1",
+      "result_contract_ref": "eligibility-evaluation-v2",
+      "summary": "Evaluate a selected shared-inventory program using mapped criteria. When no usable rules exist, return mapping_required with a typed source_backed_program_criteria_preparation workflow for the client LLM; scoring never invokes or waits on IBM mapping. Unresolved criteria remain unknown.",
+      "user_goal_examples": [
+        "Compare this profile with the published criteria for a named program.",
+        "What published requirements apply to this program?",
+        "I selected this listing; show its source and explain what is missing before comparison."
+      ],
+      "input_schema_ref": "#/$defs/EligibilityEvaluationArguments"
+    },
+    {
+      "operation_id": "program.results",
+      "mcp_tool_name": "get_program_results",
+      "request_schema_ref": "eligibility-profile-submission-v1",
+      "result_contract_ref": "eligibility-program-results-v2",
+      "summary": "Return source-backed program details, cited criterion outcomes, declared compound-group summaries, and an explainable matched/evaluable comparison fraction. Unknown and non-applicable units remain separate; the fraction is not an eligibility probability or agency determination.",
+      "user_goal_examples": [
+        "Show the public program details and evidence for this profile.",
+        "What source-backed results are available for this situation?"
+      ],
+      "input_schema_ref": "#/$defs/EligibilityDiscoveryArguments"
+    },
+    {
+      "operation_id": "program.requirements.preview",
+      "mcp_tool_name": "preview_requirements_package",
+      "request_schema_ref": "eligibility-requirements-package-preview-request-v1",
+      "result_contract_ref": "eligibility-requirements-package-preview-v1",
+      "summary": "Preview a source-grounded requirements packet from current approved public program details without writing it.",
+      "user_goal_examples": [
+        "What documents and steps does this program publish?",
+        "Preview the requirements packet for this program."
+      ],
+      "input_schema_ref": "#/$defs/EligibilityRequirementsPreviewArguments"
+    },
+    {
+      "operation_id": "program.requirements.write",
+      "mcp_tool_name": "write_requirements_package",
+      "request_schema_ref": "eligibility-requirements-package-write-v2",
+      "result_contract_ref": "eligibility-requirements-package-receipt-v1",
+      "summary": "Save the source-grounded requirements packet in the sandbox as the final step of a screening request. The request authorizes this write; no repeated confirmation or operator approval is required. This does not submit an application or determine eligibility.",
+      "user_goal_examples": [
+        "Save this requirements packet to the sandbox.",
+        "Save the requirements package for this program."
+      ],
+      "input_schema_ref": "#/$defs/EligibilityRequirementsWriteArguments"
+    },
+    {
+      "operation_id": "program.discovery.external.search",
+      "mcp_tool_name": "search_external_program_leads",
+      "request_schema_ref": "eligibility-public-program-search-v1",
+      "result_contract_ref": "public-program-search-v1",
+      "summary": "Search public-web discovery leads when shared inventory is thin or broader discovery is requested. The active policy includes broad .gov, .org, .us, and .edu domain classes plus evidence-backed related domains. Domain matches are unverified leads, not proof of authority, jurisdiction, relevance, or eligibility. No profile, catalog, or approval writes.",
+      "user_goal_examples": [
+        "Find public resources for a need that is not represented in the current shared inventory.",
+        "Search approved public sources for programs in Ohio."
+      ],
+      "input_schema_ref": "#/$defs/PublicProgramSearchArguments"
+    },
+    {
+      "operation_id": "program.candidate.normalize",
+      "mcp_tool_name": "normalize_program_candidate",
+      "request_schema_ref": "program-candidate-request-v3",
+      "result_contract_ref": "program-candidate-v3",
+      "summary": "Normalize one selected public-program candidate and return a stable program ID reusable across criteria mapping, evaluation, and requirements. Reuse an exact selected catalog ID when supplied; otherwise derive identity from publisher number plus agency, canonical URL, or source record. The request-scoped candidate can continue through the end-to-end workflow without publication.",
+      "user_goal_examples": [
+        "Prepare a program and its cited requirements for review.",
+        "Map published program criteria to versioned profile facts for review."
+      ],
+      "input_schema_ref": "#/$defs/ProgramCandidateRequest"
+    },
+    {
+      "operation_id": "program.inventory.list",
+      "mcp_tool_name": "list_public_catalog_inventory",
+      "request_schema_ref": "public-catalog-inventory-page-v1",
+      "result_contract_ref": "public-catalog-inventory-v1",
+      "summary": "List the shared cluster public source and dataset inventory in bounded pages, including registration, loaded/searchable state, freshness, and criteria coverage. Does not read profiles or write catalog data.",
+      "user_goal_examples": [
+        "What public program sources and datasets are currently in the shared inventory?",
+        "Show the next page of the public catalog inventory."
+      ],
+      "input_schema_ref": "#/$defs/PublicCatalogInventoryArguments"
+    },
+    {
+      "operation_id": "program.inventory.read",
+      "mcp_tool_name": "read_public_catalog_dataset",
+      "request_schema_ref": "public-catalog-record-page-v1",
+      "result_contract_ref": "public-catalog-record-page-v1",
+      "summary": "Read one exact normalized record from a listed shared cluster dataset by source_record_id, or read a bounded page when no record ID is supplied. Returns full source provenance, jurisdiction/context, schema, and freshness.",
+      "user_goal_examples": [
+        "Read the normalized records in this public dataset.",
+        "Continue reading this dataset from the next record offset."
+      ],
+      "input_schema_ref": "#/$defs/PublicCatalogDatasetArguments"
+    },
+    {
+      "operation_id": "program.criteria.source.read",
+      "mcp_tool_name": "read_public_program_source",
+      "request_schema_ref": "program-source-page-read-v1",
+      "result_contract_ref": "public-source-page-read-result-v2",
+      "summary": "Read one selected public HTTPS source page with bounded retrieval and safe redirects. Return transient visible text, retrieval time, and content hash for cited mapping. A publisher outside the verified catalog remains explicitly unverified; that provenance does not block request-scoped mapping, persistence, scoring, or requirements.",
+      "user_goal_examples": [
+        "Read the official page for this selected program so its published requirements can be reviewed.",
+        "Fetch the selected public lead page and return cited text for criteria extraction."
+      ],
+      "input_schema_ref": "#/$defs/PublicSourcePageReadRequest"
+    },
+    {
+      "operation_id": "program.criteria.extract",
+      "mcp_tool_name": "extract_program_requirements",
+      "request_schema_ref": "program-requirements-extraction-v2",
+      "result_contract_ref": "program-requirements-extraction-v2",
+      "summary": "Extract exact, cited requirement statement candidates from supplied selected-source text. The bounded scan is incomplete and creates no mapped or active rules; review candidates against the complete source.",
+      "user_goal_examples": [
+        "Extract candidate requirements from this official program page.",
+        "Show source-backed requirement statements and what still needs mapping."
+      ],
+      "input_schema_ref": "#/$defs/RequirementExtractionRequest"
+    },
+    {
+      "operation_id": "program.criteria.extract.normalized",
+      "mcp_tool_name": "extract_normalized_program_criteria",
+      "request_schema_ref": "program-criteria-normalized-extraction-v3",
+      "result_contract_ref": "program-requirements-extraction-v2",
+      "summary": "Extract criteria objects from eligibility.program.criteria or eligibility.program.published_requirements into cited candidates. Explicit complete rule fields map through the versioned canonical profile map; send unresolved clauses through mapping, then persist validated rules with program.criteria.persist. This extraction call alone does not activate rules.",
+      "user_goal_examples": [
+        "Extract cited criteria from this normalized public program record.",
+        "Extract published requirement objects from this selected source record."
+      ],
+      "input_schema_ref": "#/$defs/NormalizedCriteriaExtractionRequest"
+    },
+    {
+      "operation_id": "program.criteria.prepare",
+      "mcp_tool_name": "prepare_program_criteria_package",
+      "request_schema_ref": "program-criteria-package-request-v2",
+      "result_contract_ref": "program-criteria-package-preview-v1",
+      "summary": "Compile cited requirements into a deterministic package and identify unresolved clauses with reason codes and next actions. Map supported clauses, then call program.criteria.persist to activate validated rules for reuse. This preview creates no active rules; no operator approval gate is required for a selected-source screening flow.",
+      "user_goal_examples": [
+        "Prepare source-backed mapped requirements for review and deterministic scenario checks.",
+        "Show each unresolved published criterion, why it cannot be evaluated, and whether the next step is a profile question or system/source review."
+      ],
+      "input_schema_ref": "#/$defs/ProgramCriteriaPackageRequest"
+    },
+    {
+      "operation_id": "program.candidate.evaluate",
+      "mcp_tool_name": "evaluate_program_candidate",
+      "request_schema_ref": "program-candidate-evaluation-request-v2",
+      "result_contract_ref": "program-candidate-evaluation-v2",
+      "summary": "Evaluate a selected candidate using only mapped criteria. If no usable rules exist, return mapping_required with a typed source_backed_program_criteria_preparation workflow; do not wait for or invoke a mapper during scoring. Unresolved rules remain unknown.",
+      "user_goal_examples": [
+        "Compare this source-checked candidate with my synthetic profile.",
+        "Show the mapped criteria outcomes and what remains unknown for this external program."
+      ],
+      "input_schema_ref": "#/$defs/ProgramCandidateEvaluationRequest"
+    },
+    {
+      "operation_id": "program.candidate.requirements.preview",
+      "mcp_tool_name": "preview_program_candidate_requirements",
+      "request_schema_ref": "program-candidate-requirements-preview-request-v2",
+      "result_contract_ref": "program-candidate-requirements-preview-v1",
+      "summary": "Return a JSON requirements preview for a selected program lead without requiring a shared-catalog record. Every supplied detail must include a precise matching source citation; missing categories and unproven completeness remain explicit. The preview is not persisted, and Core does not independently refetch the source.",
+      "user_goal_examples": [
+        "Prepare a source-cited requirements preview for this selected external lead.",
+        "Show the application steps, forms, documents, deadlines, and missing published details."
+      ],
+      "input_schema_ref": "#/$defs/ProgramCandidateRequirementsPreviewRequest"
+    },
+    {
+      "operation_id": "program.candidate.requirements.write",
+      "mcp_tool_name": "write_program_candidate_requirements",
+      "request_schema_ref": "program-candidate-requirements-write-request-v1",
+      "result_contract_ref": "eligibility-requirements-package-receipt-v1",
+      "summary": "Save and read back a source-cited requirements packet and its synthetic profile evaluation for the selected program, including uncataloged leads. Screening authorizes this package write without another confirmation or operator approval; it does not persist or change the user's profile record.",
+      "user_goal_examples": [
+        "Save the scored requirements package for this selected program.",
+        "Write the cited application steps and required documents with this screening result."
+      ],
+      "input_schema_ref": "#/$defs/ProgramCandidateRequirementsWriteRequest"
+    },
+    {
+      "operation_id": "program.candidate.requirements.list",
+      "mcp_tool_name": "list_saved_requirements_packages",
+      "request_schema_ref": "eligibility-requirements-package-list-request-v2",
+      "result_contract_ref": "eligibility-requirements-package-list-v1",
+      "summary": "List saved package summaries using a session profile reference or a legacy synthetic profile ID. No profile values are returned.",
+      "user_goal_examples": [
+        "Show my saved requirements packages.",
+        "Find the package I saved for this program."
+      ],
+      "input_schema_ref": "#/$defs/RequirementsPackageListRequest"
+    },
+    {
+      "operation_id": "program.candidate.requirements.read",
+      "mcp_tool_name": "read_saved_requirements_package",
+      "request_schema_ref": "eligibility-requirements-package-read-request-v2",
+      "result_contract_ref": "eligibility-requirements-package-read-v1",
+      "summary": "Retrieve one saved package using its package ID and session profile reference or legacy synthetic profile ID.",
+      "user_goal_examples": [
+        "Open my saved requirements package.",
+        "Download the saved package as a Markdown document."
+      ],
+      "input_schema_ref": "#/$defs/RequirementsPackageReadRequest"
+    },
+    {
+      "operation_id": "program.candidate.requirements.enrich",
+      "mcp_tool_name": "enrich_saved_requirements_package",
+      "request_schema_ref": "eligibility-requirements-package-enrichment-request-v1",
+      "result_contract_ref": "eligibility-requirements-package-enrichment-v1",
+      "summary": "Append source-cited application steps, forms, documents, or deadlines to an existing package using its package ID and expected revision. Identical details are idempotent; stale revisions return a conflict without overwriting newer content.",
+      "user_goal_examples": [
+        "Add the cited application steps to my saved requirements package.",
+        "Enrich this package with the forms and documents published by its source."
+      ],
+      "input_schema_ref": "#/$defs/RequirementsPackageEnrichmentRequest"
+    },
+    {
+      "operation_id": "program.criteria.persist",
+      "mcp_tool_name": "persist_program_criteria_package",
+      "request_schema_ref": "program-criteria-package-request-v2",
+      "result_contract_ref": "program-criteria-ruleset-persistence-v1",
+      "summary": "Validate citations, source lineage, and active profile schemas, then persist immutable reusable criteria metadata and verify exact readback. Selected sources retain approved or unverified provenance; source verification status must match that provenance. Sandbox mappings activate after these checks without separate per-program approval.",
+      "user_goal_examples": [
+        "Map and save this selected program’s source-backed criteria so it can be scored.",
+        "Persist validated criteria and show the digest and readback result."
+      ],
+      "input_schema_ref": "#/$defs/ProgramCriteriaPackageRequest"
+    },
+    {
+      "operation_id": "program.criteria.evaluate.persisted",
+      "mcp_tool_name": "evaluate_persisted_program_criteria",
+      "request_schema_ref": "program-persisted-criteria-evaluation-request-v1",
+      "result_contract_ref": "program-candidate-evaluation-v2",
+      "summary": "Evaluate a typed synthetic profile against the active persisted criteria ruleset for a stable program ID. Missing facts and unsupported source clauses remain unknown; no profile values are persisted and no official eligibility decision is made.",
+      "user_goal_examples": [
+        "Score a synthetic profile against the saved rules for this program.",
+        "Show the saved criteria outcomes and remaining unknowns."
+      ],
+      "input_schema_ref": "#/$defs/PersistedCriteriaEvaluationArguments"
+    },
+    {
+      "operation_id": "program.criteria.map",
+      "mcp_tool_name": "map_and_save_program_criteria",
+      "request_schema_ref": "program-criteria-package-request-v2",
+      "result_contract_ref": "program-criteria-ruleset-persistence-v1",
+      "summary": "Optional background LLM mapper operation. Do not invoke from synchronous user scoring; the client LLM normally maps through program.criteria.extract, program.criteria.prepare, and program.criteria.persist. This operation does not publish the program to shared inventory.",
+      "user_goal_examples": [
+        "Map and save criteria for this selected program so it can be scored."
+      ],
+      "input_schema_ref": "#/$defs/ProgramCriteriaPackageRequest"
+    },
+    {
+      "operation_id": "program.candidate.map-score",
+      "mcp_tool_name": "map_save_and_score_program_candidate",
+      "request_schema_ref": "program-candidate-map-score-request-v1",
+      "result_contract_ref": "program-candidate-evaluation-v2",
+      "summary": "Optional background LLM mapper operation. Do not invoke from synchronous user scoring; use the published client criteria-preparation workflow instead. Input is the source-backed program request plus profile_submission; shared-catalog publication is not required.",
+      "user_goal_examples": [
+        "Map the selected program, save its criteria, and score this profile."
+      ],
+      "input_schema_ref": "#/$defs/ProgramCandidateMapScoreRequest"
+    }
+  ],
+  "schema_refs": [
+    "eligibility-profile-submission-v1",
+    "eligibility-program-evaluation-request-v1",
+    "eligibility-program-inventory-search-v1",
+    "eligibility-program-inventory-search-v2",
+    "eligibility-program-inventory-search-v3",
+    "eligibility-public-program-search-v1",
+    "eligibility-requirements-package-write-v2",
+    "eligibility-requirements-package-preview-request-v1",
+    "program-candidate-evaluation-request-v2",
+    "program-candidate-request-v1",
+    "program-candidate-request-v2",
+    "program-candidate-request-v3",
+    "program-candidate-requirements-preview-request-v2",
+    "program-candidate-requirements-write-request-v1",
+    "program-candidate-v2",
+    "program-candidate-v3",
+    "program-criteria-normalized-extraction-v3",
+    "program-criteria-package-request-v2",
+    "program-persisted-criteria-evaluation-request-v1",
+    "program-requirements-extraction-v2",
+    "program-source-page-read-v1",
+    "public-catalog-inventory-page-v1",
+    "public-catalog-record-page-v1",
+    "public-catalog-record-page-v2",
+    "public-source-page-read-result-v2",
+    "program-candidate-map-score-request-v1",
+    "eligibility-requirements-package-list-request-v2",
+    "eligibility-requirements-package-read-request-v2",
+    "eligibility-requirements-package-enrichment-request-v1",
+    "eligibility-requirements-package-enrichment-v1"
+  ],
+  "adapter_refs": [
+    "public-dataset-catalog-reader.v1",
+    "pattern-cluster-catalog-reader.v1",
+    "shared-public-catalog-inventory-reader.v1"
+  ],
+  "profile_projection_mapping": {
+    "artifact_ref": "eligibility-profile-projection-v6.json",
+    "mapping_version": "eligibility-core-v7-to-profile-v5"
+  },
+  "rule_refs": [
+    "eligibility-criterion-evaluation.v1"
+  ],
+  "catalog_namespaces": [
+    "programs"
+  ],
+  "result_contract_refs": [
+    "eligibility-discovery-v1",
+    "eligibility-discovery-v3",
+    "eligibility-evaluation-v1",
+    "eligibility-evaluation-v2",
+    "eligibility-program-results-v2",
+    "eligibility-requirements-package-preview-v1",
+    "eligibility-requirements-package-receipt-v1",
+    "program-candidate-evaluation-v2",
+    "program-candidate-requirements-preview-v1",
+    "program-candidate-v2",
+    "program-candidate-v3",
+    "program-criteria-package-preview-v1",
+    "program-criteria-ruleset-persistence-v1",
+    "program-inventory-search-v3",
+    "program-inventory-search-v4",
+    "program-inventory-search-v7",
+    "program-requirements-extraction-v2",
+    "public-catalog-inventory-v1",
+    "public-catalog-record-page-v1",
+    "public-program-search-v1",
+    "public-source-page-read-result-v2",
+    "eligibility-requirements-package-list-v1",
+    "eligibility-requirements-package-read-v1",
+    "eligibility-requirements-package-enrichment-v1"
+  ],
+  "input_schema_catalog": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$defs": {
+      "FarmerProducerProfile": {
+        "additionalProperties": false,
+        "description": "Normalized, non-identifying inputs for the farmer-producer Navigator.",
+        "properties": {
+          "profile_id": {
+            "pattern": "^synthetic-[a-z0-9][a-z0-9-]{2,63}$",
+            "title": "Profile Id",
+            "type": "string"
+          },
+          "navigator": {
+            "const": "farmer_producer",
+            "default": "farmer_producer",
+            "title": "Navigator",
+            "type": "string"
+          },
+          "schema_version": {
+            "default": "farmer-profile-v1",
+            "enum": [
+              "farmer-profile-v1",
+              "farmer-profile-v2"
+            ],
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "state_code": {
+            "anyOf": [
+              {
+                "pattern": "^[A-Z]{2}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "State Code"
+          },
+          "county_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "County Name"
+          },
+          "postal_code": {
+            "anyOf": [
+              {
+                "pattern": "^[0-9]{5}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Postal Code"
+          },
+          "acreage": {
+            "anyOf": [
+              {
+                "minimum": 0,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Acreage"
+          },
+          "commodities": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Commodities",
+            "type": "array"
+          },
+          "years_farming": {
+            "anyOf": [
+              {
+                "minimum": 0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Years Farming"
+          },
+          "veteran_status": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Veteran Status"
+          },
+          "beginning_farmer_status": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Beginning Farmer Status"
+          },
+          "land_tenure": {
+            "anyOf": [
+              {
+                "enum": [
+                  "owned",
+                  "leased",
+                  "mixed",
+                  "unknown"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Land Tenure"
+          },
+          "operation_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Operation Type"
+          },
+          "operation_goal": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Operation Goal"
+          },
+          "loss_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Loss Type"
+          },
+          "loss_date": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Loss Date"
+          },
+          "resource_concerns": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Resource Concerns",
+            "type": "array"
+          },
+          "current_practices": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Current Practices",
+            "type": "array"
+          },
+          "farm_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Farm Type"
+          },
+          "crop_year": {
+            "anyOf": [
+              {
+                "maximum": 2200,
+                "minimum": 1900,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Crop Year"
+          },
+          "coverage_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Coverage Type"
+          },
+          "attributes": {
+            "maxProperties": 100,
+            "patternProperties": {
+              "^[a-z][a-z0-9_-]*(?:\\.[a-z][a-z0-9_-]*)*$": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "items": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "boolean"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "propertyNames": {
+              "maxLength": 160,
+              "minLength": 2
+            },
+            "title": "Attributes",
+            "type": "object"
+          }
+        },
+        "required": [
+          "profile_id"
+        ],
+        "title": "FarmerProducerProfile",
+        "type": "object"
+      },
+      "LowIncomeAssistanceProfile": {
+        "additionalProperties": false,
+        "description": "Normalized, non-identifying inputs for the low-income Navigator.",
+        "properties": {
+          "profile_id": {
+            "pattern": "^synthetic-[a-z0-9][a-z0-9-]{2,63}$",
+            "title": "Profile Id",
+            "type": "string"
+          },
+          "navigator": {
+            "const": "low_income_assistance",
+            "default": "low_income_assistance",
+            "title": "Navigator",
+            "type": "string"
+          },
+          "schema_version": {
+            "default": "household-profile-v1",
+            "enum": [
+              "household-profile-v1",
+              "household-profile-v2"
+            ],
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "state_code": {
+            "anyOf": [
+              {
+                "pattern": "^[A-Z]{2}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "State Code"
+          },
+          "county_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "County Name"
+          },
+          "postal_code": {
+            "anyOf": [
+              {
+                "pattern": "^[0-9]{5}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Postal Code"
+          },
+          "annual_household_income_usd": {
+            "anyOf": [
+              {
+                "minimum": 0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Annual Household Income Usd"
+          },
+          "monthly_gross_income_usd": {
+            "anyOf": [
+              {
+                "minimum": 0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Monthly Gross Income Usd"
+          },
+          "monthly_net_income_usd": {
+            "anyOf": [
+              {
+                "minimum": 0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Monthly Net Income Usd"
+          },
+          "household_size": {
+            "anyOf": [
+              {
+                "minimum": 1,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Household Size"
+          },
+          "household_adults": {
+            "anyOf": [
+              {
+                "minimum": 0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Household Adults"
+          },
+          "household_children": {
+            "anyOf": [
+              {
+                "minimum": 0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Household Children"
+          },
+          "employment_status": {
+            "anyOf": [
+              {
+                "enum": [
+                  "employed",
+                  "unemployed",
+                  "part_time",
+                  "unknown"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Employment Status"
+          },
+          "housing_status": {
+            "anyOf": [
+              {
+                "enum": [
+                  "renter",
+                  "owner",
+                  "unstable",
+                  "unknown"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Housing Status"
+          },
+          "food_assistance_need": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Food Assistance Need"
+          },
+          "utility_assistance_need": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Utility Assistance Need"
+          },
+          "health_coverage_status": {
+            "anyOf": [
+              {
+                "enum": [
+                  "insured",
+                  "uninsured",
+                  "unknown"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Health Coverage Status"
+          },
+          "veteran_status": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Veteran Status"
+          },
+          "disability_status": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Disability Status"
+          },
+          "childcare_need": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Childcare Need"
+          },
+          "transportation_need": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Transportation Need"
+          },
+          "disaster_impact": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Disaster Impact"
+          },
+          "attributes": {
+            "maxProperties": 100,
+            "patternProperties": {
+              "^[a-z][a-z0-9_-]*(?:\\.[a-z][a-z0-9_-]*)*$": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "items": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "boolean"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "propertyNames": {
+              "maxLength": 160,
+              "minLength": 2
+            },
+            "title": "Attributes",
+            "type": "object"
+          }
+        },
+        "required": [
+          "profile_id"
+        ],
+        "title": "LowIncomeAssistanceProfile",
+        "type": "object"
+      },
+      "SeniorCaregiverProfile": {
+        "additionalProperties": false,
+        "description": "Normalized, non-identifying inputs for the senior-caregiver Navigator.",
+        "properties": {
+          "profile_id": {
+            "pattern": "^synthetic-[a-z0-9][a-z0-9-]{2,63}$",
+            "title": "Profile Id",
+            "type": "string"
+          },
+          "navigator": {
+            "const": "senior_caregiver",
+            "default": "senior_caregiver",
+            "title": "Navigator",
+            "type": "string"
+          },
+          "schema_version": {
+            "default": "senior-profile-v1",
+            "enum": [
+              "senior-profile-v1",
+              "senior-profile-v2",
+              "senior-profile-v3"
+            ],
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "state_code": {
+            "anyOf": [
+              {
+                "pattern": "^[A-Z]{2}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "State Code"
+          },
+          "county_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "County Name"
+          },
+          "postal_code": {
+            "anyOf": [
+              {
+                "pattern": "^[0-9]{5}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Postal Code"
+          },
+          "age_band": {
+            "anyOf": [
+              {
+                "enum": [
+                  "under_60",
+                  "60_64",
+                  "65_74",
+                  "75_plus",
+                  "65_plus",
+                  "adult",
+                  "unknown"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Age Band"
+          },
+          "annual_household_income_usd": {
+            "anyOf": [
+              {
+                "minimum": 0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Annual Household Income Usd"
+          },
+          "monthly_gross_income_usd": {
+            "anyOf": [
+              {
+                "minimum": 0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Monthly Gross Income Usd"
+          },
+          "monthly_net_income_usd": {
+            "anyOf": [
+              {
+                "minimum": 0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Monthly Net Income Usd"
+          },
+          "financial_resources_band": {
+            "anyOf": [
+              {
+                "enum": [
+                  "low",
+                  "moderate",
+                  "high",
+                  "unknown"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Financial Resources Band"
+          },
+          "household_size": {
+            "anyOf": [
+              {
+                "minimum": 1,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Household Size"
+          },
+          "medicare_status": {
+            "anyOf": [
+              {
+                "enum": [
+                  "enrolled",
+                  "not_enrolled",
+                  "unknown"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Medicare Status"
+          },
+          "food_assistance_need": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Food Assistance Need"
+          },
+          "housing_status": {
+            "anyOf": [
+              {
+                "enum": [
+                  "renter",
+                  "owner",
+                  "unstable",
+                  "unknown"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Housing Status"
+          },
+          "utility_assistance_need": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Utility Assistance Need"
+          },
+          "veteran_status": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Veteran Status"
+          },
+          "caregiver_relationship": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Caregiver Relationship"
+          },
+          "daily_care_need": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Daily Care Need"
+          },
+          "housebound_status": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Housebound Status"
+          },
+          "va_healthcare_status": {
+            "anyOf": [
+              {
+                "enum": [
+                  "enrolled",
+                  "not_enrolled",
+                  "unknown"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Va Healthcare Status"
+          },
+          "va_pension_status": {
+            "anyOf": [
+              {
+                "enum": [
+                  "receiving",
+                  "not_receiving",
+                  "unknown"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Va Pension Status"
+          },
+          "service_discharge_status": {
+            "anyOf": [
+              {
+                "enum": [
+                  "qualifying",
+                  "non_qualifying",
+                  "unknown"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Service Discharge Status"
+          },
+          "service_connected_disability_status": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Service Connected Disability Status"
+          },
+          "caregiver_age_years": {
+            "anyOf": [
+              {
+                "minimum": 0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Age in years of the caregiver, distinct from the Veteran.",
+            "title": "Caregiver Age Years"
+          },
+          "caregiver_relationship_to_veteran": {
+            "anyOf": [
+              {
+                "enum": [
+                  "spouse",
+                  "son",
+                  "daughter",
+                  "parent",
+                  "stepfamily_member",
+                  "extended_family_member",
+                  "other",
+                  "unknown"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Caregiver's relationship to the Veteran receiving care.",
+            "title": "Caregiver Relationship To Veteran"
+          },
+          "caregiver_lives_or_willing_to_live_full_time_with_veteran": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Whether the caregiver lives full time with, or is willing to live full time with, the Veteran if designated.",
+            "title": "Caregiver Lives Or Willing To Live Full Time With Veteran"
+          },
+          "veteran_va_healthcare_status": {
+            "anyOf": [
+              {
+                "enum": [
+                  "enrolled",
+                  "not_enrolled",
+                  "unknown"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "VA health care enrollment of the Veteran receiving care.",
+            "title": "Veteran Va Healthcare Status"
+          },
+          "veteran_service_discharge_status": {
+            "anyOf": [
+              {
+                "enum": [
+                  "qualifying",
+                  "non_qualifying",
+                  "unknown"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Whether the Veteran has a qualifying military discharge or medical discharge date.",
+            "title": "Veteran Service Discharge Status"
+          },
+          "veteran_service_connected_disability_rating_percent": {
+            "anyOf": [
+              {
+                "maximum": 100,
+                "minimum": 0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Individual or combined VA disability rating of the Veteran.",
+            "title": "Veteran Service Connected Disability Rating Percent"
+          },
+          "veteran_personal_care_need": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Whether the Veteran needs in-person personal care services.",
+            "title": "Veteran Personal Care Need"
+          },
+          "veteran_continuous_in_person_care_months": {
+            "anyOf": [
+              {
+                "minimum": 0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Continuous duration in months of the Veteran's need for in-person personal care services.",
+            "title": "Veteran Continuous In Person Care Months"
+          },
+          "attributes": {
+            "maxProperties": 100,
+            "patternProperties": {
+              "^[a-z][a-z0-9_-]*(?:\\.[a-z][a-z0-9_-]*)*$": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "items": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "boolean"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "propertyNames": {
+              "maxLength": 160,
+              "minLength": 2
+            },
+            "title": "Attributes",
+            "type": "object"
+          },
+          "disability_status": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Disability Status"
+          },
+          "transportation_need": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Transportation Need"
+          }
+        },
+        "required": [
+          "profile_id"
+        ],
+        "title": "SeniorCaregiverProfile",
+        "type": "object"
+      },
+      "EligibilityProfile": {
+        "discriminator": {
+          "mapping": {
+            "farmer_producer": "#/$defs/FarmerProducerProfile",
+            "general": "#/$defs/GeneralProfile",
+            "low_income_assistance": "#/$defs/LowIncomeAssistanceProfile",
+            "senior_caregiver": "#/$defs/SeniorCaregiverProfile"
+          },
+          "propertyName": "navigator"
+        },
+        "oneOf": [
+          {
+            "$ref": "#/$defs/FarmerProducerProfile"
+          },
+          {
+            "$ref": "#/$defs/SeniorCaregiverProfile"
+          },
+          {
+            "$ref": "#/$defs/LowIncomeAssistanceProfile"
+          },
+          {
+            "$ref": "#/$defs/GeneralProfile"
+          }
+        ]
+      },
+      "EligibilityDiscoveryArguments": {
+        "type": "object",
+        "properties": {
+          "profile_payload": {
+            "$ref": "#/$defs/EligibilityProfile"
+          },
+          "ambiguous_attributes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 160,
+              "pattern": "^[a-z][a-z0-9_-]*(?:\\.[a-z][a-z0-9_-]*)*$",
+              "description": "Profile field name, including active namespaced extensions."
+            }
+          },
+          "profile_reference": {
+            "$ref": "#/$defs/ProfileFixtureReference"
+          },
+          "selected_program_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200,
+            "description": "Optional ID of one selected shared-inventory program or listing. When supplied, returns only that selected record with its readiness gaps; it does not gate initial discovery or evaluate eligibility."
+          },
+          "profile_ref": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Opaque profile reference bound by Core to the current MCP session."
+          },
+          "navigator": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 80,
+            "description": "Optional compatibility Navigator hint. Omit it for the general profile; the program Navigator remains provenance, not a profile schema.",
+            "enum": [
+              "farmer_producer",
+              "senior_caregiver",
+              "low_income_assistance",
+              "general"
+            ],
+            "default": "general"
+          },
+          "need_query": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 240,
+            "description": "Optional plain-language need used to scope relevant candidates and readiness questions. An explicit selected_program_id remains authoritative."
+          }
+        },
+        "required": [],
+        "additionalProperties": false,
+        "oneOf": [
+          {
+            "required": [
+              "profile_payload"
+            ],
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "profile_reference"
+                  ]
+                },
+                {
+                  "required": [
+                    "profile_ref"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "required": [
+              "profile_reference"
+            ],
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "profile_payload"
+                  ]
+                },
+                {
+                  "required": [
+                    "profile_ref"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "required": [
+              "profile_ref"
+            ],
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "profile_payload"
+                  ]
+                },
+                {
+                  "required": [
+                    "profile_reference"
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "EligibilityEvaluationArguments": {
+        "type": "object",
+        "properties": {
+          "profile_payload": {
+            "$ref": "#/$defs/EligibilityProfile"
+          },
+          "ambiguous_attributes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 160,
+              "pattern": "^[a-z][a-z0-9_-]*(?:\\.[a-z][a-z0-9_-]*)*$",
+              "description": "Profile field name, including active namespaced extensions."
+            }
+          },
+          "program_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "profile_reference": {
+            "$ref": "#/$defs/ProfileFixtureReference"
+          },
+          "profile_ref": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Opaque profile reference bound by Core to the current MCP session."
+          },
+          "navigator": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 80,
+            "description": "Optional compatibility Navigator hint. Omit it for the general profile; the program Navigator remains provenance, not a profile schema.",
+            "enum": [
+              "farmer_producer",
+              "senior_caregiver",
+              "low_income_assistance",
+              "general"
+            ],
+            "default": "general"
+          }
+        },
+        "required": [
+          "program_id"
+        ],
+        "additionalProperties": false,
+        "oneOf": [
+          {
+            "required": [
+              "profile_payload"
+            ],
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "profile_reference"
+                  ]
+                },
+                {
+                  "required": [
+                    "profile_ref"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "required": [
+              "profile_reference"
+            ],
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "profile_payload"
+                  ]
+                },
+                {
+                  "required": [
+                    "profile_ref"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "required": [
+              "profile_ref"
+            ],
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "profile_payload"
+                  ]
+                },
+                {
+                  "required": [
+                    "profile_reference"
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "EligibilityRequirementsPreviewArguments": {
+        "type": "object",
+        "properties": {
+          "profile_payload": {
+            "$ref": "#/$defs/EligibilityProfile"
+          },
+          "program_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "ambiguous_attributes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 160,
+              "pattern": "^[a-z][a-z0-9_-]*(?:\\.[a-z][a-z0-9_-]*)*$",
+              "description": "Profile field name, including active namespaced extensions."
+            }
+          },
+          "profile_reference": {
+            "$ref": "#/$defs/ProfileFixtureReference"
+          },
+          "profile_ref": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Opaque profile reference bound by Core to the current MCP session."
+          },
+          "navigator": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 80,
+            "description": "Optional compatibility Navigator hint. Omit it for the general profile; the program Navigator remains provenance, not a profile schema.",
+            "enum": [
+              "farmer_producer",
+              "senior_caregiver",
+              "low_income_assistance",
+              "general"
+            ],
+            "default": "general"
+          }
+        },
+        "required": [
+          "program_id"
+        ],
+        "additionalProperties": false,
+        "oneOf": [
+          {
+            "required": [
+              "profile_payload"
+            ],
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "profile_reference"
+                  ]
+                },
+                {
+                  "required": [
+                    "profile_ref"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "required": [
+              "profile_reference"
+            ],
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "profile_payload"
+                  ]
+                },
+                {
+                  "required": [
+                    "profile_ref"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "required": [
+              "profile_ref"
+            ],
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "profile_payload"
+                  ]
+                },
+                {
+                  "required": [
+                    "profile_reference"
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "EligibilityRequirementsWriteArguments": {
+        "type": "object",
+        "properties": {
+          "profile_payload": {
+            "$ref": "#/$defs/EligibilityProfile"
+          },
+          "program_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "ambiguous_attributes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 160,
+              "pattern": "^[a-z][a-z0-9_-]*(?:\\.[a-z][a-z0-9_-]*)*$",
+              "description": "Profile field name, including active namespaced extensions."
+            }
+          },
+          "profile_reference": {
+            "$ref": "#/$defs/ProfileFixtureReference"
+          },
+          "profile_ref": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Opaque profile reference bound by Core to the current MCP session."
+          },
+          "navigator": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 80,
+            "description": "Optional compatibility Navigator hint. Omit it for the general profile; the program Navigator remains provenance, not a profile schema.",
+            "enum": [
+              "farmer_producer",
+              "senior_caregiver",
+              "low_income_assistance",
+              "general"
+            ],
+            "default": "general"
+          }
+        },
+        "required": [
+          "program_id"
+        ],
+        "additionalProperties": false,
+        "oneOf": [
+          {
+            "required": [
+              "profile_payload"
+            ],
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "profile_reference"
+                  ]
+                },
+                {
+                  "required": [
+                    "profile_ref"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "required": [
+              "profile_reference"
+            ],
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "profile_payload"
+                  ]
+                },
+                {
+                  "required": [
+                    "profile_ref"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "required": [
+              "profile_ref"
+            ],
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "profile_payload"
+                  ]
+                },
+                {
+                  "required": [
+                    "profile_reference"
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "description": "Write the requirements packet authorized by the active screening request; no separate confirmation parameter is required."
+      },
+      "ProfileFixtureReference": {
+        "type": "object",
+        "properties": {
+          "fixture_set_id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]{0,63}$"
+          },
+          "fixture_set_version": {
+            "type": "string",
+            "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+          },
+          "fixture_id": {
+            "type": "string",
+            "pattern": "^fixture-[a-z0-9]{4,32}$"
+          }
+        },
+        "required": [
+          "fixture_set_id",
+          "fixture_set_version",
+          "fixture_id"
+        ],
+        "additionalProperties": false
+      },
+      "ProgramInventorySearchArgumentsV2": {
+        "type": "object",
+        "properties": {
+          "need_query": {
+            "type": "string",
+            "maxLength": 500,
+            "description": "Optional need phrase. Leave empty or omit it to browse all active shared-cluster candidates."
+          },
+          "state_code": {
+            "type": "string",
+            "pattern": "^[A-Z]{2}$",
+            "description": "Optional U.S. state or jurisdiction code; federal candidates remain discoverable."
+          },
+          "page_size": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 25,
+            "default": 10,
+            "description": "Maximum concise inventory matches returned in this page; use the cursor for more."
+          },
+          "cursor": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 512,
+            "description": "Opaque continuation returned by a prior inventory search."
+          }
+        },
+        "additionalProperties": false
+      },
+      "PublicProgramSearchArguments": {
+        "type": "object",
+        "properties": {
+          "need_query": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 240,
+            "description": "Short, plain-language human need or program-discovery query."
+          },
+          "jurisdiction_code": {
+            "type": "string",
+            "pattern": "^US(?:-[A-Z]{2})?$",
+            "default": "US",
+            "description": "US for federal discovery or US-XX to add a state/locality hint; source policy is evaluated independently."
+          },
+          "page_size": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10,
+            "default": 10
+          },
+          "cursor": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048,
+            "description": "Opaque continuation from this same query, jurisdiction, and policy version."
+          }
+        },
+        "required": [
+          "need_query"
+        ],
+        "additionalProperties": false
+      },
+      "CandidateCitation": {
+        "additionalProperties": false,
+        "description": "A source location offered as evidence for one candidate assertion.",
+        "properties": {
+          "source_url": {
+            "format": "uri",
+            "maxLength": 2083,
+            "minLength": 1,
+            "title": "Source Url",
+            "type": "string"
+          },
+          "source_record_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Source Record Id",
+            "type": "string"
+          },
+          "retrieved_at": {
+            "format": "date-time",
+            "title": "Retrieved At",
+            "type": "string"
+          },
+          "source_id": {
+            "anyOf": [
+              {
+                "maxLength": 80,
+                "minLength": 2,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Source Id"
+          },
+          "source_version": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Source Version"
+          },
+          "source_content_sha256": {
+            "anyOf": [
+              {
+                "pattern": "^[a-fA-F0-9]{64}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Source Content Sha256"
+          },
+          "locator": {
+            "anyOf": [
+              {
+                "maxLength": 300,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Locator"
+          },
+          "excerpt": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Excerpt"
+          },
+          "source_visible_text_sha256": {
+            "anyOf": [
+              {
+                "pattern": "^[a-fA-F0-9]{64}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Source Visible Text Sha256"
+          }
+        },
+        "required": [
+          "source_url",
+          "source_record_id",
+          "retrieved_at"
+        ],
+        "title": "CandidateCitation",
+        "type": "object"
+      },
+      "CandidateListing": {
+        "additionalProperties": false,
+        "description": "Criteria-free fields extracted from one source record.",
+        "properties": {
+          "listing_kind": {
+            "anyOf": [
+              {
+                "enum": [
+                  "funding_opportunity",
+                  "assistance_program"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Listing Kind"
+          },
+          "program_number": {
+            "anyOf": [
+              {
+                "maxLength": 80,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Program Number"
+          },
+          "title": {
+            "maxLength": 500,
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          },
+          "summary": {
+            "anyOf": [
+              {
+                "maxLength": 1200,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Summary"
+          },
+          "agency": {
+            "anyOf": [
+              {
+                "maxLength": 300,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Agency"
+          },
+          "audience": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 40,
+            "title": "Audience",
+            "type": "array"
+          },
+          "jurisdiction_code": {
+            "anyOf": [
+              {
+                "maxLength": 100,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Jurisdiction Code"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "maxLength": 100,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Status"
+          },
+          "open_date": {
+            "anyOf": [
+              {
+                "maxLength": 40,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Open Date"
+          },
+          "close_date": {
+            "anyOf": [
+              {
+                "maxLength": 40,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Close Date"
+          },
+          "canonical_url": {
+            "anyOf": [
+              {
+                "format": "uri",
+                "maxLength": 2083,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Canonical Url"
+          }
+        },
+        "required": [
+          "title"
+        ],
+        "title": "CandidateListing",
+        "type": "object"
+      },
+      "ProposedCriterion": {
+        "additionalProperties": false,
+        "description": "A source-cited criterion claim, retained for review and never evaluated.",
+        "properties": {
+          "concept_id": {
+            "maxLength": 160,
+            "minLength": 1,
+            "title": "Concept Id",
+            "type": "string"
+          },
+          "operator": {
+            "enum": [
+              "eq",
+              "ne",
+              "gt",
+              "gte",
+              "lt",
+              "lte",
+              "one_of",
+              "exists"
+            ],
+            "title": "Operator",
+            "type": "string"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "boolean"
+                    }
+                  ]
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Value"
+          },
+          "unit": {
+            "anyOf": [
+              {
+                "maxLength": 80,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Unit"
+          },
+          "applicability": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Applicability"
+          },
+          "citation": {
+            "$ref": "#/$defs/CandidateCitation"
+          }
+        },
+        "required": [
+          "concept_id",
+          "operator",
+          "value",
+          "citation"
+        ],
+        "title": "ProposedCriterion",
+        "type": "object"
+      },
+      "ProgramCandidateRequest": {
+        "additionalProperties": false,
+        "description": "Caller-supplied source record and evidence; never treated as approved.",
+        "properties": {
+          "source_id": {
+            "maxLength": 80,
+            "minLength": 2,
+            "pattern": "^[a-z0-9][a-z0-9._-]+$",
+            "title": "Source Id",
+            "type": "string"
+          },
+          "source_record_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Source Record Id",
+            "type": "string"
+          },
+          "source_version": {
+            "maxLength": 120,
+            "minLength": 1,
+            "title": "Source Version",
+            "type": "string"
+          },
+          "source_url": {
+            "format": "uri",
+            "maxLength": 2083,
+            "minLength": 1,
+            "title": "Source Url",
+            "type": "string"
+          },
+          "retrieved_at": {
+            "format": "date-time",
+            "title": "Retrieved At",
+            "type": "string"
+          },
+          "source_content_sha256": {
+            "anyOf": [
+              {
+                "pattern": "^[a-fA-F0-9]{64}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Source Content Sha256"
+          },
+          "listing": {
+            "$ref": "#/$defs/CandidateListing"
+          },
+          "field_lineage": {
+            "items": {
+              "$ref": "#/$defs/FieldLineage"
+            },
+            "maxItems": 40,
+            "title": "Field Lineage",
+            "type": "array"
+          },
+          "criteria_status": {
+            "default": "not_assessed",
+            "enum": [
+              "not_assessed",
+              "unavailable"
+            ],
+            "title": "Criteria Status",
+            "type": "string"
+          },
+          "criteria_unavailable_reason": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Criteria Unavailable Reason"
+          },
+          "proposed_criteria": {
+            "items": {
+              "$ref": "#/$defs/ProposedCriterion"
+            },
+            "maxItems": 30,
+            "title": "Proposed Criteria",
+            "type": "array"
+          },
+          "requirement_candidates": {
+            "items": {
+              "$ref": "#/$defs/RequirementCandidate"
+            },
+            "maxItems": 100,
+            "title": "Requirement Candidates",
+            "type": "array"
+          },
+          "selected_program_id": {
+            "anyOf": [
+              {
+                "maxLength": 100,
+                "minLength": 2,
+                "pattern": "^[a-z0-9][a-z0-9._-]{1,99}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Exact program_id copied from the selected discovery result; omit for a newly discovered program.",
+            "title": "Selected Program Id"
+          }
+        },
+        "required": [
+          "source_id",
+          "source_record_id",
+          "source_version",
+          "source_url",
+          "retrieved_at",
+          "listing"
+        ],
+        "title": "ProgramCandidateRequest",
+        "type": "object"
+      },
+      "FieldLineage": {
+        "additionalProperties": false,
+        "description": "Map one normalized listing field back to its source record path.",
+        "properties": {
+          "field_id": {
+            "enum": [
+              "listing_kind",
+              "program_number",
+              "title",
+              "summary",
+              "agency",
+              "audience",
+              "jurisdiction_code",
+              "status",
+              "open_date",
+              "close_date",
+              "canonical_url"
+            ],
+            "title": "Field Id",
+            "type": "string"
+          },
+          "source_path": {
+            "maxLength": 300,
+            "minLength": 1,
+            "title": "Source Path",
+            "type": "string"
+          },
+          "citation": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/CandidateCitation"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          }
+        },
+        "required": [
+          "field_id",
+          "source_path"
+        ],
+        "title": "FieldLineage",
+        "type": "object"
+      },
+      "PublicCatalogInventoryArguments": {
+        "additionalProperties": false,
+        "description": "Bounded page of the cluster-wide public source and dataset directory.",
+        "properties": {
+          "page_size": {
+            "default": 10,
+            "maximum": 25,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "cursor": {
+            "anyOf": [
+              {
+                "maxLength": 2048,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          }
+        },
+        "title": "PublicCatalogInventoryArguments",
+        "type": "object"
+      },
+      "PublicCatalogDatasetArguments": {
+        "additionalProperties": false,
+        "description": "Read one exact normalized record when source_record_id is provided, or a bounded dataset page otherwise.",
+        "properties": {
+          "source_record_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160,
+            "description": "Optional exact source record ID from a compact search result or criteria reference."
+          },
+          "dataset_id": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-z][a-z0-9-]{0,63}$",
+            "type": "string"
+          },
+          "page_size": {
+            "default": 100,
+            "maximum": 1000,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "offset": {
+            "default": 0,
+            "maximum": 10000000,
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "dataset_id"
+        ],
+        "title": "PublicCatalogDatasetArguments",
+        "type": "object"
+      },
+      "RequirementCandidate": {
+        "additionalProperties": false,
+        "description": "One source statement with an optional, review-only profile mapping.",
+        "properties": {
+          "requirement_id": {
+            "maxLength": 160,
+            "minLength": 1,
+            "title": "Requirement Id",
+            "type": "string"
+          },
+          "criterion_id": {
+            "anyOf": [
+              {
+                "maxLength": 160,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Criterion Id"
+          },
+          "statement": {
+            "maxLength": 1200,
+            "minLength": 1,
+            "title": "Statement",
+            "type": "string"
+          },
+          "requirement_type": {
+            "enum": [
+              "eligibility",
+              "application",
+              "availability",
+              "context",
+              "unclassified"
+            ],
+            "title": "Requirement Type",
+            "type": "string"
+          },
+          "mapping_status": {
+            "enum": [
+              "mapped",
+              "partial",
+              "not_mapped",
+              "context_only"
+            ],
+            "title": "Mapping Status",
+            "type": "string"
+          },
+          "concept_id": {
+            "anyOf": [
+              {
+                "maxLength": 160,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Concept Id"
+          },
+          "profile_attribute": {
+            "anyOf": [
+              {
+                "maxLength": 160,
+                "minLength": 2,
+                "pattern": "^[a-z][a-z0-9_-]*(?:\\.[a-z][a-z0-9_-]*)*$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Profile Attribute"
+          },
+          "operator": {
+            "anyOf": [
+              {
+                "enum": [
+                  "eq",
+                  "ne",
+                  "gt",
+                  "gte",
+                  "lt",
+                  "lte",
+                  "lte_by",
+                  "one_of",
+                  "exists"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Operator"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "boolean"
+                    }
+                  ]
+                },
+                "type": "array"
+              },
+              {
+                "additionalProperties": {
+                  "anyOf": [
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ]
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Value"
+          },
+          "context_attribute": {
+            "anyOf": [
+              {
+                "maxLength": 160,
+                "minLength": 2,
+                "pattern": "^[a-z][a-z0-9_-]*(?:\\.[a-z][a-z0-9_-]*)*$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Context Attribute"
+          },
+          "unit": {
+            "anyOf": [
+              {
+                "maxLength": 80,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Unit"
+          },
+          "threshold_basis": {
+            "anyOf": [
+              {
+                "maxLength": 300,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Threshold Basis"
+          },
+          "applicability": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Applicability"
+          },
+          "logic_group_id": {
+            "anyOf": [
+              {
+                "maxLength": 160,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Logic Group Id"
+          },
+          "logic_group_operator": {
+            "anyOf": [
+              {
+                "enum": [
+                  "all_of",
+                  "any_of"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Logic Group Operator"
+          },
+          "unresolved_reason": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Unresolved Reason"
+          },
+          "citation": {
+            "$ref": "#/$defs/CandidateCitation"
+          }
+        },
+        "required": [
+          "requirement_id",
+          "statement",
+          "requirement_type",
+          "mapping_status",
+          "citation"
+        ],
+        "title": "RequirementCandidate",
+        "type": "object",
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "mapping_status": {
+                  "const": "mapped"
+                }
+              },
+              "required": [
+                "mapping_status"
+              ]
+            },
+            "then": {
+              "properties": {
+                "concept_id": {
+                  "not": {
+                    "type": "null"
+                  }
+                },
+                "profile_attribute": {
+                  "not": {
+                    "type": "null"
+                  }
+                },
+                "operator": {
+                  "not": {
+                    "type": "null"
+                  }
+                },
+                "value": {
+                  "not": {
+                    "type": "null"
+                  }
+                }
+              },
+              "required": [
+                "concept_id",
+                "profile_attribute",
+                "operator",
+                "value"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "mapping_status": {
+                  "const": "partial"
+                }
+              },
+              "required": [
+                "mapping_status"
+              ]
+            },
+            "then": {
+              "properties": {
+                "unresolved_reason": {
+                  "not": {
+                    "type": "null"
+                  }
+                }
+              },
+              "required": [
+                "unresolved_reason"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "mapping_status": {
+                  "enum": [
+                    "not_mapped",
+                    "context_only"
+                  ]
+                }
+              },
+              "required": [
+                "mapping_status"
+              ]
+            },
+            "then": {
+              "not": {
+                "anyOf": [
+                  {
+                    "properties": {
+                      "concept_id": {
+                        "not": {
+                          "type": "null"
+                        }
+                      }
+                    },
+                    "required": [
+                      "concept_id"
+                    ]
+                  },
+                  {
+                    "properties": {
+                      "profile_attribute": {
+                        "not": {
+                          "type": "null"
+                        }
+                      }
+                    },
+                    "required": [
+                      "profile_attribute"
+                    ]
+                  },
+                  {
+                    "properties": {
+                      "operator": {
+                        "not": {
+                          "type": "null"
+                        }
+                      }
+                    },
+                    "required": [
+                      "operator"
+                    ]
+                  },
+                  {
+                    "properties": {
+                      "value": {
+                        "not": {
+                          "type": "null"
+                        }
+                      }
+                    },
+                    "required": [
+                      "value"
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "mapping_status": {
+                  "const": "mapped"
+                },
+                "operator": {
+                  "const": "lte_by"
+                }
+              },
+              "required": [
+                "mapping_status",
+                "operator"
+              ]
+            },
+            "then": {
+              "properties": {
+                "context_attribute": {
+                  "not": {
+                    "type": "null"
+                  }
+                },
+                "value": {
+                  "type": "object"
+                }
+              },
+              "required": [
+                "context_attribute"
+              ]
+            }
+          }
+        ]
+      },
+      "RequirementExtractionRequest": {
+        "additionalProperties": false,
+        "description": "A bounded source excerpt to turn into cited requirement candidates.",
+        "properties": {
+          "source_id": {
+            "maxLength": 80,
+            "minLength": 2,
+            "title": "Source Id",
+            "type": "string"
+          },
+          "source_record_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Source Record Id",
+            "type": "string"
+          },
+          "source_version": {
+            "maxLength": 500,
+            "minLength": 1,
+            "title": "Source Version",
+            "type": "string"
+          },
+          "source_url": {
+            "format": "uri",
+            "maxLength": 2083,
+            "minLength": 1,
+            "title": "Source Url",
+            "type": "string"
+          },
+          "retrieved_at": {
+            "format": "date-time",
+            "title": "Retrieved At",
+            "type": "string"
+          },
+          "source_content_sha256": {
+            "anyOf": [
+              {
+                "pattern": "^[a-fA-F0-9]{64}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Source Content Sha256"
+          },
+          "source_locator": {
+            "anyOf": [
+              {
+                "maxLength": 300,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Source Locator"
+          },
+          "source_text": {
+            "maxLength": 50000,
+            "minLength": 1,
+            "title": "Source Text",
+            "type": "string"
+          },
+          "source_visible_text_sha256": {
+            "anyOf": [
+              {
+                "pattern": "^[a-fA-F0-9]{64}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Source Visible Text Sha256"
+          }
+        },
+        "required": [
+          "source_id",
+          "source_record_id",
+          "source_version",
+          "source_url",
+          "retrieved_at",
+          "source_text"
+        ],
+        "title": "RequirementExtractionRequest",
+        "type": "object"
+      },
+      "ProgramCriteriaPackageRequest": {
+        "additionalProperties": false,
+        "description": "Compile explicitly mapped source statements into a review-only rule package.",
+        "properties": {
+          "program_id": {
+            "maxLength": 100,
+            "minLength": 2,
+            "pattern": "^[a-z0-9][a-z0-9._-]{1,99}$",
+            "title": "Program Id",
+            "type": "string"
+          },
+          "catalog_version": {
+            "maxLength": 120,
+            "minLength": 1,
+            "title": "Catalog Version",
+            "type": "string"
+          },
+          "navigator": {
+            "maxLength": 80,
+            "minLength": 2,
+            "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+            "title": "Navigator",
+            "type": "string"
+          },
+          "title": {
+            "maxLength": 500,
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          },
+          "description": {
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Description",
+            "type": "string"
+          },
+          "jurisdiction": {
+            "$ref": "#/$defs/Jurisdiction"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/$defs/SourceReference"
+            },
+            "maxItems": 20,
+            "minItems": 1,
+            "title": "Sources",
+            "type": "array"
+          },
+          "requirements": {
+            "items": {
+              "$ref": "#/$defs/RequirementCandidate"
+            },
+            "maxItems": 100,
+            "minItems": 1,
+            "title": "Requirements",
+            "type": "array"
+          },
+          "source_limitations": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 100,
+            "title": "Source Limitations",
+            "type": "array"
+          }
+        },
+        "required": [
+          "program_id",
+          "catalog_version",
+          "navigator",
+          "title",
+          "description",
+          "jurisdiction",
+          "sources",
+          "requirements"
+        ],
+        "title": "ProgramCriteriaPackageRequest",
+        "type": "object"
+      },
+      "NormalizedCriteriaExtractionRequest": {
+        "additionalProperties": false,
+        "description": "Project criteria objects from a selected normalized public catalog record.",
+        "properties": {
+          "source_id": {
+            "maxLength": 80,
+            "minLength": 2,
+            "title": "Source Id",
+            "type": "string"
+          },
+          "source_record_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Source Record Id",
+            "type": "string"
+          },
+          "source_version": {
+            "maxLength": 500,
+            "minLength": 1,
+            "title": "Source Version",
+            "type": "string"
+          },
+          "source_url": {
+            "format": "uri",
+            "maxLength": 2083,
+            "minLength": 1,
+            "title": "Source Url",
+            "type": "string"
+          },
+          "retrieved_at": {
+            "format": "date-time",
+            "title": "Retrieved At",
+            "type": "string"
+          },
+          "source_content_sha256": {
+            "anyOf": [
+              {
+                "pattern": "^[a-fA-F0-9]{64}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Source Content Sha256"
+          },
+          "source_locator": {
+            "maxLength": 300,
+            "minLength": 1,
+            "title": "Source Locator",
+            "type": "string"
+          },
+          "criteria_clauses": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "maxItems": 100,
+            "minItems": 1,
+            "title": "Criteria Clauses",
+            "type": "array"
+          },
+          "source_visible_text_sha256": {
+            "anyOf": [
+              {
+                "pattern": "^[a-fA-F0-9]{64}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Source Visible Text Sha256"
+          }
+        },
+        "required": [
+          "source_id",
+          "source_record_id",
+          "source_version",
+          "source_url",
+          "retrieved_at",
+          "source_locator",
+          "criteria_clauses"
+        ],
+        "title": "NormalizedCriteriaExtractionRequest",
+        "type": "object"
+      },
+      "GeneralProfile": {
+        "additionalProperties": false,
+        "description": "Sparse profile for needs beyond the demo Navigator presets.",
+        "properties": {
+          "profile_id": {
+            "pattern": "^synthetic-[a-z0-9][a-z0-9-]{2,63}$",
+            "title": "Profile Id",
+            "type": "string"
+          },
+          "navigator": {
+            "const": "general",
+            "default": "general",
+            "title": "Navigator",
+            "type": "string"
+          },
+          "schema_version": {
+            "maxLength": 80,
+            "minLength": 1,
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "attributes": {
+            "maxProperties": 100,
+            "minProperties": 1,
+            "patternProperties": {
+              "^[a-z][a-z0-9_-]*(?:\\.[a-z][a-z0-9_-]*)*$": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "items": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "boolean"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "propertyNames": {
+              "maxLength": 160,
+              "minLength": 2
+            },
+            "title": "Attributes",
+            "type": "object"
+          }
+        },
+        "required": [
+          "profile_id",
+          "schema_version",
+          "attributes"
+        ],
+        "title": "GeneralProfile",
+        "type": "object"
+      },
+      "PublicSourcePageReadRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "source_url": {
+            "type": "string",
+            "format": "uri",
+            "maxLength": 2083,
+            "description": "Exact HTTPS source URL returned by shared inventory or public lead search; the active policy must permit it."
+          }
+        },
+        "required": [
+          "source_url"
+        ]
+      },
+      "ProgramInventorySearchArgumentsV3": {
+        "type": "object",
+        "properties": {
+          "need_query": {
+            "type": "string",
+            "maxLength": 500,
+            "description": "Optional need phrase. Leave empty or omit it to browse all active shared-cluster candidates."
+          },
+          "state_code": {
+            "type": "string",
+            "pattern": "^[A-Z]{2}$",
+            "description": "Optional U.S. state or jurisdiction code; federal candidates remain discoverable."
+          },
+          "page_size": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 25,
+            "default": 10,
+            "description": "Maximum concise inventory matches returned in this page; use the cursor for more."
+          },
+          "cursor": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 512,
+            "description": "Opaque continuation returned by a prior inventory search."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Search shared inventory with concise source-linked results and bounded continuation."
+      },
+      "Jurisdiction": {
+        "additionalProperties": false,
+        "description": "Geographic scope attached to a source or public program record.",
+        "properties": {
+          "level": {
+            "enum": [
+              "federal",
+              "state",
+              "territory",
+              "local",
+              "tribal"
+            ],
+            "title": "Level",
+            "type": "string"
+          },
+          "country_code": {
+            "default": "US",
+            "pattern": "^[A-Z]{2}$",
+            "title": "Country Code",
+            "type": "string"
+          },
+          "state_code": {
+            "anyOf": [
+              {
+                "pattern": "^[A-Z]{2}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "State Code"
+          },
+          "county_name": {
+            "anyOf": [
+              {
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "County Name"
+          }
+        },
+        "required": [
+          "level"
+        ],
+        "title": "Jurisdiction",
+        "type": "object"
+      },
+      "ProfileSubmission": {
+        "additionalProperties": false,
+        "description": "Validated synthetic profile plus explicitly reported ambiguities.",
+        "properties": {
+          "profile": {
+            "discriminator": {
+              "mapping": {
+                "farmer_producer": "#/$defs/FarmerProducerProfile",
+                "general": "#/$defs/GeneralProfile",
+                "low_income_assistance": "#/$defs/LowIncomeAssistanceProfile",
+                "senior_caregiver": "#/$defs/SeniorCaregiverProfile"
+              },
+              "propertyName": "navigator"
+            },
+            "oneOf": [
+              {
+                "$ref": "#/$defs/FarmerProducerProfile"
+              },
+              {
+                "$ref": "#/$defs/SeniorCaregiverProfile"
+              },
+              {
+                "$ref": "#/$defs/LowIncomeAssistanceProfile"
+              },
+              {
+                "$ref": "#/$defs/GeneralProfile"
+              }
+            ],
+            "title": "Profile"
+          },
+          "ambiguous_attributes": {
+            "items": {
+              "maxLength": 160,
+              "minLength": 2,
+              "pattern": "^[a-z][a-z0-9_-]*(?:\\.[a-z][a-z0-9_-]*)*$",
+              "type": "string"
+            },
+            "title": "Ambiguous Attributes",
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "profile"
+        ],
+        "title": "ProfileSubmission",
+        "type": "object"
+      },
+      "SourceReference": {
+        "additionalProperties": false,
+        "description": "Selected source identity and observed provenance. Unverified sources can be used in request-scoped mapping while retaining that status.",
+        "properties": {
+          "contract_version": {
+            "const": "source-reference-v1",
+            "default": "source-reference-v1",
+            "title": "Contract Version",
+            "type": "string"
+          },
+          "source_id": {
+            "minLength": 1,
+            "pattern": "^[a-z0-9][a-z0-9._-]{1,79}$",
+            "title": "Source Id",
+            "type": "string"
+          },
+          "source_type": {
+            "enum": [
+              "public_source",
+              "synthetic_test_fixture"
+            ],
+            "title": "Source Type",
+            "type": "string"
+          },
+          "approval_status": {
+            "default": "unverified",
+            "enum": [
+              "approved",
+              "unverified",
+              "not_applicable"
+            ],
+            "title": "Source Status",
+            "type": "string"
+          },
+          "agency": {
+            "minLength": 1,
+            "title": "Agency",
+            "type": "string"
+          },
+          "title": {
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          },
+          "url": {
+            "anyOf": [
+              {
+                "format": "uri",
+                "maxLength": 2083,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Url"
+          },
+          "jurisdiction": {
+            "$ref": "#/$defs/Jurisdiction"
+          },
+          "retrieved_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Retrieved At"
+          },
+          "effective_date": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Effective Date"
+          },
+          "publisher_version": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Publisher Version"
+          }
+        },
+        "required": [
+          "source_id",
+          "source_type",
+          "agency",
+          "title",
+          "jurisdiction"
+        ],
+        "title": "SourceReference",
+        "type": "object"
+      },
+      "ProgramCandidateEvaluationRequest": {
+        "additionalProperties": false,
+        "description": "Evaluate an explicitly mapped source candidate against synthetic facts.",
+        "properties": {
+          "criteria_package": {
+            "$ref": "#/$defs/RequestScopedCandidateCriteriaPackage"
+          },
+          "profile_submission": {
+            "$ref": "#/$defs/ProfileSubmission"
+          }
+        },
+        "required": [
+          "criteria_package",
+          "profile_submission"
+        ],
+        "title": "ProgramCandidateEvaluationRequest",
+        "type": "object"
+      },
+      "SourceBackedProgramDetail": {
+        "additionalProperties": false,
+        "description": "One program detail explicitly supported by a cited public source.",
+        "properties": {
+          "kind": {
+            "enum": [
+              "application_step",
+              "form",
+              "required_document",
+              "deadline"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "text": {
+            "minLength": 1,
+            "title": "Text",
+            "type": "string"
+          },
+          "source_id": {
+            "minLength": 1,
+            "title": "Source Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "text",
+          "source_id"
+        ],
+        "title": "SourceBackedProgramDetail",
+        "type": "object"
+      },
+      "ProgramCandidateRequirementsPreviewRequest": {
+        "additionalProperties": false,
+        "description": "Build a non-persistent client-side packet from one selected public source.",
+        "properties": {
+          "criteria_package": {
+            "$ref": "#/$defs/RequestScopedCandidateCriteriaPackage"
+          },
+          "details": {
+            "items": {
+              "$ref": "#/$defs/RequestScopedProgramDetail"
+            },
+            "maxItems": 100,
+            "title": "Details",
+            "type": "array"
+          },
+          "profile_id": {
+            "anyOf": [
+              {
+                "pattern": "^synthetic-[a-z0-9][a-z0-9-]{2,63}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Profile Id"
+          }
+        },
+        "required": [
+          "criteria_package",
+          "details"
+        ],
+        "title": "ProgramCandidateRequirementsPreviewRequest",
+        "type": "object"
+      },
+      "ProgramCandidateRequirementsWriteRequest": {
+        "additionalProperties": false,
+        "description": "Persist a source-cited packet and deterministic evaluation for one selected program using typed synthetic profile facts.",
+        "properties": {
+          "criteria_package": {
+            "$ref": "#/$defs/RequestScopedCandidateCriteriaPackage"
+          },
+          "details": {
+            "items": {
+              "$ref": "#/$defs/RequestScopedProgramDetail"
+            },
+            "maxItems": 100,
+            "title": "Details",
+            "type": "array"
+          },
+          "profile_id": {
+            "anyOf": [
+              {
+                "pattern": "^synthetic-[a-z0-9][a-z0-9-]{2,63}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Profile Id"
+          },
+          "profile_submission": {
+            "$ref": "#/$defs/ProfileSubmission"
+          }
+        },
+        "required": [
+          "criteria_package",
+          "details",
+          "profile_submission"
+        ],
+        "title": "ProgramCandidateRequirementsWriteRequest",
+        "type": "object"
+      },
+      "RequestScopedCandidateCriteriaPackage": {
+        "additionalProperties": false,
+        "description": "Typed criteria mapping for a candidate with no shared-catalog version.",
+        "properties": {
+          "program_id": {
+            "maxLength": 100,
+            "minLength": 2,
+            "pattern": "^[a-z0-9][a-z0-9._-]{1,99}$",
+            "title": "Program Id",
+            "type": "string"
+          },
+          "catalog_version": {
+            "const": "request-scoped",
+            "default": "request-scoped",
+            "title": "Catalog Version",
+            "type": "string"
+          },
+          "navigator": {
+            "maxLength": 80,
+            "minLength": 2,
+            "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+            "title": "Navigator",
+            "type": "string"
+          },
+          "title": {
+            "maxLength": 500,
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          },
+          "description": {
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Description",
+            "type": "string"
+          },
+          "jurisdiction": {
+            "$ref": "#/$defs/Jurisdiction"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/$defs/SourceReference"
+            },
+            "maxItems": 20,
+            "minItems": 1,
+            "title": "Sources",
+            "type": "array"
+          },
+          "requirements": {
+            "items": {
+              "$ref": "#/$defs/RequirementCandidate"
+            },
+            "maxItems": 100,
+            "minItems": 1,
+            "title": "Requirements",
+            "type": "array"
+          },
+          "source_limitations": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 100,
+            "title": "Source Limitations",
+            "type": "array"
+          }
+        },
+        "required": [
+          "program_id",
+          "navigator",
+          "title",
+          "description",
+          "jurisdiction",
+          "sources",
+          "requirements"
+        ],
+        "title": "RequestScopedCandidateCriteriaPackage",
+        "type": "object"
+      },
+      "RequestScopedProgramDetail": {
+        "additionalProperties": false,
+        "description": "One requirements detail with a precise citation from the selected source.",
+        "properties": {
+          "kind": {
+            "enum": [
+              "application_step",
+              "form",
+              "required_document",
+              "deadline"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "text": {
+            "minLength": 1,
+            "title": "Text",
+            "type": "string"
+          },
+          "citation": {
+            "$ref": "#/$defs/RequirementsDetailCitation"
+          }
+        },
+        "required": [
+          "kind",
+          "text",
+          "citation"
+        ],
+        "title": "RequestScopedProgramDetail",
+        "type": "object"
+      },
+      "PersistedCriteriaEvaluationArguments": {
+        "additionalProperties": false,
+        "description": "Stable program identity and synthetic profile for persisted criteria evaluation.",
+        "properties": {
+          "program_id": {
+            "maxLength": 100,
+            "minLength": 2,
+            "pattern": "^[a-z0-9][a-z0-9._-]{1,99}$",
+            "type": "string"
+          },
+          "profile_submission": {
+            "$ref": "#/$defs/ProfileSubmission"
+          }
+        },
+        "required": [
+          "program_id",
+          "profile_submission"
+        ],
+        "title": "PersistedCriteriaEvaluationArguments",
+        "type": "object"
+      },
+      "ProgramCandidateMapScoreRequest": {
+        "additionalProperties": false,
+        "description": "Map and score a selected source-backed program using the supplied synthetic profile.",
+        "properties": {
+          "program": {
+            "$ref": "#/$defs/ProgramCriteriaPackageRequest"
+          },
+          "profile_submission": {
+            "$ref": "#/$defs/ProfileSubmission"
+          }
+        },
+        "required": [
+          "program",
+          "profile_submission"
+        ],
+        "title": "ProgramCandidateMapScoreRequest",
+        "type": "object"
+      },
+      "RequirementsPackageListRequest": {
+        "additionalProperties": false,
+        "description": "List saved package summaries for one synthetic profile. The result contains no profile values.",
+        "properties": {
+          "profile_id": {
+            "pattern": "^(?:demo|synthetic)-[a-z0-9][a-z0-9-]{0,62}$",
+            "type": "string"
+          },
+          "limit": {
+            "default": 25,
+            "maximum": 100,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "cursor": {
+            "anyOf": [
+              {
+                "maxLength": 2048,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "profile_ref": {
+            "minLength": 1,
+            "maxLength": 2048,
+            "type": "string"
+          }
+        },
+        "required": [],
+        "title": "RequirementsPackageListRequest",
+        "type": "object",
+        "oneOf": [
+          {
+            "required": [
+              "profile_id"
+            ]
+          },
+          {
+            "required": [
+              "profile_ref"
+            ]
+          }
+        ]
+      },
+      "RequirementsPackageReadRequest": {
+        "additionalProperties": false,
+        "description": "Read one saved package within the supplied synthetic profile scope.",
+        "properties": {
+          "package_id": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "profile_id": {
+            "pattern": "^(?:demo|synthetic)-[a-z0-9][a-z0-9-]{0,62}$",
+            "type": "string"
+          },
+          "profile_ref": {
+            "minLength": 1,
+            "maxLength": 2048,
+            "type": "string"
+          }
+        },
+        "required": [
+          "package_id"
+        ],
+        "title": "RequirementsPackageReadRequest",
+        "type": "object",
+        "oneOf": [
+          {
+            "required": [
+              "profile_id"
+            ]
+          },
+          {
+            "required": [
+              "profile_ref"
+            ]
+          }
+        ]
+      },
+      "RequirementsPackageEnrichmentRequest": {
+        "additionalProperties": false,
+        "description": "Append cited details to one saved package in the supplied synthetic profile scope.",
+        "properties": {
+          "package_id": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "expected_revision": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "details": {
+            "items": {
+              "$ref": "#/$defs/RequestScopedProgramDetail"
+            },
+            "minItems": 1,
+            "maxItems": 100,
+            "type": "array"
+          },
+          "profile_id": {
+            "pattern": "^(?:demo|synthetic)-[a-z0-9][a-z0-9-]{0,62}$",
+            "type": "string"
+          },
+          "profile_ref": {
+            "minLength": 1,
+            "maxLength": 2048,
+            "type": "string"
+          }
+        },
+        "required": [
+          "package_id",
+          "expected_revision",
+          "details"
+        ],
+        "title": "RequirementsPackageEnrichmentRequest",
+        "type": "object",
+        "oneOf": [
+          {
+            "required": [
+              "profile_id"
+            ]
+          },
+          {
+            "required": [
+              "profile_ref"
+            ]
+          }
+        ]
+      },
+      "RequirementsDetailCitation": {
+        "additionalProperties": false,
+        "description": "Citation fields required to append a verified package detail.",
+        "properties": {
+          "source_url": {
+            "format": "uri",
+            "maxLength": 2083,
+            "minLength": 1,
+            "title": "Source Url",
+            "type": "string"
+          },
+          "source_record_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Source Record Id",
+            "type": "string"
+          },
+          "retrieved_at": {
+            "format": "date-time",
+            "title": "Retrieved At",
+            "type": "string"
+          },
+          "source_id": {
+            "maxLength": 80,
+            "minLength": 2,
+            "title": "Source Id",
+            "type": "string"
+          },
+          "source_version": {
+            "maxLength": 500,
+            "minLength": 1,
+            "title": "Source Version",
+            "type": "string"
+          },
+          "source_content_sha256": {
+            "pattern": "^[a-fA-F0-9]{64}$",
+            "title": "Source Content Sha256",
+            "type": "string"
+          },
+          "source_visible_text_sha256": {
+            "anyOf": [
+              {
+                "pattern": "^[a-fA-F0-9]{64}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Source Visible Text Sha256"
+          },
+          "locator": {
+            "maxLength": 300,
+            "minLength": 1,
+            "title": "Locator",
+            "type": "string"
+          },
+          "excerpt": {
+            "maxLength": 500,
+            "minLength": 1,
+            "title": "Excerpt",
+            "type": "string"
+          }
+        },
+        "required": [
+          "source_url",
+          "source_record_id",
+          "retrieved_at",
+          "source_id",
+          "source_version",
+          "source_content_sha256",
+          "locator",
+          "excerpt"
+        ],
+        "title": "RequirementsDetailCitation",
+        "type": "object"
+      }
+    }
+  }
+}

@@ -1,0 +1,369 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "missouri.mda.sfmnp",
+    "retrieved_at": "2026-11-09T06:40:16Z",
+    "publisher_version": "Missouri MDA flyer reviewed 2026-11-09 (Last-Modified 2026-03-17); HHS 2026 Poverty Guidelines reviewed 2026-11-09",
+    "raw_source_documents_committed": false,
+    "source_observations": [
+      {
+        "source_url": "https://agriculture.mo.gov/abd/fmkt/pdf/sfmnp-customer-flyer.pdf",
+        "title": "Senior Farmers Market Nutrition Program Participant Requirements",
+        "http_status": 200,
+        "response_bytes": 412241,
+        "response_sha256": "f6f19c9e273392e0281f1a09521b59546a278f9361d4764a127b44a0644a8832",
+        "last_modified": "2026-03-17T17:21:06Z",
+        "note": "Official flyer reviewed; age, county, gross-income, SNAP/SSI alternative, benefit, documentation, and season statements retained only as partial reference."
+      },
+      {
+        "source_url": "https://aspe.hhs.gov/Poverty/",
+        "title": "HHS Poverty Guidelines",
+        "http_status": 200,
+        "response_bytes": 55391,
+        "response_sha256": "8b26996617654f57785806a7d4e96f30d8717bdab37ed0451a6f12108e96a28a",
+        "last_modified": "2026-11-09T06:40:16Z",
+        "note": "2026 contiguous-states one-person guideline $15,960. Derived 185% amount is context only because MDA flyer does not specify year."
+      }
+    ]
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "missouri.mda.sfmnp",
+      "source_name": "Missouri Department of Agriculture Senior Farmers Market Nutrition Program",
+      "source_url": "https://agriculture.mo.gov/abd/fmkt/pdf/sfmnp-customer-flyer.pdf",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "state",
+          "owner_name": "Missouri Department of Agriculture",
+          "verification_status": "verified",
+          "evidence_url": "https://agriculture.mo.gov/abd/fmkt/pdf/sfmnp-customer-flyer.pdf"
+        },
+        "approved_scope": "Missouri MoSFMNP program listing and partial published-criteria reference only. No executable rule, current-season claim, raw source copy, profile data, or eligibility decision.",
+        "refresh_mode": "operator_triggered"
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "missouri-mda-sfmnp-listings",
+        "source_dataset_id": "Missouri MDA SFMNP participant flyer",
+        "title": "Missouri MoSFMNP program listing",
+        "landing_page": "https://agriculture.mo.gov/abd/fmkt/pdf/sfmnp-customer-flyer.pdf",
+        "schema_version": "public-listing-v1",
+        "namespace_ids": [
+          "core",
+          "listing"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "partial",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "listing": "eligibility-public-listing-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "listing": "public-listing-v1"
+          },
+          "content_type": "state_public_program_listing",
+          "refresh_mode": "operator_triggered",
+          "maximum_records_total": 1
+        }
+      },
+      {
+        "dataset_id": "missouri-mda-sfmnp-published-criteria",
+        "source_dataset_id": "Missouri MDA participant flyer and HHS 2026 poverty guidelines",
+        "title": "Missouri MoSFMNP partial published criteria reference",
+        "landing_page": "https://agriculture.mo.gov/abd/fmkt/pdf/sfmnp-customer-flyer.pdf",
+        "schema_version": "eligibility-program-v2",
+        "namespace_ids": [
+          "core",
+          "eligibility"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "partial",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "eligibility": "eligibility-program-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "eligibility": "eligibility-program-v2"
+          },
+          "content_type": "published_partial_non_executable_requirements",
+          "refresh_mode": "operator_triggered",
+          "maximum_records_total": 1,
+          "published_criteria_available": true,
+          "criteria_mapping_status": "not_mapped",
+          "effective_period": "Flyer does not label an applicable year; current/next-cycle availability not verified"
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "missouri-mda-sfmnp-listings",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "sha256:f6f19c9e273392e0281f1a09521b59546a278f9361d4764a127b44a0644a8832",
+        "retrieved_at": "2026-11-09T06:40:16Z",
+        "transform_version": "uc2-sfmnp-partial-reference-v1",
+        "validation_outcome": "valid",
+        "detail": "One Missouri MoSFMNP listing. Partial discovery reference only; no executable eligibility rule.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "missouri-mda-sfmnp-listing",
+            "record_type": "public_listing",
+            "canonical_attributes": {
+              "core.geography.jurisdiction_level": "state",
+              "core.geography.country_code": "US",
+              "listing.title": "Missouri Senior Farmers Market Nutrition Program (MoSFMNP)",
+              "listing.summary": "Missouri provides an annual $50 farmers-market food benefit to low-income seniors age 60 or older who reside in one of 47 participating Missouri counties. Discovery listing only; criteria are partial and are not evaluated.",
+              "listing.agency": "Missouri Department of Agriculture",
+              "listing.applicant_types": [
+                "senior",
+                "individual"
+              ],
+              "core.geography.state_code": "MO",
+              "listing.program_url": "https://agriculture.mo.gov/abd/fmkt/pdf/sfmnp-customer-flyer.pdf",
+              "listing.record_kind": "assistance_program"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "program_listing",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "state",
+                "country_code": "US",
+                "state_code": "MO"
+              },
+              "criteria_program_ids": [
+                "missouri-mda-sfmnp"
+              ],
+              "need_topics": [
+                "senior_food_assistance",
+                "farmers_market_food"
+              ],
+              "beneficiary_classes": [
+                "Missouri seniors age 60 or older"
+              ],
+              "listing_kind": "assistance_program",
+              "criteria_link_evidence": {
+                "policy_version": "scenario-mapped-criteria-links-v1",
+                "reviewed_at": "2026-11-09T06:40:16Z",
+                "links": [
+                  {
+                    "program_id": "missouri-mda-sfmnp",
+                    "criteria_record_id": "missouri-mda-sfmnp-published-criteria-2026",
+                    "relationship": "Missouri MDA MoSFMNP listing links to a separate partial criteria reference; no rule is executable.",
+                    "source_urls": [
+                      "https://agriculture.mo.gov/abd/fmkt/pdf/sfmnp-customer-flyer.pdf",
+                      "https://aspe.hhs.gov/Poverty/"
+                    ]
+                  }
+                ]
+              }
+            },
+            "source_metadata": {
+              "source_id": "missouri.mda.sfmnp",
+              "source_version": "sha256:f6f19c9e273392e0281f1a09521b59546a278f9361d4764a127b44a0644a8832",
+              "retrieved_at": "2026-11-09T06:40:16Z",
+              "effective_at": null,
+              "transform_version": "uc2-sfmnp-partial-reference-v1",
+              "field_provenance": {
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://agriculture.mo.gov/abd/fmkt/pdf/sfmnp-customer-flyer.pdf",
+                  "observed_at": "2026-11-09T06:40:16Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://agriculture.mo.gov/abd/fmkt/pdf/sfmnp-customer-flyer.pdf",
+                  "observed_at": "2026-11-09T06:40:16Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://agriculture.mo.gov/abd/fmkt/pdf/sfmnp-customer-flyer.pdf",
+                  "observed_at": "2026-11-09T06:40:16Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://agriculture.mo.gov/abd/fmkt/pdf/sfmnp-customer-flyer.pdf",
+                  "observed_at": "2026-11-09T06:40:16Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://agriculture.mo.gov/abd/fmkt/pdf/sfmnp-customer-flyer.pdf",
+                  "observed_at": "2026-11-09T06:40:16Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.applicant_types": {
+                  "source_url": "https://agriculture.mo.gov/abd/fmkt/pdf/sfmnp-customer-flyer.pdf",
+                  "observed_at": "2026-11-09T06:40:16Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.state_code": {
+                  "source_url": "https://agriculture.mo.gov/abd/fmkt/pdf/sfmnp-customer-flyer.pdf",
+                  "observed_at": "2026-11-09T06:40:16Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.record_kind": {
+                  "source_url": "https://agriculture.mo.gov/abd/fmkt/pdf/sfmnp-customer-flyer.pdf",
+                  "observed_at": "2026-11-09T06:40:16Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false,
+              "source_title": "Senior Farmers Market Nutrition Program Participant Requirements",
+              "publisher": "Missouri Department of Agriculture",
+              "source_notice": "Partial discovery reference only. Criteria are not mapped and no eligibility result or next-season availability is asserted.",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "criteria_status": "not_assessed"
+            },
+            "source_url": "https://agriculture.mo.gov/abd/fmkt/pdf/sfmnp-customer-flyer.pdf",
+            "content_hash": "6ed6c4c005b8cfd7688f5380112fc2a42606fd85db735d4009a6f9aadfbad415",
+            "schema_version": "public-listing-v3",
+            "observed_at": "2026-11-09T06:40:16Z"
+          }
+        ]
+      }
+    },
+    {
+      "dataset_id": "missouri-mda-sfmnp-published-criteria",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "Missouri MDA flyer reviewed 2026-11-09; HHS 2026 Poverty Guidelines reviewed 2026-11-09",
+        "retrieved_at": "2026-11-09T06:40:16Z",
+        "transform_version": "uc2-sfmnp-partial-reference-v1",
+        "validation_outcome": "valid",
+        "detail": "One partial criteria reference. Eligibility clauses are unmapped; 2026 one-person threshold is derived context only; no eligibility result asserted.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "missouri-mda-sfmnp-published-criteria-2026",
+            "record_type": "state-program-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "missouri-mda-sfmnp",
+              "eligibility.program.catalog_version": "missouri-mda-sfmnp-reviewed-2026-11-09",
+              "eligibility.program.data_origin": "Official Missouri MDA flyer: https://agriculture.mo.gov/abd/fmkt/pdf/sfmnp-customer-flyer.pdf; official HHS 2026 poverty guideline: https://aspe.hhs.gov/Poverty/. Partial, non-executable reference only.",
+              "eligibility.program.title": "Missouri Senior Farmers Market Nutrition Program (MoSFMNP)",
+              "eligibility.program.description": "Missouri MDA publishes partial participant requirements for an annual senior farmers-market benefit. Age, participating-county residency, and income-verification statements are source-backed; income rules remain unmapped and current season availability is unknown.",
+              "eligibility.program.published_requirements": [
+                {
+                  "requirement_id": "minimum_age",
+                  "statement": "Applicant must be 60 years of age or older.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "missouri.mda.sfmnp"
+                },
+                {
+                  "requirement_id": "participating_county_residency",
+                  "statement": "Applicant must reside in one of the 47 Missouri counties listed in the flyer; Jackson County is listed in the Kansas City Area.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "missouri.mda.sfmnp"
+                },
+                {
+                  "requirement_id": "gross_household_income_limit",
+                  "statement": "Maximum gross household income must be no more than 185% of the annual federal poverty level. The flyer lists pay stub, income statement, W-2, tax return, CSFP, or bank statement as income evidence.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "missouri.mda.sfmnp"
+                },
+                {
+                  "requirement_id": "snap_or_ssi_income_verification_alternatives",
+                  "statement": "The flyer also lists current proof of Missouri SNAP participation or SSI participation as income-verification alternatives. Their exact interaction with the gross-income criterion is not interpreted into executable logic.",
+                  "mapping_status": "not_mapped",
+                  "source_id": "missouri.mda.sfmnp"
+                },
+                {
+                  "requirement_id": "2026_one_person_income_reference_only",
+                  "statement": "Derived reference only: HHS lists the 2026 contiguous-states one-person poverty guideline as $15,960; 185% is $29,526 by arithmetic (15,960 Ãƒâ€” 1.85). The Missouri flyer does not state which guideline year applies; this is not an asserted Missouri cutoff and is not mapped. HHS source: https://aspe.hhs.gov/Poverty/.",
+                  "mapping_status": "context_only",
+                  "source_id": "missouri.mda.sfmnp"
+                },
+                {
+                  "requirement_id": "annual_benefit_context",
+                  "statement": "Eligible seniors receive $50 in benefits annually per household for eligible foods at authorized farmers markets or roadside stands; benefit context, not an eligibility criterion.",
+                  "mapping_status": "context_only",
+                  "source_id": "missouri.mda.sfmnp"
+                },
+                {
+                  "requirement_id": "season_dates_context",
+                  "statement": "The flyer gives issuance dates May 1Ã¢â‚¬â€œSeptember 30 and redemption dates May 1Ã¢â‚¬â€œOctober 31 without labeling a year. These dates have passed as of the 2026-11-09 review; next-cycle dates and current application availability are unknown.",
+                  "mapping_status": "context_only",
+                  "source_id": "missouri.mda.sfmnp"
+                }
+              ]
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "partial",
+              "jurisdiction": {
+                "level": "state",
+                "country_code": "US",
+                "state_code": "MO"
+              },
+              "assistance_listing_ids": [
+                "10.576"
+              ]
+            },
+            "source_metadata": {
+              "source_id": "missouri.mda.sfmnp",
+              "source_version": "Missouri MDA flyer reviewed 2026-11-09; HHS 2026 Poverty Guidelines reviewed 2026-11-09",
+              "retrieved_at": "2026-11-09T06:40:16Z",
+              "effective_at": null,
+              "transform_version": "uc2-sfmnp-partial-reference-v1",
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://agriculture.mo.gov/abd/fmkt/pdf/sfmnp-customer-flyer.pdf",
+                  "observed_at": "2026-11-09T06:40:16Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://agriculture.mo.gov/abd/fmkt/pdf/sfmnp-customer-flyer.pdf",
+                  "observed_at": "2026-11-09T06:40:16Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://agriculture.mo.gov/abd/fmkt/pdf/sfmnp-customer-flyer.pdf",
+                  "observed_at": "2026-11-09T06:40:16Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://agriculture.mo.gov/abd/fmkt/pdf/sfmnp-customer-flyer.pdf",
+                  "observed_at": "2026-11-09T06:40:16Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://agriculture.mo.gov/abd/fmkt/pdf/sfmnp-customer-flyer.pdf",
+                  "observed_at": "2026-11-09T06:40:16Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.published_requirements": {
+                  "source_url": "https://agriculture.mo.gov/abd/fmkt/pdf/sfmnp-customer-flyer.pdf",
+                  "observed_at": "2026-11-09T06:40:16Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://agriculture.mo.gov/abd/fmkt/pdf/sfmnp-customer-flyer.pdf",
+            "content_hash": "28ce5916112cb31d823136a8ef368909e70d69dd34a74e288ae819dfdb21e7d3",
+            "schema_version": "eligibility-program-v2",
+            "observed_at": "2026-11-09T06:40:16Z"
+          }
+        ]
+      }
+    }
+  ]
+}

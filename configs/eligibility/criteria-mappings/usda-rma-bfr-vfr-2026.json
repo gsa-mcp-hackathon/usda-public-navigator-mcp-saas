@@ -1,0 +1,80 @@
+{
+  "contract_version": "criteria-mapping-manifest-v1",
+  "mapping_id": "usda-rma-bfr-vfr-2026",
+  "program_id": "usda-rma-bfr-vfr",
+  "source": {
+    "source_id": "usda.rma.crop-insurance",
+    "source_record_id": "rma-bfr-vfr-published-criteria-reference",
+    "source_content_sha256": "3ac0ba3fd4070c64d327b865720c44811808a9ff14fc83d0974b0dea974bf12a",
+    "source_version": "RMA BFR/VFR FAQ dated November 2025, including 2026 crop-year changes; retrieved 2026-10-29.",
+    "source_url": "https://www.rma.usda.gov/about-crop-insurance/frequently-asked-questions/beginning-farmer-rancher-bfr-veteran-farmer-rancher",
+    "retrieved_at": "2026-10-29T19:19:00Z",
+    "criteria_path": "eligibility.program.criteria"
+  },
+  "source_completeness": "partial",
+  "mappings": [
+    {
+      "requirement_id": "published_bfr_definition",
+      "statement": "For the 2026 crop-year changes described in the FAQ, a beginning farmer/rancher is an individual who has not actively operated and managed a farm or ranch with an insurable interest in a crop or livestock for more than 10 crop years. The FAQ identifies qualifying exclusions for crop years under age 18, during post-secondary study (up to 10 crop years), and during active U.S. military duty.",
+      "requirement_type": "eligibility",
+      "mapping_status": "partial",
+      "unresolved_reason": "The existing years_farming fact is not equivalent to crop years with an insurable interest. A compatible rule needs the countable crop-year history and the source-defined exclusions for years before age 18, post-secondary study, and active military duty, plus the 2026 policy effective-date condition. Do not compare ordinary years_farming to this threshold."
+    },
+    {
+      "requirement_id": "published_bfr_substantial_beneficial_interest",
+      "statement": "The FAQ includes crop years in which the individual held an insurable interest directly or as a substantial beneficial interest holder (10 percent or more) in another person with an insurable interest.",
+      "requirement_type": "eligibility",
+      "mapping_status": "partial",
+      "unresolved_reason": "The profile has no versioned crop-insurance interest history or person/business ownership relationship facts needed to count direct and substantial-beneficial-interest crop years."
+    },
+    {
+      "requirement_id": "published_entity_qualification",
+      "statement": "A business entity may receive BFR benefits only when all of its substantial beneficial interest holders qualify individually as BFRs.",
+      "requirement_type": "eligibility",
+      "mapping_status": "partial",
+      "unresolved_reason": "The profile and rule contract cannot represent a business entity's complete set of substantial beneficial interest holders and evaluate the individual BFR status of every holder."
+    },
+    {
+      "requirement_id": "published_bfr_benefits",
+      "statement": "The source lists the following BFR benefits:",
+      "items": [
+        "administrative fee waiver for CAT and buy-up policies",
+        "use of a previous producer’s production history with permission when the FAQ conditions are met",
+        "higher substituted yield percentage for Yield Adjustment",
+        "additional premium subsidy"
+      ],
+      "requirement_type": "context",
+      "mapping_status": "context_only",
+      "unresolved_reason": "These describe benefits available under policy conditions; they are not applicant qualification predicates by themselves."
+    },
+    {
+      "requirement_id": "published_bfr_benefit_duration_and_subsidy",
+      "statement": "The FAQ says BFR benefits may last up to 10 crop years; additional premium subsidy is 15 percentage points for the first and second benefit years, 13 for the third, 11 for the fourth, and 10 for the fifth through tenth, subject to the applicable policy conditions.",
+      "requirement_type": "eligibility",
+      "mapping_status": "partial",
+      "unresolved_reason": "Benefit-year history and policy-specific applicability are not represented in the profile or current evaluator; the duration must not be confused with the BFR definition's countable crop years."
+    },
+    {
+      "requirement_id": "published_vfr_distinction",
+      "statement": "The FAQ describes separate veteran farmer/rancher qualifications and benefits for up to five crop years. BFR and VFR benefits cannot be received at the same time; a person who qualifies for both receives BFR benefits first.",
+      "requirement_type": "eligibility",
+      "mapping_status": "partial",
+      "unresolved_reason": "The loaded record does not contain a complete versioned VFR qualification rule, benefit-year history, or a compatible mutually exclusive benefit-state model. Veteran status alone is insufficient."
+    },
+    {
+      "requirement_id": "published_effective_period_and_application_timing",
+      "statement": "The FAQ says the BFR definition/benefit changes apply beginning with 2026 crop-year policies meeting the stated sales-closing-date conditions. Application deadlines depend on crop/policy timing; consult the current FAQ and an approved insurance provider for the applicable deadline.",
+      "requirement_type": "context",
+      "mapping_status": "context_only",
+      "unresolved_reason": "This is temporal policy and application guidance. The current evaluator has no crop/policy sales-closing-date input or date-sensitive rule activation."
+    }
+  ],
+  "unmapped_source_scope": [
+    "Countable crop years with insurable interest, including source-defined exclusions",
+    "Direct and substantial beneficial interest relationships, including business entities",
+    "VFR-specific qualification requirements and mutually exclusive benefit history",
+    "Crop-year policy applicability and crop/policy sales-closing dates",
+    "Benefit-year history and policy-specific premium subsidy conditions"
+  ],
+  "evaluation_boundary": "Review-only mapping. Do not map this definition to core.farm_business.years_farming and do not assert BFR/VFR eligibility until compatible versioned facts, relationship semantics, and temporal rule handling are available. No active rules are created."
+}

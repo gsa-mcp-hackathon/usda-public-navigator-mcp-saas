@@ -1,0 +1,218 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "us.acl.aging-referrals",
+    "reviewed_at": "2026-11-23T13:11:16.212Z",
+    "publisher_version": "sha256:8256855aa3f4138b672632b0f6e566b43336ffc874d6c3d3d249bd421ba8393b",
+    "source_content_sha256": "8256855aa3f4138b672632b0f6e566b43336ffc874d6c3d3d249bd421ba8393b",
+    "source_visible_text_sha256": "4a75746c2d04886c459b44d7089286dceabd9fa041c97ed579c7850be5bcab8a",
+    "raw_source_documents_committed": false,
+    "access_method": "Official Eldercare Locator page opened with Playwright in a browser; raw page body not retained.",
+    "source_locator": "Rendered page: Find a Resource location field placeholder lists street, city, state, ZIP code, or county; home-page contact panel states call/text 1-800-677-1116, Chat Online, Email Us; Contact Us footer lists EldercareLocator@usaging.org.",
+    "source_policy_reference": {
+      "policy_id": "eligibility-public-search-domains",
+      "policy_version": "1.2.4",
+      "content_sha256": "a78aff8eff8fd47d04481602684cdcdc6e55bd80e16458e32c270adbb6e22e24"
+    },
+    "pages": [
+      {
+        "url": "https://eldercare.acl.gov/home",
+        "title": "Elder Care | Home",
+        "source_content_sha256": "8256855aa3f4138b672632b0f6e566b43336ffc874d6c3d3d249bd421ba8393b",
+        "source_visible_text_sha256": "4a75746c2d04886c459b44d7089286dceabd9fa041c97ed579c7850be5bcab8a"
+      }
+    ]
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "us.acl.aging-referrals",
+      "source_name": "Administration for Community Living Eldercare Locator and state aging referrals",
+      "source_url": "https://eldercare.acl.gov/home",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "federal",
+          "owner_name": "Administration for Community Living, U.S. Department of Health and Human Services",
+          "verification_status": "verified",
+          "evidence_url": "https://eldercare.acl.gov/home"
+        },
+        "refresh_mode": "operator_triggered",
+        "approved_scope": "One national Eldercare Locator source-details record for its location-search and contact methods. Referral only; no program criteria, local service availability, or individual eligibility result is inferred."
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "acl-eldercare-locator-details",
+        "source_dataset_id": "ACL Eldercare Locator source-backed referral details",
+        "title": "ACL Eldercare Locator source-backed referral details",
+        "landing_page": "https://eldercare.acl.gov/home",
+        "schema_version": "eligibility-program-v4",
+        "namespace_ids": [
+          "core",
+          "eligibility"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "not_assessed",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "eligibility": "eligibility-program-schema"
+          },
+          "schema_versions": {
+            "core": "core-v4",
+            "eligibility": "eligibility-program-v4"
+          },
+          "content_type": "source_backed_referral_details",
+          "published_criteria_available": false,
+          "criteria_mapping_status": "not_mapped",
+          "refresh_mode": "operator_triggered",
+          "maximum_records_total": 1,
+          "criteria_profile_schema_refs": [
+            {
+              "registry_id": "core-schema-registry",
+              "schema_version": "core-v4"
+            },
+            {
+              "registry_id": "eligibility-profile-extension-schema",
+              "schema_version": "eligibility-profile-v2"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "acl-eldercare-locator-details",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "sha256:8256855aa3f4138b672632b0f6e566b43336ffc874d6c3d3d249bd421ba8393b",
+        "retrieved_at": "2026-11-23T13:11:16.212Z",
+        "transform_version": "acl-eldercare-referral-details-v1",
+        "validation_outcome": "valid",
+        "detail": "One source-backed national referral detail record; criteria remain not assessed and no eligibility result is asserted.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "acl-eldercare-locator-national-source-details",
+            "record_type": "source-backed-criteria-reference",
+            "canonical_attributes": {
+              "eligibility.program.program_id": "acl-eldercare-locator-national",
+              "eligibility.program.catalog_version": "Eldercare Locator page last modified 2026-03-02; browser reviewed 2026-11-23",
+              "eligibility.program.data_origin": "public_source",
+              "eligibility.program.title": "Eldercare Locator - national older-adult and caregiver referral",
+              "eligibility.program.description": "Source-backed locator instructions and contact methods only. This referral record has no eligibility criteria and does not establish local service availability.",
+              "eligibility.program.details": [
+                {
+                  "kind": "application_step",
+                  "text": "Use the Eldercare Locator search to enter a street address, city, state, ZIP code, or county, then select Search to find help in the community.",
+                  "source_id": "us.acl.aging-referrals"
+                },
+                {
+                  "kind": "application_step",
+                  "text": "Call or send a text message to 1-800-677-1116 to reach trained Eldercare Locator staff.",
+                  "source_id": "us.acl.aging-referrals"
+                },
+                {
+                  "kind": "application_step",
+                  "text": "Use Chat Online or Email Us to contact trained Eldercare Locator staff; the Contact Us section lists EldercareLocator@usaging.org.",
+                  "source_id": "us.acl.aging-referrals"
+                }
+              ],
+              "core.geography.country_code": "US",
+              "core.geography.jurisdiction_level": "federal"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "criteria",
+              "criteria_coverage": "not_assessed",
+              "criteria_mapping_status": "not_mapped",
+              "criteria_program_ids": [
+                "acl-eldercare-locator-national"
+              ],
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "us.acl.aging-referrals",
+              "source_type": "public_source",
+              "approval_status": "approved",
+              "source_title": "Eldercare Locator | ACL Administration for Community Living",
+              "publisher": "Administration for Community Living, U.S. Department of Health and Human Services",
+              "source_version": "sha256:8256855aa3f4138b672632b0f6e566b43336ffc874d6c3d3d249bd421ba8393b",
+              "source_content_sha256": "8256855aa3f4138b672632b0f6e566b43336ffc874d6c3d3d249bd421ba8393b",
+              "source_visible_text_sha256": "4a75746c2d04886c459b44d7089286dceabd9fa041c97ed579c7850be5bcab8a",
+              "retrieved_at": "2026-11-23T13:11:16.212Z",
+              "effective_at": null,
+              "transform_version": "acl-eldercare-referral-details-v1",
+              "source_policy_reference": {
+                "policy_id": "eligibility-public-search-domains",
+                "policy_version": "1.2.4",
+                "content_sha256": "a78aff8eff8fd47d04481602684cdcdc6e55bd80e16458e32c270adbb6e22e24"
+              },
+              "field_provenance": {
+                "eligibility.program.program_id": {
+                  "source_url": "https://eldercare.acl.gov/home",
+                  "observed_at": "2026-11-23T13:11:16.212Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.catalog_version": {
+                  "source_url": "https://eldercare.acl.gov/home",
+                  "observed_at": "2026-11-23T13:11:16.212Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.data_origin": {
+                  "source_url": "https://eldercare.acl.gov/home",
+                  "observed_at": "2026-11-23T13:11:16.212Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.title": {
+                  "source_url": "https://eldercare.acl.gov/home",
+                  "observed_at": "2026-11-23T13:11:16.212Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.description": {
+                  "source_url": "https://eldercare.acl.gov/home",
+                  "observed_at": "2026-11-23T13:11:16.212Z",
+                  "extraction_method": "operator_review"
+                },
+                "eligibility.program.details": {
+                  "source_url": "https://eldercare.acl.gov/home",
+                  "observed_at": "2026-11-23T13:11:16.212Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.country_code": {
+                  "source_url": "https://eldercare.acl.gov/home",
+                  "observed_at": "2026-11-23T13:11:16.212Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://eldercare.acl.gov/home",
+                  "observed_at": "2026-11-23T13:11:16.212Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false,
+              "criteria_status": "not_assessed",
+              "limitations": [
+                "This is a referral locator, not an eligibility program.",
+                "Search results depend on the location entered; no local provider or service availability is asserted."
+              ]
+            },
+            "source_url": "https://eldercare.acl.gov/home",
+            "content_hash": "d610e0859a722280c614af8a0922c06d7b9f6ebabe912c313620e1b3575d3903",
+            "schema_version": "eligibility-program-v4",
+            "observed_at": "2026-11-23T13:11:16.212Z"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,258 @@
+{
+  "run_id": "e2e-20261119-a",
+  "agent": "Claude via USDA_Core_OPERATOR connection",
+  "date": "2026-11-19",
+  "writes_performed": [
+    {
+      "tool": "register_program_candidate_for_review",
+      "target": "candidate-2efc71ceb23ddee3e9657b756b6fee2d",
+      "after_sha256": "dadd1aaacfa2d4e9904ffd8b9ee16c105b7af43975b3fd37d82cbc2690c55342",
+      "state": "pending review_required, not published"
+    }
+  ],
+  "counts": {
+    "ok": 16,
+    "failed": 4,
+    "not_run": 14
+  },
+  "steps": [
+    {
+      "scenario": "S1",
+      "step": 1,
+      "tool": "describe_core_capabilities",
+      "result": "ok",
+      "evidence": "Core 0.2.0; 44 tools listed; 9 operator workflows"
+    },
+    {
+      "scenario": "S1",
+      "step": 2,
+      "tool": "list_core_routes",
+      "result": "ok",
+      "evidence": "24 active routes (15 eligibility cluster, 9 eligibility-demo tenant); first call interrupted by user, rerun ok"
+    },
+    {
+      "scenario": "S1",
+      "step": 3,
+      "tool": "read_core_route_target",
+      "result": "ok",
+      "evidence": "eligibility/program.inventory.search -> route_version 0.1.47, search_program_inventory, active"
+    },
+    {
+      "scenario": "S1",
+      "step": 4,
+      "tool": "list_cluster_templates",
+      "result": "not_run_this_session",
+      "evidence": "covered by IBM run"
+    },
+    {
+      "scenario": "S1",
+      "step": 5,
+      "tool": "list_registered_tenants",
+      "result": "ok",
+      "evidence": "eligibility-demo: 0.1.47 active; 0.1.39/43/44/46 inactive"
+    },
+    {
+      "scenario": "S1",
+      "step": 6,
+      "tool": "read_tenant_binding",
+      "result": "ok",
+      "evidence": "eligibility-demo 0.1.47 active; 9 operations; 4 catalog bindings; 56 jurisdictions"
+    },
+    {
+      "scenario": "S1",
+      "step": 7,
+      "tool": "read_cluster_capability",
+      "result": "ok",
+      "evidence": "eligibility 0.1.47 active; descriptor sha256 677e3bc5...; 24 operations"
+    },
+    {
+      "scenario": "S1",
+      "step": 8,
+      "tool": "read_cluster_schema",
+      "result": "ok",
+      "evidence": "PublicProgramSearchArguments, ProgramCandidateRequest, CandidateListing read"
+    },
+    {
+      "scenario": "S1",
+      "step": 9,
+      "tool": "read_core_workflow",
+      "result": "ok",
+      "evidence": "source_policy_candidate_review, program_candidate_registration, program_candidate_publication_lifecycle, public_catalog_metadata_edit read"
+    },
+    {
+      "scenario": "S1",
+      "step": 10,
+      "tool": "get_fleet_operations_report",
+      "result": "ok",
+      "evidence": "768 requests 2026-11-19T00:00Z-2026-11-20T02:00Z; 26 unknown_route + 1 unavailable with no route; inventory.search mean 6989ms; evaluate mean 6137ms"
+    },
+    {
+      "scenario": "S2",
+      "step": 1,
+      "tool": "read_source_policy_state",
+      "result": "ok",
+      "evidence": "active eligibility-public-search-domains@1.2.5 sha256 425d114f...; generation 4; activated 2026-11-10"
+    },
+    {
+      "scenario": "S2",
+      "step": 2,
+      "tool": "read_source_metadata",
+      "result": "ok",
+      "evidence": "usda.fsa.beginning-farmers / usda-fsa-beginning-farmers-guidance; source_health not_assessed"
+    },
+    {
+      "scenario": "S2",
+      "step": 3,
+      "tool": "register_source_policy_candidate",
+      "result": "not_run",
+      "evidence": "stopped before activation by plan; not required to prove lifecycle tonight"
+    },
+    {
+      "scenario": "S2",
+      "step": 4,
+      "tool": "decide_source_policy_candidate",
+      "result": "not_run",
+      "evidence": "same"
+    },
+    {
+      "scenario": "S2",
+      "step": 5,
+      "tool": "manage_source_policy_lifecycle",
+      "result": "not_run",
+      "evidence": "deliberately not called: would change shared search behavior"
+    },
+    {
+      "scenario": "S3",
+      "step": 1,
+      "tool": "route_operation program.discovery.external.search",
+      "result": "ok",
+      "evidence": "3rd-party lead: FSA Beginning Farmers and Ranchers Loans; source unverified; policy 1.2.5; correlation df78bb5f-084b-4ac6-a7a3-e99ab6ff27d6"
+    },
+    {
+      "scenario": "S3",
+      "step": 2,
+      "tool": "route_operation program.candidate.normalize",
+      "result": "ok",
+      "evidence": "candidate-2efc71ceb23ddee3e9657b756b6fee2d; status candidate_ready_for_review; correlation 4a805160-b64c-4b80-a17b-b78a29732a32"
+    },
+    {
+      "scenario": "S3",
+      "step": 3,
+      "tool": "register_program_candidate_for_review",
+      "result": "ok",
+      "evidence": "content_sha256 dadd1aaa...5342; review_required; catalog not_published; event 3db8550b-49c0-54bb-8fa9-a6f1ad027049"
+    },
+    {
+      "scenario": "S3",
+      "step": 4,
+      "tool": "read_program_candidate_for_review",
+      "result": "ok",
+      "evidence": "digest verified; no publication keys; review_decision null"
+    },
+    {
+      "scenario": "S3",
+      "step": 5,
+      "tool": "decide_program_candidate_review",
+      "result": "failed",
+      "evidence": "returned status invalid_decision with no reason or correlation ID; likely cause unknown (candidate source_verified=false?)"
+    },
+    {
+      "scenario": "S3",
+      "step": 6,
+      "tool": "publish_program_candidate_to_cluster_inventory",
+      "result": "not_run",
+      "evidence": "blocked: needs approved decision"
+    },
+    {
+      "scenario": "S3",
+      "step": 7,
+      "tool": "manage_program_candidate_publication",
+      "result": "not_run",
+      "evidence": "blocked"
+    },
+    {
+      "scenario": "S3",
+      "step": 8,
+      "tool": "read_program_candidate_publication",
+      "result": "not_run",
+      "evidence": "blocked"
+    },
+    {
+      "scenario": "S4",
+      "step": 1,
+      "tool": "preview_public_catalog_registration",
+      "result": "failed",
+      "evidence": "status invalid_registration; request shape unknown (guessed dataset_id/source_id/catalog_namespace); no write"
+    },
+    {
+      "scenario": "S4",
+      "step": 2,
+      "tool": "apply_public_catalog_registration",
+      "result": "not_run",
+      "evidence": "blocked on preview"
+    },
+    {
+      "scenario": "S4",
+      "step": 3,
+      "tool": "preview_public_catalog_record_jurisdiction",
+      "result": "not_run",
+      "evidence": "no record target chosen"
+    },
+    {
+      "scenario": "S4",
+      "step": 4,
+      "tool": "apply_public_catalog_record_jurisdiction",
+      "result": "not_run",
+      "evidence": "no record target chosen"
+    },
+    {
+      "scenario": "S5",
+      "step": 1,
+      "tool": "validate_tenant_onboarding",
+      "result": "failed",
+      "evidence": "status invalid_specification (invalid structure); spec shape guessed from read_tenant_binding"
+    },
+    {
+      "scenario": "S5",
+      "step": 2,
+      "tool": "register_cluster_template",
+      "result": "not_run",
+      "evidence": "needs full descriptor; would add shared templates night before submission"
+    },
+    {
+      "scenario": "S5",
+      "step": 3,
+      "tool": "activate_tenant",
+      "result": "not_run",
+      "evidence": "same"
+    },
+    {
+      "scenario": "S6",
+      "step": 1,
+      "tool": "list_evaluation_fixtures",
+      "result": "unauthorized",
+      "evidence": "status unauthorized for guessed fixture_set_id eligibility-demo@1.0.0"
+    },
+    {
+      "scenario": "S6",
+      "step": 2,
+      "tool": "route_operation program.inventory.search",
+      "result": "ok",
+      "evidence": "3 of 14 matches returned; fsa-beginning-farmer-loan-set-aside has active ruleset; catalog_read_failures: kansas-dcf-snap-residency-guidance, maryland-dhs-snap-listings (invalid_catalog_response); correlation 710341e0-a590-4822-9f03-6d377397fa91"
+    },
+    {
+      "scenario": "S7",
+      "step": 1,
+      "tool": "write_profile",
+      "result": "not_run",
+      "evidence": "needs active schema_registry_id and user-confirmed synthetic values"
+    },
+    {
+      "scenario": "S8",
+      "step": 1,
+      "tool": "deactivate_*",
+      "result": "not_run",
+      "evidence": "nothing demo-created to tear down: only a pending candidate was registered"
+    }
+  ]
+}

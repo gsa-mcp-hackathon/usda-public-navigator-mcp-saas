@@ -1,0 +1,17 @@
+{
+  "dataset_id": "acl-eldercare-locator-details",
+  "pattern_id": "eligibility",
+  "pattern_version": "0.1.48",
+  "tenant_id": "eligibility-demo",
+  "binding_context": {
+    "catalog_namespace": "programs",
+    "catalog_version": "acl-eldercare-locator-details-2026-11-23",
+    "jurisdiction": {
+      "level": "federal",
+      "country_code": "US"
+    },
+    "source_id": "us.acl.aging-referrals",
+    "semantic_mapping": {},
+    "criteria_available": false
+  }
+}

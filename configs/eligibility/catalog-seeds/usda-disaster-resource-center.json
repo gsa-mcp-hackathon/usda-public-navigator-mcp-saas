@@ -1,0 +1,149 @@
+{
+  "manifest_version": "public-catalog-source-seed-v1",
+  "source_snapshot": {
+    "source_id": "usda.disaster-resource-center",
+    "reviewed_at": "2026-10-27T11:22:29Z",
+    "publisher_version": "not stated on the reviewed page",
+    "raw_source_documents_committed": false,
+    "access_method": "Official USDA Disaster Resource Center page reviewed through current web retrieval; page body and raw files not retained.",
+    "pages": [
+      {
+        "url": "https://www.usda.gov/about-usda/disaster-resource-center",
+        "title": "Disaster Resource Center | USDA",
+        "source_content_sha256": null
+      }
+    ]
+  },
+  "registration": {
+    "contract_version": "public-source-registration-v1",
+    "source": {
+      "source_id": "usda.disaster-resource-center",
+      "source_name": "USDA Disaster Resource Center",
+      "source_url": "https://www.usda.gov/about-usda/disaster-resource-center",
+      "access_status": "available",
+      "source_context": {
+        "authority": {
+          "level": "federal",
+          "owner_name": "United States Department of Agriculture",
+          "verification_status": "verified",
+          "evidence_url": "https://www.usda.gov/about-usda/disaster-resource-center"
+        },
+        "approved_scope": "Federal disaster-preparation and recovery navigation/referral information only; no program criteria or eligibility determination.",
+        "refresh_mode": "operator_triggered"
+      }
+    },
+    "datasets": [
+      {
+        "dataset_id": "usda-disaster-resource-center-referrals",
+        "source_dataset_id": "USDA Disaster Resource Center",
+        "title": "USDA disaster recovery referral record",
+        "landing_page": "https://www.usda.gov/about-usda/disaster-resource-center",
+        "schema_version": "public-listing-v1",
+        "namespace_ids": [
+          "core",
+          "listing"
+        ],
+        "metadata": {
+          "catalog_namespace": "programs",
+          "criteria_coverage": "not_assessed",
+          "record_contract_version": "normalized-public-record-v1",
+          "visibility_scope": "cluster_public",
+          "refresh_mode": "operator_triggered",
+          "schema_registry_ids": {
+            "core": "core-schema-registry",
+            "listing": "eligibility-public-listing-schema"
+          },
+          "schema_versions": {
+            "core": "core-v1",
+            "listing": "public-listing-v1"
+          },
+          "content_type": "federal_disaster_resource_referral",
+          "maximum_records_total": 100
+        }
+      }
+    ]
+  },
+  "ingestion_runs": [
+    {
+      "dataset_id": "usda-disaster-resource-center-referrals",
+      "payload": {
+        "outcome": "succeeded",
+        "source_version": "USDA Disaster Resource Center page reviewed 2026-10-27; publisher revision not stated.",
+        "retrieved_at": "2026-10-27T11:22:29Z",
+        "transform_version": "fsa-fema-disaster-source-review-v1",
+        "validation_outcome": "valid",
+        "detail": "One official USDA referral record linking disaster-response and assistance pathways; not criteria.",
+        "record_contract_version": "normalized-public-record-v1",
+        "rejected_count": 0,
+        "rejection_reasons": [],
+        "records": [
+          {
+            "source_record_id": "usda-disaster-resource-center-referral",
+            "record_type": "federal-disaster-assistance-referral",
+            "canonical_attributes": {
+              "core.geography.country_code": "US",
+              "core.geography.jurisdiction_level": "federal",
+              "listing.title": "USDA Disaster Resource Center and assistance referrals",
+              "listing.summary": "USDA describes the Disaster Resource Center as a source for disaster preparation, recovery, and resilience information. It links to FEMA current response information, DisasterAssistance.gov, and the Farmers.gov Disaster Assistance Discovery Tool. This is a navigation/referral record, not a program listing or eligibility result.",
+              "listing.agency": "United States Department of Agriculture",
+              "listing.opportunity_url": "https://www.usda.gov/about-usda/disaster-resource-center"
+            },
+            "semantic_context": {
+              "catalog_namespace": "programs",
+              "record_role": "referral",
+              "criteria_coverage": "not_assessed",
+              "jurisdiction": {
+                "level": "federal",
+                "country_code": "US"
+              }
+            },
+            "source_metadata": {
+              "source_id": "usda.disaster-resource-center",
+              "source_version": "USDA Disaster Resource Center page reviewed 2026-10-27; publisher revision not stated.",
+              "retrieved_at": "2026-10-27T11:22:29Z",
+              "effective_at": null,
+              "transform_version": "fsa-fema-disaster-source-review-v1",
+              "field_provenance": {
+                "core.geography.country_code": {
+                  "source_url": "https://www.usda.gov/about-usda/disaster-resource-center",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "core.geography.jurisdiction_level": {
+                  "source_url": "https://www.usda.gov/about-usda/disaster-resource-center",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.title": {
+                  "source_url": "https://www.usda.gov/about-usda/disaster-resource-center",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.summary": {
+                  "source_url": "https://www.usda.gov/about-usda/disaster-resource-center",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.agency": {
+                  "source_url": "https://www.usda.gov/about-usda/disaster-resource-center",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                },
+                "listing.opportunity_url": {
+                  "source_url": "https://www.usda.gov/about-usda/disaster-resource-center",
+                  "observed_at": "2026-10-27T11:22:29Z",
+                  "extraction_method": "operator_review"
+                }
+              },
+              "raw_payload_stored": false
+            },
+            "source_url": "https://www.usda.gov/about-usda/disaster-resource-center",
+            "schema_version": "public-listing-v1",
+            "observed_at": "2026-10-27T11:22:29Z",
+            "content_hash": "a2c6b7da6b6b1a12ae52e8e9d6b46a3501168ecb7dff272022712649d230660e"
+          }
+        ]
+      }
+    }
+  ]
+}
